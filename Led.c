@@ -28,13 +28,13 @@ void LedDisplay()
 
 void LedOn()
 {
-	PORT_LED1 = LIGHT_TURN_ON;
+	PORT_LED1 = 0;
 	MODSEL = 1;	   //使能内置限流电阻
 }
 
 void LedOff()
 {
-	PORT_LED1 = LIGHT_TURN_OFF;
+	PORT_LED1 = 1;
 	MODSEL = 1;
 }
 
@@ -48,13 +48,13 @@ void MotoSwitch(void)
 
 void MotoOn()
 {
-	PORT_LED2 = LIGHT_TURN_ON;
+	PORT_LED2 = 0;
 	MODSEL = 1;	
 }
 
 void MotoOff()
 {
-	PORT_LED2 = LIGHT_TURN_OFF;
+	PORT_LED2 = 1;
 	MODSEL = 1;
 }
 
@@ -88,8 +88,8 @@ void PowOff(void)
 
 
 
-unsigned int lampTiming = 0;
-unsigned int motoTiming = 0;
+DWORD lampTiming = 0;
+DWORD motoTiming = 0;
 
 void CountdownDisplay(void)
 {
@@ -98,13 +98,15 @@ void CountdownDisplay(void)
 	if(IsLight == 1) {
 
 		lampTiming++;
-		// if(lampTiming > 124000) {    //20分钟
-		// 	IsLight = 0;
-		// }
+		#if 1
+		if(lampTiming > 124000) {    //20分钟
+			IsLight = 0;
+		}
+		#else 
 		if(lampTiming > 1000) {    //10s
 			IsLight = 0;
 		}
-
+		#endif
 
 
 	} else {
@@ -116,14 +118,15 @@ void CountdownDisplay(void)
 
 	if(IsMotor == 1){
 		motoTiming++;
-		// if(motoTiming > 124000) {    //20分钟
-		// 	IsMotor = 0;
-		// }
-
+		#if 1
+		if(motoTiming > 124000) {    //20分钟
+			IsMotor = 0;
+		}
+		#else 
 		if(motoTiming > 1000) {    //10s
 			IsMotor = 0;
 		}
-
+		#endif
 	} else {
 
 

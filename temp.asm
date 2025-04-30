@@ -42,23 +42,11 @@
 	extern	_BITS_DATA1
 	extern	_g_ucTimer10msCount
 	extern	_g_ucTimerWorkCount
-	extern	_g_ucFlashTimeHigh
-	extern	_g_ucFlashTimeLow
-	extern	_g_ucFlashTimeHigh1
-	extern	_g_ucFlashTimeLow1
-	extern	_g_ucFlashTimeHigh2
-	extern	_g_ucFlashTimeLow2
-	extern	_LvdModel
-	extern	_LvdDebounceNew
-	extern	_LvdDebounceOld
-	extern	_LvdModelCount
-	extern	_LvdLightCount
 	extern	_TempCount
 	extern	_TempFlag
 	extern	_SleepCount
 	extern	_SleepFlag
 	extern	_MaxLight
-	extern	_g_cucTIMER_COUNT_STATE
 	extern	_INDF
 	extern	_T0
 	extern	_PCL
@@ -125,8 +113,8 @@
 ; compiler-defined variables
 ;--------------------------------------------------------
 UDL_temp_0	udata
-r0x1006	res	1
-r0x1007	res	1
+r0x1004	res	1
+r0x1005	res	1
 ;--------------------------------------------------------
 ; initialized data
 ;--------------------------------------------------------
@@ -146,8 +134,8 @@ code_temp	code
 ;   _DelayMs
 ;   _DelayMs
 ;2 compiler assigned registers:
-;   r0x1006
-;   r0x1007
+;   r0x1004
+;   r0x1005
 ;; Starting pCode block
 ;;[ICODE] temp.c:30:  _entry($9) :
 ;;[ICODE] temp.c:30: 	proc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
@@ -155,23 +143,23 @@ S_temp__CheckSleep	code
 _CheckSleep:
 ; 2 exit points
 ;;[ICODE] temp.c:32: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:32: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x104B ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:32: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	32; "temp.c"	if(1 == IsLight || 1 == CHARF)
-	CLRF	r0x1006
+	CLRF	r0x1004
 	BTFSC	_BITS_DATA0,5
-	INCF	r0x1006,F
-;;[ICODE] temp.c:32: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104C ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x104B ]
-	MOVF	r0x1006,W
-	MOVWF	r0x1007
+	INCF	r0x1004,F
+;;[ICODE] temp.c:32: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ]
+	MOVF	r0x1004,W
+	MOVWF	r0x1005
 	XORLW	0x01
 	BTFSC	STATUS,2
 	GOTO	_00114_DS_
-	CLRF	r0x1006
+	CLRF	r0x1004
 	BTFSC	_INTFLAGbits,5
-	INCF	r0x1006,F
-;;[ICODE] temp.c:32: 	iTemp8 [k14 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104C ] = (char register)iTemp7 [k13 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104B ]
-	MOVF	r0x1006,W
-	MOVWF	r0x1007
+	INCF	r0x1004,F
+;;[ICODE] temp.c:32: 	iTemp8 [k14 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp7 [k13 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x1049 ]
+	MOVF	r0x1004,W
+	MOVWF	r0x1005
 ;	.line	34; "temp.c"	SleepCount = 0;
 	XORLW	0x01
 ;	.line	37; "temp.c"	if(SleepCount < 250)
@@ -192,12 +180,12 @@ _00114_DS_:
 	GOTO	_00121_DS_
 ;;[ICODE] temp.c:40:  __iffalse_3($5) :
 ;;[ICODE] temp.c:43: 	iTemp16 [k25 lr24:26 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] = &[_PORTBbits [k22 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:43: 	iTemp17 [k26 lr26:27 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104B ] = @[iTemp16 [k25 lr24:26 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:43: 	iTemp17 [k26 lr26:27 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x1049 ] = @[iTemp16 [k25 lr24:26 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 _00118_DS_:
 ;	.line	43; "temp.c"	if(PORT_KEY_1 == KEY_TURN_ON)
 	BTFSC	_PORTBbits,2
 	GOTO	_00120_DS_
-;;[ICODE] temp.c:43: 	if iTemp17 [k26 lr26:27 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104B ] != 0 goto __iffalse_4($7)
+;;[ICODE] temp.c:43: 	if iTemp17 [k26 lr26:27 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x1049 ] != 0 goto __iffalse_4($7)
 ;;[ICODE] temp.c:45: 	ret
 ;	.line	45; "temp.c"	return;
 	GOTO	_00121_DS_
@@ -306,18 +294,8 @@ _00120_DS_:
 ;;[ICODE] temp.c:90: 	_SleepCount [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 ;	.line	90; "temp.c"	SleepCount = 0;
 	CLRF	_SleepCount
-;;[ICODE] temp.c:91: 	_LvdDebounceNew [k83 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	91; "temp.c"	LvdDebounceNew = 0;
-	CLRF	_LvdDebounceNew
-;;[ICODE] temp.c:92: 	_LvdModelCount [k85 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	92; "temp.c"	LvdModelCount = 0;
-	CLRF	_LvdModelCount
-;;[ICODE] temp.c:93: 	iTemp53 [k89 lr89:91 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:93: 	*(iTemp53 [k89 lr89:91 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	93; "temp.c"	LowBat = 0;
-	BCF	_BITS_DATA0,1
-;;[ICODE] temp.c:93:  _return($8) :
-;;[ICODE] temp.c:93: 	eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] temp.c:90:  _return($8) :
+;;[ICODE] temp.c:90: 	eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 _00121_DS_:
 	RETURN	
 ; exit point of _CheckSleep
@@ -391,6 +369,6 @@ _00109_DS_:
 
 
 ;	code size estimation:
-;	   73+    0 =    73 instructions (  146 byte)
+;	   70+    0 =    70 instructions (  140 byte)
 
 	end

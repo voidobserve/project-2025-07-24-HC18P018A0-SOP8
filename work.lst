@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,141 +57,123 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _BITS_DATA0
   0000                00041         extern  _BITS_DATA1
   0000                00042         extern  _g_ucTimer10msCount
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
   0000                00043         extern  _g_ucTimerWorkCount
-  0000                00044         extern  _g_ucFlashTimeHigh
-  0000                00045         extern  _g_ucFlashTimeLow
-  0000                00046         extern  _g_ucFlashTimeHigh1
-  0000                00047         extern  _g_ucFlashTimeLow1
-  0000                00048         extern  _g_ucFlashTimeHigh2
-  0000                00049         extern  _g_ucFlashTimeLow2
-  0000                00050         extern  _LvdModel
-  0000                00051         extern  _LvdDebounceNew
-  0000                00052         extern  _LvdDebounceOld
-  0000                00053         extern  _LvdModelCount
-  0000                00054         extern  _LvdLightCount
-  0000                00055         extern  _TempCount
-  0000                00056         extern  _TempFlag
-  0000                00057         extern  _SleepCount
-  0000                00058         extern  _SleepFlag
-  0000                00059         extern  _MaxLight
-  0000                00060         extern  _g_cucTIMER_COUNT_STATE
-  0000                00061         extern  _INDF
-  0000                00062         extern  _T0
-  0000                00063         extern  _PCL
-  0000                00064         extern  _STATUS
-  0000                00065         extern  _FSR
-  0000                00066         extern  _PORTB
-  0000                00067         extern  _GPR
-  0000                00068         extern  _PCON
-  0000                00069         extern  _IOCB
-  0000                00070         extern  _PCLATH
-  0000                00071         extern  _PDCON
-  0000                00072         extern  _ODCON
-  0000                00073         extern  _PHCON
-  0000                00074         extern  _INTECON
-  0000                00075         extern  _INTFLAG
-  0000                00076         extern  _OPTION
-  0000                00077         extern  _TRISB
-  0000                00078         extern  _PWMCON
-  0000                00079         extern  _PWM1P
-  0000                00080         extern  _PWM2P
-  0000                00081         extern  _T0CR
-  0000                00082         extern  _T1CON
-  0000                00083         extern  _T1
-  0000                00084         extern  _T1LOAD
-  0000                00085         extern  _PWM0P
-  0000                00086         extern  _OSCCON
-  0000                00087         extern  _CMPCR
-  0000                00088         extern  _PDCON1
-  0000                00089         extern  _CHARGE0
-  0000                00090         extern  _CHARGE1
-  0000                00091         extern  _RAMP
-  0000                00092         extern  _AUXR
-  0000                00093         extern  _HIRCTRM
-                      00094 
-  0000                00095         extern PSAVE
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  3
+  0000                00044         extern  _TempCount
+  0000                00045         extern  _TempFlag
+  0000                00046         extern  _SleepCount
+  0000                00047         extern  _SleepFlag
+  0000                00048         extern  _MaxLight
+  0000                00049         extern  _INDF
+  0000                00050         extern  _T0
+  0000                00051         extern  _PCL
+  0000                00052         extern  _STATUS
+  0000                00053         extern  _FSR
+  0000                00054         extern  _PORTB
+  0000                00055         extern  _GPR
+  0000                00056         extern  _PCON
+  0000                00057         extern  _IOCB
+  0000                00058         extern  _PCLATH
+  0000                00059         extern  _PDCON
+  0000                00060         extern  _ODCON
+  0000                00061         extern  _PHCON
+  0000                00062         extern  _INTECON
+  0000                00063         extern  _INTFLAG
+  0000                00064         extern  _OPTION
+  0000                00065         extern  _TRISB
+  0000                00066         extern  _PWMCON
+  0000                00067         extern  _PWM1P
+  0000                00068         extern  _PWM2P
+  0000                00069         extern  _T0CR
+  0000                00070         extern  _T1CON
+  0000                00071         extern  _T1
+  0000                00072         extern  _T1LOAD
+  0000                00073         extern  _PWM0P
+  0000                00074         extern  _OSCCON
+  0000                00075         extern  _CMPCR
+  0000                00076         extern  _PDCON1
+  0000                00077         extern  _CHARGE0
+  0000                00078         extern  _CHARGE1
+  0000                00079         extern  _RAMP
+  0000                00080         extern  _AUXR
+  0000                00081         extern  _HIRCTRM
+                      00082 
+  0000                00083         extern PSAVE
+  0000                00084         extern SSAVE
+  0000                00085         extern WSAVE
+  0000                00086         extern STK12
+  0000                00087         extern STK11
+  0000                00088         extern STK10
+  0000                00089         extern STK09
+  0000                00090         extern STK08
+  0000                00091         extern STK07
+  0000                00092         extern STK06
+  0000                00093         extern STK05
+  0000                00094         extern STK04
+  0000                00095         extern STK03
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00096         extern SSAVE
-  0000                00097         extern WSAVE
-  0000                00098         extern STK12
-  0000                00099         extern STK11
-  0000                00100         extern STK10
-  0000                00101         extern STK09
-  0000                00102         extern STK08
-  0000                00103         extern STK07
-  0000                00104         extern STK06
-  0000                00105         extern STK05
-  0000                00106         extern STK04
-  0000                00107         extern STK03
-  0000                00108         extern STK02
-  0000                00109         extern STK01
-  0000                00110         extern STK00
-                      00111 ;--------------------------------------------------------
-                      00112 ; global declarations
+  0000                00096         extern STK02
+  0000                00097         extern STK01
+  0000                00098         extern STK00
+                      00099 ;--------------------------------------------------------
+                      00100 ; global declarations
+                      00101 ;--------------------------------------------------------
+  0000                00102         global  _Work
+                      00103 
+                      00104 ;--------------------------------------------------------
+                      00105 ; global definitions
+                      00106 ;--------------------------------------------------------
+                      00107 ;--------------------------------------------------------
+                      00108 ; absolute symbol definitions
+                      00109 ;--------------------------------------------------------
+                      00110 ;--------------------------------------------------------
+                      00111 ; compiler-defined variables
+                      00112 ;--------------------------------------------------------
                       00113 ;--------------------------------------------------------
-  0000                00114         global  _Work
-                      00115 
+                      00114 ; initialized data
+                      00115 ;--------------------------------------------------------
                       00116 ;--------------------------------------------------------
-                      00117 ; global definitions
+                      00117 ; overlayable items in internal ram 
                       00118 ;--------------------------------------------------------
-                      00119 ;--------------------------------------------------------
-                      00120 ; absolute symbol definitions
-                      00121 ;--------------------------------------------------------
+                      00119 ;       udata_ovr
+                      00120 ;--------------------------------------------------------
+                      00121 ; code
                       00122 ;--------------------------------------------------------
-                      00123 ; compiler-defined variables
-                      00124 ;--------------------------------------------------------
-                      00125 ;--------------------------------------------------------
-                      00126 ; initialized data
-                      00127 ;--------------------------------------------------------
-                      00128 ;--------------------------------------------------------
-                      00129 ; overlayable items in internal ram 
-                      00130 ;--------------------------------------------------------
-                      00131 ;       udata_ovr
-                      00132 ;--------------------------------------------------------
-                      00133 ; code
-                      00134 ;--------------------------------------------------------
-                      00135 code_work       code
-                      00136 ;***
-                      00137 ;  pBlock Stats: dbName = C
-                      00138 ;***
-                      00139 ;has an exit
-                      00140 ;; Starting pCode block
-                      00141 ;;[ICODE] work.c:5:  _entry($2) :
-                      00142 ;;[ICODE] work.c:5:     proc _Work [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fix
+                      00123 code_work       code
+                      00124 ;***
+                      00125 ;  pBlock Stats: dbName = C
+                      00126 ;***
+                      00127 ;has an exit
+                      00128 ;; Starting pCode block
+                      00129 ;;[ICODE] work.c:5:  _entry($2) :
+                      00130 ;;[ICODE] work.c:5:     proc _Work [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fix
                             ed}
-                      00143 S_work__Work    code
-0000                  00144 _Work:
-                      00145 ; 2 exit points
-                      00146 ;;[ICODE] work.c:21:  _return($1) :
-                      00147 ;;[ICODE] work.c:21:    eproc _Work [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fi
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  4
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
+                      00131 S_work__Work    code
+0000                  00132 _Work:
+                      00133 ; 2 exit points
+                      00134 ;;[ICODE] work.c:21:  _return($1) :
+                      00135 ;;[ICODE] work.c:21:    eproc _Work [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fi
                             xed}
-                      00148 ;       .line   21; "work.c"    }
-0000   0002           00149         RETURN  
-                      00150 ; exit point of _Work
-                      00151 
-                      00152 
-                      00153 ;       code size estimation:
-                      00154 ;           1+    0 =     1 instructions (    2 byte)
-                      00155 
-                      00156         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  5
+                      00136 ;       .line   21; "work.c"    }
+0000   0002           00137         RETURN  
+                      00138 ; exit point of _Work
+                      00139 
+                      00140 
+                      00141 ;       code size estimation:
+                      00142 ;           1+    0 =     1 instructions (    2 byte)
+                      00143 
+                      00144         end
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  4
 
 
 SYMBOL TABLE
@@ -250,7 +232,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  5
 
 
 SYMBOL TABLE
@@ -309,7 +291,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  6
 
 
 SYMBOL TABLE
@@ -368,7 +350,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  7
 
 
 SYMBOL TABLE
@@ -427,7 +409,7 @@ _FOSC_XT                          CONSTANT      00003DFF          15871
 _FSR                              EXTERNAL      00000000              0
 _GPR                              EXTERNAL      00000000              0
 _HIRCTRM                          EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  8
 
 
 SYMBOL TABLE
@@ -445,11 +427,6 @@ _INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
 _IOCB                             EXTERNAL      00000000              0
 _IOCBbits                         EXTERNAL      00000000              0
 _LP_OSC                           CONSTANT      00003CFF          15615
-_LvdDebounceNew                   EXTERNAL      00000000              0
-_LvdDebounceOld                   EXTERNAL      00000000              0
-_LvdLightCount                    EXTERNAL      00000000              0
-_LvdModel                         EXTERNAL      00000000              0
-_LvdModelCount                    EXTERNAL      00000000              0
 _MaxLight                         EXTERNAL      00000000              0
 _ODCON                            EXTERNAL      00000000              0
 _ODCONbits                        EXTERNAL      00000000              0
@@ -486,18 +463,18 @@ _T0CRbits                         EXTERNAL      00000000              0
 _T1                               EXTERNAL      00000000              0
 _T1CON                            EXTERNAL      00000000              0
 _T1CONbits                        EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE 10
+_T1LOAD                           EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TempCount                        EXTERNAL      00000000              0
+_TempFlag                         EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  13:40:48          PAGE  9
 
 
 SYMBOL TABLE
   LABEL                              TYPE        VALUE         VALUE          VALUE
                                                  (hex)         (dec)          (text)
 
-_T1LOAD                           EXTERNAL      00000000              0
-_TRISB                            EXTERNAL      00000000              0
-_TRISBbits                        EXTERNAL      00000000              0
-_TempCount                        EXTERNAL      00000000              0
-_TempFlag                         EXTERNAL      00000000              0
 _WDTE_OFF                         CONSTANT      00003FFB          16379
 _WDTE_ON                          CONSTANT      00003FFF          16383
 _WDT_OFF                          CONSTANT      00003FFB          16379
@@ -536,20 +513,8 @@ __PAGE_SIZE                       CONSTANT      00000000              0
 __VECTOR_INT                      CONSTANT      00000008              8
 __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
-_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
-_g_ucFlashTimeHigh                EXTERNAL      00000000              0
-_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
-_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
-_g_ucFlashTimeLow                 EXTERNAL      00000000              0
-_g_ucFlashTimeLow1                EXTERNAL      00000000              0
-_g_ucFlashTimeLow2                EXTERNAL      00000000              0
 _g_ucTimer10msCount               EXTERNAL      00000000              0
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
-
-gpasm-1.5.0 #1284 (Oct 14 2022)      work.asm   04/30/25  11:05:30          PAGE 11
-
-
-
 
 Errors   :     0
 Warnings :     0 reported,     0 suppressed

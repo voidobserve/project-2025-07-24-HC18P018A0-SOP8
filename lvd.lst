@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _AUXRbits
   0000                00041         extern  _BITS_DATA0
   0000                00042         extern  _BITS_DATA1
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -65,894 +65,185 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 
   0000                00043         extern  _g_ucTimer10msCount
   0000                00044         extern  _g_ucTimerWorkCount
-  0000                00045         extern  _g_ucFlashTimeHigh
-  0000                00046         extern  _g_ucFlashTimeLow
-  0000                00047         extern  _g_ucFlashTimeHigh1
-  0000                00048         extern  _g_ucFlashTimeLow1
-  0000                00049         extern  _g_ucFlashTimeHigh2
-  0000                00050         extern  _g_ucFlashTimeLow2
-  0000                00051         extern  _LvdModel
-  0000                00052         extern  _LvdDebounceNew
-  0000                00053         extern  _LvdDebounceOld
-  0000                00054         extern  _LvdModelCount
-  0000                00055         extern  _LvdLightCount
-  0000                00056         extern  _TempCount
-  0000                00057         extern  _TempFlag
-  0000                00058         extern  _SleepCount
-  0000                00059         extern  _SleepFlag
-  0000                00060         extern  _MaxLight
-  0000                00061         extern  _g_cucTIMER_COUNT_STATE
-  0000                00062         extern  _INDF
-  0000                00063         extern  _T0
-  0000                00064         extern  _PCL
-  0000                00065         extern  _STATUS
-  0000                00066         extern  _FSR
-  0000                00067         extern  _PORTB
-  0000                00068         extern  _GPR
-  0000                00069         extern  _PCON
-  0000                00070         extern  _IOCB
-  0000                00071         extern  _PCLATH
-  0000                00072         extern  _PDCON
-  0000                00073         extern  _ODCON
-  0000                00074         extern  _PHCON
-  0000                00075         extern  _INTECON
-  0000                00076         extern  _INTFLAG
-  0000                00077         extern  _OPTION
-  0000                00078         extern  _TRISB
-  0000                00079         extern  _PWMCON
-  0000                00080         extern  _PWM1P
-  0000                00081         extern  _PWM2P
-  0000                00082         extern  _T0CR
-  0000                00083         extern  _T1CON
-  0000                00084         extern  _T1
-  0000                00085         extern  _T1LOAD
-  0000                00086         extern  _PWM0P
-  0000                00087         extern  _OSCCON
-  0000                00088         extern  _CMPCR
-  0000                00089         extern  _PDCON1
-  0000                00090         extern  _CHARGE0
-  0000                00091         extern  _CHARGE1
-  0000                00092         extern  _RAMP
-  0000                00093         extern  _AUXR
-  0000                00094         extern  _HIRCTRM
-                      00095 
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  3
+  0000                00045         extern  _TempCount
+  0000                00046         extern  _TempFlag
+  0000                00047         extern  _SleepCount
+  0000                00048         extern  _SleepFlag
+  0000                00049         extern  _MaxLight
+  0000                00050         extern  _INDF
+  0000                00051         extern  _T0
+  0000                00052         extern  _PCL
+  0000                00053         extern  _STATUS
+  0000                00054         extern  _FSR
+  0000                00055         extern  _PORTB
+  0000                00056         extern  _GPR
+  0000                00057         extern  _PCON
+  0000                00058         extern  _IOCB
+  0000                00059         extern  _PCLATH
+  0000                00060         extern  _PDCON
+  0000                00061         extern  _ODCON
+  0000                00062         extern  _PHCON
+  0000                00063         extern  _INTECON
+  0000                00064         extern  _INTFLAG
+  0000                00065         extern  _OPTION
+  0000                00066         extern  _TRISB
+  0000                00067         extern  _PWMCON
+  0000                00068         extern  _PWM1P
+  0000                00069         extern  _PWM2P
+  0000                00070         extern  _T0CR
+  0000                00071         extern  _T1CON
+  0000                00072         extern  _T1
+  0000                00073         extern  _T1LOAD
+  0000                00074         extern  _PWM0P
+  0000                00075         extern  _OSCCON
+  0000                00076         extern  _CMPCR
+  0000                00077         extern  _PDCON1
+  0000                00078         extern  _CHARGE0
+  0000                00079         extern  _CHARGE1
+  0000                00080         extern  _RAMP
+  0000                00081         extern  _AUXR
+  0000                00082         extern  _HIRCTRM
+                      00083 
+  0000                00084         extern PSAVE
+  0000                00085         extern SSAVE
+  0000                00086         extern WSAVE
+  0000                00087         extern STK12
+  0000                00088         extern STK11
+  0000                00089         extern STK10
+  0000                00090         extern STK09
+  0000                00091         extern STK08
+  0000                00092         extern STK07
+  0000                00093         extern STK06
+  0000                00094         extern STK05
+  0000                00095         extern STK04
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00096         extern PSAVE
-  0000                00097         extern SSAVE
-  0000                00098         extern WSAVE
-  0000                00099         extern STK12
-  0000                00100         extern STK11
-  0000                00101         extern STK10
-  0000                00102         extern STK09
-  0000                00103         extern STK08
-  0000                00104         extern STK07
-  0000                00105         extern STK06
-  0000                00106         extern STK05
-  0000                00107         extern STK04
-  0000                00108         extern STK03
-  0000                00109         extern STK02
-  0000                00110         extern STK01
-  0000                00111         extern STK00
-                      00112 ;--------------------------------------------------------
-                      00113 ; global declarations
+  0000                00096         extern STK03
+  0000                00097         extern STK02
+  0000                00098         extern STK01
+  0000                00099         extern STK00
+                      00100 ;--------------------------------------------------------
+                      00101 ; global declarations
+                      00102 ;--------------------------------------------------------
+  0000                00103         global  _ControlLvdCfg
+  0000                00104         global  _ConfigureLvd
+  0000                00105         global  _CheckLvdElectric
+  0000                00106         global  _CheckLvd
+                      00107 
+                      00108 ;--------------------------------------------------------
+                      00109 ; global definitions
+                      00110 ;--------------------------------------------------------
+                      00111 ;--------------------------------------------------------
+                      00112 ; absolute symbol definitions
+                      00113 ;--------------------------------------------------------
                       00114 ;--------------------------------------------------------
-  0000                00115         global  _ControlLvdCfg
-  0000                00116         global  _ConfigureLvd
-  0000                00117         global  _CheckLvdElectric
-  0000                00118         global  _CheckLvd
-                      00119 
+                      00115 ; compiler-defined variables
+                      00116 ;--------------------------------------------------------
+                      00117 ;--------------------------------------------------------
+                      00118 ; initialized data
+                      00119 ;--------------------------------------------------------
                       00120 ;--------------------------------------------------------
-                      00121 ; global definitions
+                      00121 ; overlayable items in internal ram 
                       00122 ;--------------------------------------------------------
-                      00123 ;--------------------------------------------------------
-                      00124 ; absolute symbol definitions
-                      00125 ;--------------------------------------------------------
+                      00123 ;       udata_ovr
+                      00124 ;--------------------------------------------------------
+                      00125 ; code
                       00126 ;--------------------------------------------------------
-                      00127 ; compiler-defined variables
-                      00128 ;--------------------------------------------------------
-                      00129 UDL_lvd_0       udata
-0000                  00130 r0x100C res     1
-0001                  00131 r0x100A res     1
-0002                  00132 r0x1009 res     1
-                      00133 ;--------------------------------------------------------
-                      00134 ; initialized data
-                      00135 ;--------------------------------------------------------
-                      00136 ;--------------------------------------------------------
-                      00137 ; overlayable items in internal ram 
-                      00138 ;--------------------------------------------------------
-                      00139 ;       udata_ovr
-                      00140 ;--------------------------------------------------------
-                      00141 ; code
-                      00142 ;--------------------------------------------------------
-                      00143 code_lvd        code
+                      00127 code_lvd        code
+                      00128 ;***
+                      00129 ;  pBlock Stats: dbName = C
+                      00130 ;***
+                      00131 ;has an exit
+                      00132 ;; Starting pCode block
+                      00133 ;;[ICODE] lvd.c:161:  _entry($2) :
+                      00134 ;;[ICODE] lvd.c:161:    proc _ControlLvdCfg [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void functio
+                            n ( unsigned-char fixed) fixed}
+                      00135 S_lvd__ControlLvdCfg    code
+0000                  00136 _ControlLvdCfg:
+                      00137 ; 2 exit points
+                      00138 ;;[ICODE] lvd.c:164:  _return($1) :
+                      00139 ;;[ICODE] lvd.c:164:    eproc _ControlLvdCfg [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void functi
+                            on ( unsigned-char fixed) fixed}
+                      00140 ;       .line   164; "lvd.c"    if(num == 1){}
+0000   0002           00141         RETURN  
+                      00142 ; exit point of _ControlLvdCfg
+                      00143 
                       00144 ;***
                       00145 ;  pBlock Stats: dbName = C
                       00146 ;***
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
                       00147 ;has an exit
-                      00148 ;1 compiler assigned register :
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  4
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                      00149 ;   r0x1009
-                      00150 ;; Starting pCode block
-                      00151 ;;[ICODE] lvd.c:152:  _entry($16) :
-                      00152 ;;[ICODE] lvd.c:152:    proc _ControlLvdCfg [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void functio
-                            n ( unsigned-char fixed) fixed}
-                      00153 S_lvd__ControlLvdCfg    code
-0000                  00154 _ControlLvdCfg:
-                      00155 ; 2 exit points
-                      00156 ;;[ICODE] lvd.c:152: iTemp0 [k2 lr3:28 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ 
-                            _ControlLvdCfg_num_1_32}[r0x1050 ] = recv _ControlLvdCfg [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}
-                            {void function ( unsigned-char fixed) fixed}
-                      00157 ;       .line   152; "lvd.c"    void ControlLvdCfg(BYTE num)
-0000   19??           00158         MOVWF   r0x1009
-                      00159 ;       .line   154; "lvd.c"    if(1 == num)   //涓流充电
-0001   0D01           00160         XORLW   0x01
-0002   3103           00161         BTFSS   STATUS,2
-0003   2???           00162         GOTO    _00182_DS_
-                      00163 ;;[ICODE] lvd.c:154:    if iTemp1 [k4 lr4:5 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto 
-                            __iffalse_25($13)
-                      00164 ;;[ICODE] lvd.c:156:    _CHARGE0 [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x0 {const-unsigned-char literal}
-                      00165 ;       .line   156; "lvd.c"    CHARGE0 = CHARGE0A;
-0004   18??           00166         CLRF    _CHARGE0
-                      00167 ;;[ICODE] lvd.c:157:    _CHARGE1 [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x82 {const-unsigned-char literal}
-                      00168 ;       .line   157; "lvd.c"    CHARGE1 = CHARGE1A; //10000010
-0005   0482           00169         MOVLW   0x82
-0006   19??           00170         MOVWF   _CHARGE1
-                      00171 ;;[ICODE] lvd.c:157:     goto _return($15)
-0007   2???           00172         GOTO    _00184_DS_
-                      00173 ;;[ICODE] lvd.c:157:  __iffalse_25($13) :
-                      00174 ;;[ICODE] lvd.c:159:    iTemp2 [k7 lr10:11 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x2 {cons
-                            t-unsigned-char literal} == iTemp0 [k2 lr3:28 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}
-                            { sir@ _ControlLvdCfg_num_1_32}[r0x1050 ]
-0008                  00175 _00182_DS_:
-                      00176 ;       .line   159; "lvd.c"    else if(2 == num)  //大电流充电
-0008   11??           00177         MOVF    r0x1009,W
-0009   0D02           00178         XORLW   0x02
-000A   3103           00179         BTFSS   STATUS,2
-000B   2???           00180         GOTO    _00179_DS_
-                      00181 ;;[ICODE] lvd.c:159:    if iTemp2 [k7 lr10:11 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 got
-                            o __iffalse_24($10)
-                      00182 ;;[ICODE] lvd.c:161:    iTemp3 [k9 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x1 {cons
-                            t-unsigned-char literal} == _TempFlag [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
-                            d}
-                      00183 ;       .line   161; "lvd.c"    if(1 == TempFlag)
-000C   11??           00184         MOVF    _TempFlag,W
-000D   0D01           00185         XORLW   0x01
-000E   3103           00186         BTFSS   STATUS,2
-000F   2???           00187         GOTO    _00171_DS_
-                      00188 ;;[ICODE] lvd.c:161:    if iTemp3 [k9 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 got
-                            o __iffalse_21($2)
-                      00189 ;;[ICODE] lvd.c:163:    _CHARGE0 [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  5
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                            sfr} := 0xe0 {const-unsigned-char literal}
-                      00190 ;       .line   163; "lvd.c"    CHARGE0 = 0xE0; //11100000
-0010   04E0           00191         MOVLW   0xe0
-0011   19??           00192         MOVWF   _CHARGE0
-                      00193 ;;[ICODE] lvd.c:164:    _CHARGE1 [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x83 {const-unsigned-char literal}
-                      00194 ;       .line   164; "lvd.c"    CHARGE1 = 0x83; //10000011
-0012   0483           00195         MOVLW   0x83
-0013   19??           00196         MOVWF   _CHARGE1
-                      00197 ;;[ICODE] lvd.c:164:     goto _return($15)
-0014   2???           00198         GOTO    _00184_DS_
-                      00199 ;;[ICODE] lvd.c:164:  __iffalse_21($2) :
-                      00200 ;;[ICODE] lvd.c:168:    _CHARGE0 [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0xff {const-unsigned-char literal}
-0015                  00201 _00171_DS_:
-                      00202 ;       .line   168; "lvd.c"    CHARGE0 = CHARGE0B;
-0015   04FF           00203         MOVLW   0xff
-0016   19??           00204         MOVWF   _CHARGE0
-                      00205 ;;[ICODE] lvd.c:169:    _CHARGE1 [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x83 {const-unsigned-char literal}
-                      00206 ;       .line   169; "lvd.c"    CHARGE1 = CHARGE1B; //10000011
-0017   0483           00207         MOVLW   0x83
-0018   19??           00208         MOVWF   _CHARGE1
-                      00209 ;;[ICODE] lvd.c:169:     goto _return($15)
-0019   2???           00210         GOTO    _00184_DS_
-                      00211 ;;[ICODE] lvd.c:169:  __iffalse_24($10) :
-                      00212 ;;[ICODE] lvd.c:172:    iTemp4 [k10 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x3 {con
-                            st-unsigned-char literal} == iTemp0 [k2 lr3:28 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed
-                            }{ sir@ _ControlLvdCfg_num_1_32}[r0x1050 ]
-001A                  00213 _00179_DS_:
-                      00214 ;       .line   172; "lvd.c"    else if(3 == num) //80mA充电
-001A   11??           00215         MOVF    r0x1009,W
-001B   0D03           00216         XORLW   0x03
-001C   3103           00217         BTFSS   STATUS,2
-001D   2???           00218         GOTO    _00176_DS_
-                      00219 ;;[ICODE] lvd.c:172:    if iTemp4 [k10 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 go
-                            to __iffalse_23($7)
-                      00220 ;;[ICODE] lvd.c:174:    _CHARGE0 [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x0 {const-unsigned-char literal}
-                      00221 ;       .line   174; "lvd.c"    CHARGE0 = CHARGE0C;
-001E   18??           00222         CLRF    _CHARGE0
-                      00223 ;;[ICODE] lvd.c:175:    _CHARGE1 [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x83 {const-unsigned-char literal}
-                      00224 ;       .line   175; "lvd.c"    CHARGE1 = CHARGE1C; //10000011
-001F   0483           00225         MOVLW   0x83
-0020   19??           00226         MOVWF   _CHARGE1
-                      00227 ;;[ICODE] lvd.c:175:     goto _return($15)
-0021   2???           00228         GOTO    _00184_DS_
-                      00229 ;;[ICODE] lvd.c:175:  __iffalse_23($7) :
-                      00230 ;;[ICODE] lvd.c:177:    iTemp5 [k11 lr28:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x4 {con
-                            st-unsigned-char literal} == iTemp0 [k2 lr3:28 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed
-                            }{ sir@ _ControlLvdCfg_num_1_32}[r0x1050 ]
-0022                  00231 _00176_DS_:
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  6
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                      00232 ;       .line   177; "lvd.c"    else if(4 == num)       //关闭充电      
-0022   11??           00233         MOVF    r0x1009,W
-0023   0D04           00234         XORLW   0x04
-0024   3103           00235         BTFSS   STATUS,2
-0025   2???           00236         GOTO    _00184_DS_
-                      00237 ;;[ICODE] lvd.c:177:    if iTemp5 [k11 lr28:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 go
-                            to _return($15)
-                      00238 ;;[ICODE] lvd.c:179:    _CHARGE0 [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x0 {const-unsigned-char literal}
-                      00239 ;       .line   179; "lvd.c"    CHARGE0 = CHARGE0D;
-0026   18??           00240         CLRF    _CHARGE0
-                      00241 ;;[ICODE] lvd.c:180:    _CHARGE1 [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-                            sfr} := 0x0 {const-unsigned-char literal}
-                      00242 ;       .line   180; "lvd.c"    CHARGE1 = CHARGE1D;
-0027   18??           00243         CLRF    _CHARGE1
-                      00244 ;;[ICODE] lvd.c:180:  _return($15) :
-                      00245 ;;[ICODE] lvd.c:180:    eproc _ControlLvdCfg [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void functi
-                            on ( unsigned-char fixed) fixed}
-0028                  00246 _00184_DS_:
-0028   0002           00247         RETURN  
-                      00248 ; exit point of _ControlLvdCfg
-                      00249 
-                      00250 ;***
-                      00251 ;  pBlock Stats: dbName = C
-                      00252 ;***
-                      00253 ;has an exit
-                      00254 ;functions called:
-                      00255 ;   _ControlLvdCfg
-                      00256 ;   _ControlLvdCfg
-                      00257 ;   _ControlLvdCfg
-                      00258 ;   _ControlLvdCfg
-                      00259 ;   _ControlLvdCfg
-                      00260 ;   _ControlLvdCfg
-                      00261 ;   _ControlLvdCfg
-                      00262 ;   _ControlLvdCfg
-                      00263 ;   _ControlLvdCfg
-                      00264 ;   _ControlLvdCfg
-                      00265 ;   _ControlLvdCfg
-                      00266 ;   _ControlLvdCfg
-                      00267 ;   _ControlLvdCfg
-                      00268 ;   _ControlLvdCfg
-                      00269 ;2 compiler assigned registers:
-                      00270 ;   r0x100A
-                      00271 ;   r0x100B
-                      00272 ;; Starting pCode block
-                      00273 ;;[ICODE] lvd.c:103:  _entry($23) :
-                      00274 ;;[ICODE] lvd.c:103:    proc _ConfigureLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function
+                      00148 ;; Starting pCode block
+                      00149 ;;[ICODE] lvd.c:109:  _entry($2) :
+                      00150 ;;[ICODE] lvd.c:109:    proc _ConfigureLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function
                              ( ) fixed}
-                      00275 S_lvd__ConfigureLvd     code
-0000                  00276 _ConfigureLvd:
-                      00277 ; 2 exit points
-                      00278 ;;[ICODE] lvd.c:105:    iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
-                            d {5,1} near* fixed}[remat] = &[_INTFLAGbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-st
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  7
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                            ruct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                      00279 ;;[ICODE] lvd.c:105:    iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfiel
-                            d {5,1} fixed}[r0x104D ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bi
-                            tfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                      00280 ;       .line   105; "lvd.c"    if(0 == CHARF)  //VDD检查大于4.4V时产生充电中断
-0000   36??           00281         BTFSC   _INTFLAGbits,5
-0001   2???           00282         GOTO    _00147_DS_
-                      00283 ;;[ICODE] lvd.c:105:    if iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitf
-                            ield {5,1} fixed}[r0x104D ] != 0 goto __iffalse_12($4)
-                      00284 ;;[ICODE] lvd.c:107:    send 0x4 {const-unsigned-char literal}{argreg = 1}
-                      00285 ;;[ICODE] lvd.c:107:    iTemp3 [k9 lr8:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _Contr
-                            olLvdCfg [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
-                      00286 ;       .line   107; "lvd.c"    ControlLvdCfg(4);
-0002   0404           00287         MOVLW   0x04
-0003   2???           00288         CALL    _ControlLvdCfg
-                      00289 ;;[ICODE] lvd.c:108:    iTemp5 [k13 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1}
-                             near* fixed}[remat] = &[_BITS_DATA1 [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits16_t 
-                            fixed} , 0x0 {const-unsigned-char literal}]
-                      00290 ;;[ICODE] lvd.c:108:    *(iTemp5 [k13 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,
-                            1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00291 ;       .line   108; "lvd.c"    IsFull = 0;
-0004   3C??           00292         BCF     _BITS_DATA1,0
-                      00293 ;;[ICODE] lvd.c:109:    iTemp7 [k16 lr12:14 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,1
-                            } near* fixed}[remat] = &[_BITS_DATA1 [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits16_t
-                             fixed} , 0x0 {const-unsigned-char literal}]
-                      00294 ;;[ICODE] lvd.c:109:    *(iTemp7 [k16 lr12:14 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1
-                            ,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00295 ;       .line   109; "lvd.c"    IsCharf = 0;
-0005   3C??           00296         BCF     _BITS_DATA1,1
-                      00297 ;;[ICODE] lvd.c:110:    _LvdLightCount [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} := 0x0 {const-unsigned-char literal}
-                      00298 ;       .line   110; "lvd.c"    LvdLightCount = 0;
-0006   18??           00299         CLRF    _LvdLightCount
-                      00300 ;;[ICODE] lvd.c:111:    ret
-                      00301 ;       .line   111; "lvd.c"    return;   //未充电
-0007   2???           00302         GOTO    _00165_DS_
-                      00303 ;;[ICODE] lvd.c:111:  __iffalse_12($4) :
-                      00304 ;;[ICODE] lvd.c:115:    iTemp10 [k21 lr18:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,
-                            1} near* fixed}[remat] = &[_BITS_DATA1 [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits16_
-                            t fixed} , 0x0 {const-unsigned-char literal}]
-                      00305 ;;[ICODE] lvd.c:115:    iTemp11 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,
-                            1} fixed}[r0x104D ] = @[iTemp10 [k21 lr18:20 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,
-                            1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-0008                  00306 _00147_DS_:
-                      00307 ;       .line   115; "lvd.c"    if(1 == IsFull)
-0008   18??           00308         CLRF    r0x100A
-0009   34??           00309         BTFSC   _BITS_DATA1,0
-000A   13??           00310         INCF    r0x100A,F
-                      00311 ;;[ICODE] lvd.c:115:    iTemp12 [k23 lr21:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104E ]
-                             = (char register)iTemp11 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fix
-                            ed}[r0x104D ]
-000B   11??           00312         MOVF    r0x100A,W
-                      00313 ;;1     MOVWF   r0x100B
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  8
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-000C   0D01           00314         XORLW   0x01
-000D   3103           00315         BTFSS   STATUS,2
-000E   2???           00316         GOTO    _00148_DS_
-                      00317 ;;[ICODE] lvd.c:115:    if iTemp13 [k24 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __ifend_12($5)
-                      00318 ;;[ICODE] lvd.c:117:    _LvdLightCount [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} := 0x0 {const-unsigned-char literal}
-                      00319 ;       .line   117; "lvd.c"    LvdLightCount = 0;
-000F   18??           00320         CLRF    _LvdLightCount
-                      00321 ;;[ICODE] lvd.c:118:    ret
-                      00322 ;       .line   118; "lvd.c"    return;
-0010   2???           00323         GOTO    _00165_DS_
-                      00324 ;;[ICODE] lvd.c:118:  __ifend_12($5) :
-                      00325 ;;[ICODE] lvd.c:122:    _LvdLightCount [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} = _LvdLightCount [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const
-                            -unsigned-char literal}
-0011                  00326 _00148_DS_:
-                      00327 ;       .line   122; "lvd.c"    LvdLightCount++;
-0011   13??           00328         INCF    _LvdLightCount,F
-                      00329 ;;[ICODE] lvd.c:123:    iTemp18 [k29 lr29:30 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0xc8 {c
-                            onst-unsigned-char literal} == _LvdLightCount [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-
-                            char fixed}
-                      00330 ;       .line   123; "lvd.c"    if(200 == LvdLightCount)
-0012   11??           00331         MOVF    _LvdLightCount,W
-0013   0DC8           00332         XORLW   0xc8
-0014   3103           00333         BTFSS   STATUS,2
-0015   2???           00334         GOTO    _00150_DS_
-                      00335 ;;[ICODE] lvd.c:123:    if iTemp18 [k29 lr29:30 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_13($7)
-                      00336 ;;[ICODE] lvd.c:125:    iTemp20 [k32 lr31:33 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,
-                            1} near* fixed}[remat] = &[_BITS_DATA1 [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits16_
-                            t fixed} , 0x0 {const-unsigned-char literal}]
-                      00337 ;;[ICODE] lvd.c:125:    *(iTemp20 [k32 lr31:33 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
-                            1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00338 ;       .line   125; "lvd.c"    IsCharf = 1;
-0016   38??           00339         BSF     _BITS_DATA1,1
-                      00340 ;;[ICODE] lvd.c:126:    _LvdLightCount [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} := 0x0 {const-unsigned-char literal}
-                      00341 ;       .line   126; "lvd.c"    LvdLightCount = 0;
-0017   18??           00342         CLRF    _LvdLightCount
-                      00343 ;;[ICODE] lvd.c:126:  __iffalse_13($7) :
-                      00344 ;;[ICODE] lvd.c:128:    iTemp23 [k36 lr36:38 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,
-                            1} near* fixed}[remat] = &[_BITS_DATA1 [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits16_
-                            t fixed} , 0x0 {const-unsigned-char literal}]
-                      00345 ;;[ICODE] lvd.c:128:    iTemp24 [k37 lr38:39 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {1,
-                            1} fixed}[r0x104D ] = @[iTemp23 [k36 lr36:38 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,
-                            1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-0018                  00346 _00150_DS_:
-                      00347 ;       .line   128; "lvd.c"    if(IsCharf == 0)
-0018   34??           00348         BTFSC   _BITS_DATA1,1
-0019   2???           00349         GOTO    _00152_DS_
-                      00350 ;;[ICODE] lvd.c:128:    if iTemp24 [k37 lr38:39 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield 
-                            {1,1} fixed}[r0x104D ] != 0 goto __iffalse_14($9)
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  9
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                      00351 ;;[ICODE] lvd.c:130:    ret
-                      00352 ;       .line   130; "lvd.c"    return;
-001A   2???           00353         GOTO    _00165_DS_
-                      00354 ;;[ICODE] lvd.c:130:  __iffalse_14($9) :
-                      00355 ;;[ICODE] lvd.c:133:    iTemp26 [k41 lr42:44 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,
-                            1} near* fixed}[remat] = &[_BITS_DATA0 [k38 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t
-                             fixed} , 0x0 {const-unsigned-char literal}]
-                      00356 ;;[ICODE] lvd.c:133:    *(iTemp26 [k41 lr42:44 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
-                            1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-001B                  00357 _00152_DS_:
-                      00358 ;       .line   133; "lvd.c"    LowBat = 0;
-001B   3C??           00359         BCF     _BITS_DATA0,1
-                      00360 ;;[ICODE] lvd.c:135:    if _LvdModel [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
-                            d} != 0 goto __iffalse_15($11)
-                      00361 ;       .line   135; "lvd.c"    if(LvdModel == 0)          //满
-001C   0400           00362         MOVLW   0x00
-001D   1D??           00363         IORWF   _LvdModel,W
-001E   3103           00364         BTFSS   STATUS,2
-001F   2???           00365         GOTO    _00154_DS_
-                      00366 ;;[ICODE] lvd.c:137:    iTemp28 [k45 lr46:48 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,
-                            1} near* fixed}[remat] = &[_BITS_DATA1 [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits16_
-                            t fixed} , 0x0 {const-unsigned-char literal}]
-                      00367 ;;[ICODE] lvd.c:137:    *(iTemp28 [k45 lr46:48 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
-                            0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00368 ;       .line   137; "lvd.c"    IsFull = 1;
-0020   38??           00369         BSF     _BITS_DATA1,0
-                      00370 ;;[ICODE] lvd.c:138:    send 0x4 {const-unsigned-char literal}{argreg = 1}
-                      00371 ;;[ICODE] lvd.c:138:    iTemp29 [k46 lr50:50 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
-                            ontrolLvdCfg [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
-                      00372 ;       .line   138; "lvd.c"    ControlLvdCfg(4);
-0021   0404           00373         MOVLW   0x04
-0022   2???           00374         CALL    _ControlLvdCfg
-                      00375 ;;[ICODE] lvd.c:138:  __iffalse_15($11) :
-                      00376 ;;[ICODE] lvd.c:140:    iTemp30 [k47 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _LvdMod
-                            el [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x1 {const-unsigned-char lit
-                            eral}
-0023                  00377 _00154_DS_:
-                      00378 ;       .line   140; "lvd.c"    if(LvdModel == 1)          //4,1
-0023   11??           00379         MOVF    _LvdModel,W
-0024   0D01           00380         XORLW   0x01
-0025   3103           00381         BTFSS   STATUS,2
-0026   2???           00382         GOTO    _00156_DS_
-                      00383 ;;[ICODE] lvd.c:140:    if iTemp30 [k47 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_16($13)
-                      00384 ;;[ICODE] lvd.c:141:    send 0x3 {const-unsigned-char literal}{argreg = 1}
-                      00385 ;;[ICODE] lvd.c:141:    iTemp31 [k48 lr55:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
-                            ontrolLvdCfg [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
-                      00386 ;       .line   141; "lvd.c"    ControlLvdCfg(3);       
-0027   0403           00387         MOVLW   0x03
-0028   2???           00388         CALL    _ControlLvdCfg
-                      00389 ;;[ICODE] lvd.c:141:  __iffalse_16($13) :
-                      00390 ;;[ICODE] lvd.c:142:    iTemp32 [k49 lr57:58 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _LvdMod
-                            el [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char lit
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 10
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                            eral}
-0029                  00391 _00156_DS_:
-                      00392 ;       .line   142; "lvd.c"    if(LvdModel == 2)         //3.3
-0029   11??           00393         MOVF    _LvdModel,W
-002A   0D02           00394         XORLW   0x02
-002B   3103           00395         BTFSS   STATUS,2
-002C   2???           00396         GOTO    _00158_DS_
-                      00397 ;;[ICODE] lvd.c:142:    if iTemp32 [k49 lr57:58 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_17($15)
-                      00398 ;;[ICODE] lvd.c:143:    send 0x2 {const-unsigned-char literal}{argreg = 1}
-                      00399 ;;[ICODE] lvd.c:143:    iTemp33 [k50 lr60:60 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
-                            ontrolLvdCfg [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
-                      00400 ;       .line   143; "lvd.c"    ControlLvdCfg(2);
-002D   0402           00401         MOVLW   0x02
-002E   2???           00402         CALL    _ControlLvdCfg
-                      00403 ;;[ICODE] lvd.c:143:  __iffalse_17($15) :
-                      00404 ;;[ICODE] lvd.c:144:    iTemp34 [k51 lr62:63 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _LvdMod
-                            el [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char lit
-                            eral}
-002F                  00405 _00158_DS_:
-                      00406 ;       .line   144; "lvd.c"    if(LvdModel == 3)        //3.0
-002F   11??           00407         MOVF    _LvdModel,W
-0030   0D03           00408         XORLW   0x03
-0031   3103           00409         BTFSS   STATUS,2
-0032   2???           00410         GOTO    _00160_DS_
-                      00411 ;;[ICODE] lvd.c:144:    if iTemp34 [k51 lr62:63 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_18($17)
-                      00412 ;;[ICODE] lvd.c:145:    send 0x2 {const-unsigned-char literal}{argreg = 1}
-                      00413 ;;[ICODE] lvd.c:145:    iTemp35 [k52 lr65:65 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
-                            ontrolLvdCfg [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
-                      00414 ;       .line   145; "lvd.c"    ControlLvdCfg(2); 
-0033   0402           00415         MOVLW   0x02
-0034   2???           00416         CALL    _ControlLvdCfg
-                      00417 ;;[ICODE] lvd.c:145:  __iffalse_18($17) :
-                      00418 ;;[ICODE] lvd.c:146:    iTemp36 [k53 lr67:68 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _LvdMod
-                            el [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x4 {const-unsigned-char lit
-                            eral}
-0035                  00419 _00160_DS_:
-                      00420 ;       .line   146; "lvd.c"    if(LvdModel == 4)         //2.8
-0035   11??           00421         MOVF    _LvdModel,W
-0036   0D04           00422         XORLW   0x04
-0037   3103           00423         BTFSS   STATUS,2
-0038   2???           00424         GOTO    _00162_DS_
-                      00425 ;;[ICODE] lvd.c:146:    if iTemp36 [k53 lr67:68 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_19($19)
-                      00426 ;;[ICODE] lvd.c:147:    send 0x1 {const-unsigned-char literal}{argreg = 1}
-                      00427 ;;[ICODE] lvd.c:147:    iTemp37 [k54 lr70:70 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
-                            ontrolLvdCfg [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
-                      00428 ;       .line   147; "lvd.c"    ControlLvdCfg(1);
-0039   0401           00429         MOVLW   0x01
-003A   2???           00430         CALL    _ControlLvdCfg
-                      00431 ;;[ICODE] lvd.c:147:  __iffalse_19($19) :
-                      00432 ;;[ICODE] lvd.c:148:    iTemp38 [k55 lr72:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _LvdMod
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 11
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                            el [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x5 {const-unsigned-char lit
-                            eral}
-003B                  00433 _00162_DS_:
-                      00434 ;       .line   148; "lvd.c"    if(LvdModel == 5)        //没电
-003B   11??           00435         MOVF    _LvdModel,W
-003C   0D05           00436         XORLW   0x05
-003D   3103           00437         BTFSS   STATUS,2
-003E   2???           00438         GOTO    _00165_DS_
-                      00439 ;;[ICODE] lvd.c:148:    if iTemp38 [k55 lr72:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto _return($22)
-                      00440 ;;[ICODE] lvd.c:149:    send 0x1 {const-unsigned-char literal}{argreg = 1}
-                      00441 ;;[ICODE] lvd.c:149:    iTemp39 [k56 lr75:75 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
-                            ontrolLvdCfg [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
-                      00442 ;       .line   149; "lvd.c"    ControlLvdCfg(1);
-003F   0401           00443         MOVLW   0x01
-0040   2???           00444         CALL    _ControlLvdCfg
-                      00445 ;;[ICODE] lvd.c:149:  _return($22) :
-                      00446 ;;[ICODE] lvd.c:149:    eproc _ConfigureLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void functio
+                      00151 S_lvd__ConfigureLvd     code
+0000                  00152 _ConfigureLvd:
+                      00153 ; 2 exit points
+                      00154 ;;[ICODE] lvd.c:159:  _return($1) :
+                      00155 ;;[ICODE] lvd.c:159:    eproc _ConfigureLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void functio
                             n ( ) fixed}
-0041                  00447 _00165_DS_:
-0041   0002           00448         RETURN  
-                      00449 ; exit point of _ConfigureLvd
-                      00450 
-                      00451 ;***
-                      00452 ;  pBlock Stats: dbName = C
-                      00453 ;***
-                      00454 ;has an exit
-                      00455 ;functions called:
-                      00456 ;   _DelayMs
-                      00457 ;   _DelayMs
-                      00458 ;1 compiler assigned register :
-                      00459 ;   r0x100C
-                      00460 ;; Starting pCode block
-                      00461 ;;[ICODE] lvd.c:35:  _entry($32) :
-                      00462 ;;[ICODE] lvd.c:35:     proc _CheckLvdElectric [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void func
+                      00156 ;       .line   159; "lvd.c"    }
+0000   0002           00157         RETURN  
+                      00158 ; exit point of _ConfigureLvd
+                      00159 
+                      00160 ;***
+                      00161 ;  pBlock Stats: dbName = C
+                      00162 ;***
+                      00163 ;has an exit
+                      00164 ;; Starting pCode block
+                      00165 ;;[ICODE] lvd.c:35:  _entry($2) :
+                      00166 ;;[ICODE] lvd.c:35:     proc _CheckLvdElectric [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void func
                             tion ( unsigned-char fixed) fixed}
-                      00463 S_lvd__CheckLvdElectric code
-0000                  00464 _CheckLvdElectric:
-                      00465 ; 2 exit points
-                      00466 ;;[ICODE] lvd.c:35: iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _
-                            CheckLvdElectric_num_1_12}[r0x1049 ] = recv _CheckLvdElectric [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0
-                             dp0}{void function ( unsigned-char fixed) fixed}
-                      00467 ;       .line   35; "lvd.c"     void CheckLvdElectric(BYTE num)
-0000   19??           00468         MOVWF   r0x100C
-                      00469 ;;[ICODE] lvd.c:37:     if iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{
-                             sir@ _CheckLvdElectric_num_1_12}[r0x1049 ] != 0 goto __iffalse_4($13)
-                      00470 ;       .line   37; "lvd.c"     if(0 == num)
-0001   11??           00471         MOVF    r0x100C,W
-0002   3103           00472         BTFSS   STATUS,2
-0003   2???           00473         GOTO    _00121_DS_
-                      00474 ;;[ICODE] lvd.c:38:     _PCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
-                            } := 0x1e {const-unsigned-char literal}
-                      00475 ;       .line   38; "lvd.c"     PCON = PCON0;  //00011110  4.2v
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 12
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-0004   041E           00476         MOVLW   0x1e
-0005   19??           00477         MOVWF   _PCON
-                      00478 ;;[ICODE] lvd.c:38:      goto __ifend_4($14)
-0006   2???           00479         GOTO    _00122_DS_
-                      00480 ;;[ICODE] lvd.c:38:  __iffalse_4($13) :
-                      00481 ;;[ICODE] lvd.c:39:     iTemp1 [k5 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x1 {const-
-                            unsigned-char literal} == iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ 
-                            sir@ _CheckLvdElectric_num_1_12}[r0x1049 ]
-0007                  00482 _00121_DS_:
-                      00483 ;       .line   39; "lvd.c"     else if(1 == num)
-0007   11??           00484         MOVF    r0x100C,W
-0008   0D01           00485         XORLW   0x01
-0009   3103           00486         BTFSS   STATUS,2
-000A   2???           00487         GOTO    _00118_DS_
-                      00488 ;;[ICODE] lvd.c:39:     if iTemp1 [k5 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto 
-                            __iffalse_3($10)
-                      00489 ;;[ICODE] lvd.c:40:     _PCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
-                            } := 0x1c {const-unsigned-char literal}
-                      00490 ;       .line   40; "lvd.c"     PCON = PCON1;  //00011100  4.1v
-000B   041C           00491         MOVLW   0x1c
-000C   19??           00492         MOVWF   _PCON
-                      00493 ;;[ICODE] lvd.c:40:      goto __ifend_4($14)
-000D   2???           00494         GOTO    _00122_DS_
-                      00495 ;;[ICODE] lvd.c:40:  __iffalse_3($10) :
-                      00496 ;;[ICODE] lvd.c:41:     iTemp2 [k6 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x2 {cons
-                            t-unsigned-char literal} == iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}
-                            { sir@ _CheckLvdElectric_num_1_12}[r0x1049 ]
-000E                  00497 _00118_DS_:
-                      00498 ;       .line   41; "lvd.c"     else if(2 == num)
-000E   11??           00499         MOVF    r0x100C,W
-000F   0D02           00500         XORLW   0x02
-0010   3103           00501         BTFSS   STATUS,2
-0011   2???           00502         GOTO    _00115_DS_
-                      00503 ;;[ICODE] lvd.c:41:     if iTemp2 [k6 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 got
-                            o __iffalse_2($7)
-                      00504 ;;[ICODE] lvd.c:42:     _PCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
-                            } := 0x12 {const-unsigned-char literal}
-                      00505 ;       .line   42; "lvd.c"     PCON = PCON2;  //00010010  3.3v
-0012   0412           00506         MOVLW   0x12
-0013   19??           00507         MOVWF   _PCON
-                      00508 ;;[ICODE] lvd.c:42:      goto __ifend_4($14)
-0014   2???           00509         GOTO    _00122_DS_
-                      00510 ;;[ICODE] lvd.c:42:  __iffalse_2($7) :
-                      00511 ;;[ICODE] lvd.c:43:     iTemp3 [k7 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x3 {cons
-                            t-unsigned-char literal} == iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}
-                            { sir@ _CheckLvdElectric_num_1_12}[r0x1049 ]
-0015                  00512 _00115_DS_:
-                      00513 ;       .line   43; "lvd.c"     else if(3 == num)
-0015   11??           00514         MOVF    r0x100C,W
-0016   0D03           00515         XORLW   0x03
-0017   3103           00516         BTFSS   STATUS,2
-0018   2???           00517         GOTO    _00112_DS_
-                      00518 ;;[ICODE] lvd.c:43:     if iTemp3 [k7 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 got
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 13
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                            o __iffalse_1($4)
-                      00519 ;;[ICODE] lvd.c:44:     _PCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
-                            } := 0xe {const-unsigned-char literal}
-                      00520 ;       .line   44; "lvd.c"     PCON = PCON3;  //00001110  3.0v
-0019   040E           00521         MOVLW   0x0e
-001A   19??           00522         MOVWF   _PCON
-                      00523 ;;[ICODE] lvd.c:44:      goto __ifend_4($14)
-001B   2???           00524         GOTO    _00122_DS_
-                      00525 ;;[ICODE] lvd.c:44:  __iffalse_1($4) :
-                      00526 ;;[ICODE] lvd.c:45:     iTemp4 [k8 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x4 {cons
-                            t-unsigned-char literal} == iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}
-                            { sir@ _CheckLvdElectric_num_1_12}[r0x1049 ]
-001C                  00527 _00112_DS_:
-                      00528 ;       .line   45; "lvd.c"     else if(4 == num)
-001C   11??           00529         MOVF    r0x100C,W
-001D   0D04           00530         XORLW   0x04
-001E   3103           00531         BTFSS   STATUS,2
-001F   2???           00532         GOTO    _00122_DS_
-                      00533 ;;[ICODE] lvd.c:45:     if iTemp4 [k8 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 got
-                            o __ifend_4($14)
-                      00534 ;;[ICODE] lvd.c:46:     _PCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
-                            } := 0xc {const-unsigned-char literal}
-                      00535 ;       .line   46; "lvd.c"     PCON = PCON4;  //00001100  2.8v 
-0020   040C           00536         MOVLW   0x0c
-0021   19??           00537         MOVWF   _PCON
-                      00538 ;;[ICODE] lvd.c:46:  __ifend_4($14) :
-                      00539 ;;[ICODE] lvd.c:48:     iTemp6 [k12 lr27:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitf
-                            ield {0,1} near* fixed}[remat] = &[_PCONbits [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-st
-                            ruct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                      00540 ;;[ICODE] lvd.c:48:     *(iTemp6 [k12 lr27:29 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bi
-                            tfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-0022                  00541 _00122_DS_:
-                      00542 ;       .line   48; "lvd.c"     CMPEN = 1; //开启比较器
-0022   38??           00543         BSF     _PCONbits,0
-                      00544 ;;[ICODE] lvd.c:49:     iTemp7 [k14 lr30:30 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _De
-                            layMs [k13 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00545 ;       .line   49; "lvd.c"     DelayMs();
-0023   2???           00546         CALL    _DelayMs
-                      00547 ;;[ICODE] lvd.c:53:     iTemp9 [k17 lr31:33 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitf
-                            ield {5,1} near* fixed}[remat] = &[_PCONbits [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-st
-                            ruct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                      00548 ;;[ICODE] lvd.c:53:     iTemp10 [k18 lr33:34 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {5,1} fixed}[r0x104A ] = @[iTemp9 [k17 lr31:33 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsi
-                            gned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                      00549 ;       .line   53; "lvd.c"     if(0 == CMPOF)   //电压达到
-0024   36??           00550         BTFSC   _PCONbits,5
-0025   2???           00551         GOTO    _00130_DS_
-                      00552 ;;[ICODE] lvd.c:53:     if iTemp10 [k18 lr33:34 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
-                            bitfield {5,1} fixed}[r0x104A ] != 0 goto __iffalse_7($22)
-                      00553 ;;[ICODE] lvd.c:55:     iTemp11 [k20 lr35:36 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = iTemp0 
-                            [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _CheckLvdElectric_num_1_12}[
-                            r0x1049 ] == _LvdDebounceOld [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
-                      00554 ;       .line   55; "lvd.c"     if(num == LvdDebounceOld)
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 14
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-0026   11??           00555         MOVF    _LvdDebounceOld,W
-0027   1F??           00556         XORWF   r0x100C,W
-0028   3103           00557         BTFSS   STATUS,2
-0029   2???           00558         GOTO    _00124_DS_
-                      00559 ;;[ICODE] lvd.c:55:     if iTemp11 [k20 lr35:36 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_5($16)
-                      00560 ;;[ICODE] lvd.c:57:     _LvdModelCount [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} = _LvdModelCount [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const
-                            -unsigned-char literal}
-                      00561 ;       .line   57; "lvd.c"     LvdModelCount ++;       
-002A   13??           00562         INCF    _LvdModelCount,F
-                      00563 ;;[ICODE] lvd.c:57:      goto __ifend_5($17)
-002B   2???           00564         GOTO    _00125_DS_
-                      00565 ;;[ICODE] lvd.c:57:  __iffalse_5($16) :
-                      00566 ;;[ICODE] lvd.c:61:     _LvdModelCount [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} := 0x0 {const-unsigned-char literal}
-002C                  00567 _00124_DS_:
-                      00568 ;       .line   61; "lvd.c"     LvdModelCount = 0;
-002C   18??           00569         CLRF    _LvdModelCount
-                      00570 ;;[ICODE] lvd.c:61:  __ifend_5($17) :
-                      00571 ;;[ICODE] lvd.c:63:     _LvdDebounceOld [k19 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char f
-                            ixed} := iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _CheckLvdEle
-                            ctric_num_1_12}[r0x1049 ]
-002D                  00572 _00125_DS_:
-                      00573 ;       .line   63; "lvd.c"     LvdDebounceOld = num;  
-002D   11??           00574         MOVF    r0x100C,W
-002E   19??           00575         MOVWF   _LvdDebounceOld
-                      00576 ;;[ICODE] lvd.c:63:      goto __ifend_7($23)
-002F   2???           00577         GOTO    _00131_DS_
-                      00578 ;;[ICODE] lvd.c:63:  __iffalse_7($22) :
-                      00579 ;;[ICODE] lvd.c:67:     iTemp17 [k27 lr46:47 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x4 {co
-                            nst-unsigned-char literal} == iTemp0 [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixe
-                            d}{ sir@ _CheckLvdElectric_num_1_12}[r0x1049 ]
-0030                  00580 _00130_DS_:
-                      00581 ;       .line   67; "lvd.c"     if(4 == num)   //没电(小于2.8V)
-0030   11??           00582         MOVF    r0x100C,W
-0031   0D04           00583         XORLW   0x04
-0032   3103           00584         BTFSS   STATUS,2
-0033   2???           00585         GOTO    _00127_DS_
-                      00586 ;;[ICODE] lvd.c:67:     if iTemp17 [k27 lr46:47 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_6($19)
-                      00587 ;;[ICODE] lvd.c:69:     _LvdModelCount [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} = _LvdModelCount [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const
-                            -unsigned-char literal}
-                      00588 ;       .line   69; "lvd.c"     LvdModelCount++;
-0034   13??           00589         INCF    _LvdModelCount,F
-                      00590 ;;[ICODE] lvd.c:70:     _LvdDebounceOld [k19 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char f
-                            ixed} := 0x5 {const-unsigned-char literal}
-                      00591 ;       .line   70; "lvd.c"     LvdDebounceOld = 5;
-0035   0405           00592         MOVLW   0x05
-0036   19??           00593         MOVWF   _LvdDebounceOld
-                      00594 ;;[ICODE] lvd.c:70:      goto __ifend_7($23)
-0037   2???           00595         GOTO    _00131_DS_
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 15
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                      00596 ;;[ICODE] lvd.c:70:  __iffalse_6($19) :
-                      00597 ;;[ICODE] lvd.c:74:     _LvdModelCount [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} := 0x0 {const-unsigned-char literal}
-0038                  00598 _00127_DS_:
-                      00599 ;       .line   74; "lvd.c"     LvdModelCount = 0;
-0038   18??           00600         CLRF    _LvdModelCount
-                      00601 ;;[ICODE] lvd.c:75:     _LvdDebounceNew [k33 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char f
-                            ixed} = _LvdDebounceNew [k33 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {con
-                            st-unsigned-char literal}
-                      00602 ;       .line   75; "lvd.c"     LvdDebounceNew++;
-0039   13??           00603         INCF    _LvdDebounceNew,F
-                      00604 ;;[ICODE] lvd.c:75:  __ifend_7($23) :
-                      00605 ;;[ICODE] lvd.c:79:     iTemp26 [k37 lr57:58 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} = _LvdDebo
-                            unceNew [k33 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x5 {const-unsigned-char
-                             literal}
-                      00606 ;;unsigned compare: left < lit(0x5=5), size=1
-003A                  00607 _00131_DS_:
-                      00608 ;       .line   79; "lvd.c"     if(LvdDebounceNew >= 5) 
-003A   0405           00609         MOVLW   0x05
-                      00610 ;       .line   81; "lvd.c"     LvdDebounceNew = 0;
-003B   1B??           00611         SUBWF   _LvdDebounceNew,W
-                      00612 ;       .line   84; "lvd.c"     CMPOF = 0;
-003C   3403           00613         BTFSC   STATUS,0
-003D   18??           00614         CLRF    _LvdDebounceNew
-003E   3E??           00615         BCF     _PCONbits,5
-                      00616 ;       .line   85; "lvd.c"     CMPEN = 0;
-003F   3C??           00617         BCF     _PCONbits,0
-                      00618 ;;[ICODE] lvd.c:87:     iTemp32 [k45 lr67:68 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} = 0xfa {co
-                            nst-unsigned-char literal} > _LvdModelCount [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
-                            ar fixed}
-                      00619 ;;unsigned compare: left < lit(0xFA=250), size=1
-                      00620 ;       .line   87; "lvd.c"     if(250 <= LvdModelCount)  //防抖
-0040   04FA           00621         MOVLW   0xfa
-0041   1B??           00622         SUBWF   _LvdModelCount,W
-0042   3003           00623         BTFSS   STATUS,0
-0043   2???           00624         GOTO    _00139_DS_
-                      00625 ;;genSkipc:3257: created from rifx:0x782c44
-                      00626 ;;[ICODE] lvd.c:87:     if iTemp32 [k45 lr67:68 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 go
-                            to _return($31)
-                      00627 ;;[ICODE] lvd.c:89:     _LvdDebounceNew [k33 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char f
-                            ixed} := 0x0 {const-unsigned-char literal}
-                      00628 ;       .line   89; "lvd.c"     LvdDebounceNew = 0;
-0044   18??           00629         CLRF    _LvdDebounceNew
-                      00630 ;;[ICODE] lvd.c:90:     _LvdModelCount [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fi
-                            xed} := 0x0 {const-unsigned-char literal}
-                      00631 ;       .line   90; "lvd.c"     LvdModelCount = 0;
-0045   18??           00632         CLRF    _LvdModelCount
-                      00633 ;;[ICODE] lvd.c:91:     _LvdModel [k48 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
-                            := _LvdDebounceOld [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
-                      00634 ;       .line   91; "lvd.c"     LvdModel = LvdDebounceOld;
-0046   11??           00635         MOVF    _LvdDebounceOld,W
-0047   19??           00636         MOVWF   _LvdModel
-                      00637 ;;[ICODE] lvd.c:92:     iTemp36 [k50 lr73:74 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x5 {co
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 16
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                            nst-unsigned-char literal} == _LvdModel [k48 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char f
-                            ixed}
-                      00638 ;       .line   92; "lvd.c"     if(5 == LvdModel)
-0048   11??           00639         MOVF    _LvdModel,W
-0049   0D05           00640         XORLW   0x05
-004A   3103           00641         BTFSS   STATUS,2
-004B   2???           00642         GOTO    _00135_DS_
-                      00643 ;;[ICODE] lvd.c:92:     if iTemp36 [k50 lr73:74 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_9($27)
-                      00644 ;;[ICODE] lvd.c:94:     iTemp38 [k54 lr75:77 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,
-                            1} near* fixed}[remat] = &[_BITS_DATA0 [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t
-                             fixed} , 0x0 {const-unsigned-char literal}]
-                      00645 ;;[ICODE] lvd.c:94:     *(iTemp38 [k54 lr75:77 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
-                            1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00646 ;       .line   94; "lvd.c"     LowBat = 1;
-004C   38??           00647         BSF     _BITS_DATA0,1
-                      00648 ;;[ICODE] lvd.c:94:      goto _return($31)
-004D   2???           00649         GOTO    _00139_DS_
-                      00650 ;;[ICODE] lvd.c:94:  __iffalse_9($27) :
-                      00651 ;;[ICODE] lvd.c:98:     iTemp40 [k57 lr80:82 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {1,
-                            1} near* fixed}[remat] = &[_BITS_DATA0 [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t
-                             fixed} , 0x0 {const-unsigned-char literal}]
-                      00652 ;;[ICODE] lvd.c:98:     *(iTemp40 [k57 lr80:82 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
-                            1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-004E                  00653 _00135_DS_:
-                      00654 ;       .line   98; "lvd.c"     LowBat = 0;
-004E   3C??           00655         BCF     _BITS_DATA0,1
-                      00656 ;;[ICODE] lvd.c:98:  _return($31) :
-                      00657 ;;[ICODE] lvd.c:98:     eproc _CheckLvdElectric [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fun
+                      00167 S_lvd__CheckLvdElectric code
+0000                  00168 _CheckLvdElectric:
+                      00169 ; 2 exit points
+                      00170 ;;[ICODE] lvd.c:39:  _return($1) :
+                      00171 ;;[ICODE] lvd.c:39:     eproc _CheckLvdElectric [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fun
                             ction ( unsigned-char fixed) fixed}
-004F                  00658 _00139_DS_:
-004F   0002           00659         RETURN  
-                      00660 ; exit point of _CheckLvdElectric
-                      00661 
-                      00662 ;***
-                      00663 ;  pBlock Stats: dbName = C
-                      00664 ;***
-                      00665 ;has an exit
-                      00666 ;; Starting pCode block
-                      00667 ;;[ICODE] lvd.c:9:  _entry($2) :
-                      00668 ;;[ICODE] lvd.c:9:      proc _CheckLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
+                      00172 ;       .line   39; "lvd.c"     if(num == 1){}
+0000   0002           00173         RETURN  
+                      00174 ; exit point of _CheckLvdElectric
+                      00175 
+                      00176 ;***
+                      00177 ;  pBlock Stats: dbName = C
+                      00178 ;***
+                      00179 ;has an exit
+                      00180 ;; Starting pCode block
+                      00181 ;;[ICODE] lvd.c:9:  _entry($2) :
+                      00182 ;;[ICODE] lvd.c:9:      proc _CheckLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
                              fixed}
-                      00669 S_lvd__CheckLvd code
-0000                  00670 _CheckLvd:
-                      00671 ; 2 exit points
-                      00672 ;;[ICODE] lvd.c:31:  _return($1) :
-                      00673 ;;[ICODE] lvd.c:31:     eproc _CheckLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
+                      00183 S_lvd__CheckLvd code
+0000                  00184 _CheckLvd:
+                      00185 ; 2 exit points
+                      00186 ;;[ICODE] lvd.c:31:  _return($1) :
+                      00187 ;;[ICODE] lvd.c:31:     eproc _CheckLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
                             ) fixed}
-                      00674 ;       .line   31; "lvd.c"     }
-0000   0002           00675         RETURN  
-                      00676 ; exit point of _CheckLvd
-                      00677 
-                      00678 
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 17
+                      00188 ;       .line   31; "lvd.c"     }
+0000   0002           00189         RETURN  
+                      00190 ; exit point of _CheckLvd
+                      00191 
+                      00192 
+                      00193 ;       code size estimation:
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00679 ;       code size estimation:
-                      00680 ;         188+    0 =   188 instructions (  376 byte)
-                      00681 
-                      00682         end
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 18
+                      00194 ;           4+    0 =     4 instructions (    8 byte)
+                      00195 
+                      00196         end
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  6
 
 
 SYMBOL TABLE
@@ -1011,7 +302,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 19
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  7
 
 
 SYMBOL TABLE
@@ -1070,7 +361,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 20
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  8
 
 
 SYMBOL TABLE
@@ -1129,7 +420,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 21
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  9
 
 
 SYMBOL TABLE
@@ -1163,40 +454,6 @@ W                                 CONSTANT      00000000              0
 WDTEN                             CONSTANT      00000007              7
 WSAVE                             EXTERNAL      00000000              0
 Z                                 CONSTANT      00000002              2
-_00112_DS_                        ADDRESS       0000001C             28
-_00115_DS_                        ADDRESS       00000015             21
-_00118_DS_                        ADDRESS       0000000E             14
-_00121_DS_                        ADDRESS       00000007              7
-_00122_DS_                        ADDRESS       00000022             34
-_00124_DS_                        ADDRESS       0000002C             44
-_00125_DS_                        ADDRESS       0000002D             45
-_00127_DS_                        ADDRESS       00000038             56
-_00130_DS_                        ADDRESS       00000030             48
-_00131_DS_                        ADDRESS       0000003A             58
-_00135_DS_                        ADDRESS       0000004E             78
-_00139_DS_                        ADDRESS       0000004F             79
-_00147_DS_                        ADDRESS       00000008              8
-_00148_DS_                        ADDRESS       00000011             17
-_00150_DS_                        ADDRESS       00000018             24
-_00152_DS_                        ADDRESS       0000001B             27
-_00154_DS_                        ADDRESS       00000023             35
-_00156_DS_                        ADDRESS       00000029             41
-_00158_DS_                        ADDRESS       0000002F             47
-_00160_DS_                        ADDRESS       00000035             53
-_00162_DS_                        ADDRESS       0000003B             59
-_00165_DS_                        ADDRESS       00000041             65
-_00171_DS_                        ADDRESS       00000015             21
-_00176_DS_                        ADDRESS       00000022             34
-_00179_DS_                        ADDRESS       0000001A             26
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 22
-
-
-SYMBOL TABLE
-  LABEL                              TYPE        VALUE         VALUE          VALUE
-                                                 (hex)         (dec)          (text)
-
-_00182_DS_                        ADDRESS       00000008              8
-_00184_DS_                        ADDRESS       00000028             40
 _AUXR                             EXTERNAL      00000000              0
 _AUXRbits                         EXTERNAL      00000000              0
 _BITS_DATA0                       EXTERNAL      00000000              0
@@ -1222,6 +479,13 @@ _ControlSos                       EXTERNAL      00000000              0
 _DelayMs                          EXTERNAL      00000000              0
 _FOSC_HS                          CONSTANT      00003FFD          16381
 _FOSC_INTRCIO                     CONSTANT      00003FFC          16380
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
 _FOSC_LP                          CONSTANT      00003CFF          15615
 _FOSC_XT                          CONSTANT      00003DFF          15871
 _FSR                              EXTERNAL      00000000              0
@@ -1238,22 +502,10 @@ _INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
 _IOCB                             EXTERNAL      00000000              0
 _IOCBbits                         EXTERNAL      00000000              0
 _LP_OSC                           CONSTANT      00003CFF          15615
-_LvdDebounceNew                   EXTERNAL      00000000              0
-_LvdDebounceOld                   EXTERNAL      00000000              0
-_LvdLightCount                    EXTERNAL      00000000              0
-_LvdModel                         EXTERNAL      00000000              0
-_LvdModelCount                    EXTERNAL      00000000              0
 _MaxLight                         EXTERNAL      00000000              0
 _ODCON                            EXTERNAL      00000000              0
 _ODCONbits                        EXTERNAL      00000000              0
 _OPTION                           EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 23
-
-
-SYMBOL TABLE
-  LABEL                              TYPE        VALUE         VALUE          VALUE
-                                                 (hex)         (dec)          (text)
-
 _OPTIONbits                       EXTERNAL      00000000              0
 _OSCCON                           EXTERNAL      00000000              0
 _OSCCONbits                       EXTERNAL      00000000              0
@@ -1286,6 +538,13 @@ _T0CRbits                         EXTERNAL      00000000              0
 _T1                               EXTERNAL      00000000              0
 _T1CON                            EXTERNAL      00000000              0
 _T1CONbits                        EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
 _T1LOAD                           EXTERNAL      00000000              0
 _TRISB                            EXTERNAL      00000000              0
 _TRISBbits                        EXTERNAL      00000000              0
@@ -1306,13 +565,6 @@ __BANK_BITS                       CONSTANT      00000080            128
 __BANK_FIRST                      CONSTANT      00000000              0
 __BANK_INV                        CONSTANT      FFFFFFFF             -1
 __BANK_LAST                       CONSTANT      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 24
-
-
-SYMBOL TABLE
-  LABEL                              TYPE        VALUE         VALUE          VALUE
-                                                 (hex)         (dec)          (text)
-
 __BANK_MASK                       CONSTANT      0000007F            127
 __BANK_SHIFT                      CONSTANT      00000007              7
 __BANK_SIZE                       CONSTANT      00000080            128
@@ -1335,18 +587,8 @@ __PAGE_SIZE                       CONSTANT      00000000              0
 __VECTOR_INT                      CONSTANT      00000008              8
 __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
-_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
-_g_ucFlashTimeHigh                EXTERNAL      00000000              0
-_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
-_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
-_g_ucFlashTimeLow                 EXTERNAL      00000000              0
-_g_ucFlashTimeLow1                EXTERNAL      00000000              0
-_g_ucFlashTimeLow2                EXTERNAL      00000000              0
 _g_ucTimer10msCount               EXTERNAL      00000000              0
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
-r0x100A                           STATIC        00000001              1
-r0x100C                           STATIC        00000000              0
-r0x1009                           STATIC        00000002              2
 
 Errors   :     0
 Warnings :     0 reported,     0 suppressed

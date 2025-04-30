@@ -88,7 +88,7 @@ void CheckSleep()
 	TRISB = 0xCC; //00001100
 	MODSEL = 1;
 	SleepCount = 0;
-	LvdDebounceNew = 0;
-	LvdModelCount = 0;
-	LowBat = 0;
+//	LvdDebounceNew = 0;
+//	LvdModelCount = 0;
+//	LowBat = 0;
 }

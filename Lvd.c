@@ -34,6 +34,11 @@ void CheckLvd(void)
 
 void CheckLvdElectric(BYTE num)
 {
+
+
+if(num == 1){}
+
+	#if 0
 	if(0 == num)
 		PCON = PCON0;  //00011110  4.2v
 	else if(1 == num)
@@ -98,10 +103,12 @@ void CheckLvdElectric(BYTE num)
 			LowBat = 0;
 		}
 	}
+		#endif
 }
 
 void ConfigureLvd(void)
 {	
+	#if 0
 	if(0 == CHARF)  //VDD检查大于4.4V时产生充电中断
 	{
 		ControlLvdCfg(4);
@@ -147,10 +154,17 @@ void ConfigureLvd(void)
 		ControlLvdCfg(1);
 	if(LvdModel == 5)        //没电
 		ControlLvdCfg(1);
+
+		#endif
 }
 
 void ControlLvdCfg(BYTE num)
 {
+
+	if(num == 1){}
+
+
+	#if 0
 	if(1 == num)   //涓流充电
 	{
 		CHARGE0 = CHARGE0A;
@@ -179,6 +193,6 @@ void ControlLvdCfg(BYTE num)
 		CHARGE0 = CHARGE0D;
 		CHARGE1 = CHARGE1D;
 	}
-
+#endif
 	
 }

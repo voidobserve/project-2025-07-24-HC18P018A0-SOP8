@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _PORTB
   0000                00041         extern  _GPR
   0000                00042         extern  _PCON
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -112,178 +112,106 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00089         global  _BITS_DATA1
   0000                00090         global  _g_ucTimer10msCount
   0000                00091         global  _g_ucTimerWorkCount
-  0000                00092         global  _g_ucFlashTimeHigh
-  0000                00093         global  _g_ucFlashTimeLow
-  0000                00094         global  _g_ucFlashTimeHigh1
-  0000                00095         global  _g_ucFlashTimeLow1
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  3
+  0000                00092         global  _TempCount
+  0000                00093         global  _TempFlag
+  0000                00094         global  _SleepCount
+  0000                00095         global  _SleepFlag
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00096         global  _g_ucFlashTimeHigh2
-  0000                00097         global  _g_ucFlashTimeLow2
-  0000                00098         global  _LvdModel
-  0000                00099         global  _LvdDebounceNew
-  0000                00100         global  _LvdDebounceOld
-  0000                00101         global  _LvdModelCount
-  0000                00102         global  _LvdLightCount
-  0000                00103         global  _TempCount
-  0000                00104         global  _TempFlag
-  0000                00105         global  _SleepCount
-  0000                00106         global  _SleepFlag
-  0000                00107         global  _MaxLight
-  0000                00108         global  _g_cucTIMER_COUNT_STATE
-                      00109 
+  0000                00096         global  _MaxLight
+  0000                00097         global  _g_cucTIMER_COUNT_STATE
+                      00098 
+                      00099 ;--------------------------------------------------------
+                      00100 ; global definitions
+                      00101 ;--------------------------------------------------------
+                      00102 UD_variable_0   udata
+0000                  00103 _BITS_DATA0     res     1
+                      00104 
+                      00105 UD_variable_1   udata
+0000                  00106 _BITS_DATA1     res     2
+                      00107 
+                      00108 ;--------------------------------------------------------
+                      00109 ; absolute symbol definitions
                       00110 ;--------------------------------------------------------
-                      00111 ; global definitions
-                      00112 ;--------------------------------------------------------
-                      00113 UD_variable_0   udata
-0000                  00114 _BITS_DATA0     res     1
-                      00115 
-                      00116 UD_variable_1   udata
-0000                  00117 _BITS_DATA1     res     2
-                      00118 
-                      00119 ;--------------------------------------------------------
-                      00120 ; absolute symbol definitions
-                      00121 ;--------------------------------------------------------
-                      00122 ;--------------------------------------------------------
-                      00123 ; compiler-defined variables
-                      00124 ;--------------------------------------------------------
-                      00125 ;--------------------------------------------------------
-                      00126 ; initialized data
-                      00127 ;--------------------------------------------------------
-                      00128 
-                      00129 ID_variable_0   idata
-0000                  00130 _g_ucTimer10msCount
-0000   00             00131         db      0x00
+                      00111 ;--------------------------------------------------------
+                      00112 ; compiler-defined variables
+                      00113 ;--------------------------------------------------------
+                      00114 ;--------------------------------------------------------
+                      00115 ; initialized data
+                      00116 ;--------------------------------------------------------
+                      00117 
+                      00118 ID_variable_0   idata
+0000                  00119 _g_ucTimer10msCount
+0000   00             00120         db      0x00
+                      00121 
+                      00122 
+                      00123 ID_variable_1   idata
+0000                  00124 _g_ucTimerWorkCount
+0000   00             00125         db      0x00
+                      00126 
+                      00127 
+                      00128 ID_variable_2   idata
+0000                  00129 _TempCount
+0000   00             00130         db      0x00
+                      00131 
                       00132 
-                      00133 
-                      00134 ID_variable_1   idata
-0000                  00135 _g_ucTimerWorkCount
-0000   00             00136         db      0x00
+                      00133 ID_variable_3   idata
+0000                  00134 _TempFlag
+0000   00             00135         db      0x00
+                      00136 
                       00137 
-                      00138 
-                      00139 ID_variable_2   idata
-0000                  00140 _g_ucFlashTimeHigh
-0000   00             00141         db      0x00
+                      00138 ID_variable_4   idata
+0000                  00139 _SleepCount
+0000   00             00140         db      0x00
+                      00141 
                       00142 
-                      00143 
-                      00144 ID_variable_3   idata
-0000                  00145 _g_ucFlashTimeLow
-0000   00             00146         db      0x00
+                      00143 ID_variable_5   idata
+0000                  00144 _SleepFlag
+0000   00             00145         db      0x00
+                      00146 
                       00147 
-                      00148 
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  4
+                      00148 ID_variable_6   idata
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00149 ID_variable_4   idata
-0000                  00150 _g_ucFlashTimeHigh1
-0000   00             00151         db      0x00
+0000                  00149 _MaxLight
+0000   00             00150         db      0x00
+                      00151 
                       00152 
-                      00153 
-                      00154 ID_variable_5   idata
-0000                  00155 _g_ucFlashTimeLow1
-0000   00             00156         db      0x00
-                      00157 
-                      00158 
-                      00159 ID_variable_6   idata
-0000                  00160 _g_ucFlashTimeHigh2
-0000   00             00161         db      0x00
-                      00162 
-                      00163 
-                      00164 ID_variable_7   idata
-0000                  00165 _g_ucFlashTimeLow2
-0000   00             00166         db      0x00
-                      00167 
-                      00168 
-                      00169 ID_variable_8   idata
-0000                  00170 _LvdModel
-0000   00             00171         db      0x00
-                      00172 
-                      00173 
-                      00174 ID_variable_9   idata
-0000                  00175 _LvdDebounceNew
-0000   00             00176         db      0x00
+                      00153 ID_variable_7   code
+0000                  00154 _g_cucTIMER_COUNT_STATE
+0000   0101           00155         retlw 0x01
+0001   0101           00156         retlw 0x01
+0002   0101           00157         retlw 0x01
+0003   0101           00158         retlw 0x01
+0004   0104           00159         retlw 0x04
+0005   0104           00160         retlw 0x04
+0006   0101           00161         retlw 0x01
+0007   0104           00162         retlw 0x04
+0008   0101           00163         retlw 0x01
+0009   0101           00164         retlw 0x01
+                      00165 
+                      00166 ;--------------------------------------------------------
+                      00167 ; overlayable items in internal ram 
+                      00168 ;--------------------------------------------------------
+                      00169 ;       udata_ovr
+                      00170 ;--------------------------------------------------------
+                      00171 ; code
+                      00172 ;--------------------------------------------------------
+                      00173 code_variable   code
+                      00174 
+                      00175 ;       code size estimation:
+                      00176 ;           0+    0 =     0 instructions (    0 byte)
                       00177 
-                      00178 
-                      00179 ID_variable_10  idata
-0000                  00180 _LvdDebounceOld
-0000   00             00181         db      0x00
-                      00182 
-                      00183 
-                      00184 ID_variable_11  idata
-0000                  00185 _LvdModelCount
-0000   00             00186         db      0x00
-                      00187 
-                      00188 
-                      00189 ID_variable_12  idata
-0000                  00190 _LvdLightCount
-0000   00             00191         db      0x00
-                      00192 
-                      00193 
-                      00194 ID_variable_13  idata
-0000                  00195 _TempCount
-0000   00             00196         db      0x00
-                      00197 
-                      00198 
-                      00199 ID_variable_14  idata
-0000                  00200 _TempFlag
-0000   00             00201         db      0x00
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  5
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                      00202 
-                      00203 
-                      00204 ID_variable_15  idata
-0000                  00205 _SleepCount
-0000   00             00206         db      0x00
-                      00207 
-                      00208 
-                      00209 ID_variable_16  idata
-0000                  00210 _SleepFlag
-0000   00             00211         db      0x00
-                      00212 
-                      00213 
-                      00214 ID_variable_17  idata
-0000                  00215 _MaxLight
-0000   00             00216         db      0x00
-                      00217 
-                      00218 
-                      00219 ID_variable_18  code
-0000                  00220 _g_cucTIMER_COUNT_STATE
-0000   0101           00221         retlw 0x01
-0001   0101           00222         retlw 0x01
-0002   0101           00223         retlw 0x01
-0003   0101           00224         retlw 0x01
-0004   0104           00225         retlw 0x04
-0005   0104           00226         retlw 0x04
-0006   0101           00227         retlw 0x01
-0007   0104           00228         retlw 0x04
-0008   0101           00229         retlw 0x01
-0009   0101           00230         retlw 0x01
-                      00231 
-                      00232 ;--------------------------------------------------------
-                      00233 ; overlayable items in internal ram 
-                      00234 ;--------------------------------------------------------
-                      00235 ;       udata_ovr
-                      00236 ;--------------------------------------------------------
-                      00237 ; code
-                      00238 ;--------------------------------------------------------
-                      00239 code_variable   code
-                      00240 
-                      00241 ;       code size estimation:
-                      00242 ;           0+    0 =     0 instructions (    0 byte)
-                      00243 
-                      00244         end
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  6
+                      00178         end
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  5
 
 
 SYMBOL TABLE
@@ -342,7 +270,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  6
 
 
 SYMBOL TABLE
@@ -401,7 +329,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  7
 
 
 SYMBOL TABLE
@@ -460,7 +388,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  8
 
 
 SYMBOL TABLE
@@ -519,7 +447,7 @@ _INDF                             EXTERNAL      00000000              0
 _INTECON                          EXTERNAL      00000000              0
 _INTECONbits                      EXTERNAL      00000000              0
 _INTFLAG                          EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE  9
 
 
 SYMBOL TABLE
@@ -532,11 +460,6 @@ _INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
 _IOCB                             EXTERNAL      00000000              0
 _IOCBbits                         EXTERNAL      00000000              0
 _LP_OSC                           CONSTANT      00003CFF          15615
-_LvdDebounceNew                   GLOBAL        00000000              0
-_LvdDebounceOld                   GLOBAL        00000000              0
-_LvdLightCount                    GLOBAL        00000000              0
-_LvdModel                         GLOBAL        00000000              0
-_LvdModelCount                    GLOBAL        00000000              0
 _MaxLight                         GLOBAL        00000000              0
 _ODCON                            EXTERNAL      00000000              0
 _ODCONbits                        EXTERNAL      00000000              0
@@ -578,18 +501,18 @@ _TRISB                            EXTERNAL      00000000              0
 _TRISBbits                        EXTERNAL      00000000              0
 _TempCount                        GLOBAL        00000000              0
 _TempFlag                         GLOBAL        00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  11:05:30          PAGE 11
+_WDTE_OFF                         CONSTANT      00003FFB          16379
+_WDTE_ON                          CONSTANT      00003FFF          16383
+_WDT_OFF                          CONSTANT      00003FFB          16379
+_WDT_ON                           CONSTANT      00003FFF          16383
+_XT_OSC                           CONSTANT      00003DFF          15871
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  13:40:48          PAGE 10
 
 
 SYMBOL TABLE
   LABEL                              TYPE        VALUE         VALUE          VALUE
                                                  (hex)         (dec)          (text)
 
-_WDTE_OFF                         CONSTANT      00003FFB          16379
-_WDTE_ON                          CONSTANT      00003FFF          16383
-_WDT_OFF                          CONSTANT      00003FFB          16379
-_WDT_ON                           CONSTANT      00003FFF          16383
-_XT_OSC                           CONSTANT      00003DFF          15871
 __14_BIT                          CONSTANT      00000001              1
 __18P018A0                        CONSTANT      00000001              1
 __ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
@@ -623,12 +546,6 @@ __VECTOR_INT                      CONSTANT      00000008              8
 __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
 _g_cucTIMER_COUNT_STATE           GLOBAL        00000000              0
-_g_ucFlashTimeHigh                GLOBAL        00000000              0
-_g_ucFlashTimeHigh1               GLOBAL        00000000              0
-_g_ucFlashTimeHigh2               GLOBAL        00000000              0
-_g_ucFlashTimeLow                 GLOBAL        00000000              0
-_g_ucFlashTimeLow1                GLOBAL        00000000              0
-_g_ucFlashTimeLow2                GLOBAL        00000000              0
 _g_ucTimer10msCount               GLOBAL        00000000              0
 _g_ucTimerWorkCount               GLOBAL        00000000              0
 

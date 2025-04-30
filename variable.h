@@ -42,20 +42,20 @@ extern BYTE g_ucTimerWorkCount;
 // extern BYTE g_ucPWM_FlashControl1;
 // extern BYTE g_ucPWM_FlashControl2;
     
-extern BYTE g_ucFlashTimeHigh;  
-extern BYTE g_ucFlashTimeLow;
-extern BYTE g_ucFlashTimeHigh1;
-extern BYTE g_ucFlashTimeLow1;
-extern BYTE g_ucFlashTimeHigh2;
-extern BYTE g_ucFlashTimeLow2;
+// extern BYTE g_ucFlashTimeHigh;  
+// extern BYTE g_ucFlashTimeLow;
+// extern BYTE g_ucFlashTimeHigh1;
+// extern BYTE g_ucFlashTimeLow1;
+// extern BYTE g_ucFlashTimeHigh2;
+// extern BYTE g_ucFlashTimeLow2;
 
-extern const BYTE g_cucTIMER_COUNT_STATE[10];
-////////////////////////////
-extern BYTE LvdModel;
-extern BYTE LvdDebounceNew;
-extern BYTE LvdDebounceOld;
-extern BYTE LvdModelCount;
-extern BYTE LvdLightCount;
+// extern const BYTE g_cucTIMER_COUNT_STATE[10];
+// ////////////////////////////
+// extern BYTE LvdModel;
+// extern BYTE LvdDebounceNew;
+// extern BYTE LvdDebounceOld;
+// extern BYTE LvdModelCount;
+// extern BYTE LvdLightCount;
 
 extern BYTE TempCount;
 extern BYTE TempFlag;

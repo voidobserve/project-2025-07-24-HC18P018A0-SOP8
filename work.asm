@@ -41,23 +41,11 @@
 	extern	_BITS_DATA1
 	extern	_g_ucTimer10msCount
 	extern	_g_ucTimerWorkCount
-	extern	_g_ucFlashTimeHigh
-	extern	_g_ucFlashTimeLow
-	extern	_g_ucFlashTimeHigh1
-	extern	_g_ucFlashTimeLow1
-	extern	_g_ucFlashTimeHigh2
-	extern	_g_ucFlashTimeLow2
-	extern	_LvdModel
-	extern	_LvdDebounceNew
-	extern	_LvdDebounceOld
-	extern	_LvdModelCount
-	extern	_LvdLightCount
 	extern	_TempCount
 	extern	_TempFlag
 	extern	_SleepCount
 	extern	_SleepFlag
 	extern	_MaxLight
-	extern	_g_cucTIMER_COUNT_STATE
 	extern	_INDF
 	extern	_T0
 	extern	_PCL

@@ -13,18 +13,18 @@ BYTE g_ucTimerWorkCount = 0;
 // BYTE g_ucPWM_FlashControl1 = 0;
 // BYTE g_ucPWM_FlashControl2 = 0;
 
-BYTE g_ucFlashTimeHigh = 0;
-BYTE g_ucFlashTimeLow = 0;
-BYTE g_ucFlashTimeHigh1 = 0;
-BYTE g_ucFlashTimeLow1 = 0;
-BYTE g_ucFlashTimeHigh2 = 0;
-BYTE g_ucFlashTimeLow2 = 0;
+// BYTE g_ucFlashTimeHigh = 0;
+// BYTE g_ucFlashTimeLow = 0;
+// BYTE g_ucFlashTimeHigh1 = 0;
+// BYTE g_ucFlashTimeLow1 = 0;
+// BYTE g_ucFlashTimeHigh2 = 0;
+// BYTE g_ucFlashTimeLow2 = 0;
 /////////////////////////////////////////////////
-BYTE LvdModel = 0;
-BYTE LvdDebounceNew = 0;
-BYTE LvdDebounceOld = 0;
-BYTE LvdModelCount = 0;
-BYTE LvdLightCount = 0;
+// BYTE LvdModel = 0;
+// BYTE LvdDebounceNew = 0;
+// BYTE LvdDebounceOld = 0;
+// BYTE LvdModelCount = 0;
+// BYTE LvdLightCount = 0;
 
 BYTE TempCount = 0;
 BYTE TempFlag = 0;

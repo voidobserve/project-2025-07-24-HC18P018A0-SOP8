@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -54,222 +54,210 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00037         extern  _BITS_DATA1
   0000                00038         extern  _g_ucTimer10msCount
   0000                00039         extern  _g_ucTimerWorkCount
-  0000                00040         extern  _g_ucFlashTimeHigh
-  0000                00041         extern  _g_ucFlashTimeLow
-  0000                00042         extern  _g_ucFlashTimeHigh1
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  2
+  0000                00040         extern  _TempCount
+  0000                00041         extern  _TempFlag
+  0000                00042         extern  _SleepCount
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00043         extern  _g_ucFlashTimeLow1
-  0000                00044         extern  _g_ucFlashTimeHigh2
-  0000                00045         extern  _g_ucFlashTimeLow2
-  0000                00046         extern  _LvdModel
-  0000                00047         extern  _LvdDebounceNew
-  0000                00048         extern  _LvdDebounceOld
-  0000                00049         extern  _LvdModelCount
-  0000                00050         extern  _LvdLightCount
-  0000                00051         extern  _TempCount
-  0000                00052         extern  _TempFlag
-  0000                00053         extern  _SleepCount
-  0000                00054         extern  _SleepFlag
-  0000                00055         extern  _MaxLight
-  0000                00056         extern  _g_cucTIMER_COUNT_STATE
-  0000                00057         extern  _INDF
-  0000                00058         extern  _T0
-  0000                00059         extern  _PCL
-  0000                00060         extern  _STATUS
-  0000                00061         extern  _FSR
-  0000                00062         extern  _PORTB
-  0000                00063         extern  _GPR
-  0000                00064         extern  _PCON
-  0000                00065         extern  _IOCB
-  0000                00066         extern  _PCLATH
-  0000                00067         extern  _PDCON
-  0000                00068         extern  _ODCON
-  0000                00069         extern  _PHCON
-  0000                00070         extern  _INTECON
-  0000                00071         extern  _INTFLAG
-  0000                00072         extern  _OPTION
-  0000                00073         extern  _TRISB
-  0000                00074         extern  _PWMCON
-  0000                00075         extern  _PWM1P
-  0000                00076         extern  _PWM2P
-  0000                00077         extern  _T0CR
-  0000                00078         extern  _T1CON
-  0000                00079         extern  _T1
-  0000                00080         extern  _T1LOAD
-  0000                00081         extern  _PWM0P
-  0000                00082         extern  _OSCCON
-  0000                00083         extern  _CMPCR
-  0000                00084         extern  _PDCON1
-  0000                00085         extern  _CHARGE0
-  0000                00086         extern  _CHARGE1
-  0000                00087         extern  _RAMP
-  0000                00088         extern  _AUXR
-  0000                00089         extern  _HIRCTRM
-  0000                00090         extern  ___sdcc_saved_fsr
-                      00091 
-  0000                00092         extern PSAVE
-  0000                00093         extern SSAVE
-  0000                00094         extern WSAVE
-  0000                00095         extern STK12
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  3
+  0000                00043         extern  _SleepFlag
+  0000                00044         extern  _MaxLight
+  0000                00045         extern  _INDF
+  0000                00046         extern  _T0
+  0000                00047         extern  _PCL
+  0000                00048         extern  _STATUS
+  0000                00049         extern  _FSR
+  0000                00050         extern  _PORTB
+  0000                00051         extern  _GPR
+  0000                00052         extern  _PCON
+  0000                00053         extern  _IOCB
+  0000                00054         extern  _PCLATH
+  0000                00055         extern  _PDCON
+  0000                00056         extern  _ODCON
+  0000                00057         extern  _PHCON
+  0000                00058         extern  _INTECON
+  0000                00059         extern  _INTFLAG
+  0000                00060         extern  _OPTION
+  0000                00061         extern  _TRISB
+  0000                00062         extern  _PWMCON
+  0000                00063         extern  _PWM1P
+  0000                00064         extern  _PWM2P
+  0000                00065         extern  _T0CR
+  0000                00066         extern  _T1CON
+  0000                00067         extern  _T1
+  0000                00068         extern  _T1LOAD
+  0000                00069         extern  _PWM0P
+  0000                00070         extern  _OSCCON
+  0000                00071         extern  _CMPCR
+  0000                00072         extern  _PDCON1
+  0000                00073         extern  _CHARGE0
+  0000                00074         extern  _CHARGE1
+  0000                00075         extern  _RAMP
+  0000                00076         extern  _AUXR
+  0000                00077         extern  _HIRCTRM
+  0000                00078         extern  ___sdcc_saved_fsr
+                      00079 
+  0000                00080         extern PSAVE
+  0000                00081         extern SSAVE
+  0000                00082         extern WSAVE
+  0000                00083         extern STK12
+  0000                00084         extern STK11
+  0000                00085         extern STK10
+  0000                00086         extern STK09
+  0000                00087         extern STK08
+  0000                00088         extern STK07
+  0000                00089         extern STK06
+  0000                00090         extern STK05
+  0000                00091         extern STK04
+  0000                00092         extern STK03
+  0000                00093         extern STK02
+  0000                00094         extern STK01
+  0000                00095         extern STK00
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00096         extern STK11
-  0000                00097         extern STK10
-  0000                00098         extern STK09
-  0000                00099         extern STK08
-  0000                00100         extern STK07
-  0000                00101         extern STK06
-  0000                00102         extern STK05
-  0000                00103         extern STK04
-  0000                00104         extern STK03
-  0000                00105         extern STK02
-  0000                00106         extern STK01
-  0000                00107         extern STK00
-                      00108 ;--------------------------------------------------------
-                      00109 ; global declarations
+                      00096 ;--------------------------------------------------------
+                      00097 ; global declarations
+                      00098 ;--------------------------------------------------------
+  0000                00099         global  _InterruptFunc
+                      00100 
+                      00101 ;--------------------------------------------------------
+                      00102 ; global definitions
+                      00103 ;--------------------------------------------------------
+                      00104 ;--------------------------------------------------------
+                      00105 ; absolute symbol definitions
+                      00106 ;--------------------------------------------------------
+                      00107 ;--------------------------------------------------------
+                      00108 ; compiler-defined variables
+                      00109 ;--------------------------------------------------------
                       00110 ;--------------------------------------------------------
-  0000                00111         global  _InterruptFunc
-                      00112 
+                      00111 ; initialized data
+                      00112 ;--------------------------------------------------------
                       00113 ;--------------------------------------------------------
-                      00114 ; global definitions
+                      00114 ; overlayable items in internal ram 
                       00115 ;--------------------------------------------------------
-                      00116 ;--------------------------------------------------------
-                      00117 ; absolute symbol definitions
-                      00118 ;--------------------------------------------------------
+                      00116 ;       udata_ovr
+                      00117 ;--------------------------------------------------------
+                      00118 ; interrupt and initialization code
                       00119 ;--------------------------------------------------------
-                      00120 ; compiler-defined variables
-                      00121 ;--------------------------------------------------------
-                      00122 ;--------------------------------------------------------
-                      00123 ; initialized data
-                      00124 ;--------------------------------------------------------
-                      00125 ;--------------------------------------------------------
-                      00126 ; overlayable items in internal ram 
-                      00127 ;--------------------------------------------------------
-                      00128 ;       udata_ovr
-                      00129 ;--------------------------------------------------------
-                      00130 ; interrupt and initialization code
-                      00131 ;--------------------------------------------------------
-                      00132 c_interrupt     code    0x0008
-0008                  00133 __sdcc_interrupt:
-                      00134 ;***
-                      00135 ;  pBlock Stats: dbName = I
-                      00136 ;***
-                      00137 ;; Starting pCode block
-                      00138 ;;[ICODE] interrupt.c:6:  _entry($8) :
-                      00139 ;;[ICODE] interrupt.c:6:        proc _InterruptFunc [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
+                      00120 c_interrupt     code    0x0008
+0008                  00121 __sdcc_interrupt:
+                      00122 ;***
+                      00123 ;  pBlock Stats: dbName = I
+                      00124 ;***
+                      00125 ;; Starting pCode block
+                      00126 ;;[ICODE] interrupt.c:6:  _entry($8) :
+                      00127 ;;[ICODE] interrupt.c:6:        proc _InterruptFunc [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
                              function ( ) fixed}
-0008                  00140 _InterruptFunc:
-                      00141 ; 0 exit points
-                      00142 ;       .line   6; "interrupt.c"        void InterruptFunc(void) __interrupt 0
-0008   19??           00143         MOVWF   WSAVE
-0009   1703           00144         SWAPF   STATUS,W
-000A   1883           00145         CLRF    STATUS
-000B   19??           00146         MOVWF   SSAVE
+0008                  00128 _InterruptFunc:
+                      00129 ; 0 exit points
+                      00130 ;       .line   6; "interrupt.c"        void InterruptFunc(void) __interrupt 0
+0008   19??           00131         MOVWF   WSAVE
+0009   1703           00132         SWAPF   STATUS,W
+000A   1883           00133         CLRF    STATUS
+000B   19??           00134         MOVWF   SSAVE
 Message[1303]: Bank selection not needed for this device. No code generated.
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  4
+                      00135         BANKSEL PCLATH
+000C   110A           00136         MOVF    PCLATH,W
+000D   188A           00137         CLRF    PCLATH
+000E   19??           00138         MOVWF   PSAVE
+000F   1104           00139         MOVF    FSR,W
+                      00140 ;       .line   8; "interrupt.c"        if (PBIF)//产生端口电平变化中断
+0010   19??           00141         MOVWF   ___sdcc_saved_fsr
+                      00142 ;       .line   10; "interrupt.c"       PBIF = 0;
+0011   34??           00143         BTFSC   _INTFLAGbits,1
+                      00144 ;       .line   13; "interrupt.c"       if (T0IF)//产生TMR0溢出中断
+0012   3C??           00145         BCF     _INTFLAGbits,1
+0013   30??           00146         BTFSS   _INTFLAGbits,0
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00147         BANKSEL PCLATH
-000C   110A           00148         MOVF    PCLATH,W
-000D   188A           00149         CLRF    PCLATH
-000E   19??           00150         MOVWF   PSAVE
-000F   1104           00151         MOVF    FSR,W
-                      00152 ;       .line   8; "interrupt.c"        if (PBIF)//产生端口电平变化中断
-0010   19??           00153         MOVWF   ___sdcc_saved_fsr
-                      00154 ;       .line   10; "interrupt.c"       PBIF = 0;
-0011   34??           00155         BTFSC   _INTFLAGbits,1
-                      00156 ;       .line   13; "interrupt.c"       if (T0IF)//产生TMR0溢出中断
-0012   3C??           00157         BCF     _INTFLAGbits,1
-0013   30??           00158         BTFSS   _INTFLAGbits,0
-0014   2???           00159         GOTO    _00108_DS_
-                      00160 ;;[ICODE] interrupt.c:13:       if iTemp7 [k13 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-un
+0014   2???           00147         GOTO    _00108_DS_
+                      00148 ;;[ICODE] interrupt.c:13:       if iTemp7 [k13 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-un
                             signed-bitfield {0,1} fixed}[r0x1046 ] == 0 goto __iffalse_1($4)
-                      00161 ;;[ICODE] interrupt.c:15:       iTemp9 [k16 lr15:17 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                      00149 ;;[ICODE] interrupt.c:15:       iTemp9 [k16 lr15:17 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {0,1} near* fixed}[remat] = &[_INTFLAGbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{
                             volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                      00162 ;;[ICODE] interrupt.c:15:       *(iTemp9 [k16 lr15:17 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00150 ;;[ICODE] interrupt.c:15:       *(iTemp9 [k16 lr15:17 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00163 ;       .line   15; "interrupt.c"       T0IF = 0;
-0015   3C??           00164         BCF     _INTFLAGbits,0
-                      00165 ;;[ICODE] interrupt.c:16:       _T0 [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-c
+                      00151 ;       .line   15; "interrupt.c"       T0IF = 0;
+0015   3C??           00152         BCF     _INTFLAGbits,0
+                      00153 ;;[ICODE] interrupt.c:16:       _T0 [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-c
                             har sfr} := 0xd9 {const-unsigned-char literal}
-                      00166 ;       .line   16; "interrupt.c"       T0 = 217;
-0016   04D9           00167         MOVLW   0xd9
-0017   19??           00168         MOVWF   _T0
-                      00169 ;;[ICODE] interrupt.c:16:  __iffalse_1($4) :
-                      00170 ;;[ICODE] interrupt.c:20:       _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{uns
+                      00154 ;       .line   16; "interrupt.c"       T0 = 217;
+0016   04D9           00155         MOVLW   0xd9
+0017   19??           00156         MOVWF   _T0
+                      00157 ;;[ICODE] interrupt.c:16:  __iffalse_1($4) :
+                      00158 ;;[ICODE] interrupt.c:20:       _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{uns
                             igned-char fixed} = _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char f
                             ixed} + 0x1 {const-unsigned-char literal}
-0018                  00171 _00108_DS_:
-                      00172 ;       .line   20; "interrupt.c"       g_ucTimer10msCount++;           
-0018   13??           00173         INCF    _g_ucTimer10msCount,F
-                      00174 ;;[ICODE] interrupt.c:26:       iTemp13 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} =
+0018                  00159 _00108_DS_:
+                      00160 ;       .line   20; "interrupt.c"       g_ucTimer10msCount++;           
+0018   13??           00161         INCF    _g_ucTimer10msCount,F
+                      00162 ;;[ICODE] interrupt.c:26:       iTemp13 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} =
                              0xc8 {const-unsigned-char literal} == _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 d
                             p0}{unsigned-char fixed}
-                      00175 ;       .line   26; "interrupt.c"       if (TIMER_COUNT_10MS == g_ucTimer10msCount)
-0019   11??           00176         MOVF    _g_ucTimer10msCount,W
-001A   0DC8           00177         XORLW   0xc8
-001B   3103           00178         BTFSS   STATUS,2
-001C   2???           00179         GOTO    _00111_DS_
-                      00180 ;;[ICODE] interrupt.c:26:       if iTemp13 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed
+                      00163 ;       .line   26; "interrupt.c"       if (TIMER_COUNT_10MS == g_ucTimer10msCount)
+0019   11??           00164         MOVF    _g_ucTimer10msCount,W
+001A   0DC8           00165         XORLW   0xc8
+001B   3103           00166         BTFSS   STATUS,2
+001C   2???           00167         GOTO    _00111_DS_
+                      00168 ;;[ICODE] interrupt.c:26:       if iTemp13 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed
                             } == 0 goto _return($7)
-                      00181 ;;[ICODE] interrupt.c:28:       _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{uns
+                      00169 ;;[ICODE] interrupt.c:28:       _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{uns
                             igned-char fixed} := 0x0 {const-unsigned-char literal}
-                      00182 ;       .line   28; "interrupt.c"       g_ucTimer10msCount = 0;
-001D   18??           00183         CLRF    _g_ucTimer10msCount
-                      00184 ;;[ICODE] interrupt.c:29:       iTemp16 [k27 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitf
+                      00170 ;       .line   28; "interrupt.c"       g_ucTimer10msCount = 0;
+001D   18??           00171         CLRF    _g_ucTimer10msCount
+                      00172 ;;[ICODE] interrupt.c:29:       iTemp16 [k27 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitf
                             ield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct _
                             _bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-                      00185 ;;[ICODE] interrupt.c:29:       *(iTemp16 [k27 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bi
+                      00173 ;;[ICODE] interrupt.c:29:       *(iTemp16 [k27 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bi
                             tfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  5
+                      00174 ;       .line   29; "interrupt.c"       BIT_TIMER_10MS = 1;
+001E   38??           00175         BSF     _BITS_DATA0,0
+                      00176 ;;[ICODE] interrupt.c:29:  _return($7) :
+                      00177 ;;[ICODE] interrupt.c:29:       eproc _InterruptFunc [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{voi
+                            d function ( ) fixed}
+001F                  00178 _00111_DS_:
+001F   11??           00179         MOVF    ___sdcc_saved_fsr,W
+Message[1303]: Bank selection not needed for this device. No code generated.
+                      00180         BANKSEL FSR
+0020   1984           00181         MOVWF   FSR
+0021   11??           00182         MOVF    PSAVE,W
+0022   198A           00183         MOVWF   PCLATH
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00186 ;       .line   29; "interrupt.c"       BIT_TIMER_10MS = 1;
-001E   38??           00187         BSF     _BITS_DATA0,0
-                      00188 ;;[ICODE] interrupt.c:29:  _return($7) :
-                      00189 ;;[ICODE] interrupt.c:29:       eproc _InterruptFunc [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{voi
-                            d function ( ) fixed}
-001F                  00190 _00111_DS_:
-001F   11??           00191         MOVF    ___sdcc_saved_fsr,W
-Message[1303]: Bank selection not needed for this device. No code generated.
-                      00192         BANKSEL FSR
-0020   1984           00193         MOVWF   FSR
-0021   11??           00194         MOVF    PSAVE,W
-0022   198A           00195         MOVWF   PCLATH
-0023   1883           00196         CLRF    STATUS
-0024   17??           00197         SWAPF   SSAVE,W
-0025   1983           00198         MOVWF   STATUS
-0026   17??           00199         SWAPF   WSAVE,F
-0027   17??           00200         SWAPF   WSAVE,W
-0028                  00201 END_OF_INTERRUPT:
-0028   0001           00202         RETFIE  
-                      00203 
-                      00204 ;--------------------------------------------------------
-                      00205 ; code
-                      00206 ;--------------------------------------------------------
-                      00207 code_interrupt  code
-                      00208 
-                      00209 ;       code size estimation:
-                      00210 ;          33+    2 =    35 instructions (   74 byte)
-                      00211 
-                      00212         end
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  6
+0023   1883           00184         CLRF    STATUS
+0024   17??           00185         SWAPF   SSAVE,W
+0025   1983           00186         MOVWF   STATUS
+0026   17??           00187         SWAPF   WSAVE,F
+0027   17??           00188         SWAPF   WSAVE,W
+0028                  00189 END_OF_INTERRUPT:
+0028   0001           00190         RETFIE  
+                      00191 
+                      00192 ;--------------------------------------------------------
+                      00193 ; code
+                      00194 ;--------------------------------------------------------
+                      00195 code_interrupt  code
+                      00196 
+                      00197 ;       code size estimation:
+                      00198 ;          33+    2 =    35 instructions (   74 byte)
+                      00199 
+                      00200         end
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  6
 
 
 SYMBOL TABLE
@@ -328,7 +316,7 @@ MODSEL                            CONSTANT      00000007              7
 ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  7
 
 
 SYMBOL TABLE
@@ -387,7 +375,7 @@ PWM0E                             CONSTANT      00000006              6
 PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  8
 
 
 SYMBOL TABLE
@@ -446,7 +434,7 @@ T0IE                              CONSTANT      00000000              0
 T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE  9
 
 
 SYMBOL TABLE
@@ -505,7 +493,7 @@ _GPR                              EXTERNAL      00000000              0
 _HIRCTRM                          EXTERNAL      00000000              0
 _HS_OSC                           CONSTANT      00003FFD          16381
 _INDF                             EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE 10
 
 
 SYMBOL TABLE
@@ -523,11 +511,6 @@ _IOCBbits                         EXTERNAL      00000000              0
 _Interrupt                        EXTERNAL      00000000              0
 _InterruptFunc                    GLOBAL        00000008              8
 _LP_OSC                           CONSTANT      00003CFF          15615
-_LvdDebounceNew                   EXTERNAL      00000000              0
-_LvdDebounceOld                   EXTERNAL      00000000              0
-_LvdLightCount                    EXTERNAL      00000000              0
-_LvdModel                         EXTERNAL      00000000              0
-_LvdModelCount                    EXTERNAL      00000000              0
 _MaxLight                         EXTERNAL      00000000              0
 _ODCON                            EXTERNAL      00000000              0
 _ODCONbits                        EXTERNAL      00000000              0
@@ -564,18 +547,18 @@ _T0CRbits                         EXTERNAL      00000000              0
 _T1                               EXTERNAL      00000000              0
 _T1CON                            EXTERNAL      00000000              0
 _T1CONbits                        EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE 11
+_T1LOAD                           EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TempCount                        EXTERNAL      00000000              0
+_TempFlag                         EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  13:40:46          PAGE 11
 
 
 SYMBOL TABLE
   LABEL                              TYPE        VALUE         VALUE          VALUE
                                                  (hex)         (dec)          (text)
 
-_T1LOAD                           EXTERNAL      00000000              0
-_TRISB                            EXTERNAL      00000000              0
-_TRISBbits                        EXTERNAL      00000000              0
-_TempCount                        EXTERNAL      00000000              0
-_TempFlag                         EXTERNAL      00000000              0
 _WDTE_OFF                         CONSTANT      00003FFB          16379
 _WDTE_ON                          CONSTANT      00003FFF          16383
 _WDT_OFF                          CONSTANT      00003FFB          16379
@@ -615,21 +598,7 @@ __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
 ___sdcc_saved_fsr                 EXTERNAL      00000000              0
 __sdcc_interrupt                  ADDRESS       00000008              8
-_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
-_g_ucFlashTimeHigh                EXTERNAL      00000000              0
-_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
-_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
-_g_ucFlashTimeLow                 EXTERNAL      00000000              0
-_g_ucFlashTimeLow1                EXTERNAL      00000000              0
-_g_ucFlashTimeLow2                EXTERNAL      00000000              0
 _g_ucTimer10msCount               EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  11:05:28          PAGE 12
-
-
-SYMBOL TABLE
-  LABEL                              TYPE        VALUE         VALUE          VALUE
-                                                 (hex)         (dec)          (text)
-
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
 
 Errors   :     0

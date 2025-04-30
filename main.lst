@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _PCONbits
   0000                00041         extern  _IOCBbits
   0000                00042         extern  _PDCONbits
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -83,313 +83,301 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00060         extern  _BITS_DATA1
   0000                00061         extern  _g_ucTimer10msCount
   0000                00062         extern  _g_ucTimerWorkCount
-  0000                00063         extern  _g_ucFlashTimeHigh
-  0000                00064         extern  _g_ucFlashTimeLow
-  0000                00065         extern  _g_ucFlashTimeHigh1
-  0000                00066         extern  _g_ucFlashTimeLow1
-  0000                00067         extern  _g_ucFlashTimeHigh2
-  0000                00068         extern  _g_ucFlashTimeLow2
-  0000                00069         extern  _LvdModel
-  0000                00070         extern  _LvdDebounceNew
-  0000                00071         extern  _LvdDebounceOld
-  0000                00072         extern  _LvdModelCount
-  0000                00073         extern  _LvdLightCount
-  0000                00074         extern  _TempCount
-  0000                00075         extern  _TempFlag
-  0000                00076         extern  _SleepCount
-  0000                00077         extern  _SleepFlag
-  0000                00078         extern  _MaxLight
-  0000                00079         extern  _g_cucTIMER_COUNT_STATE
-  0000                00080         extern  _INDF
-  0000                00081         extern  _T0
-  0000                00082         extern  _PCL
-  0000                00083         extern  _STATUS
-  0000                00084         extern  _FSR
-  0000                00085         extern  _PORTB
-  0000                00086         extern  _GPR
-  0000                00087         extern  _PCON
-  0000                00088         extern  _IOCB
-  0000                00089         extern  _PCLATH
-  0000                00090         extern  _PDCON
-  0000                00091         extern  _ODCON
-  0000                00092         extern  _PHCON
-  0000                00093         extern  _INTECON
-  0000                00094         extern  _INTFLAG
-  0000                00095         extern  _OPTION
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  3
+  0000                00063         extern  _TempCount
+  0000                00064         extern  _TempFlag
+  0000                00065         extern  _SleepCount
+  0000                00066         extern  _SleepFlag
+  0000                00067         extern  _MaxLight
+  0000                00068         extern  _INDF
+  0000                00069         extern  _T0
+  0000                00070         extern  _PCL
+  0000                00071         extern  _STATUS
+  0000                00072         extern  _FSR
+  0000                00073         extern  _PORTB
+  0000                00074         extern  _GPR
+  0000                00075         extern  _PCON
+  0000                00076         extern  _IOCB
+  0000                00077         extern  _PCLATH
+  0000                00078         extern  _PDCON
+  0000                00079         extern  _ODCON
+  0000                00080         extern  _PHCON
+  0000                00081         extern  _INTECON
+  0000                00082         extern  _INTFLAG
+  0000                00083         extern  _OPTION
+  0000                00084         extern  _TRISB
+  0000                00085         extern  _PWMCON
+  0000                00086         extern  _PWM1P
+  0000                00087         extern  _PWM2P
+  0000                00088         extern  _T0CR
+  0000                00089         extern  _T1CON
+  0000                00090         extern  _T1
+  0000                00091         extern  _T1LOAD
+  0000                00092         extern  _PWM0P
+  0000                00093         extern  _OSCCON
+  0000                00094         extern  _CMPCR
+  0000                00095         extern  _PDCON1
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00096         extern  _TRISB
-  0000                00097         extern  _PWMCON
-  0000                00098         extern  _PWM1P
-  0000                00099         extern  _PWM2P
-  0000                00100         extern  _T0CR
-  0000                00101         extern  _T1CON
-  0000                00102         extern  _T1
-  0000                00103         extern  _T1LOAD
-  0000                00104         extern  _PWM0P
-  0000                00105         extern  _OSCCON
-  0000                00106         extern  _CMPCR
-  0000                00107         extern  _PDCON1
-  0000                00108         extern  _CHARGE0
-  0000                00109         extern  _CHARGE1
-  0000                00110         extern  _RAMP
-  0000                00111         extern  _AUXR
-  0000                00112         extern  _HIRCTRM
-                      00113 ;--------------------------------------------------------
-                      00114 ; global declarations
-                      00115 ;--------------------------------------------------------
-  0000                00116         global  __sdcc_gsinit_startup
-  0000                00117         global  _main
-  0000                00118         global  _VERSION
-                      00119 
-  0000                00120         global PSAVE
-  0000                00121         global SSAVE
-  0000                00122         global WSAVE
-  0000                00123         global STK12
-  0000                00124         global STK11
-  0000                00125         global STK10
-  0000                00126         global STK09
-  0000                00127         global STK08
-  0000                00128         global STK07
-  0000                00129         global STK06
-  0000                00130         global STK05
-  0000                00131         global STK04
-  0000                00132         global STK03
-  0000                00133         global STK02
-  0000                00134         global STK01
-  0000                00135         global STK00
-                      00136 
-                      00137 sharebank udata_ovr 0x0010
-0010                  00138 PSAVE   res 1
-0011                  00139 SSAVE   res 1
-0012                  00140 WSAVE   res 1
-0013                  00141 STK12   res 1
-0014                  00142 STK11   res 1
-0015                  00143 STK10   res 1
-0016                  00144 STK09   res 1
-0017                  00145 STK08   res 1
-0018                  00146 STK07   res 1
-0019                  00147 STK06   res 1
-001A                  00148 STK05   res 1
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  4
+  0000                00096         extern  _CHARGE0
+  0000                00097         extern  _CHARGE1
+  0000                00098         extern  _RAMP
+  0000                00099         extern  _AUXR
+  0000                00100         extern  _HIRCTRM
+                      00101 ;--------------------------------------------------------
+                      00102 ; global declarations
+                      00103 ;--------------------------------------------------------
+  0000                00104         global  __sdcc_gsinit_startup
+  0000                00105         global  _main
+  0000                00106         global  _VERSION
+                      00107 
+  0000                00108         global PSAVE
+  0000                00109         global SSAVE
+  0000                00110         global WSAVE
+  0000                00111         global STK12
+  0000                00112         global STK11
+  0000                00113         global STK10
+  0000                00114         global STK09
+  0000                00115         global STK08
+  0000                00116         global STK07
+  0000                00117         global STK06
+  0000                00118         global STK05
+  0000                00119         global STK04
+  0000                00120         global STK03
+  0000                00121         global STK02
+  0000                00122         global STK01
+  0000                00123         global STK00
+                      00124 
+                      00125 sharebank udata_ovr 0x0010
+0010                  00126 PSAVE   res 1
+0011                  00127 SSAVE   res 1
+0012                  00128 WSAVE   res 1
+0013                  00129 STK12   res 1
+0014                  00130 STK11   res 1
+0015                  00131 STK10   res 1
+0016                  00132 STK09   res 1
+0017                  00133 STK08   res 1
+0018                  00134 STK07   res 1
+0019                  00135 STK06   res 1
+001A                  00136 STK05   res 1
+001B                  00137 STK04   res 1
+001C                  00138 STK03   res 1
+001D                  00139 STK02   res 1
+001E                  00140 STK01   res 1
+001F                  00141 STK00   res 1
+                      00142 
+                      00143 ;--------------------------------------------------------
+                      00144 ; global definitions
+                      00145 ;--------------------------------------------------------
+                      00146 ;--------------------------------------------------------
+                      00147 ; absolute symbol definitions
+                      00148 ;--------------------------------------------------------
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-001B                  00149 STK04   res 1
-001C                  00150 STK03   res 1
-001D                  00151 STK02   res 1
-001E                  00152 STK01   res 1
-001F                  00153 STK00   res 1
-                      00154 
-                      00155 ;--------------------------------------------------------
-                      00156 ; global definitions
-                      00157 ;--------------------------------------------------------
-                      00158 ;--------------------------------------------------------
-                      00159 ; absolute symbol definitions
-                      00160 ;--------------------------------------------------------
-                      00161 ;--------------------------------------------------------
-                      00162 ; compiler-defined variables
-                      00163 ;--------------------------------------------------------
-                      00164 ;--------------------------------------------------------
-                      00165 ; initialized data
-                      00166 ;--------------------------------------------------------
-                      00167 
-                      00168 ID_main_0       code
-0000                  00169 _VERSION
-0000   0100           00170         retlw 0x00
-0001   0100           00171         retlw 0x00
-0002   0100           00172         retlw 0x00
-0003   0100           00173         retlw 0x00
-0004   0100           00174         retlw 0x00
-0005   0100           00175         retlw 0x00
-0006   0100           00176         retlw 0x00
-0007   0100           00177         retlw 0x00
-0008   0100           00178         retlw 0x00
-0009   0100           00179         retlw 0x00
-                      00180 
-                      00181 
-                      00182 ID_main_1       code
-0000                  00183 ___str_0
-0000   0148           00184         retlw 0x48 ; 'H'
-0001   0143           00185         retlw 0x43 ; 'C'
-0002   012D           00186         retlw 0x2d ; '-'
-0003   0156           00187         retlw 0x56 ; 'V'
-0004   0153           00188         retlw 0x53 ; 'S'
-0005   0120           00189         retlw 0x20 ; ' '
-0006   0156           00190         retlw 0x56 ; 'V'
-0007   0130           00191         retlw 0x30 ; '0'
-0008   0131           00192         retlw 0x31 ; '1'
-0009   0100           00193         retlw 0x00 ; '.'
+                      00149 ;--------------------------------------------------------
+                      00150 ; compiler-defined variables
+                      00151 ;--------------------------------------------------------
+                      00152 ;--------------------------------------------------------
+                      00153 ; initialized data
+                      00154 ;--------------------------------------------------------
+                      00155 
+                      00156 ID_main_0       code
+0000                  00157 _VERSION
+0000   0100           00158         retlw 0x00
+0001   0100           00159         retlw 0x00
+0002   0100           00160         retlw 0x00
+0003   0100           00161         retlw 0x00
+0004   0100           00162         retlw 0x00
+0005   0100           00163         retlw 0x00
+0006   0100           00164         retlw 0x00
+0007   0100           00165         retlw 0x00
+0008   0100           00166         retlw 0x00
+0009   0100           00167         retlw 0x00
+                      00168 
+                      00169 
+                      00170 ID_main_1       code
+0000                  00171 ___str_0
+0000   0148           00172         retlw 0x48 ; 'H'
+0001   0143           00173         retlw 0x43 ; 'C'
+0002   012D           00174         retlw 0x2d ; '-'
+0003   0156           00175         retlw 0x56 ; 'V'
+0004   0153           00176         retlw 0x53 ; 'S'
+0005   0120           00177         retlw 0x20 ; ' '
+0006   0156           00178         retlw 0x56 ; 'V'
+0007   0130           00179         retlw 0x30 ; '0'
+0008   0131           00180         retlw 0x31 ; '1'
+0009   0100           00181         retlw 0x00 ; '.'
+                      00182 ;--------------------------------------------------------
+                      00183 ; overlayable items in internal ram 
+                      00184 ;--------------------------------------------------------
+                      00185 ;       udata_ovr
+                      00186 ;--------------------------------------------------------
+                      00187 ; reset vector 
+                      00188 ;--------------------------------------------------------
+                      00189 STARTUP code 0x0000
+0000   0000           00190         nop
+0001   2???           00191         goto    __sdcc_gsinit_startup
+                      00192 ;--------------------------------------------------------
+                      00193 ; code
                       00194 ;--------------------------------------------------------
-                      00195 ; overlayable items in internal ram 
-                      00196 ;--------------------------------------------------------
-                      00197 ;       udata_ovr
-                      00198 ;--------------------------------------------------------
-                      00199 ; reset vector 
-                      00200 ;--------------------------------------------------------
-                      00201 STARTUP code 0x0000
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  5
+                      00195 code_main       code
+                      00196 ;***
+                      00197 ;  pBlock Stats: dbName = M
+                      00198 ;***
+                      00199 ;has an exit
+                      00200 ;functions called:
+                      00201 ;   _InitPort
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0000   0000           00202         nop
-0001   2???           00203         goto    __sdcc_gsinit_startup
-                      00204 ;--------------------------------------------------------
-                      00205 ; code
-                      00206 ;--------------------------------------------------------
-                      00207 code_main       code
-                      00208 ;***
-                      00209 ;  pBlock Stats: dbName = M
-                      00210 ;***
-                      00211 ;has an exit
-                      00212 ;functions called:
-                      00213 ;   _InitPort
-                      00214 ;   _InitSystem
-                      00215 ;   _InitRam
-                      00216 ;   _ScanKey
-                      00217 ;   _CountdownDisplay
-                      00218 ;   _LedDisplay
-                      00219 ;   _MotoDisplay
-                      00220 ;   _InitPort
-                      00221 ;   _InitSystem
-                      00222 ;   _InitRam
-                      00223 ;   _ScanKey
-                      00224 ;   _CountdownDisplay
-                      00225 ;   _LedDisplay
-                      00226 ;   _MotoDisplay
-                      00227 ;; Starting pCode block
-                      00228 ;;[ICODE] main.c:16:  _entry($7) :
-                      00229 ;;[ICODE] main.c:16:    proc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fix
+                      00202 ;   _InitSystem
+                      00203 ;   _InitRam
+                      00204 ;   _ScanKey
+                      00205 ;   _CountdownDisplay
+                      00206 ;   _LedDisplay
+                      00207 ;   _MotoDisplay
+                      00208 ;   _InitPort
+                      00209 ;   _InitSystem
+                      00210 ;   _InitRam
+                      00211 ;   _ScanKey
+                      00212 ;   _CountdownDisplay
+                      00213 ;   _LedDisplay
+                      00214 ;   _MotoDisplay
+                      00215 ;; Starting pCode block
+                      00216 ;;[ICODE] main.c:16:  _entry($7) :
+                      00217 ;;[ICODE] main.c:16:    proc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fix
                             ed}
-                      00230 S_main__main    code
-0000                  00231 _main:
-                      00232 ; 2 exit points
-                      00233 ;;[ICODE] main.c:18:    iTemp0 [k3 lr3:3 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitP
+                      00218 S_main__main    code
+0000                  00219 _main:
+                      00220 ; 2 exit points
+                      00221 ;;[ICODE] main.c:18:    iTemp0 [k3 lr3:3 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitP
                             ort [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00234 ;       .line   18; "main.c"    InitPort();
-0000   2???           00235         CALL    _InitPort
-                      00236 ;;[ICODE] main.c:19:    iTemp1 [k5 lr4:4 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitS
+                      00222 ;       .line   18; "main.c"    InitPort();
+0000   2???           00223         CALL    _InitPort
+                      00224 ;;[ICODE] main.c:19:    iTemp1 [k5 lr4:4 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitS
                             ystem [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00237 ;       .line   19; "main.c"    InitSystem();
-0001   2???           00238         CALL    _InitSystem
-                      00239 ;;[ICODE] main.c:20:    iTemp2 [k7 lr5:5 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitR
+                      00225 ;       .line   19; "main.c"    InitSystem();
+0001   2???           00226         CALL    _InitSystem
+                      00227 ;;[ICODE] main.c:20:    iTemp2 [k7 lr5:5 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitR
                             am [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00240 ;       .line   20; "main.c"    InitRam();
-0002   2???           00241         CALL    _InitRam
-                      00242 ;;[ICODE] main.c:21:    iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfie
+                      00228 ;       .line   20; "main.c"    InitRam();
+0002   2???           00229         CALL    _InitRam
+                      00230 ;;[ICODE] main.c:21:    iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfie
                             ld {0,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-s
                             truct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                      00243 ;;[ICODE] main.c:21:    *(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitf
+                      00231 ;;[ICODE] main.c:21:    *(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitf
                             ield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00244 ;       .line   21; "main.c"    T0IE = 1;               //使能TMR0溢出中断
-0003   38??           00245         BSF     _INTECONbits,0
-                      00246 ;;[ICODE] main.c:22:    iTemp6 [k14 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                      00232 ;       .line   21; "main.c"    T0IE = 1;               //使能TMR0溢出中断
+0003   38??           00233         BSF     _INTECONbits,0
+                      00234 ;;[ICODE] main.c:22:    iTemp6 [k14 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
                             eld {7,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  6
+                            struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                      00235 ;;[ICODE] main.c:22:    *(iTemp6 [k14 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00236 ;       .line   22; "main.c"    GIE = 1;                //使能所有中断   
+0004   3B??           00237         BSF     _INTECONbits,7
+                      00238 ;;[ICODE] main.c:23: inline
+0005   0004           00239         clrwdt
+                      00240 ;;[ICODE] main.c:25:  _whilebody_0($4) :
+                      00241 ;;[ICODE] main.c:27: inline
+0006                  00242 _00112_DS_:
+0006   0004           00243         clrwdt
+                      00244 ;;[ICODE] main.c:29:    iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                            struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                      00247 ;;[ICODE] main.c:22:    *(iTemp6 [k14 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00248 ;       .line   22; "main.c"    GIE = 1;                //使能所有中断   
-0004   3B??           00249         BSF     _INTECONbits,7
-                      00250 ;;[ICODE] main.c:23: inline
-0005   0004           00251         clrwdt
-                      00252 ;;[ICODE] main.c:25:  _whilebody_0($4) :
-                      00253 ;;[ICODE] main.c:27: inline
-0006                  00254 _00112_DS_:
-0006   0004           00255         clrwdt
-                      00256 ;;[ICODE] main.c:29:    iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1
                             } near* fixed}[remat] = &[_BITS_DATA0 [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t 
                             fixed} , 0x0 {const-unsigned-char literal}]
-                      00257 ;;[ICODE] main.c:29:    iTemp8 [k18 lr17:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1
+                      00245 ;;[ICODE] main.c:29:    iTemp8 [k18 lr17:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1
                             } near* fixed}[remat] := iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,
                             1} near* fixed}[remat]
-                      00258 ;;[ICODE] main.c:29:    iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1
+                      00246 ;;[ICODE] main.c:29:    iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1
                             } fixed}[r0x1045 ] = @[iTemp8 [k18 lr17:18 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1}
                              near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                      00259 ;       .line   29; "main.c"    if (BIT_TIMER_10MS)
-0007   30??           00260         BTFSS   _BITS_DATA0,0
-0008   2???           00261         GOTO    _00110_DS_
-                      00262 ;;[ICODE] main.c:29:    if iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {
+                      00247 ;       .line   29; "main.c"    if (BIT_TIMER_10MS)
+0007   30??           00248         BTFSS   _BITS_DATA0,0
+0008   2???           00249         GOTO    _00110_DS_
+                      00250 ;;[ICODE] main.c:29:    if iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {
                             0,1} fixed}[r0x1045 ] == 0 goto __iffalse_0($2)
-                      00263 ;;[ICODE] main.c:31:    iTemp11 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,
+                      00251 ;;[ICODE] main.c:31:    iTemp11 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,
                             1} near* fixed}[remat] := iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0
                             ,1} near* fixed}[remat]
-                      00264 ;;[ICODE] main.c:31:    *(iTemp11 [k22 lr20:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
+                      00252 ;;[ICODE] main.c:31:    *(iTemp11 [k22 lr20:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
                             0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00265 ;       .line   31; "main.c"    BIT_TIMER_10MS = 0;
-0009   3C??           00266         BCF     _BITS_DATA0,0
-                      00267 ;;[ICODE] main.c:33:    iTemp12 [k24 lr22:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _S
+                      00253 ;       .line   31; "main.c"    BIT_TIMER_10MS = 0;
+0009   3C??           00254         BCF     _BITS_DATA0,0
+                      00255 ;;[ICODE] main.c:33:    iTemp12 [k24 lr22:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _S
                             canKey [k23 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00268 ;       .line   33; "main.c"    ScanKey();                       //按键检测     
-000A   2???           00269         CALL    _ScanKey
-                      00270 ;;[ICODE] main.c:34:    iTemp13 [k26 lr23:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
+                      00256 ;       .line   33; "main.c"    ScanKey();                       //按键检测     
+000A   2???           00257         CALL    _ScanKey
+                      00258 ;;[ICODE] main.c:34:    iTemp13 [k26 lr23:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _C
                             ountdownDisplay [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00271 ;       .line   34; "main.c"    CountdownDisplay();                      //倒计时
-000B   2???           00272         CALL    _CountdownDisplay
-                      00273 ;;[ICODE] main.c:34:  __iffalse_0($2) :
-                      00274 ;;[ICODE] main.c:38:    iTemp14 [k28 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _L
+                      00259 ;       .line   34; "main.c"    CountdownDisplay();                      //倒计时
+000B   2???           00260         CALL    _CountdownDisplay
+                      00261 ;;[ICODE] main.c:34:  __iffalse_0($2) :
+                      00262 ;;[ICODE] main.c:38:    iTemp14 [k28 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _L
                             edDisplay [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000C                  00275 _00110_DS_:
-                      00276 ;       .line   38; "main.c"    LedDisplay();                                    //LED指示灯
-000C   2???           00277         CALL    _LedDisplay
-                      00278 ;;[ICODE] main.c:39:    iTemp15 [k30 lr26:26 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _M
+000C                  00263 _00110_DS_:
+                      00264 ;       .line   38; "main.c"    LedDisplay();                                    //LED指示灯
+000C   2???           00265         CALL    _LedDisplay
+                      00266 ;;[ICODE] main.c:39:    iTemp15 [k30 lr26:26 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _M
                             otoDisplay [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00279 ;       .line   39; "main.c"    MotoDisplay();                                   //电机控制
-000D   2???           00280         CALL    _MotoDisplay
-                      00281 ;;[ICODE] main.c:39:     goto _whilebody_0($4)
-000E   2???           00282         GOTO    _00112_DS_
-                      00283 ;;[ICODE] main.c:39:  _return($6) :
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  7
+                      00267 ;       .line   39; "main.c"    MotoDisplay();                                   //电机控制
+000D   2???           00268         CALL    _MotoDisplay
+                      00269 ;;[ICODE] main.c:39:     goto _whilebody_0($4)
+000E   2???           00270         GOTO    _00112_DS_
+                      00271 ;;[ICODE] main.c:39:  _return($6) :
+                      00272 ;;[ICODE] main.c:39:    eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fi
+                            xed}
+000F   0002           00273         RETURN  
+                      00274 ; exit point of _main
+                      00275 
+                      00276 ;***
+                      00277 ;  pBlock Stats: dbName = C
+                      00278 ;***
+                      00279 ;has an exit
+                      00280 ;; Starting pCode block
+                      00281 ;;[ICODE] main.c:14:  _entry($2) :
+                      00282 ;;[ICODE] main.c:14:    proc __sdcc_gsinit_startup [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void 
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00284 ;;[ICODE] main.c:39:    eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fi
-                            xed}
-000F   0002           00285         RETURN  
-                      00286 ; exit point of _main
-                      00287 
-                      00288 ;***
-                      00289 ;  pBlock Stats: dbName = C
-                      00290 ;***
-                      00291 ;has an exit
-                      00292 ;; Starting pCode block
-                      00293 ;;[ICODE] main.c:14:  _entry($2) :
-                      00294 ;;[ICODE] main.c:14:    proc __sdcc_gsinit_startup [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void 
                             function ( ) fixed}
-                      00295 S_main___sdcc_gsinit_startup    code
-0000                  00296 __sdcc_gsinit_startup:
-                      00297 ; 2 exit points
-                      00298 ;;[ICODE] main.c:14: inline
-0000                  00299         pagesel _main 
-                      00300 ;;[ICODE] main.c:14: inline
-0000   2???           00301         goto    _main 
-                      00302 ;;[ICODE] main.c:14:  _return($1) :
-                      00303 ;;[ICODE] main.c:14:    eproc __sdcc_gsinit_startup [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
+                      00283 S_main___sdcc_gsinit_startup    code
+0000                  00284 __sdcc_gsinit_startup:
+                      00285 ; 2 exit points
+                      00286 ;;[ICODE] main.c:14: inline
+0000                  00287         pagesel _main 
+                      00288 ;;[ICODE] main.c:14: inline
+0000   2???           00289         goto    _main 
+                      00290 ;;[ICODE] main.c:14:  _return($1) :
+                      00291 ;;[ICODE] main.c:14:    eproc __sdcc_gsinit_startup [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
                              function ( ) fixed}
-0001   0002           00304         RETURN  
-                      00305 ; exit point of __sdcc_gsinit_startup
-                      00306 
-                      00307 
-                      00308 ;       code size estimation:
-                      00309 ;          15+    0 =    15 instructions (   30 byte)
-                      00310 
-                      00311         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  8
+0001   0002           00292         RETURN  
+                      00293 ; exit point of __sdcc_gsinit_startup
+                      00294 
+                      00295 
+                      00296 ;       code size estimation:
+                      00297 ;          15+    0 =    15 instructions (   30 byte)
+                      00298 
+                      00299         end
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  8
 
 
 SYMBOL TABLE
@@ -448,7 +436,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  9
 
 
 SYMBOL TABLE
@@ -507,7 +495,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 10
 
 
 SYMBOL TABLE
@@ -566,7 +554,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 11
 
 
 SYMBOL TABLE
@@ -625,7 +613,7 @@ _ControlLevelHigh                 EXTERNAL      00000000              0
 _ControlLevelLow                  EXTERNAL      00000000              0
 _ControlSos                       EXTERNAL      00000000              0
 _CountdownDisplay                 EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 12
 
 
 SYMBOL TABLE
@@ -658,11 +646,6 @@ _LedDisplay                       EXTERNAL      00000000              0
 _LedOff                           EXTERNAL      00000000              0
 _LedOn                            EXTERNAL      00000000              0
 _LedSwitch                        EXTERNAL      00000000              0
-_LvdDebounceNew                   EXTERNAL      00000000              0
-_LvdDebounceOld                   EXTERNAL      00000000              0
-_LvdLightCount                    EXTERNAL      00000000              0
-_LvdModel                         EXTERNAL      00000000              0
-_LvdModelCount                    EXTERNAL      00000000              0
 _MaxLight                         EXTERNAL      00000000              0
 _MotoDisplay                      EXTERNAL      00000000              0
 _MotoSwitch                       EXTERNAL      00000000              0
@@ -684,18 +667,18 @@ _PHCON                            EXTERNAL      00000000              0
 _PHCONbits                        EXTERNAL      00000000              0
 _PORTB                            EXTERNAL      00000000              0
 _PORTBbits                        EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE 13
+_PWM0P                            EXTERNAL      00000000              0
+_PWM1P                            EXTERNAL      00000000              0
+_PWM2P                            EXTERNAL      00000000              0
+_PWMCON                           EXTERNAL      00000000              0
+_PWMCONbits                       EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 13
 
 
 SYMBOL TABLE
   LABEL                              TYPE        VALUE         VALUE          VALUE
                                                  (hex)         (dec)          (text)
 
-_PWM0P                            EXTERNAL      00000000              0
-_PWM1P                            EXTERNAL      00000000              0
-_PWM2P                            EXTERNAL      00000000              0
-_PWMCON                           EXTERNAL      00000000              0
-_PWMCONbits                       EXTERNAL      00000000              0
 _PowOff                           EXTERNAL      00000000              0
 _PowOn                            EXTERNAL      00000000              0
 _RAMP                             EXTERNAL      00000000              0
@@ -743,18 +726,18 @@ __CONFIG_START                    CONSTANT      00002000           8192
 __GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
 __GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
 __GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  11:05:29          PAGE 14
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00002005           8197
+__IDLOCS_START                    CONSTANT      00002004           8196
+__NUM_BANKS                       CONSTANT      00000001              1
+__PAGE_BITS                       CONSTANT      00001800           6144
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 14
 
 
 SYMBOL TABLE
   LABEL                              TYPE        VALUE         VALUE          VALUE
                                                  (hex)         (dec)          (text)
 
-__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
-__IDLOCS_END                      CONSTANT      00002005           8197
-__IDLOCS_START                    CONSTANT      00002004           8196
-__NUM_BANKS                       CONSTANT      00000001              1
-__PAGE_BITS                       CONSTANT      00001800           6144
 __PAGE_INV                        CONSTANT      FFFFFFFF             -1
 __PAGE_MASK                       CONSTANT      00000000              0
 __PAGE_SHIFT                      CONSTANT      0000000B             11
@@ -764,13 +747,6 @@ __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
 ___str_0                          ADDRESS       00000000              0
 __sdcc_gsinit_startup             GLOBAL        00000000              0
-_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
-_g_ucFlashTimeHigh                EXTERNAL      00000000              0
-_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
-_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
-_g_ucFlashTimeLow                 EXTERNAL      00000000              0
-_g_ucFlashTimeLow1                EXTERNAL      00000000              0
-_g_ucFlashTimeLow2                EXTERNAL      00000000              0
 _g_ucTimer10msCount               EXTERNAL      00000000              0
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
 _main                             GLOBAL        00000000              0

@@ -50,23 +50,11 @@
 	extern	_BITS_DATA1
 	extern	_g_ucTimer10msCount
 	extern	_g_ucTimerWorkCount
-	extern	_g_ucFlashTimeHigh
-	extern	_g_ucFlashTimeLow
-	extern	_g_ucFlashTimeHigh1
-	extern	_g_ucFlashTimeLow1
-	extern	_g_ucFlashTimeHigh2
-	extern	_g_ucFlashTimeLow2
-	extern	_LvdModel
-	extern	_LvdDebounceNew
-	extern	_LvdDebounceOld
-	extern	_LvdModelCount
-	extern	_LvdLightCount
 	extern	_TempCount
 	extern	_TempFlag
 	extern	_SleepCount
 	extern	_SleepFlag
 	extern	_MaxLight
-	extern	_g_cucTIMER_COUNT_STATE
 	extern	_INDF
 	extern	_T0
 	extern	_PCL
@@ -124,6 +112,7 @@
 	global	_longpress_cnt
 	global	_clink_event
 	global	_long_f
+	global	_holdOn_f
 
 ;--------------------------------------------------------
 ; global definitions
@@ -135,8 +124,8 @@
 ; compiler-defined variables
 ;--------------------------------------------------------
 UDL_key_0	udata
-r0x1005	res	1
 r0x1006	res	1
+r0x1007	res	1
 ;--------------------------------------------------------
 ; initialized data
 ;--------------------------------------------------------
@@ -155,6 +144,11 @@ ID_key_2	idata
 _long_f
 	db	0x00
 
+
+ID_key_3	idata
+_holdOn_f
+	db	0x00
+
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
 ;--------------------------------------------------------
@@ -169,57 +163,61 @@ code_key	code
 ;has an exit
 ;functions called:
 ;   _PowOn
-;   _MotoSwitch
 ;   _LedSwitch
+;   _MotoSwitch
+;   _PowOn
+;   _PowOff
 ;   _PowOff
 ;   _PowOn
-;   _MotoSwitch
 ;   _LedSwitch
+;   _MotoSwitch
+;   _PowOn
+;   _PowOff
 ;   _PowOff
 ;2 compiler assigned registers:
-;   r0x1005
 ;   r0x1006
+;   r0x1007
 ;; Starting pCode block
-;;[ICODE] key.c:11:  _entry($36) :
+;;[ICODE] key.c:11:  _entry($41) :
 ;;[ICODE] key.c:11: 	proc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 S_key__ScanKey	code
 _ScanKey:
 ; 2 exit points
 ;;[ICODE] key.c:14: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] key.c:14: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] key.c:14: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104A ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	14; "key.c"	if(PORT_KEY_1 == 0 || PORT_KEY_2 == 0 || PORT_KEY_3 == 1 )
 	BTFSS	_PORTBbits,2
-	GOTO	_00134_DS_
-;;[ICODE] key.c:14: 	if iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x1049 ] == 0 goto __iftrue_12($30)
+	GOTO	_00139_DS_
+;;[ICODE] key.c:14: 	if iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104A ] == 0 goto __iftrue_14($35)
 ;;[ICODE] key.c:14: 	iTemp4 [k9 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] key.c:14: 	iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x1049 ] = @[iTemp4 [k9 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] key.c:14: 	iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x104A ] = @[iTemp4 [k9 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 	BTFSS	_PORTBbits,4
-	GOTO	_00134_DS_
-;;[ICODE] key.c:14: 	if iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x1049 ] == 0 goto __iftrue_12($30)
+	GOTO	_00139_DS_
+;;[ICODE] key.c:14: 	if iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x104A ] == 0 goto __iftrue_14($35)
 ;;[ICODE] key.c:14: 	iTemp7 [k13 lr11:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] key.c:14: 	iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp7 [k13 lr11:13 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-	CLRF	r0x1005
+;;[ICODE] key.c:14: 	iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104A ] = @[iTemp7 [k13 lr11:13 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+	CLRF	r0x1006
 	BTFSC	_PORTBbits,5
-	INCF	r0x1005,F
-;;[ICODE] key.c:14: 	iTemp9 [k15 lr14:15 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x1049 ]
-	MOVF	r0x1005,W
-	MOVWF	r0x1006
+	INCF	r0x1006,F
+;;[ICODE] key.c:14: 	iTemp9 [k15 lr14:15 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104B ] = (char register)iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104A ]
+	MOVF	r0x1006,W
+	MOVWF	r0x1007
 	XORLW	0x01
 	BTFSS	STATUS,2
-	GOTO	_00135_DS_
-;;[ICODE] key.c:14: 	if iTemp10 [k16 lr15:16 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_12($31)
-;;[ICODE] key.c:14:  __iftrue_12($30) :
+	GOTO	_00140_DS_
+;;[ICODE] key.c:14: 	if iTemp10 [k16 lr15:16 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_14($36)
+;;[ICODE] key.c:14:  __iftrue_14($35) :
 ;;[ICODE] key.c:17: 	iTemp11 [k18 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpress_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0xffff {const-unsigned-int literal}
 ;;unsigned compare: left < lit(0xFFFF=65535), size=2
-_00134_DS_:
+_00139_DS_:
 ;	.line	17; "key.c"	if(longpress_cnt < 0xffff) {
 	MOVLW	0xff
 	SUBWF	(_longpress_cnt + 1),W
 	BTFSS	STATUS,2
-	GOTO	_00183_DS_
+	GOTO	_00194_DS_
 	MOVLW	0xff
 	SUBWF	_longpress_cnt,W
-_00183_DS_:
+_00194_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00106_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
@@ -230,64 +228,64 @@ _00183_DS_:
 	BTFSC	STATUS,2
 	INCF	(_longpress_cnt + 1),F
 ;;[ICODE] key.c:18:  __iffalse_0($2) :
-;;[ICODE] key.c:21: 	iTemp15 [k22 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpress_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x32 {unsigned-int literal}
-;;unsigned compare: left < lit(0x32=50), size=2
+;;[ICODE] key.c:21: 	iTemp15 [k22 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpress_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x50 {unsigned-int literal}
+;;unsigned compare: left < lit(0x50=80), size=2
 _00106_DS_:
-;	.line	21; "key.c"	if(longpress_cnt < 50){
+;	.line	21; "key.c"	if(longpress_cnt < 80){
 	MOVLW	0x00
 	SUBWF	(_longpress_cnt + 1),W
 	BTFSS	STATUS,2
-	GOTO	_00184_DS_
-	MOVLW	0x32
+	GOTO	_00195_DS_
+	MOVLW	0x50
 	SUBWF	_longpress_cnt,W
-_00184_DS_:
+_00195_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00116_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
 ;;[ICODE] key.c:21: 	if iTemp15 [k22 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_4($12)
 ;;[ICODE] key.c:24: 	iTemp17 [k25 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] key.c:24: 	iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x1049 ] = @[iTemp17 [k25 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] key.c:24: 	iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104A ] = @[iTemp17 [k25 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	24; "key.c"	if(PORT_KEY_1 == 0) {
 	BTFSC	_PORTBbits,2
 	GOTO	_00113_DS_
-;;[ICODE] key.c:24: 	if iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x1049 ] != 0 goto __iffalse_3($9)
+;;[ICODE] key.c:24: 	if iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104A ] != 0 goto __iffalse_3($9)
 ;;[ICODE] key.c:26: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x1 {const-unsigned-char literal}
-;	.line	26; "key.c"	clink_event = 1;
+;	.line	26; "key.c"	clink_event = 1;  //??
 	MOVLW	0x01
 	MOVWF	_clink_event
 ;;[ICODE] key.c:26: 	 goto __iffalse_4($12)
 	GOTO	_00116_DS_
 ;;[ICODE] key.c:26:  __iffalse_3($9) :
 ;;[ICODE] key.c:28: 	iTemp21 [k31 lr32:34 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] key.c:28: 	iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x1049 ] = @[iTemp21 [k31 lr32:34 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] key.c:28: 	iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x104A ] = @[iTemp21 [k31 lr32:34 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 _00113_DS_:
 ;	.line	28; "key.c"	} else if(PORT_KEY_2 == 0) {
 	BTFSC	_PORTBbits,4
 	GOTO	_00110_DS_
-;;[ICODE] key.c:28: 	if iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x1049 ] != 0 goto __iffalse_2($6)
+;;[ICODE] key.c:28: 	if iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x104A ] != 0 goto __iffalse_2($6)
 ;;[ICODE] key.c:30: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x2 {const-unsigned-char literal}
-;	.line	30; "key.c"	clink_event = 2;
+;	.line	30; "key.c"	clink_event = 2; //???
 	MOVLW	0x02
 	MOVWF	_clink_event
 ;;[ICODE] key.c:30: 	 goto __iffalse_4($12)
 	GOTO	_00116_DS_
 ;;[ICODE] key.c:30:  __iffalse_2($6) :
 ;;[ICODE] key.c:32: 	iTemp25 [k36 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] key.c:32: 	iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp25 [k36 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] key.c:32: 	iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104A ] = @[iTemp25 [k36 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 _00110_DS_:
 ;	.line	32; "key.c"	} else if(PORT_KEY_3 == 1) {
-	CLRF	r0x1005
+	CLRF	r0x1006
 	BTFSC	_PORTBbits,5
-	INCF	r0x1005,F
-;;[ICODE] key.c:32: 	iTemp27 [k38 lr42:43 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x1049 ]
-	MOVF	r0x1005,W
-	MOVWF	r0x1006
+	INCF	r0x1006,F
+;;[ICODE] key.c:32: 	iTemp27 [k38 lr42:43 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104B ] = (char register)iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104A ]
+	MOVF	r0x1006,W
+	MOVWF	r0x1007
 	XORLW	0x01
 	BTFSS	STATUS,2
 	GOTO	_00116_DS_
 ;;[ICODE] key.c:32: 	if iTemp28 [k39 lr43:44 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_4($12)
 ;;[ICODE] key.c:34: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x3 {const-unsigned-char literal}
-;	.line	34; "key.c"	clink_event = 3;
+;	.line	34; "key.c"	clink_event = 3; //???
 	MOVLW	0x03
 	MOVWF	_clink_event
 ;;[ICODE] key.c:34:  __iffalse_4($12) :
@@ -298,30 +296,30 @@ _00116_DS_:
 	MOVLW	0x00
 	SUBWF	(_longpress_cnt + 1),W
 	BTFSS	STATUS,2
-	GOTO	_00185_DS_
+	GOTO	_00196_DS_
 	MOVLW	0x64
 	SUBWF	_longpress_cnt,W
-_00185_DS_:
+_00196_DS_:
 	BTFSS	STATUS,0
-	GOTO	_00139_DS_
+	GOTO	_00144_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
-;;[ICODE] key.c:41: 	if iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 goto _return($35)
+;;[ICODE] key.c:41: 	if iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 goto _return($40)
 ;;[ICODE] key.c:43: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 ;	.line	43; "key.c"	clink_event = 0;
 	CLRF	_clink_event
 ;;[ICODE] key.c:45: 	iTemp33 [k45 lr50:52 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] key.c:45: 	iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp33 [k45 lr50:52 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;;[ICODE] key.c:45: 	iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104A ] = @[iTemp33 [k45 lr50:52 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	45; "key.c"	if(PORT_KEY_3 == 1){
-	CLRF	r0x1005
+	CLRF	r0x1006
 	BTFSC	_PORTBbits,5
-	INCF	r0x1005,F
-;;[ICODE] key.c:45: 	iTemp35 [k47 lr53:54 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x1049 ]
-	MOVF	r0x1005,W
-	MOVWF	r0x1006
+	INCF	r0x1006,F
+;;[ICODE] key.c:45: 	iTemp35 [k47 lr53:54 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104B ] = (char register)iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104A ]
+	MOVF	r0x1006,W
+	MOVWF	r0x1007
 	XORLW	0x01
 	BTFSS	STATUS,2
-	GOTO	_00139_DS_
-;;[ICODE] key.c:45: 	if iTemp36 [k48 lr54:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto _return($35)
+	GOTO	_00144_DS_
+;;[ICODE] key.c:45: 	if iTemp36 [k48 lr54:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto _return($40)
 ;;[ICODE] key.c:46: 	_long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x1 {const-unsigned-char literal}
 ;	.line	46; "key.c"	long_f = 1;
 	MOVLW	0x01
@@ -332,11 +330,11 @@ _00185_DS_:
 ;;[ICODE] key.c:48: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
 ;	.line	48; "key.c"	g_ucTimerWorkCount++;  //10ms
 	INCF	_g_ucTimerWorkCount,F
-;;[ICODE] key.c:48: 	 goto _return($35)
-	GOTO	_00139_DS_
-;;[ICODE] key.c:48:  __iffalse_12($31) :
+;;[ICODE] key.c:48: 	 goto _return($40)
+	GOTO	_00144_DS_
+;;[ICODE] key.c:48:  __iffalse_14($36) :
 ;;[ICODE] key.c:56: 	_longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
-_00135_DS_:
+_00140_DS_:
 ;	.line	56; "key.c"	longpress_cnt = 0;
 	CLRF	_longpress_cnt
 	CLRF	(_longpress_cnt + 1)
@@ -350,9 +348,9 @@ _00135_DS_:
 ;;[ICODE] key.c:60: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 ;	.line	60; "key.c"	clink_event = 0;
 	CLRF	_clink_event
-;;[ICODE] key.c:61: 	iTemp45 [k61 lr66:66 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k60 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	61; "key.c"	MotoSwitch();
-	CALL	_MotoSwitch
+;;[ICODE] key.c:61: 	iTemp45 [k61 lr66:66 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k60 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	61; "key.c"	LedSwitch();
+	CALL	_LedSwitch
 ;;[ICODE] key.c:61: 	 goto __ifend_9($24)
 	GOTO	_00128_DS_
 ;;[ICODE] key.c:61:  __iffalse_9($23) :
@@ -367,59 +365,107 @@ _00127_DS_:
 ;;[ICODE] key.c:63: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 ;	.line	63; "key.c"	clink_event = 0;
 	CLRF	_clink_event
-;;[ICODE] key.c:64: 	iTemp48 [k65 lr72:72 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k64 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	64; "key.c"	LedSwitch();
-	CALL	_LedSwitch
-;;[ICODE] key.c:64: 	 goto __ifend_9($24)
+;;[ICODE] key.c:65: 	iTemp48 [k65 lr72:72 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k64 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	65; "key.c"	MotoSwitch();
+	CALL	_MotoSwitch
+;;[ICODE] key.c:65: 	 goto __ifend_9($24)
 	GOTO	_00128_DS_
-;;[ICODE] key.c:64:  __iffalse_8($20) :
+;;[ICODE] key.c:65:  __iffalse_8($20) :
 ;;[ICODE] key.c:66: 	iTemp49 [k66 lr75:76 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char literal}
 _00124_DS_:
 ;	.line	66; "key.c"	} else if(clink_event == 3){
 	MOVF	_clink_event,W
-;	.line	68; "key.c"	clink_event = 0;
 	XORLW	0x03
-;	.line	71; "key.c"	if(long_f){
-	BTFSC	STATUS,2
+	BTFSS	STATUS,2
+	GOTO	_00128_DS_
+;;[ICODE] key.c:66: 	if iTemp49 [k66 lr75:76 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __ifend_9($24)
+;;[ICODE] key.c:68: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	68; "key.c"	clink_event = 0;
 	CLRF	_clink_event
+;;[ICODE] key.c:70: 	iTemp51 [k68 lr78:78 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOn [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	70; "key.c"	PowOn();
+	CALL	_PowOn
+;;[ICODE] key.c:71: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
+;	.line	71; "key.c"	g_ucTimerWorkCount++;  //10ms
+	INCF	_g_ucTimerWorkCount,F
+;;[ICODE] key.c:72: 	_holdOn_f [k72 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x1 {const-unsigned-char literal}
+;	.line	72; "key.c"	holdOn_f = 1;
+	MOVLW	0x01
+	MOVWF	_holdOn_f
+;;[ICODE] key.c:72:  __ifend_9($24) :
+;;[ICODE] key.c:76: 	if _holdOn_f [k72 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0 goto __iffalse_11($29)
 _00128_DS_:
+;	.line	76; "key.c"	if(holdOn_f) {
 	MOVLW	0x00
-	IORWF	_long_f,W
+	IORWF	_holdOn_f,W
 	BTFSC	STATUS,2
-	GOTO	_00139_DS_
-;;[ICODE] key.c:73: 	iTemp51 [k68 lr80:81 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x32 {const-unsigned-char literal}
-;;unsigned compare: left < lit(0x32=50), size=1
-;	.line	73; "key.c"	if(g_ucTimerWorkCount <  50) {
-	MOVLW	0x32
+	GOTO	_00133_DS_
+;;[ICODE] key.c:78: 	iTemp56 [k74 lr84:85 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigned-char literal}
+;;unsigned compare: left < lit(0x3C=60), size=1
+;	.line	78; "key.c"	if(g_ucTimerWorkCount <  60) {
+	MOVLW	0x3c
 	SUBWF	_g_ucTimerWorkCount,W
 	BTFSC	STATUS,0
 	GOTO	_00130_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
-;;[ICODE] key.c:73: 	if iTemp51 [k68 lr80:81 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_10($26)
-;;[ICODE] key.c:74: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
-;	.line	74; "key.c"	g_ucTimerWorkCount++;
+;;[ICODE] key.c:78: 	if iTemp56 [k74 lr84:85 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_10($26)
+;;[ICODE] key.c:79: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
+;	.line	79; "key.c"	g_ucTimerWorkCount++;
 	INCF	_g_ucTimerWorkCount,F
-;;[ICODE] key.c:74: 	 goto _return($35)
-	GOTO	_00139_DS_
-;;[ICODE] key.c:74:  __iffalse_10($26) :
-;;[ICODE] key.c:76: 	_long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;;[ICODE] key.c:79: 	 goto __iffalse_11($29)
+	GOTO	_00133_DS_
+;;[ICODE] key.c:79:  __iffalse_10($26) :
+;;[ICODE] key.c:81: 	_holdOn_f [k72 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 _00130_DS_:
-;	.line	76; "key.c"	long_f = 0;
-	CLRF	_long_f
-;;[ICODE] key.c:77: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	77; "key.c"	g_ucTimerWorkCount = 0;
+;	.line	81; "key.c"	holdOn_f = 0;
+	CLRF	_holdOn_f
+;;[ICODE] key.c:82: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	82; "key.c"	g_ucTimerWorkCount = 0;
 	CLRF	_g_ucTimerWorkCount
-;;[ICODE] key.c:78: 	iTemp57 [k75 lr88:88 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k74 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	78; "key.c"	PowOff();
+;;[ICODE] key.c:83: 	iTemp62 [k81 lr92:92 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k80 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	83; "key.c"	PowOff();
 	CALL	_PowOff
-;;[ICODE] key.c:78:  _return($35) :
-;;[ICODE] key.c:78: 	eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-_00139_DS_:
+;;[ICODE] key.c:83:  __iffalse_11($29) :
+;;[ICODE] key.c:91: 	if _long_f [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0 goto _return($40)
+_00133_DS_:
+;	.line	91; "key.c"	if(long_f){
+	MOVLW	0x00
+	IORWF	_long_f,W
+	BTFSC	STATUS,2
+	GOTO	_00144_DS_
+;;[ICODE] key.c:93: 	iTemp63 [k82 lr95:96 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigned-char literal}
+;;unsigned compare: left < lit(0x3C=60), size=1
+;	.line	93; "key.c"	if(g_ucTimerWorkCount <  60) {
+	MOVLW	0x3c
+	SUBWF	_g_ucTimerWorkCount,W
+	BTFSC	STATUS,0
+	GOTO	_00135_DS_
+;;genSkipc:3257: created from rifx:0x782c44
+;;[ICODE] key.c:93: 	if iTemp63 [k82 lr95:96 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_12($31)
+;;[ICODE] key.c:94: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
+;	.line	94; "key.c"	g_ucTimerWorkCount++;
+	INCF	_g_ucTimerWorkCount,F
+;;[ICODE] key.c:94: 	 goto _return($40)
+	GOTO	_00144_DS_
+;;[ICODE] key.c:94:  __iffalse_12($31) :
+;;[ICODE] key.c:96: 	_long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+_00135_DS_:
+;	.line	96; "key.c"	long_f = 0;
+	CLRF	_long_f
+;;[ICODE] key.c:97: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	97; "key.c"	g_ucTimerWorkCount = 0;
+	CLRF	_g_ucTimerWorkCount
+;;[ICODE] key.c:98: 	iTemp69 [k88 lr103:103 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k80 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	98; "key.c"	PowOff();
+	CALL	_PowOff
+;;[ICODE] key.c:98:  _return($40) :
+;;[ICODE] key.c:98: 	eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+_00144_DS_:
 	RETURN	
 ; exit point of _ScanKey
 
 
 ;	code size estimation:
-;	  107+    0 =   107 instructions (  214 byte)
+;	  125+    0 =   125 instructions (  250 byte)
 
 	end

@@ -89,17 +89,6 @@
 	global	_BITS_DATA1
 	global	_g_ucTimer10msCount
 	global	_g_ucTimerWorkCount
-	global	_g_ucFlashTimeHigh
-	global	_g_ucFlashTimeLow
-	global	_g_ucFlashTimeHigh1
-	global	_g_ucFlashTimeLow1
-	global	_g_ucFlashTimeHigh2
-	global	_g_ucFlashTimeLow2
-	global	_LvdModel
-	global	_LvdDebounceNew
-	global	_LvdDebounceOld
-	global	_LvdModelCount
-	global	_LvdLightCount
 	global	_TempCount
 	global	_TempFlag
 	global	_SleepCount
@@ -137,86 +126,31 @@ _g_ucTimerWorkCount
 
 
 ID_variable_2	idata
-_g_ucFlashTimeHigh
-	db	0x00
-
-
-ID_variable_3	idata
-_g_ucFlashTimeLow
-	db	0x00
-
-
-ID_variable_4	idata
-_g_ucFlashTimeHigh1
-	db	0x00
-
-
-ID_variable_5	idata
-_g_ucFlashTimeLow1
-	db	0x00
-
-
-ID_variable_6	idata
-_g_ucFlashTimeHigh2
-	db	0x00
-
-
-ID_variable_7	idata
-_g_ucFlashTimeLow2
-	db	0x00
-
-
-ID_variable_8	idata
-_LvdModel
-	db	0x00
-
-
-ID_variable_9	idata
-_LvdDebounceNew
-	db	0x00
-
-
-ID_variable_10	idata
-_LvdDebounceOld
-	db	0x00
-
-
-ID_variable_11	idata
-_LvdModelCount
-	db	0x00
-
-
-ID_variable_12	idata
-_LvdLightCount
-	db	0x00
-
-
-ID_variable_13	idata
 _TempCount
 	db	0x00
 
 
-ID_variable_14	idata
+ID_variable_3	idata
 _TempFlag
 	db	0x00
 
 
-ID_variable_15	idata
+ID_variable_4	idata
 _SleepCount
 	db	0x00
 
 
-ID_variable_16	idata
+ID_variable_5	idata
 _SleepFlag
 	db	0x00
 
 
-ID_variable_17	idata
+ID_variable_6	idata
 _MaxLight
 	db	0x00
 
 
-ID_variable_18	code
+ID_variable_7	code
 _g_cucTIMER_COUNT_STATE
 	retlw 0x01
 	retlw 0x01

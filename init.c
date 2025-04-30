@@ -4,6 +4,8 @@
 void InitPort(void)
 {
   
+	AUXR = 0;
+
 	PORTB = 0;  // 0 disenable output, 1 enable output
   
 	//配置端口模式 
@@ -35,8 +37,8 @@ void InitPort(void)
 
 
 	//IOCB = 0X08;
-	PORT_LED1 = 0;  //灯光
-	PORT_LED2 = 1;  //电机
+	PORT_LED1 = 1;  //灯光  1：灭  0：亮
+	PORT_LED2 = 1;  //电机 1：灭  0：亮
 	PORT_LED3 = 0; //pow
 }
 

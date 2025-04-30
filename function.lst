@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -54,406 +54,394 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00037         extern  _BITS_DATA1
   0000                00038         extern  _g_ucTimer10msCount
   0000                00039         extern  _g_ucTimerWorkCount
-  0000                00040         extern  _g_ucFlashTimeHigh
-  0000                00041         extern  _g_ucFlashTimeLow
-  0000                00042         extern  _g_ucFlashTimeHigh1
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  2
+  0000                00040         extern  _TempCount
+  0000                00041         extern  _TempFlag
+  0000                00042         extern  _SleepCount
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00043         extern  _g_ucFlashTimeLow1
-  0000                00044         extern  _g_ucFlashTimeHigh2
-  0000                00045         extern  _g_ucFlashTimeLow2
-  0000                00046         extern  _LvdModel
-  0000                00047         extern  _LvdDebounceNew
-  0000                00048         extern  _LvdDebounceOld
-  0000                00049         extern  _LvdModelCount
-  0000                00050         extern  _LvdLightCount
-  0000                00051         extern  _TempCount
-  0000                00052         extern  _TempFlag
-  0000                00053         extern  _SleepCount
-  0000                00054         extern  _SleepFlag
-  0000                00055         extern  _MaxLight
-  0000                00056         extern  _g_cucTIMER_COUNT_STATE
-  0000                00057         extern  _INDF
-  0000                00058         extern  _T0
-  0000                00059         extern  _PCL
-  0000                00060         extern  _STATUS
-  0000                00061         extern  _FSR
-  0000                00062         extern  _PORTB
-  0000                00063         extern  _GPR
-  0000                00064         extern  _PCON
-  0000                00065         extern  _IOCB
-  0000                00066         extern  _PCLATH
-  0000                00067         extern  _PDCON
-  0000                00068         extern  _ODCON
-  0000                00069         extern  _PHCON
-  0000                00070         extern  _INTECON
-  0000                00071         extern  _INTFLAG
-  0000                00072         extern  _OPTION
-  0000                00073         extern  _TRISB
-  0000                00074         extern  _PWMCON
-  0000                00075         extern  _PWM1P
-  0000                00076         extern  _PWM2P
-  0000                00077         extern  _T0CR
-  0000                00078         extern  _T1CON
-  0000                00079         extern  _T1
-  0000                00080         extern  _T1LOAD
-  0000                00081         extern  _PWM0P
-  0000                00082         extern  _OSCCON
-  0000                00083         extern  _CMPCR
-  0000                00084         extern  _PDCON1
-  0000                00085         extern  _CHARGE0
-  0000                00086         extern  _CHARGE1
-  0000                00087         extern  _RAMP
-  0000                00088         extern  _AUXR
-  0000                00089         extern  _HIRCTRM
-                      00090 
-  0000                00091         extern PSAVE
-  0000                00092         extern SSAVE
-  0000                00093         extern WSAVE
-  0000                00094         extern STK12
-  0000                00095         extern STK11
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  3
+  0000                00043         extern  _SleepFlag
+  0000                00044         extern  _MaxLight
+  0000                00045         extern  _INDF
+  0000                00046         extern  _T0
+  0000                00047         extern  _PCL
+  0000                00048         extern  _STATUS
+  0000                00049         extern  _FSR
+  0000                00050         extern  _PORTB
+  0000                00051         extern  _GPR
+  0000                00052         extern  _PCON
+  0000                00053         extern  _IOCB
+  0000                00054         extern  _PCLATH
+  0000                00055         extern  _PDCON
+  0000                00056         extern  _ODCON
+  0000                00057         extern  _PHCON
+  0000                00058         extern  _INTECON
+  0000                00059         extern  _INTFLAG
+  0000                00060         extern  _OPTION
+  0000                00061         extern  _TRISB
+  0000                00062         extern  _PWMCON
+  0000                00063         extern  _PWM1P
+  0000                00064         extern  _PWM2P
+  0000                00065         extern  _T0CR
+  0000                00066         extern  _T1CON
+  0000                00067         extern  _T1
+  0000                00068         extern  _T1LOAD
+  0000                00069         extern  _PWM0P
+  0000                00070         extern  _OSCCON
+  0000                00071         extern  _CMPCR
+  0000                00072         extern  _PDCON1
+  0000                00073         extern  _CHARGE0
+  0000                00074         extern  _CHARGE1
+  0000                00075         extern  _RAMP
+  0000                00076         extern  _AUXR
+  0000                00077         extern  _HIRCTRM
+                      00078 
+  0000                00079         extern PSAVE
+  0000                00080         extern SSAVE
+  0000                00081         extern WSAVE
+  0000                00082         extern STK12
+  0000                00083         extern STK11
+  0000                00084         extern STK10
+  0000                00085         extern STK09
+  0000                00086         extern STK08
+  0000                00087         extern STK07
+  0000                00088         extern STK06
+  0000                00089         extern STK05
+  0000                00090         extern STK04
+  0000                00091         extern STK03
+  0000                00092         extern STK02
+  0000                00093         extern STK01
+  0000                00094         extern STK00
+                      00095 ;--------------------------------------------------------
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-  0000                00096         extern STK10
-  0000                00097         extern STK09
-  0000                00098         extern STK08
-  0000                00099         extern STK07
-  0000                00100         extern STK06
-  0000                00101         extern STK05
-  0000                00102         extern STK04
-  0000                00103         extern STK03
-  0000                00104         extern STK02
-  0000                00105         extern STK01
-  0000                00106         extern STK00
+                      00096 ; global declarations
+                      00097 ;--------------------------------------------------------
+  0000                00098         global  _ControlSos
+  0000                00099         global  _ControlFlash
+  0000                00100         global  _ControlLevel
+  0000                00101         global  _ControlLevelHigh
+  0000                00102         global  _ControlLevelLow
+                      00103 
+                      00104 ;--------------------------------------------------------
+                      00105 ; global definitions
+                      00106 ;--------------------------------------------------------
                       00107 ;--------------------------------------------------------
-                      00108 ; global declarations
+                      00108 ; absolute symbol definitions
                       00109 ;--------------------------------------------------------
-  0000                00110         global  _ControlSos
-  0000                00111         global  _ControlFlash
-  0000                00112         global  _ControlLevel
-  0000                00113         global  _ControlLevelHigh
-  0000                00114         global  _ControlLevelLow
-                      00115 
-                      00116 ;--------------------------------------------------------
-                      00117 ; global definitions
-                      00118 ;--------------------------------------------------------
+                      00110 ;--------------------------------------------------------
+                      00111 ; compiler-defined variables
+                      00112 ;--------------------------------------------------------
+                      00113 UDL_function_0  udata
+0000                  00114 r0x1002 res     1
+0001                  00115 r0x1003 res     1
+0002                  00116 r0x1004 res     1
+                      00117 ;--------------------------------------------------------
+                      00118 ; initialized data
                       00119 ;--------------------------------------------------------
-                      00120 ; absolute symbol definitions
-                      00121 ;--------------------------------------------------------
+                      00120 ;--------------------------------------------------------
+                      00121 ; overlayable items in internal ram 
                       00122 ;--------------------------------------------------------
-                      00123 ; compiler-defined variables
+                      00123 ;       udata_ovr
                       00124 ;--------------------------------------------------------
-                      00125 UDL_function_0  udata
-0000                  00126 r0x1002 res     1
-0001                  00127 r0x1003 res     1
-0002                  00128 r0x1004 res     1
-                      00129 ;--------------------------------------------------------
-                      00130 ; initialized data
-                      00131 ;--------------------------------------------------------
-                      00132 ;--------------------------------------------------------
-                      00133 ; overlayable items in internal ram 
-                      00134 ;--------------------------------------------------------
-                      00135 ;       udata_ovr
-                      00136 ;--------------------------------------------------------
-                      00137 ; code
-                      00138 ;--------------------------------------------------------
-                      00139 code_function   code
-                      00140 ;***
-                      00141 ;  pBlock Stats: dbName = C
-                      00142 ;***
-                      00143 ;has an exit
-                      00144 ;; Starting pCode block
-                      00145 ;;[ICODE] function.c:103:  _entry($2) :
-                      00146 ;;[ICODE] function.c:103:       proc _ControlSos [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fu
+                      00125 ; code
+                      00126 ;--------------------------------------------------------
+                      00127 code_function   code
+                      00128 ;***
+                      00129 ;  pBlock Stats: dbName = C
+                      00130 ;***
+                      00131 ;has an exit
+                      00132 ;; Starting pCode block
+                      00133 ;;[ICODE] function.c:103:  _entry($2) :
+                      00134 ;;[ICODE] function.c:103:       proc _ControlSos [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fu
                             nction ( ) fixed}
-                      00147 S_function__ControlSos  code
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  4
+                      00135 S_function__ControlSos  code
+0000                  00136 _ControlSos:
+                      00137 ; 2 exit points
+                      00138 ;;[ICODE] function.c:171:  _return($1) :
+                      00139 ;;[ICODE] function.c:171:       eproc _ControlSos [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void f
+                            unction ( ) fixed}
+                      00140 ;       .line   171; "function.c"       }
+0000   0002           00141         RETURN  
+                      00142 ; exit point of _ControlSos
+                      00143 
+                      00144 ;***
+                      00145 ;  pBlock Stats: dbName = C
+                      00146 ;***
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0000                  00148 _ControlSos:
-                      00149 ; 2 exit points
-                      00150 ;;[ICODE] function.c:171:  _return($1) :
-                      00151 ;;[ICODE] function.c:171:       eproc _ControlSos [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void f
-                            unction ( ) fixed}
-                      00152 ;       .line   171; "function.c"       }
-0000   0002           00153         RETURN  
-                      00154 ; exit point of _ControlSos
-                      00155 
-                      00156 ;***
-                      00157 ;  pBlock Stats: dbName = C
-                      00158 ;***
-                      00159 ;has an exit
-                      00160 ;; Starting pCode block
-                      00161 ;;[ICODE] function.c:39:  _entry($2) :
-                      00162 ;;[ICODE] function.c:39:        proc _ControlFlash [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void 
+                      00147 ;has an exit
+                      00148 ;; Starting pCode block
+                      00149 ;;[ICODE] function.c:39:  _entry($2) :
+                      00150 ;;[ICODE] function.c:39:        proc _ControlFlash [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void 
                             function ( ) fixed}
-                      00163 S_function__ControlFlash        code
-0000                  00164 _ControlFlash:
-                      00165 ; 2 exit points
-                      00166 ;;[ICODE] function.c:101:  _return($1) :
-                      00167 ;;[ICODE] function.c:101:       eproc _ControlFlash [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
+                      00151 S_function__ControlFlash        code
+0000                  00152 _ControlFlash:
+                      00153 ; 2 exit points
+                      00154 ;;[ICODE] function.c:101:  _return($1) :
+                      00155 ;;[ICODE] function.c:101:       eproc _ControlFlash [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
                              function ( ) fixed}
-                      00168 ;       .line   101; "function.c"       }
-0000   0002           00169         RETURN  
-                      00170 ; exit point of _ControlFlash
-                      00171 
-                      00172 ;***
-                      00173 ;  pBlock Stats: dbName = C
-                      00174 ;***
-                      00175 ;has an exit
-                      00176 ;5 compiler assigned registers:
-                      00177 ;   r0x1002
-                      00178 ;   STK00
-                      00179 ;   r0x1003
-                      00180 ;   STK01
-                      00181 ;   r0x1004
-                      00182 ;; Starting pCode block
-                      00183 ;;[ICODE] function.c:26:  _entry($2) :
-                      00184 ;;[ICODE] function.c:26:        proc _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void 
+                      00156 ;       .line   101; "function.c"       }
+0000   0002           00157         RETURN  
+                      00158 ; exit point of _ControlFlash
+                      00159 
+                      00160 ;***
+                      00161 ;  pBlock Stats: dbName = C
+                      00162 ;***
+                      00163 ;has an exit
+                      00164 ;5 compiler assigned registers:
+                      00165 ;   r0x1002
+                      00166 ;   STK00
+                      00167 ;   r0x1003
+                      00168 ;   STK01
+                      00169 ;   r0x1004
+                      00170 ;; Starting pCode block
+                      00171 ;;[ICODE] function.c:26:  _entry($2) :
+                      00172 ;;[ICODE] function.c:26:        proc _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void 
                             function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-                      00185 S_function__ControlLevel        code
-0000                  00186 _ControlLevel:
-                      00187 ; 2 exit points
-                      00188 ;;[ICODE] function.c:26: iTemp0 [k2 lr3:17 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ s
+                      00173 S_function__ControlLevel        code
+0000                  00174 _ControlLevel:
+                      00175 ; 2 exit points
+                      00176 ;;[ICODE] function.c:26: iTemp0 [k2 lr3:17 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ s
                             ir@ _ControlLevel_lightnum1_1_11}[r0x1047 ] = recv _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 
                             ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-                      00189 ;       .line   26; "function.c"        void ControlLevel(BYTE lightnum1, BYTE lightnum2, BYTE lightnum3
+                      00177 ;       .line   26; "function.c"        void ControlLevel(BYTE lightnum1, BYTE lightnum2, BYTE lightnum3
                             )
-0000   19??           00190         MOVWF   r0x1002
-                      00191 ;;[ICODE] function.c:26: iTemp1 [k4 lr4:18 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ s
+0000   19??           00178         MOVWF   r0x1002
+                      00179 ;;[ICODE] function.c:26: iTemp1 [k4 lr4:18 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ s
                             ir@ _ControlLevel_lightnum2_1_11}[r0x1048 ] = recv _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 
                             ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  5
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-0001   11??           00192         MOVF    STK00,W
-0002   19??           00193         MOVWF   r0x1003
-                      00194 ;;[ICODE] function.c:26: iTemp2 [k6 lr5:19 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ s
+0001   11??           00180         MOVF    STK00,W
+0002   19??           00181         MOVWF   r0x1003
+                      00182 ;;[ICODE] function.c:26: iTemp2 [k6 lr5:19 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ s
                             ir@ _ControlLevel_lightnum3_1_11}[r0x1049 ] = recv _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 
                             ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-0003   11??           00195         MOVF    STK01,W
-0004   19??           00196         MOVWF   r0x1004
-                      00197 ;;[ICODE] function.c:28:        iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfiel
+0003   11??           00183         MOVF    STK01,W
+0004   19??           00184         MOVWF   r0x1004
+                      00185 ;;[ICODE] function.c:28:        iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfiel
                             d {2,1} near* fixed}[remat] = &[_BITS_DATA0 [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bit
                             s8_t fixed} , 0x0 {const-unsigned-char literal}]
-                      00198 ;;[ICODE] function.c:28:        *(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfi
+                      00186 ;;[ICODE] function.c:28:        *(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfi
                             eld {2,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00199 ;       .line   28; "function.c"        g_ucPWM_KeyChange = 0;
-0005   3D??           00200         BCF     _BITS_DATA0,2
-                      00201 ;;[ICODE] function.c:29:        _PWMCON [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsign
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00187 ;       .line   28; "function.c"        g_ucPWM_KeyChange = 0;
+0005   3D??           00188         BCF     _BITS_DATA0,2
+                      00189 ;;[ICODE] function.c:29:        _PWMCON [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsign
                             ed-char sfr} := 0x63 {const-unsigned-char literal}
-                      00202 ;       .line   29; "function.c"        PWMCON = 0x63;  //01100011
-0006   0463           00203         MOVLW   0x63
-0007   19??           00204         MOVWF   _PWMCON
-                      00205 ;;[ICODE] function.c:30:        iTemp6 [k16 lr10:12 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                      00190 ;       .line   29; "function.c"        PWMCON = 0x63;  //01100011
+0006   0463           00191         MOVLW   0x63
+0007   19??           00192         MOVWF   _PWMCON
+                      00193 ;;[ICODE] function.c:30:        iTemp6 [k16 lr10:12 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {6,1} near* fixed}[remat] = &[_T1CONbits [k13 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
                             olatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
-                      00206 ;;[ICODE] function.c:30:        *(iTemp6 [k16 lr10:12 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00194 ;;[ICODE] function.c:30:        *(iTemp6 [k16 lr10:12 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {6,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00207 ;       .line   30; "function.c"        PWM0E = 1;
-0008   3B??           00208         BSF     _T1CONbits,6
-                      00209 ;;[ICODE] function.c:31:        iTemp8 [k19 lr13:15 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                      00195 ;       .line   30; "function.c"        PWM0E = 1;
+0008   3B??           00196         BSF     _T1CONbits,6
+                      00197 ;;[ICODE] function.c:31:        iTemp8 [k19 lr13:15 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {7,1} near* fixed}[remat] = &[_T1CONbits [k13 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
                             olatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
-                      00210 ;;[ICODE] function.c:31:        *(iTemp8 [k19 lr13:15 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00198 ;;[ICODE] function.c:31:        *(iTemp8 [k19 lr13:15 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00211 ;       .line   31; "function.c"        T1EN = 1;      //启动 T1
-0009   3B??           00212         BSF     _T1CONbits,7
-                      00213 ;;[ICODE] function.c:32:        _RAMP [k20 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
+                      00199 ;       .line   31; "function.c"        T1EN = 1;      //启动 T1
+0009   3B??           00200         BSF     _T1CONbits,7
+                      00201 ;;[ICODE] function.c:32:        _RAMP [k20 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
                             -char sfr} := 0xc5 {const-unsigned-char literal}
-                      00214 ;       .line   32; "function.c"        RAMP = 0xC5;  //11000101 //禁止内置限流电阻。
-000A   04C5           00215         MOVLW   0xc5
-000B   19??           00216         MOVWF   _RAMP
-                      00217 ;;[ICODE] function.c:34:        _PWM2P [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
+                      00202 ;       .line   32; "function.c"        RAMP = 0xC5;  //11000101 //禁止内置限流电阻。
+000A   04C5           00203         MOVLW   0xc5
+000B   19??           00204         MOVWF   _RAMP
+                      00205 ;;[ICODE] function.c:34:        _PWM2P [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
                             d-char sfr} := iTemp0 [k2 lr3:17 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _Contr
                             olLevel_lightnum1_1_11}[r0x1047 ]
-                      00218 ;       .line   34; "function.c"        PWM_LED0 = lightnum1;
-000C   11??           00219         MOVF    r0x1002,W
-000D   19??           00220         MOVWF   _PWM2P
-                      00221 ;;[ICODE] function.c:35:        _PWM1P [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
+                      00206 ;       .line   34; "function.c"        PWM_LED0 = lightnum1;
+000C   11??           00207         MOVF    r0x1002,W
+000D   19??           00208         MOVWF   _PWM2P
+                      00209 ;;[ICODE] function.c:35:        _PWM1P [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
                             d-char sfr} := iTemp1 [k4 lr4:18 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _Contr
                             olLevel_lightnum2_1_11}[r0x1048 ]
-                      00222 ;       .line   35; "function.c"        PWM_LED1 = lightnum2;
-000E   11??           00223         MOVF    r0x1003,W
-000F   19??           00224         MOVWF   _PWM1P
-                      00225 ;;[ICODE] function.c:36:        _PWM0P [k23 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
+                      00210 ;       .line   35; "function.c"        PWM_LED1 = lightnum2;
+000E   11??           00211         MOVF    r0x1003,W
+000F   19??           00212         MOVWF   _PWM1P
+                      00213 ;;[ICODE] function.c:36:        _PWM0P [k23 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
                             d-char sfr} := iTemp2 [k6 lr5:19 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _Contr
                             olLevel_lightnum3_1_11}[r0x1049 ]
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  6
+                      00214 ;       .line   36; "function.c"        PWM_LED2 = lightnum3;
+0010   11??           00215         MOVF    r0x1004,W
+0011   19??           00216         MOVWF   _PWM0P
+                      00217 ;;[ICODE] function.c:36:  _return($1) :
+                      00218 ;;[ICODE] function.c:36:        eproc _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
+                             function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
+0012   0002           00219         RETURN  
+                      00220 ; exit point of _ControlLevel
+                      00221 
+                      00222 ;***
+                      00223 ;  pBlock Stats: dbName = C
+                      00224 ;***
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00226 ;       .line   36; "function.c"        PWM_LED2 = lightnum3;
-0010   11??           00227         MOVF    r0x1004,W
-0011   19??           00228         MOVWF   _PWM0P
-                      00229 ;;[ICODE] function.c:36:  _return($1) :
-                      00230 ;;[ICODE] function.c:36:        eproc _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
-                             function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-0012   0002           00231         RETURN  
-                      00232 ; exit point of _ControlLevel
-                      00233 
-                      00234 ;***
-                      00235 ;  pBlock Stats: dbName = C
-                      00236 ;***
-                      00237 ;has an exit
-                      00238 ;functions called:
-                      00239 ;   _ControlLevel
-                      00240 ;   _ControlLevel
-                      00241 ;2 compiler assigned registers:
-                      00242 ;   STK01
-                      00243 ;   STK00
-                      00244 ;; Starting pCode block
-                      00245 ;;[ICODE] function.c:20:  _entry($2) :
-                      00246 ;;[ICODE] function.c:20:        proc _ControlLevelHigh [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
+                      00225 ;has an exit
+                      00226 ;functions called:
+                      00227 ;   _ControlLevel
+                      00228 ;   _ControlLevel
+                      00229 ;2 compiler assigned registers:
+                      00230 ;   STK01
+                      00231 ;   STK00
+                      00232 ;; Starting pCode block
+                      00233 ;;[ICODE] function.c:20:  _entry($2) :
+                      00234 ;;[ICODE] function.c:20:        proc _ControlLevelHigh [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
                             oid function ( ) fixed}
-                      00247 S_function__ControlLevelHigh    code
-0000                  00248 _ControlLevelHigh:
-                      00249 ; 2 exit points
-                      00250 ;;[ICODE] function.c:22:        iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield
+                      00235 S_function__ControlLevelHigh    code
+0000                  00236 _ControlLevelHigh:
+                      00237 ; 2 exit points
+                      00238 ;;[ICODE] function.c:22:        iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield
                              {2,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits
                             8_t fixed} , 0x0 {const-unsigned-char literal}]
-                      00251 ;;[ICODE] function.c:22:        *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfie
+                      00239 ;;[ICODE] function.c:22:        *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfie
                             ld {2,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00252 ;       .line   22; "function.c"        g_ucPWM_KeyChange = 0;
-0000   3D??           00253         BCF     _BITS_DATA0,2
-                      00254 ;;[ICODE] function.c:23:        send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-
+                      00240 ;       .line   22; "function.c"        g_ucPWM_KeyChange = 0;
+0000   3D??           00241         BCF     _BITS_DATA0,2
+                      00242 ;;[ICODE] function.c:23:        send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-
                             char fixed}{argreg = 1}
-                      00255 ;;[ICODE] function.c:23:        send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-
+                      00243 ;;[ICODE] function.c:23:        send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-
                             char fixed}{argreg = 1}
-                      00256 ;;[ICODE] function.c:23:        send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-
+                      00244 ;;[ICODE] function.c:23:        send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-
                             char fixed}{argreg = 1}
-                      00257 ;;[ICODE] function.c:23:        iTemp2 [k11 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = ca
+                      00245 ;;[ICODE] function.c:23:        iTemp2 [k11 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = ca
                             ll _ControlLevel [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed, un
                             signed-char fixed, unsigned-char fixed) fixed}
-                      00258 ;       .line   23; "function.c"        ControlLevel(MaxLight,MaxLight,MaxLight);               
-0001   11??           00259         MOVF    _MaxLight,W
-0002   19??           00260         MOVWF   STK01
-0003   11??           00261         MOVF    _MaxLight,W
-0004   19??           00262         MOVWF   STK00
-0005   11??           00263         MOVF    _MaxLight,W
-0006   2???           00264         CALL    _ControlLevel
-                      00265 ;;[ICODE] function.c:23:  _return($1) :
-                      00266 ;;[ICODE] function.c:23:        eproc _ControlLevelHigh [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{
+                      00246 ;       .line   23; "function.c"        ControlLevel(MaxLight,MaxLight,MaxLight);               
+0001   11??           00247         MOVF    _MaxLight,W
+0002   19??           00248         MOVWF   STK01
+0003   11??           00249         MOVF    _MaxLight,W
+0004   19??           00250         MOVWF   STK00
+0005   11??           00251         MOVF    _MaxLight,W
+0006   2???           00252         CALL    _ControlLevel
+                      00253 ;;[ICODE] function.c:23:  _return($1) :
+                      00254 ;;[ICODE] function.c:23:        eproc _ControlLevelHigh [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{
                             void function ( ) fixed}
-0007   0002           00267         RETURN  
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  7
+0007   0002           00255         RETURN  
+                      00256 ; exit point of _ControlLevelHigh
+                      00257 
+                      00258 ;***
+                      00259 ;  pBlock Stats: dbName = C
+                      00260 ;***
+                      00261 ;has an exit
+                      00262 ;; Starting pCode block
+                      00263 ;;[ICODE] function.c:5:  _entry($2) :
+                      00264 ;;[ICODE] function.c:5:         proc _ControlLevelLow [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{vo
+                            id function ( ) fixed}
+                      00265 S_function__ControlLevelLow     code
+0000                  00266 _ControlLevelLow:
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00268 ; exit point of _ControlLevelHigh
-                      00269 
-                      00270 ;***
-                      00271 ;  pBlock Stats: dbName = C
-                      00272 ;***
-                      00273 ;has an exit
-                      00274 ;; Starting pCode block
-                      00275 ;;[ICODE] function.c:5:  _entry($2) :
-                      00276 ;;[ICODE] function.c:5:         proc _ControlLevelLow [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{vo
-                            id function ( ) fixed}
-                      00277 S_function__ControlLevelLow     code
-0000                  00278 _ControlLevelLow:
-                      00279 ; 2 exit points
-                      00280 ;;[ICODE] function.c:7:         iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield
+                      00267 ; 2 exit points
+                      00268 ;;[ICODE] function.c:7:         iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield
                              {2,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits
                             8_t fixed} , 0x0 {const-unsigned-char literal}]
-                      00281 ;;[ICODE] function.c:7:         *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfie
+                      00269 ;;[ICODE] function.c:7:         *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfie
                             ld {2,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00282 ;       .line   7; "function.c" g_ucPWM_KeyChange = 0;
-0000   3D??           00283         BCF     _BITS_DATA0,2
-                      00284 ;;[ICODE] function.c:8:         _PWM0P [k8 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
+                      00270 ;       .line   7; "function.c" g_ucPWM_KeyChange = 0;
+0000   3D??           00271         BCF     _BITS_DATA0,2
+                      00272 ;;[ICODE] function.c:8:         _PWM0P [k8 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
                             -char sfr} := 0x0 {const-unsigned-char literal}
-                      00285 ;       .line   8; "function.c" PWM_LED0 =  PWM_LED1 = PWM_LED2 = 0;    //用于设置 PWM0 的高电平时间
-0001   18??           00286         CLRF    _PWM0P
-                      00287 ;;[ICODE] function.c:8:         _PWM1P [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
+                      00273 ;       .line   8; "function.c" PWM_LED0 =  PWM_LED1 = PWM_LED2 = 0;    //用于设置 PWM0 的高电平时间
+0001   18??           00274         CLRF    _PWM0P
+                      00275 ;;[ICODE] function.c:8:         _PWM1P [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
                             -char sfr} := 0x0 {const-unsigned-char literal}
-0002   18??           00288         CLRF    _PWM1P
-                      00289 ;;[ICODE] function.c:8:         _PWM2P [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
+0002   18??           00276         CLRF    _PWM1P
+                      00277 ;;[ICODE] function.c:8:         _PWM2P [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned
                             -char sfr} := 0x0 {const-unsigned-char literal}
-0003   18??           00290         CLRF    _PWM2P
-                      00291 ;;[ICODE] function.c:10:        _PWMCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
+0003   18??           00278         CLRF    _PWM2P
+                      00279 ;;[ICODE] function.c:10:        _PWMCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
                             d-char sfr} := 0x80 {const-unsigned-char literal}
-                      00292 ;       .line   10; "function.c"        PWMCON = 0x80;     //禁止 PWM0/BUZ 输出，PORTB5 端口作为 I/O 口
-0004   0480           00293         MOVLW   0x80
-0005   19??           00294         MOVWF   _PWMCON
-                      00295 ;;[ICODE] function.c:11:        iTemp3 [k13 lr10:12 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                      00280 ;       .line   10; "function.c"        PWMCON = 0x80;     //禁止 PWM0/BUZ 输出，PORTB5 端口作为 I/O 口
+0004   0480           00281         MOVLW   0x80
+0005   19??           00282         MOVWF   _PWMCON
+                      00283 ;;[ICODE] function.c:11:        iTemp3 [k13 lr10:12 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {6,1} near* fixed}[remat] = &[_T1CONbits [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
                             olatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
-                      00296 ;;[ICODE] function.c:11:        *(iTemp3 [k13 lr10:12 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00284 ;;[ICODE] function.c:11:        *(iTemp3 [k13 lr10:12 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00297 ;       .line   11; "function.c"        PWM0E = 0;         //禁止 PWM0 输出，PORTB5 端口作为 I/O 口    T
+                      00285 ;       .line   11; "function.c"        PWM0E = 0;         //禁止 PWM0 输出，PORTB5 端口作为 I/O 口    T
                             1CON
-0006   3F??           00298         BCF     _T1CONbits,6
-                      00299 ;;[ICODE] function.c:12:        iTemp5 [k16 lr13:15 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+0006   3F??           00286         BCF     _T1CONbits,6
+                      00287 ;;[ICODE] function.c:12:        iTemp5 [k16 lr13:15 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {7,1} near* fixed}[remat] = &[_T1CONbits [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
                             olatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
-                      00300 ;;[ICODE] function.c:12:        *(iTemp5 [k16 lr13:15 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00288 ;;[ICODE] function.c:12:        *(iTemp5 [k16 lr13:15 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00301 ;       .line   12; "function.c"        T1EN = 0;
-0007   3F??           00302         BCF     _T1CONbits,7
-                      00303 ;;[ICODE] function.c:13:        iTemp7 [k20 lr16:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                      00289 ;       .line   12; "function.c"        T1EN = 0;
+0007   3F??           00290         BCF     _T1CONbits,7
+                      00291 ;;[ICODE] function.c:13:        iTemp7 [k20 lr16:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{vo
                             latile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  8
+                      00292 ;;[ICODE] function.c:13:        *(iTemp7 [k20 lr16:18 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                            igned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00293 ;       .line   13; "function.c"        MODSEL = 1;                     //使能内置限流电阻
+0008   3B??           00294         BSF     _RAMPbits,7
+                      00295 ;;[ICODE] function.c:15:        iTemp9 [k24 lr19:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                            ned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
+                            olatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00296 ;;[ICODE] function.c:15:        *(iTemp9 [k24 lr19:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                            igned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00297 ;       .line   15; "function.c"        PORT_LED1 = 1;
+0009   38??           00298         BSF     _PORTBbits,1
+                      00299 ;;[ICODE] function.c:16:        iTemp11 [k27 lr22:24 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsi
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00304 ;;[ICODE] function.c:13:        *(iTemp7 [k20 lr16:18 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
-                            igned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00305 ;       .line   13; "function.c"        MODSEL = 1;                     //使能内置限流电阻
-0008   3B??           00306         BSF     _RAMPbits,7
-                      00307 ;;[ICODE] function.c:15:        iTemp9 [k24 lr19:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
-                            ned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
-                            olatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00308 ;;[ICODE] function.c:15:        *(iTemp9 [k24 lr19:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
-                            igned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00309 ;       .line   15; "function.c"        PORT_LED1 = 1;
-0009   38??           00310         BSF     _PORTBbits,1
-                      00311 ;;[ICODE] function.c:16:        iTemp11 [k27 lr22:24 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsi
                             gned-bitfield {0,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{
                             volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00312 ;;[ICODE] function.c:16:        *(iTemp11 [k27 lr22:24 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-un
+                      00300 ;;[ICODE] function.c:16:        *(iTemp11 [k27 lr22:24 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-un
                             signed-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00313 ;       .line   16; "function.c"        PORT_LED2 = 1;
-000A   38??           00314         BSF     _PORTBbits,0
-                      00315 ;;[ICODE] function.c:17:        iTemp13 [k30 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsi
+                      00301 ;       .line   16; "function.c"        PORT_LED2 = 1;
+000A   38??           00302         BSF     _PORTBbits,0
+                      00303 ;;[ICODE] function.c:17:        iTemp13 [k30 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsi
                             gned-bitfield {3,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{
                             volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00316 ;;[ICODE] function.c:17:        *(iTemp13 [k30 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-un
+                      00304 ;;[ICODE] function.c:17:        *(iTemp13 [k30 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-un
                             signed-bitfield {3,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00317 ;       .line   17; "function.c"        PORT_LED3 = 1;          
-000B   39??           00318         BSF     _PORTBbits,3
-                      00319 ;;[ICODE] function.c:17:  _return($1) :
-                      00320 ;;[ICODE] function.c:17:        eproc _ControlLevelLow [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
+                      00305 ;       .line   17; "function.c"        PORT_LED3 = 1;          
+000B   39??           00306         BSF     _PORTBbits,3
+                      00307 ;;[ICODE] function.c:17:  _return($1) :
+                      00308 ;;[ICODE] function.c:17:        eproc _ControlLevelLow [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{v
                             oid function ( ) fixed}
-000C   0002           00321         RETURN  
-                      00322 ; exit point of _ControlLevelLow
-                      00323 
-                      00324 
-                      00325 ;       code size estimation:
-                      00326 ;          42+    0 =    42 instructions (   84 byte)
-                      00327 
-                      00328         end
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  9
+000C   0002           00309         RETURN  
+                      00310 ; exit point of _ControlLevelLow
+                      00311 
+                      00312 
+                      00313 ;       code size estimation:
+                      00314 ;          42+    0 =    42 instructions (   84 byte)
+                      00315 
+                      00316         end
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE  9
 
 
 SYMBOL TABLE
@@ -512,7 +500,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE 10
 
 
 SYMBOL TABLE
@@ -571,7 +559,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE 11
 
 
 SYMBOL TABLE
@@ -630,7 +618,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE 12
 
 
 SYMBOL TABLE
@@ -689,7 +677,7 @@ _FOSC_XT                          CONSTANT      00003DFF          15871
 _FSR                              EXTERNAL      00000000              0
 _GPR                              EXTERNAL      00000000              0
 _HIRCTRM                          EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE 13
 
 
 SYMBOL TABLE
@@ -707,11 +695,6 @@ _INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
 _IOCB                             EXTERNAL      00000000              0
 _IOCBbits                         EXTERNAL      00000000              0
 _LP_OSC                           CONSTANT      00003CFF          15615
-_LvdDebounceNew                   EXTERNAL      00000000              0
-_LvdDebounceOld                   EXTERNAL      00000000              0
-_LvdLightCount                    EXTERNAL      00000000              0
-_LvdModel                         EXTERNAL      00000000              0
-_LvdModelCount                    EXTERNAL      00000000              0
 _MaxLight                         EXTERNAL      00000000              0
 _ODCON                            EXTERNAL      00000000              0
 _ODCONbits                        EXTERNAL      00000000              0
@@ -748,18 +731,18 @@ _T0CR                             EXTERNAL      00000000              0
 _T0CRbits                         EXTERNAL      00000000              0
 _T1                               EXTERNAL      00000000              0
 _T1CON                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 14
+_T1CONbits                        EXTERNAL      00000000              0
+_T1LOAD                           EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TempCount                        EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  13:40:45          PAGE 14
 
 
 SYMBOL TABLE
   LABEL                              TYPE        VALUE         VALUE          VALUE
                                                  (hex)         (dec)          (text)
 
-_T1CONbits                        EXTERNAL      00000000              0
-_T1LOAD                           EXTERNAL      00000000              0
-_TRISB                            EXTERNAL      00000000              0
-_TRISBbits                        EXTERNAL      00000000              0
-_TempCount                        EXTERNAL      00000000              0
 _TempFlag                         EXTERNAL      00000000              0
 _WDTE_OFF                         CONSTANT      00003FFB          16379
 _WDTE_ON                          CONSTANT      00003FFF          16383
@@ -798,22 +781,8 @@ __PAGE_SIZE                       CONSTANT      00000000              0
 __VECTOR_INT                      CONSTANT      00000008              8
 __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
-_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
-_g_ucFlashTimeHigh                EXTERNAL      00000000              0
-_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
-_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
-_g_ucFlashTimeLow                 EXTERNAL      00000000              0
-_g_ucFlashTimeLow1                EXTERNAL      00000000              0
-_g_ucFlashTimeLow2                EXTERNAL      00000000              0
 _g_ucTimer10msCount               EXTERNAL      00000000              0
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 15
-
-
-SYMBOL TABLE
-  LABEL                              TYPE        VALUE         VALUE          VALUE
-                                                 (hex)         (dec)          (text)
-
 r0x1002                           STATIC        00000000              0
 r0x1003                           STATIC        00000001              1
 r0x1004                           STATIC        00000002              2
