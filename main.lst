@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _PCONbits
   0000                00041         extern  _IOCBbits
   0000                00042         extern  _PDCONbits
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern  _OSCCON
   0000                00094         extern  _CMPCR
   0000                00095         extern  _PDCON1
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 ;--------------------------------------------------------
                       00147 ;--------------------------------------------------------
                       00148 ; absolute symbol definitions
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00199 ; code
                       00200 ;--------------------------------------------------------
                       00201 code_main       code
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             eld {7,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
                             struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
                       00245 ;;[ICODE] main.c:41:    *(iTemp6 [k14 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00281 ;       .line   57; "main.c"    LedDisplay();                                    //LEDÖ¸Ê¾µÆ
 0010   2???           00282         CALL    _LedDisplay
                       00283 ;;[ICODE] main.c:58:    iTemp16 [k33 lr28:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _M
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000A   19??           00327         MOVWF   r0x1004
                       00328 ;;[ICODE] main.c:23:  _whilecontinue_1($1) :
                       00329 ;;[ICODE] main.c:23:    if iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ 
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -470,7 +470,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00373 ;;[ICODE] main.c:14: inline
 0000                  00374         pagesel _main 
                       00375 ;;[ICODE] main.c:14: inline
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -488,7 +488,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00384 ;          45+    0 =    45 instructions (   90 byte)
                       00385 
                       00386         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE 10
 
 
 SYMBOL TABLE
@@ -547,7 +547,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE 11
 
 
 SYMBOL TABLE
@@ -606,7 +606,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE 12
 
 
 SYMBOL TABLE
@@ -665,7 +665,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE 13
 
 
 SYMBOL TABLE
@@ -724,7 +724,7 @@ _CheckTemp                        EXTERNAL      00000000              0
 _ConfigureLvd                     EXTERNAL      00000000              0
 _ControlFlash                     EXTERNAL      00000000              0
 _ControlLevel                     EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE 14
 
 
 SYMBOL TABLE
@@ -783,7 +783,7 @@ _PHCONbits                        EXTERNAL      00000000              0
 _PORTB                            EXTERNAL      00000000              0
 _PORTBbits                        EXTERNAL      00000000              0
 _PWM0P                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE 15
 
 
 SYMBOL TABLE
@@ -842,7 +842,7 @@ __GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
 __GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
 __GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
 __GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  15:39:57          PAGE 16
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  16:46:01          PAGE 16
 
 
 SYMBOL TABLE

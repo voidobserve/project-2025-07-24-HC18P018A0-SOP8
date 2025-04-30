@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _AUXRbits
   0000                00041         extern  _BITS_DATA0
   0000                00042         extern  _BITS_DATA1
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern STK06
   0000                00094         extern STK05
   0000                00095         extern STK04
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00145 ;;[ICODE] temp.c:32:    iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
                             ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
                             d} , 0x0 {const-unsigned-char literal}]
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             igned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 0016                  00184 _00118_DS_:
                       00185 ;       .line   43; "temp.c"    if(PORT_KEY_1 == KEY_TURN_ON)
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 001E   3F??           00217         BCF     _RAMPbits,7
                       00218 ;;[ICODE] temp.c:54:    iTemp30 [k50 lr48:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _D
                             elayMs [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 002C   0000           00254         nop
 002D   0000           00255         nop
 002E   0000           00256         nop
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
                       00291 ;;[ICODE] temp.c:89:    *(iTemp48 [k81 lr83:85 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
                             itfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -470,7 +470,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                              := 0x0 {const-unsigned-char literal}
                       00330 ;       .line   13; "temp.c"    TempCount = 0;
 0004   18??           00331         CLRF    _TempCount
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -529,7 +529,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00368 ; exit point of _CheckTemp
                       00369 
                       00370 
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -539,7 +539,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00372 ;          70+    0 =    70 instructions (  140 byte)
                       00373 
                       00374         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 11
 
 
 SYMBOL TABLE
@@ -598,7 +598,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 12
 
 
 SYMBOL TABLE
@@ -657,7 +657,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 13
 
 
 SYMBOL TABLE
@@ -716,7 +716,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 14
 
 
 SYMBOL TABLE
@@ -775,7 +775,7 @@ _CheckTemp                        GLOBAL        00000000              0
 _ControlFlash                     EXTERNAL      00000000              0
 _ControlLevel                     EXTERNAL      00000000              0
 _ControlLevelHigh                 EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 15
 
 
 SYMBOL TABLE
@@ -834,7 +834,7 @@ _STATUSbits                       EXTERNAL      00000000              0
 _SleepCount                       EXTERNAL      00000000              0
 _SleepFlag                        EXTERNAL      00000000              0
 _T0                               EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 16
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 16
 
 
 SYMBOL TABLE
@@ -893,7 +893,7 @@ _g_ucTimerWorkCount               EXTERNAL      00000000              0
 r0x1004                           STATIC        00000000              0
 r0x1005                           STATIC        00000001              1
 
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  15:39:57          PAGE 17
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   04/30/25  16:46:01          PAGE 17
 
 
 

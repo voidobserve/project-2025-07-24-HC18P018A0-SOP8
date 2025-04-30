@@ -71,19 +71,27 @@ void MotoDisplay(void)
 }
 void PowOn(void)
 {
-	// //配置输入上拉
-	// TRISB  |= DEF_SET_BIT3;  //input
+	// 
+	
+	PHCON &= DEF_CLR_BIT3;  //open high pull
+
+	// ODCON |= DEF_SET_BIT3;  //开漏
 	// PHCON &= DEF_CLR_BIT3;  //open high pull
-	PORT_LED3 = 1;
-	MODSEL = 1;	
+	// PORT_LED3 = 1;
+	// MODSEL = 1;	
 
 }
 
 void PowOff(void)
 {
 
-	PORT_LED3 = 0;
-	MODSEL = 1;
+
+ PHCON |= DEF_SET_BIT3;   //close high pull
+
+	// TRISB |= 
+	// PHCON |= DEF_SET_BIT3;   //close high pull
+	// PORT_LED3 = 0;
+	// MODSEL = 1;
 
 	// //关闭上拉
 	// //配置输出0

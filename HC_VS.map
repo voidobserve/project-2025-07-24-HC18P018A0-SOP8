@@ -1,23 +1,23 @@
 gplink-1.5.0 #1284 (Oct 14 2022)
-Map File - Created 04/30/25  15:39:58
+Map File - Created 04/30/25  16:46:02
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .cinit    romdata   0x0000ac    program   0x0000a0
-               ID_led_0_i    romdata   0x000272    program   0x000008
-               ID_led_1_i    romdata   0x000276    program   0x000008
-               ID_key_0_i    romdata   0x00028c    program   0x000004
-               ID_key_1_i    romdata   0x000292    program   0x000002
-               ID_key_2_i    romdata   0x000293    program   0x000002
-               ID_key_3_i    romdata   0x000294    program   0x000002
-          ID_variable_0_i    romdata   0x000299    program   0x000002
-          ID_variable_1_i    romdata   0x00029a    program   0x000002
-          ID_variable_2_i    romdata   0x00029b    program   0x000002
-          ID_variable_3_i    romdata   0x00029c    program   0x000002
-          ID_variable_4_i    romdata   0x00029d    program   0x000002
-          ID_variable_5_i    romdata   0x00029e    program   0x000002
-          ID_variable_6_i    romdata   0x00029f    program   0x000002
+               ID_led_0_i    romdata   0x000271    program   0x000008
+               ID_led_1_i    romdata   0x000275    program   0x000008
+               ID_key_0_i    romdata   0x000285    program   0x000004
+               ID_key_1_i    romdata   0x00028f    program   0x000002
+               ID_key_2_i    romdata   0x000290    program   0x000002
+               ID_key_3_i    romdata   0x000291    program   0x000002
+          ID_variable_0_i    romdata   0x000296    program   0x000002
+          ID_variable_1_i    romdata   0x000297    program   0x000002
+          ID_variable_2_i    romdata   0x000298    program   0x000002
+          ID_variable_3_i    romdata   0x000299    program   0x000002
+          ID_variable_4_i    romdata   0x00029a    program   0x000002
+          ID_variable_5_i    romdata   0x00029b    program   0x000002
+          ID_variable_6_i    romdata   0x00029c    program   0x000002
                   STARTUP       code   0x000000    program   0x000004
           S_init__InitPwm       code   0x000002    program   0x00000c
               c_interrupt       code   0x000008    program   0x000042
@@ -25,36 +25,36 @@ Map File - Created 04/30/25  15:39:58
   S_led__CountdownDisplay       code   0x0000fc    program   0x000096
        S_temp__CheckSleep       code   0x000147    program   0x00007a
          S_main__delay_ms       code   0x000184    program   0x000038
-         S_init__InitPort       code   0x0001a0    program   0x000036
-             S_main__main       code   0x0001bb    program   0x000028
- S_function__ControlLevel       code   0x0001cf    program   0x000026
-        S_temp__CheckTemp       code   0x0001e2    program   0x000022
-        S_led__MotoSwitch       code   0x0001f3    program   0x00001c
-         S_led__LedSwitch       code   0x000201    program   0x00001c
-S_function__ControlLevelLow       code   0x00020f    program   0x00001a
-       S_led__MotoDisplay       code   0x00021c    program   0x000016
-        S_led__LedDisplay       code   0x000227    program   0x000016
-       S_init__InitSystem       code   0x000232    program   0x000014
-                ID_main_0       code   0x00023c    program   0x000014
-                ID_main_1       code   0x000246    program   0x000014
-            ID_variable_7       code   0x000250    program   0x000014
-         S_delay__DelayMs       code   0x00025a    program   0x000012
-S_function__ControlLevelHigh       code   0x000263    program   0x000010
-          S_init__InitRam       code   0x00026b    program   0x00000e
-            S_led__PowOff       code   0x00027a    program   0x000006
-             S_led__PowOn       code   0x00027d    program   0x000006
-           S_led__MotoOff       code   0x000280    program   0x000006
-            S_led__MotoOn       code   0x000283    program   0x000006
-            S_led__LedOff       code   0x000286    program   0x000006
-             S_led__LedOn       code   0x000289    program   0x000006
-S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
-   S_function__ControlSos       code   0x000290    program   0x000002
- S_function__ControlFlash       code   0x000291    program   0x000002
-     S_lvd__ControlLvdCfg       code   0x000295    program   0x000002
-      S_lvd__ConfigureLvd       code   0x000296    program   0x000002
-  S_lvd__CheckLvdElectric       code   0x000297    program   0x000002
-          S_lvd__CheckLvd       code   0x000298    program   0x000002
-             S_work__Work       code   0x0002a0    program   0x000002
+         S_init__InitPort       code   0x0001a0    program   0x000034
+             S_main__main       code   0x0001ba    program   0x000028
+ S_function__ControlLevel       code   0x0001ce    program   0x000026
+        S_temp__CheckTemp       code   0x0001e1    program   0x000022
+        S_led__MotoSwitch       code   0x0001f2    program   0x00001c
+         S_led__LedSwitch       code   0x000200    program   0x00001c
+S_function__ControlLevelLow       code   0x00020e    program   0x00001a
+       S_led__MotoDisplay       code   0x00021b    program   0x000016
+        S_led__LedDisplay       code   0x000226    program   0x000016
+       S_init__InitSystem       code   0x000231    program   0x000014
+                ID_main_0       code   0x00023b    program   0x000014
+                ID_main_1       code   0x000245    program   0x000014
+            ID_variable_7       code   0x00024f    program   0x000014
+         S_delay__DelayMs       code   0x000259    program   0x000012
+S_function__ControlLevelHigh       code   0x000262    program   0x000010
+          S_init__InitRam       code   0x00026a    program   0x00000e
+           S_led__MotoOff       code   0x000279    program   0x000006
+            S_led__MotoOn       code   0x00027c    program   0x000006
+            S_led__LedOff       code   0x00027f    program   0x000006
+             S_led__LedOn       code   0x000282    program   0x000006
+            S_led__PowOff       code   0x000287    program   0x000004
+             S_led__PowOn       code   0x000289    program   0x000004
+S_main___sdcc_gsinit_startup       code   0x00028b    program   0x000004
+   S_function__ControlSos       code   0x00028d    program   0x000002
+ S_function__ControlFlash       code   0x00028e    program   0x000002
+     S_lvd__ControlLvdCfg       code   0x000292    program   0x000002
+      S_lvd__ConfigureLvd       code   0x000293    program   0x000002
+  S_lvd__CheckLvdElectric       code   0x000294    program   0x000002
+          S_lvd__CheckLvd       code   0x000295    program   0x000002
+             S_work__Work       code   0x00029d    program   0x000002
                 .org_03FF       code   0x0003ff    program   0x000002
                  ID_key_0      idata   0x000028       data   0x000002
                  ID_key_1      idata   0x00002e       data   0x000001
@@ -118,59 +118,59 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
                               Program Memory Usage
                                Start         End
                            ---------   ---------
-                            0x00025a    0x000262
+                            0x000259    0x000261
+                            0x00028d    0x00028d
+                            0x00028e    0x00028e
+                            0x0001ce    0x0001e0
+                            0x000262    0x000269
+                            0x00020e    0x00021a
+                            0x00026a    0x000270
+                            0x000002    0x000007
+                            0x000231    0x00023a
+                            0x0001a0    0x0001b9
+                            0x000008    0x000028
+                            0x000285    0x000286
+                            0x00028f    0x00028f
                             0x000290    0x000290
                             0x000291    0x000291
-                            0x0001cf    0x0001e1
-                            0x000263    0x00026a
-                            0x00020f    0x00021b
-                            0x00026b    0x000271
-                            0x000002    0x000007
-                            0x000232    0x00023b
-                            0x0001a0    0x0001ba
-                            0x000008    0x000028
-                            0x00028c    0x00028d
+                            0x000029    0x0000ab
+                            0x000271    0x000274
+                            0x000275    0x000278
+                            0x0000fc    0x000146
+                            0x000287    0x000288
+                            0x000289    0x00028a
+                            0x00021b    0x000225
+                            0x000279    0x00027b
+                            0x00027c    0x00027e
+                            0x0001f2    0x0001ff
+                            0x00027f    0x000281
+                            0x000282    0x000284
+                            0x000226    0x000230
+                            0x000200    0x00020d
                             0x000292    0x000292
                             0x000293    0x000293
                             0x000294    0x000294
-                            0x000029    0x0000ab
-                            0x000272    0x000275
-                            0x000276    0x000279
-                            0x0000fc    0x000146
-                            0x00027a    0x00027c
-                            0x00027d    0x00027f
-                            0x00021c    0x000226
-                            0x000280    0x000282
-                            0x000283    0x000285
-                            0x0001f3    0x000200
-                            0x000286    0x000288
-                            0x000289    0x00028b
-                            0x000227    0x000231
-                            0x000201    0x00020e
                             0x000295    0x000295
+                            0x00023b    0x000244
+                            0x000245    0x00024e
+                            0x000000    0x000001
+                            0x0001ba    0x0001cd
+                            0x000184    0x00019f
+                            0x00028b    0x00028c
+                            0x000147    0x000183
+                            0x0001e1    0x0001f1
                             0x000296    0x000296
                             0x000297    0x000297
                             0x000298    0x000298
-                            0x00023c    0x000245
-                            0x000246    0x00024f
-                            0x000000    0x000001
-                            0x0001bb    0x0001ce
-                            0x000184    0x00019f
-                            0x00028e    0x00028f
-                            0x000147    0x000183
-                            0x0001e2    0x0001f2
                             0x000299    0x000299
                             0x00029a    0x00029a
                             0x00029b    0x00029b
                             0x00029c    0x00029c
+                            0x00024f    0x000258
                             0x00029d    0x00029d
-                            0x00029e    0x00029e
-                            0x00029f    0x00029f
-                            0x000250    0x000259
-                            0x0002a0    0x0002a0
                             0x0003ff    0x0003ff
                             0x0000ac    0x0000fb
-                            674 program addresses used
+                            671 program addresses used
 
 
 
@@ -194,19 +194,19 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
                     STK11   0x000014       data     extern main.asm
                     STK12   0x000013       data     extern main.asm
                     WSAVE   0x000012       data     extern main.asm
-               _00105_DS_   0x00025c    program     static delay.asm
-               _00106_DS_   0x0001e9    program     static temp.asm
+               _00105_DS_   0x00025b    program     static delay.asm
+               _00106_DS_   0x0001e8    program     static temp.asm
                _00106_DS_   0x000040    program     static key.asm
-               _00107_DS_   0x0001ea    program     static temp.asm
+               _00107_DS_   0x0001e9    program     static temp.asm
                _00108_DS_   0x000018    program     static interrupt.asm
-               _00109_DS_   0x0001f0    program     static temp.asm
+               _00109_DS_   0x0001ef    program     static temp.asm
                _00109_DS_   0x00018f    program     static main.asm
                _00110_DS_   0x000052    program     static key.asm
-               _00110_DS_   0x000230    program     static led.asm
+               _00110_DS_   0x00022f    program     static led.asm
                _00111_DS_   0x00001f    program     static interrupt.asm
                _00111_DS_   0x000199    program     static main.asm
                _00112_DS_   0x000187    program     static main.asm
-               _00112_DS_   0x000231    program     static led.asm
+               _00112_DS_   0x000230    program     static led.asm
                _00113_DS_   0x00004d    program     static key.asm
                _00114_DS_   0x000156    program     static temp.asm
                _00115_DS_   0x00019f    program     static main.asm
@@ -214,17 +214,17 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
                _00118_DS_   0x00015d    program     static temp.asm
                _00118_DS_   0x000076    program     static key.asm
                _00120_DS_   0x000160    program     static temp.asm
-               _00121_DS_   0x0001cb    program     static main.asm
+               _00121_DS_   0x0001ca    program     static main.asm
                _00121_DS_   0x000183    program     static temp.asm
-               _00123_DS_   0x0001c5    program     static main.asm
+               _00123_DS_   0x0001c4    program     static main.asm
                _00127_DS_   0x000088    program     static key.asm
                _00130_DS_   0x000081    program     static key.asm
                _00131_DS_   0x000091    program     static key.asm
                _00133_DS_   0x00009b    program     static key.asm
                _00136_DS_   0x00009e    program     static key.asm
-               _00138_DS_   0x000225    program     static led.asm
+               _00138_DS_   0x000224    program     static led.asm
                _00138_DS_   0x0000a8    program     static key.asm
-               _00140_DS_   0x000226    program     static led.asm
+               _00140_DS_   0x000225    program     static led.asm
                _00142_DS_   0x000035    program     static key.asm
                _00143_DS_   0x000078    program     static key.asm
                _00147_DS_   0x0000ab    program     static key.asm
@@ -247,19 +247,19 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
              _CHARGE1bits   0x000054       data     extern pic18p018a0.asm
                    _CMPCR   0x000051       data     extern pic18p018a0.asm
                _CMPCRbits   0x000051       data     extern pic18p018a0.asm
-                _CheckLvd   0x000298    program     extern lvd.asm
-        _CheckLvdElectric   0x000297    program     extern lvd.asm
+                _CheckLvd   0x000295    program     extern lvd.asm
+        _CheckLvdElectric   0x000294    program     extern lvd.asm
               _CheckSleep   0x000147    program     extern temp.asm
-               _CheckTemp   0x0001e2    program     extern temp.asm
-            _ConfigureLvd   0x000296    program     extern lvd.asm
-            _ControlFlash   0x000291    program     extern function.asm
-            _ControlLevel   0x0001cf    program     extern function.asm
-        _ControlLevelHigh   0x000263    program     extern function.asm
-         _ControlLevelLow   0x00020f    program     extern function.asm
-           _ControlLvdCfg   0x000295    program     extern lvd.asm
-              _ControlSos   0x000290    program     extern function.asm
+               _CheckTemp   0x0001e1    program     extern temp.asm
+            _ConfigureLvd   0x000293    program     extern lvd.asm
+            _ControlFlash   0x00028e    program     extern function.asm
+            _ControlLevel   0x0001ce    program     extern function.asm
+        _ControlLevelHigh   0x000262    program     extern function.asm
+         _ControlLevelLow   0x00020e    program     extern function.asm
+           _ControlLvdCfg   0x000292    program     extern lvd.asm
+              _ControlSos   0x00028d    program     extern function.asm
         _CountdownDisplay   0x0000fc    program     extern led.asm
-                 _DelayMs   0x00025a    program     extern delay.asm
+                 _DelayMs   0x000259    program     extern delay.asm
                      _FSR   0x000004       data     extern pic18p018a0.asm
                      _GPR   0x000007       data     extern pic18p018a0.asm
                  _HIRCTRM   0x00005b       data     extern pic18p018a0.asm
@@ -272,18 +272,18 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
                 _IOCBbits   0x000009       data     extern pic18p018a0.asm
                 _InitPort   0x0001a0    program     extern init.asm
                  _InitPwm   0x000002    program     extern init.asm
-                 _InitRam   0x00026b    program     extern init.asm
-              _InitSystem   0x000232    program     extern init.asm
+                 _InitRam   0x00026a    program     extern init.asm
+              _InitSystem   0x000231    program     extern init.asm
            _InterruptFunc   0x000008    program     extern interrupt.asm
-              _LedDisplay   0x000227    program     extern led.asm
-                  _LedOff   0x000286    program     extern led.asm
-                   _LedOn   0x000289    program     extern led.asm
-               _LedSwitch   0x000201    program     extern led.asm
+              _LedDisplay   0x000226    program     extern led.asm
+                  _LedOff   0x00027f    program     extern led.asm
+                   _LedOn   0x000282    program     extern led.asm
+               _LedSwitch   0x000200    program     extern led.asm
                 _MaxLight   0x000038       data     extern variable.asm
-             _MotoDisplay   0x00021c    program     extern led.asm
-                 _MotoOff   0x000280    program     extern led.asm
-                  _MotoOn   0x000283    program     extern led.asm
-              _MotoSwitch   0x0001f3    program     extern led.asm
+             _MotoDisplay   0x00021b    program     extern led.asm
+                 _MotoOff   0x000279    program     extern led.asm
+                  _MotoOn   0x00027c    program     extern led.asm
+              _MotoSwitch   0x0001f2    program     extern led.asm
                    _ODCON   0x00000c       data     extern pic18p018a0.asm
                _ODCONbits   0x00000c       data     extern pic18p018a0.asm
                   _OPTION   0x000041       data     extern pic18p018a0.asm
@@ -307,8 +307,8 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
                    _PWM2P   0x00004a       data     extern pic18p018a0.asm
                   _PWMCON   0x000048       data     extern pic18p018a0.asm
               _PWMCONbits   0x000048       data     extern pic18p018a0.asm
-                  _PowOff   0x00027a    program     extern led.asm
-                   _PowOn   0x00027d    program     extern led.asm
+                  _PowOff   0x000287    program     extern led.asm
+                   _PowOn   0x000289    program     extern led.asm
                     _RAMP   0x000055       data     extern pic18p018a0.asm
                 _RAMPbits   0x000055       data     extern pic18p018a0.asm
                   _STATUS   0x000003       data     extern pic18p018a0.asm
@@ -327,23 +327,23 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
                _TRISBbits   0x000046       data     extern pic18p018a0.asm
                _TempCount   0x000034       data     extern variable.asm
                 _TempFlag   0x000035       data     extern variable.asm
-                 _VERSION   0x00023c    program     extern main.asm
-                    _Work   0x0002a0    program     extern work.asm
+                 _VERSION   0x00023b    program     extern main.asm
+                    _Work   0x00029d    program     extern work.asm
         ___sdcc_saved_fsr   0x000039       data     extern libsdcc_a-shadowregs.asm
-                 ___str_0   0x000246    program     static main.asm
-    __sdcc_gsinit_startup   0x00028e    program     extern main.asm
+                 ___str_0   0x000245    program     static main.asm
+    __sdcc_gsinit_startup   0x00028b    program     extern main.asm
          __sdcc_interrupt   0x000008    program     static interrupt.asm
                    _cinit   0x0000ac    program     extern 
              _clink_event   0x00002e       data     extern key.asm
                 _delay_ms   0x000184    program     extern main.asm
-  _g_cucTIMER_COUNT_STATE   0x000250    program     extern variable.asm
+  _g_cucTIMER_COUNT_STATE   0x00024f    program     extern variable.asm
       _g_ucTimer10msCount   0x000032       data     extern variable.asm
       _g_ucTimerWorkCount   0x000033       data     extern variable.asm
                 _holdOn_f   0x000030       data     extern key.asm
               _lampTiming   0x000066       data     extern led.asm
                   _long_f   0x00002f       data     extern key.asm
            _longpress_cnt   0x000028       data     extern key.asm
-                    _main   0x0001bb    program     extern main.asm
+                    _main   0x0001ba    program     extern main.asm
               _motoTiming   0x00006a       data     extern led.asm
                   r0x1000   0x000024       data     static delay.asm
                   r0x1001   0x000025       data     static delay.asm
@@ -518,44 +518,44 @@ S_main___sdcc_gsinit_startup       code   0x00028e    program   0x000004
                _00111_DS_   0x000199    program     static main.asm
                _00115_DS_   0x00019f    program     static main.asm
                 _InitPort   0x0001a0    program     extern init.asm
-                    _main   0x0001bb    program     extern main.asm
-               _00123_DS_   0x0001c5    program     static main.asm
-               _00121_DS_   0x0001cb    program     static main.asm
-            _ControlLevel   0x0001cf    program     extern function.asm
-               _CheckTemp   0x0001e2    program     extern temp.asm
-               _00106_DS_   0x0001e9    program     static temp.asm
-               _00107_DS_   0x0001ea    program     static temp.asm
-               _00109_DS_   0x0001f0    program     static temp.asm
-              _MotoSwitch   0x0001f3    program     extern led.asm
-               _LedSwitch   0x000201    program     extern led.asm
-         _ControlLevelLow   0x00020f    program     extern function.asm
-             _MotoDisplay   0x00021c    program     extern led.asm
-               _00138_DS_   0x000225    program     static led.asm
-               _00140_DS_   0x000226    program     static led.asm
-              _LedDisplay   0x000227    program     extern led.asm
-               _00110_DS_   0x000230    program     static led.asm
-               _00112_DS_   0x000231    program     static led.asm
-              _InitSystem   0x000232    program     extern init.asm
-                 _VERSION   0x00023c    program     extern main.asm
-                 ___str_0   0x000246    program     static main.asm
-  _g_cucTIMER_COUNT_STATE   0x000250    program     extern variable.asm
-                 _DelayMs   0x00025a    program     extern delay.asm
-               _00105_DS_   0x00025c    program     static delay.asm
-        _ControlLevelHigh   0x000263    program     extern function.asm
-                 _InitRam   0x00026b    program     extern init.asm
-                  _PowOff   0x00027a    program     extern led.asm
-                   _PowOn   0x00027d    program     extern led.asm
-                 _MotoOff   0x000280    program     extern led.asm
-                  _MotoOn   0x000283    program     extern led.asm
-                  _LedOff   0x000286    program     extern led.asm
-                   _LedOn   0x000289    program     extern led.asm
-    __sdcc_gsinit_startup   0x00028e    program     extern main.asm
-              _ControlSos   0x000290    program     extern function.asm
-            _ControlFlash   0x000291    program     extern function.asm
-           _ControlLvdCfg   0x000295    program     extern lvd.asm
-            _ConfigureLvd   0x000296    program     extern lvd.asm
-        _CheckLvdElectric   0x000297    program     extern lvd.asm
-                _CheckLvd   0x000298    program     extern lvd.asm
-                    _Work   0x0002a0    program     extern work.asm
+                    _main   0x0001ba    program     extern main.asm
+               _00123_DS_   0x0001c4    program     static main.asm
+               _00121_DS_   0x0001ca    program     static main.asm
+            _ControlLevel   0x0001ce    program     extern function.asm
+               _CheckTemp   0x0001e1    program     extern temp.asm
+               _00106_DS_   0x0001e8    program     static temp.asm
+               _00107_DS_   0x0001e9    program     static temp.asm
+               _00109_DS_   0x0001ef    program     static temp.asm
+              _MotoSwitch   0x0001f2    program     extern led.asm
+               _LedSwitch   0x000200    program     extern led.asm
+         _ControlLevelLow   0x00020e    program     extern function.asm
+             _MotoDisplay   0x00021b    program     extern led.asm
+               _00138_DS_   0x000224    program     static led.asm
+               _00140_DS_   0x000225    program     static led.asm
+              _LedDisplay   0x000226    program     extern led.asm
+               _00110_DS_   0x00022f    program     static led.asm
+               _00112_DS_   0x000230    program     static led.asm
+              _InitSystem   0x000231    program     extern init.asm
+                 _VERSION   0x00023b    program     extern main.asm
+                 ___str_0   0x000245    program     static main.asm
+  _g_cucTIMER_COUNT_STATE   0x00024f    program     extern variable.asm
+                 _DelayMs   0x000259    program     extern delay.asm
+               _00105_DS_   0x00025b    program     static delay.asm
+        _ControlLevelHigh   0x000262    program     extern function.asm
+                 _InitRam   0x00026a    program     extern init.asm
+                 _MotoOff   0x000279    program     extern led.asm
+                  _MotoOn   0x00027c    program     extern led.asm
+                  _LedOff   0x00027f    program     extern led.asm
+                   _LedOn   0x000282    program     extern led.asm
+                  _PowOff   0x000287    program     extern led.asm
+                   _PowOn   0x000289    program     extern led.asm
+    __sdcc_gsinit_startup   0x00028b    program     extern main.asm
+              _ControlSos   0x00028d    program     extern function.asm
+            _ControlFlash   0x00028e    program     extern function.asm
+           _ControlLvdCfg   0x000292    program     extern lvd.asm
+            _ConfigureLvd   0x000293    program     extern lvd.asm
+        _CheckLvdElectric   0x000294    program     extern lvd.asm
+                _CheckLvd   0x000295    program     extern lvd.asm
+                    _Work   0x00029d    program     extern work.asm
 
 
