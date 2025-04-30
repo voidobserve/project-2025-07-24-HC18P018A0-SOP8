@@ -13,6 +13,25 @@
 const char VERSION[] = {VERSION_STR};
 void _sdcc_gsinit_startup(void) { __asm pagesel _main __endasm; __asm goto _main __endasm; }
 
+
+void delay_ms(WORD xms)
+{
+    while (xms)
+    {
+        WORD i = 329;
+
+        while (i)
+        {
+
+asm(nop)	
+            i--;
+        }
+
+		asm(clrwdt)		//清零看门狗定时器
+        xms--;
+    }
+}
+
 void main()
 {
 	InitPort();
@@ -21,7 +40,7 @@ void main()
 	T0IE = 1;		//使能TMR0溢出中断
 	GIE = 1;		//使能所有中断   
 	asm(clrwdt)		//清零看门狗定时器
-		
+	delay_ms(500);
 	while (1)
 	{	
 		asm(clrwdt)     //清零看门狗定时器	

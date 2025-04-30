@@ -1,7 +1,7 @@
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:04 2025
+Time Stamp           Wed Apr 30 15:39:55 2025
 Number of Sections   3
 Number of Symbols    84
 Characteristics      0
@@ -174,7 +174,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:05 2025
+Time Stamp           Wed Apr 30 15:39:55 2025
 Number of Sections   7
 Number of Symbols    102
 Characteristics      0
@@ -539,7 +539,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:05 2025
+Time Stamp           Wed Apr 30 15:39:56 2025
 Number of Sections   5
 Number of Symbols    95
 Characteristics      0
@@ -677,9 +677,9 @@ Section Header
 Name                    S_init__InitPort
 Physical address        0
 Virtual address         0
-Size of Section         50
-Number of Relocations   21
-Number of Line Numbers  25
+Size of Section         54
+Number of Relocations   23
+Number of Line Numbers  27
 Flags                   0x20
   Executable code.
 
@@ -694,21 +694,23 @@ Data
 0007:  1980  movwf   0x00
 0008:  3c00  bcf     0x00, 0x0
 0009:  3c80  bcf     0x00, 0x1
-000a:  3d00  bcf     0x00, 0x2
-000b:  3e00  bcf     0x00, 0x4
-000c:  04ff  movlw   0xff
-000d:  1980  movwf   0x00
-000e:  04ff  movlw   0xff
-000f:  1980  movwf   0x00
-0010:  1880  clrf    0x00
-0011:  3c80  bcf     0x00, 0x1
-0012:  1880  clrf    0x00
-0013:  3800  bsf     0x00, 0x0
-0014:  3880  bsf     0x00, 0x1
+000a:  3d80  bcf     0x00, 0x3
+000b:  3d00  bcf     0x00, 0x2
+000c:  3e00  bcf     0x00, 0x4
+000d:  04ff  movlw   0xff
+000e:  1980  movwf   0x00
+000f:  04ff  movlw   0xff
+0010:  1980  movwf   0x00
+0011:  1880  clrf    0x00
+0012:  3c80  bcf     0x00, 0x1
+0013:  1880  clrf    0x00
+0014:  3800  bsf     0x00, 0x0
 0015:  3880  bsf     0x00, 0x1
-0016:  3800  bsf     0x00, 0x0
-0017:  3d80  bcf     0x00, 0x3
-0018:  0002  return
+0016:  3980  bsf     0x00, 0x3
+0017:  3880  bsf     0x00, 0x1
+0018:  3800  bsf     0x00, 0x0
+0019:  3d80  bcf     0x00, 0x3
+001a:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
@@ -724,16 +726,18 @@ Address     Offset      Offset       Type                        Symbol
 0x0009      0x00000000            0  0x000a RELOC_F              _PHCON
 0x000a      0x00000000            0  0x000a RELOC_F              _PHCON
 0x000b      0x00000000            0  0x000a RELOC_F              _PHCON
-0x000d      0x00000000            0  0x000a RELOC_F              _PDCON
-0x000f      0x00000000            0  0x000a RELOC_F              _PDCON1
-0x0010      0x00000000            0  0x000a RELOC_F              _IOCB
-0x0011      0x00000000            0  0x000a RELOC_F              _INTECONbits
-0x0012      0x00000000            0  0x000a RELOC_F              _ODCON
+0x000c      0x00000000            0  0x000a RELOC_F              _PHCON
+0x000e      0x00000000            0  0x000a RELOC_F              _PDCON
+0x0010      0x00000000            0  0x000a RELOC_F              _PDCON1
+0x0011      0x00000000            0  0x000a RELOC_F              _IOCB
+0x0012      0x00000000            0  0x000a RELOC_F              _INTECONbits
 0x0013      0x00000000            0  0x000a RELOC_F              _ODCON
 0x0014      0x00000000            0  0x000a RELOC_F              _ODCON
-0x0015      0x00000000            0  0x000a RELOC_F              _PORTBbits
-0x0016      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0015      0x00000000            0  0x000a RELOC_F              _ODCON
+0x0016      0x00000000            0  0x000a RELOC_F              _ODCON
 0x0017      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0018      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0019      0x00000000            0  0x000a RELOC_F              _PORTBbits
 
 Line Number Table
 Line      Address     Symbol
@@ -750,18 +754,20 @@ Line      Address     Symbol
 261       0x000a      init.asm
 264       0x000b      init.asm
 267       0x000c      init.asm
-268       0x000d      init.asm
+270       0x000d      init.asm
 271       0x000e      init.asm
-272       0x000f      init.asm
+274       0x000f      init.asm
 275       0x0010      init.asm
-279       0x0011      init.asm
+278       0x0011      init.asm
 282       0x0012      init.asm
 285       0x0013      init.asm
 288       0x0014      init.asm
-292       0x0015      init.asm
-296       0x0016      init.asm
-300       0x0017      init.asm
-303       0x0018      init.asm
+291       0x0015      init.asm
+294       0x0016      init.asm
+298       0x0017      init.asm
+302       0x0018      init.asm
+306       0x0019      init.asm
+309       0x001a      init.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -876,16 +882,16 @@ Idx  Name                     Section          Value      Type     DT           
        number of line numbers = 10
 0098 _InitSystem              S_init__InitSystem 0x00000000 T_NULL   DT_NON       C_EXT     0
 0099 S_init__InitPort         S_init__InitPort 0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 50
-       number of relocations  = 21
-       number of line numbers = 25
+       length                 = 54
+       number of relocations  = 23
+       number of line numbers = 27
 0101 _InitPort                S_init__InitPort 0x00000000 T_NULL   DT_NON       C_EXT     0
 0102 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
 
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:05 2025
+Time Stamp           Wed Apr 30 15:39:56 2025
 Number of Sections   2
 Number of Symbols    95
 Characteristics      0
@@ -1119,7 +1125,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:05 2025
+Time Stamp           Wed Apr 30 15:39:56 2025
 Number of Sections   7
 Number of Symbols    131
 Characteristics      0
@@ -1732,7 +1738,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:06 2025
+Time Stamp           Wed Apr 30 15:39:56 2025
 Number of Sections   15
 Number of Symbols    134
 Characteristics      0
@@ -2018,20 +2024,20 @@ Flags                   0x20
 
 Data
 0000:  3d80  bcf     0x00, 0x3
-0001:  3980  bsf     0x00, 0x3
+0001:  3b80  bsf     0x00, 0x7
 0002:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              _TRISB
-0x0001      0x00000000            0  0x000a RELOC_F              _PHCON
+0x0000      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0001      0x00000000            0  0x000a RELOC_F              _RAMPbits
 
 Line Number Table
 Line      Address     Symbol
-305       0x0000      led.asm
-308       0x0001      led.asm
-311       0x0002      led.asm
+306       0x0000      led.asm
+310       0x0001      led.asm
+313       0x0002      led.asm
 
 Section Header
 Name                    S_led__PowOn
@@ -2045,20 +2051,20 @@ Flags                   0x20
 
 Data
 0000:  3980  bsf     0x00, 0x3
-0001:  3d80  bcf     0x00, 0x3
+0001:  3b80  bsf     0x00, 0x7
 0002:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              _TRISB
-0x0001      0x00000000            0  0x000a RELOC_F              _PHCON
+0x0000      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0001      0x00000000            0  0x000a RELOC_F              _RAMPbits
 
 Line Number Table
 Line      Address     Symbol
-326       0x0000      led.asm
-329       0x0001      led.asm
-332       0x0002      led.asm
+329       0x0000      led.asm
+333       0x0001      led.asm
+336       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoDisplay
@@ -2097,17 +2103,17 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-356       0x0000      led.asm
-357       0x0001      led.asm
-358       0x0002      led.asm
-360       0x0003      led.asm
-362       0x0004      led.asm
-363       0x0005      led.asm
-364       0x0006      led.asm
-368       0x0007      led.asm
-370       0x0008      led.asm
-375       0x0009      led.asm
-379       0x000a      led.asm
+360       0x0000      led.asm
+361       0x0001      led.asm
+362       0x0002      led.asm
+364       0x0003      led.asm
+366       0x0004      led.asm
+367       0x0005      led.asm
+368       0x0006      led.asm
+372       0x0007      led.asm
+374       0x0008      led.asm
+379       0x0009      led.asm
+383       0x000a      led.asm
 
 Section Header
 Name                    S_led__MotoOff
@@ -2132,9 +2138,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-395       0x0000      led.asm
-399       0x0001      led.asm
-402       0x0002      led.asm
+399       0x0000      led.asm
+403       0x0001      led.asm
+406       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoOn
@@ -2159,9 +2165,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-418       0x0000      led.asm
-422       0x0001      led.asm
-425       0x0002      led.asm
+422       0x0000      led.asm
+426       0x0001      led.asm
+429       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoSwitch
@@ -2203,20 +2209,20 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-446       0x0000      led.asm
-447       0x0001      led.asm
-448       0x0002      led.asm
-450       0x0003      led.asm
-451       0x0004      led.asm
-452       0x0005      led.asm
-453       0x0006      led.asm
-455       0x0007      led.asm
-457       0x0008      led.asm
-458       0x0009      led.asm
-459       0x000a      led.asm
-460       0x000b      led.asm
-461       0x000c      led.asm
-464       0x000d      led.asm
+450       0x0000      led.asm
+451       0x0001      led.asm
+452       0x0002      led.asm
+454       0x0003      led.asm
+455       0x0004      led.asm
+456       0x0005      led.asm
+457       0x0006      led.asm
+459       0x0007      led.asm
+461       0x0008      led.asm
+462       0x0009      led.asm
+463       0x000a      led.asm
+464       0x000b      led.asm
+465       0x000c      led.asm
+468       0x000d      led.asm
 
 Section Header
 Name                    S_led__LedOff
@@ -2241,9 +2247,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-480       0x0000      led.asm
-484       0x0001      led.asm
-487       0x0002      led.asm
+484       0x0000      led.asm
+488       0x0001      led.asm
+491       0x0002      led.asm
 
 Section Header
 Name                    S_led__LedOn
@@ -2268,9 +2274,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-503       0x0000      led.asm
-507       0x0001      led.asm
-510       0x0002      led.asm
+507       0x0000      led.asm
+511       0x0001      led.asm
+514       0x0002      led.asm
 
 Section Header
 Name                    S_led__LedDisplay
@@ -2309,17 +2315,17 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-534       0x0000      led.asm
-535       0x0001      led.asm
-536       0x0002      led.asm
-538       0x0003      led.asm
-540       0x0004      led.asm
-541       0x0005      led.asm
-542       0x0006      led.asm
-546       0x0007      led.asm
-548       0x0008      led.asm
-553       0x0009      led.asm
-557       0x000a      led.asm
+538       0x0000      led.asm
+539       0x0001      led.asm
+540       0x0002      led.asm
+542       0x0003      led.asm
+544       0x0004      led.asm
+545       0x0005      led.asm
+546       0x0006      led.asm
+550       0x0007      led.asm
+552       0x0008      led.asm
+557       0x0009      led.asm
+561       0x000a      led.asm
 
 Section Header
 Name                    S_led__LedSwitch
@@ -2361,20 +2367,20 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-578       0x0000      led.asm
-579       0x0001      led.asm
-580       0x0002      led.asm
-582       0x0003      led.asm
-583       0x0004      led.asm
-584       0x0005      led.asm
-585       0x0006      led.asm
-587       0x0007      led.asm
-589       0x0008      led.asm
-590       0x0009      led.asm
-591       0x000a      led.asm
-592       0x000b      led.asm
-593       0x000c      led.asm
-596       0x000d      led.asm
+582       0x0000      led.asm
+583       0x0001      led.asm
+584       0x0002      led.asm
+586       0x0003      led.asm
+587       0x0004      led.asm
+588       0x0005      led.asm
+589       0x0006      led.asm
+591       0x0007      led.asm
+593       0x0008      led.asm
+594       0x0009      led.asm
+595       0x000a      led.asm
+596       0x000b      led.asm
+597       0x000c      led.asm
+600       0x000d      led.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -2567,7 +2573,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:06 2025
+Time Stamp           Wed Apr 30 15:39:57 2025
 Number of Sections   5
 Number of Symbols    101
 Characteristics      0
@@ -2778,9 +2784,9 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:06 2025
-Number of Sections   7
-Number of Symbols    123
+Time Stamp           Wed Apr 30 15:39:57 2025
+Number of Sections   9
+Number of Symbols    134
 Characteristics      0
 
 Section Header
@@ -2794,6 +2800,16 @@ Flags                   0x5080
   Uninitialized data.
   Absolute.
   Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UDL_main_0
+Physical address        0
+Virtual address         0
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
 
 Section Header
 Name                    ID_main_0
@@ -2819,16 +2835,16 @@ Data
 
 Line Number Table
 Line      Address     Symbol
-158       0x0000      main.asm
-159       0x0001      main.asm
-160       0x0002      main.asm
-161       0x0003      main.asm
-162       0x0004      main.asm
-163       0x0005      main.asm
-164       0x0006      main.asm
-165       0x0007      main.asm
-166       0x0008      main.asm
-167       0x0009      main.asm
+164       0x0000      main.asm
+165       0x0001      main.asm
+166       0x0002      main.asm
+167       0x0003      main.asm
+168       0x0004      main.asm
+169       0x0005      main.asm
+170       0x0006      main.asm
+171       0x0007      main.asm
+172       0x0008      main.asm
+173       0x0009      main.asm
 
 Section Header
 Name                    ID_main_1
@@ -2854,16 +2870,16 @@ Data
 
 Line Number Table
 Line      Address     Symbol
-172       0x0000      main.asm
-173       0x0001      main.asm
-174       0x0002      main.asm
-175       0x0003      main.asm
-176       0x0004      main.asm
-177       0x0005      main.asm
-178       0x0006      main.asm
-179       0x0007      main.asm
-180       0x0008      main.asm
-181       0x0009      main.asm
+178       0x0000      main.asm
+179       0x0001      main.asm
+180       0x0002      main.asm
+181       0x0003      main.asm
+182       0x0004      main.asm
+183       0x0005      main.asm
+184       0x0006      main.asm
+185       0x0007      main.asm
+186       0x0008      main.asm
+187       0x0009      main.asm
 
 Section Header
 Name                    STARTUP
@@ -2887,8 +2903,8 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-190       0x0000      main.asm
-191       0x0001      main.asm
+196       0x0000      main.asm
+197       0x0001      main.asm
 
 Section Header
 Name                    code_main
@@ -2904,9 +2920,9 @@ Section Header
 Name                    S_main__main
 Physical address        0
 Virtual address         0
-Size of Section         32
-Number of Relocations   13
-Number of Line Numbers  16
+Size of Section         40
+Number of Relocations   15
+Number of Line Numbers  20
 Flags                   0x20
   Executable code.
 
@@ -2917,16 +2933,20 @@ Data
 0003:  3800  bsf     0x00, 0x0
 0004:  3b80  bsf     0x00, 0x7
 0005:  0004  clrwdt
-0006:  0004  clrwdt
-0007:  3000  btfss   0x00, 0x0
-0008:  2000  goto    0x0000
-0009:  3c00  bcf     0x00, 0x0
-000a:  2800  call    0x0000
-000b:  2800  call    0x0000
-000c:  2800  call    0x0000
-000d:  2800  call    0x0000
-000e:  2000  goto    0x0000
-000f:  0002  return
+0006:  04f4  movlw   0xf4
+0007:  1980  movwf   0x00
+0008:  0401  movlw   0x01
+0009:  2800  call    0x0000
+000a:  0004  clrwdt
+000b:  3000  btfss   0x00, 0x0
+000c:  2000  goto    0x0000
+000d:  3c00  bcf     0x00, 0x0
+000e:  2800  call    0x0000
+000f:  2800  call    0x0000
+0010:  2800  call    0x0000
+0011:  2800  call    0x0000
+0012:  2000  goto    0x0000
+0013:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
@@ -2936,33 +2956,131 @@ Address     Offset      Offset       Type                        Symbol
 0x0002      0x00000000            0  0x0001 RELOC_CALL           _InitRam
 0x0003      0x00000000            0  0x000a RELOC_F              _INTECONbits
 0x0004      0x00000000            0  0x000a RELOC_F              _INTECONbits
-0x0007      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
-0x0008      0x00000000            0  0x0002 RELOC_GOTO           _00110_DS_
-0x0009      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
-0x000a      0x00000000            0  0x0001 RELOC_CALL           _ScanKey
-0x000b      0x00000000            0  0x0001 RELOC_CALL           _CountdownDisplay
-0x000c      0x00000000            0  0x0001 RELOC_CALL           _LedDisplay
-0x000d      0x00000000            0  0x0001 RELOC_CALL           _MotoDisplay
-0x000e      0x00000000            0  0x0002 RELOC_GOTO           _00112_DS_
+0x0007      0x00000000            0  0x000a RELOC_F              STK00
+0x0009      0x00000000            0  0x0001 RELOC_CALL           _delay_ms
+0x000b      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
+0x000c      0x00000000            0  0x0002 RELOC_GOTO           _00121_DS_
+0x000d      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
+0x000e      0x00000000            0  0x0001 RELOC_CALL           _ScanKey
+0x000f      0x00000000            0  0x0001 RELOC_CALL           _CountdownDisplay
+0x0010      0x00000000            0  0x0001 RELOC_CALL           _LedDisplay
+0x0011      0x00000000            0  0x0001 RELOC_CALL           _MotoDisplay
+0x0012      0x00000000            0  0x0002 RELOC_GOTO           _00123_DS_
 
 Line Number Table
 Line      Address     Symbol
-223       0x0000      main.asm
-226       0x0001      main.asm
-229       0x0002      main.asm
-233       0x0003      main.asm
-237       0x0004      main.asm
-239       0x0005      main.asm
-243       0x0006      main.asm
-248       0x0007      main.asm
-249       0x0008      main.asm
-254       0x0009      main.asm
-257       0x000a      main.asm
-260       0x000b      main.asm
-265       0x000c      main.asm
-268       0x000d      main.asm
-270       0x000e      main.asm
-273       0x000f      main.asm
+233       0x0000      main.asm
+236       0x0001      main.asm
+239       0x0002      main.asm
+243       0x0003      main.asm
+247       0x0004      main.asm
+249       0x0005      main.asm
+253       0x0006      main.asm
+254       0x0007      main.asm
+255       0x0008      main.asm
+256       0x0009      main.asm
+260       0x000a      main.asm
+265       0x000b      main.asm
+266       0x000c      main.asm
+271       0x000d      main.asm
+274       0x000e      main.asm
+277       0x000f      main.asm
+282       0x0010      main.asm
+285       0x0011      main.asm
+287       0x0012      main.asm
+290       0x0013      main.asm
+
+Section Header
+Name                    S_main__delay_ms
+Physical address        0
+Virtual address         0
+Size of Section         56
+Number of Relocations   17
+Number of Line Numbers  28
+Flags                   0x20
+  Executable code.
+
+Data
+0000:  1980  movwf   0x00
+0001:  1100  movf    0x00, 0x0
+0002:  1980  movwf   0x00
+0003:  1100  movf    0x00, 0x0
+0004:  1d00  iorwf   0x00, 0x0
+0005:  3503  btfsc   0x03, 0x2
+0006:  2000  goto    0x0000
+0007:  0449  movlw   0x49
+0008:  1980  movwf   0x00
+0009:  0401  movlw   0x01
+000a:  1980  movwf   0x00
+000b:  1100  movf    0x00, 0x0
+000c:  1d00  iorwf   0x00, 0x0
+000d:  3503  btfsc   0x03, 0x2
+000e:  2000  goto    0x0000
+000f:  0000  nop
+0010:  04ff  movlw   0xff
+0011:  1e80  addwf   0x00, 0x1
+0012:  3003  btfss   0x03, 0x0
+0013:  1a80  decf    0x00, 0x1
+0014:  2000  goto    0x0000
+0015:  0004  clrwdt
+0016:  04ff  movlw   0xff
+0017:  1e80  addwf   0x00, 0x1
+0018:  3003  btfss   0x03, 0x0
+0019:  1a80  decf    0x00, 0x1
+001a:  2000  goto    0x0000
+001b:  0002  return
+
+Relocations Table
+Address     Offset      Offset       Type                        Symbol
+            (hex)       (dec)
+0x0000      0x00000000            0  0x000a RELOC_F              r0x1001
+0x0001      0x00000000            0  0x000a RELOC_F              STK00
+0x0002      0x00000000            0  0x000a RELOC_F              r0x1002
+0x0003      0x00000000            0  0x000a RELOC_F              r0x1002
+0x0004      0x00000000            0  0x000a RELOC_F              r0x1001
+0x0006      0x00000000            0  0x0002 RELOC_GOTO           _00115_DS_
+0x0008      0x00000000            0  0x000a RELOC_F              r0x1003
+0x000a      0x00000000            0  0x000a RELOC_F              r0x1004
+0x000b      0x00000000            0  0x000a RELOC_F              r0x1003
+0x000c      0x00000000            0  0x000a RELOC_F              r0x1004
+0x000e      0x00000000            0  0x0002 RELOC_GOTO           _00111_DS_
+0x0011      0x00000000            0  0x000a RELOC_F              r0x1003
+0x0013      0x00000000            0  0x000a RELOC_F              r0x1004
+0x0014      0x00000000            0  0x0002 RELOC_GOTO           _00109_DS_
+0x0017      0x00000000            0  0x000a RELOC_F              r0x1002
+0x0019      0x00000000            0  0x000a RELOC_F              r0x1001
+0x001a      0x00000000            0  0x0002 RELOC_GOTO           _00112_DS_
+
+Line Number Table
+Line      Address     Symbol
+311       0x0000      main.asm
+312       0x0001      main.asm
+313       0x0002      main.asm
+318       0x0003      main.asm
+319       0x0004      main.asm
+320       0x0005      main.asm
+321       0x0006      main.asm
+324       0x0007      main.asm
+325       0x0008      main.asm
+326       0x0009      main.asm
+327       0x000a      main.asm
+331       0x000b      main.asm
+332       0x000c      main.asm
+333       0x000d      main.asm
+334       0x000e      main.asm
+336       0x000f      main.asm
+339       0x0010      main.asm
+340       0x0011      main.asm
+341       0x0012      main.asm
+342       0x0013      main.asm
+344       0x0014      main.asm
+348       0x0015      main.asm
+351       0x0016      main.asm
+352       0x0017      main.asm
+353       0x0018      main.asm
+354       0x0019      main.asm
+356       0x001a      main.asm
+360       0x001b      main.asm
 
 Section Header
 Name                    S_main___sdcc_gsinit_startup
@@ -2985,8 +3103,8 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-289       0x0000      main.asm
-292       0x0001      main.asm
+376       0x0000      main.asm
+379       0x0001      main.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -3109,42 +3227,59 @@ Idx  Name                     Section          Value      Type     DT           
 0111 STK02                    sharebank        0x0000001d T_NULL   DT_NON       C_EXT     0
 0112 STK01                    sharebank        0x0000001e T_NULL   DT_NON       C_EXT     0
 0113 STK00                    sharebank        0x0000001f T_NULL   DT_NON       C_EXT     0
-0114 ID_main_0                ID_main_0        0x00000000 T_NULL   DT_NON       C_SECTION 1
+0114 UDL_main_0               UDL_main_0       0x00000000 T_NULL   DT_NON       C_SECTION 1
+       length                 = 4
+       number of relocations  = 0
+       number of line numbers = 0
+0116 r0x1002                  UDL_main_0       0x00000000 T_NULL   DT_NON       C_STAT    0
+0117 r0x1001                  UDL_main_0       0x00000001 T_NULL   DT_NON       C_STAT    0
+0118 r0x1003                  UDL_main_0       0x00000002 T_NULL   DT_NON       C_STAT    0
+0119 r0x1004                  UDL_main_0       0x00000003 T_NULL   DT_NON       C_STAT    0
+0120 ID_main_0                ID_main_0        0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 20
        number of relocations  = 0
        number of line numbers = 10
-0116 _VERSION                 ID_main_0        0x00000000 T_NULL   DT_NON       C_EXT     0
-0117 ID_main_1                ID_main_1        0x00000000 T_NULL   DT_NON       C_SECTION 1
+0122 _VERSION                 ID_main_0        0x00000000 T_NULL   DT_NON       C_EXT     0
+0123 ID_main_1                ID_main_1        0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 20
        number of relocations  = 0
        number of line numbers = 10
-0119 ___str_0                 ID_main_1        0x00000000 T_NULL   DT_NON       C_LABEL   0
-0120 STARTUP                  STARTUP          0x00000000 T_NULL   DT_NON       C_SECTION 1
+0125 ___str_0                 ID_main_1        0x00000000 T_NULL   DT_NON       C_LABEL   0
+0126 STARTUP                  STARTUP          0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 4
        number of relocations  = 1
        number of line numbers = 2
-0122 code_main                code_main        0x00000000 T_NULL   DT_NON       C_SECTION 1
+0128 code_main                code_main        0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 0
        number of relocations  = 0
        number of line numbers = 0
-0124 S_main__main             S_main__main     0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 32
-       number of relocations  = 13
-       number of line numbers = 16
-0126 _main                    S_main__main     0x00000000 T_NULL   DT_NON       C_EXT     0
-0127 _00112_DS_               S_main__main     0x00000006 T_NULL   DT_NON       C_LABEL   0
-0128 _00110_DS_               S_main__main     0x0000000c T_NULL   DT_NON       C_LABEL   0
-0129 S_main___sdcc_gsinit_startup S_main___sdcc_gsinit_startup 0x00000000 T_NULL   DT_NON       C_SECTION 1
+0130 S_main__main             S_main__main     0x00000000 T_NULL   DT_NON       C_SECTION 1
+       length                 = 40
+       number of relocations  = 15
+       number of line numbers = 20
+0132 _main                    S_main__main     0x00000000 T_NULL   DT_NON       C_EXT     0
+0133 _00123_DS_               S_main__main     0x0000000a T_NULL   DT_NON       C_LABEL   0
+0134 _00121_DS_               S_main__main     0x00000010 T_NULL   DT_NON       C_LABEL   0
+0135 S_main__delay_ms         S_main__delay_ms 0x00000000 T_NULL   DT_NON       C_SECTION 1
+       length                 = 56
+       number of relocations  = 17
+       number of line numbers = 28
+0137 _delay_ms                S_main__delay_ms 0x00000000 T_NULL   DT_NON       C_EXT     0
+0138 _00112_DS_               S_main__delay_ms 0x00000003 T_NULL   DT_NON       C_LABEL   0
+0139 _00109_DS_               S_main__delay_ms 0x0000000b T_NULL   DT_NON       C_LABEL   0
+0140 _00111_DS_               S_main__delay_ms 0x00000015 T_NULL   DT_NON       C_LABEL   0
+0141 _00115_DS_               S_main__delay_ms 0x0000001b T_NULL   DT_NON       C_LABEL   0
+0142 S_main___sdcc_gsinit_startup S_main___sdcc_gsinit_startup 0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 4
        number of relocations  = 1
        number of line numbers = 2
-0131 __sdcc_gsinit_startup    S_main___sdcc_gsinit_startup 0x00000000 T_NULL   DT_NON       C_EXT     0
-0132 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
+0144 __sdcc_gsinit_startup    S_main___sdcc_gsinit_startup 0x00000000 T_NULL   DT_NON       C_EXT     0
+0145 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
 
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:07 2025
+Time Stamp           Wed Apr 30 15:39:57 2025
 Number of Sections   4
 Number of Symbols    107
 Characteristics      0
@@ -3549,7 +3684,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:07 2025
+Time Stamp           Wed Apr 30 15:39:58 2025
 Number of Sections   11
 Number of Symbols    98
 Characteristics      0
@@ -3853,7 +3988,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:51:07 2025
+Time Stamp           Wed Apr 30 15:39:58 2025
 Number of Sections   2
 Number of Symbols    94
 Characteristics      0

@@ -12,16 +12,17 @@ void InitPort(void)
 	//PB 01 3输出  2 4 5输入
 	
 	TRISB = 0;    //1：input  0:output
-	TRISB |= DEF_SET_BIT2;
-	TRISB |= DEF_SET_BIT4;
-	TRISB |= DEF_SET_BIT5;
+	TRISB |= DEF_SET_BIT2;    //input
+	TRISB |= DEF_SET_BIT4;  //input
+	TRISB |= DEF_SET_BIT5;  //input
 
     //配置上拉  
 	// 2 4需要拉上
     PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
-	// 0 1是开漏输出，靠内部上拉提供高低
+	// 0 1 3是开漏输出，靠内部上拉提供高低
 	PHCON &= DEF_CLR_BIT0;
 	PHCON &= DEF_CLR_BIT1;
+	PHCON &= DEF_CLR_BIT3;
 
 
 	PHCON &= DEF_CLR_BIT2;
@@ -40,7 +41,7 @@ void InitPort(void)
 	ODCON = 0;
 	ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open drain output
 	ODCON |= DEF_SET_BIT1;
-
+	ODCON |= DEF_SET_BIT3;
 	//IOCB = 0X08;
 	PORT_LED1 = 1;  //灯光  1：灭  0：亮
 	PORT_LED2 = 1;  //电机 1：灭  0：亮
