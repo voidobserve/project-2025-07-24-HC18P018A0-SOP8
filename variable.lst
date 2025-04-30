@@ -1,0 +1,639 @@
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 3.6.0 #9615 (CYGWIN)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC port for the 14-bit core
+                      00006 ;--------------------------------------------------------
+                      00007 ;       .file   "variable.c"
+                      00008         list    p=18p018a0
+                      00009         radix dec
+                      00010         include "p18p018a0.inc"
+                      00001        LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Jun 02 2017
+                      00005 ;  HCIDE HC18P018A0 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 2012-2021 Holychip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected processor."
+                      00378         LIST
+                      00011 ;--------------------------------------------------------
+                      00012 ; external declarations
+                      00013 ;--------------------------------------------------------
+  0000                00014         extern  _STATUSbits
+  0000                00015         extern  _PORTBbits
+  0000                00016         extern  _PCONbits
+  0000                00017         extern  _IOCBbits
+  0000                00018         extern  _PDCONbits
+  0000                00019         extern  _ODCONbits
+  0000                00020         extern  _PHCONbits
+  0000                00021         extern  _INTECONbits
+  0000                00022         extern  _INTFLAGbits
+  0000                00023         extern  _OPTIONbits
+  0000                00024         extern  _TRISBbits
+  0000                00025         extern  _PWMCONbits
+  0000                00026         extern  _T0CRbits
+  0000                00027         extern  _T1CONbits
+  0000                00028         extern  _OSCCONbits
+  0000                00029         extern  _CMPCRbits
+  0000                00030         extern  _PDCON1bits
+  0000                00031         extern  _CHARGE0bits
+  0000                00032         extern  _CHARGE1bits
+  0000                00033         extern  _RAMPbits
+  0000                00034         extern  _AUXRbits
+  0000                00035         extern  _INDF
+  0000                00036         extern  _T0
+  0000                00037         extern  _PCL
+  0000                00038         extern  _STATUS
+  0000                00039         extern  _FSR
+  0000                00040         extern  _PORTB
+  0000                00041         extern  _GPR
+  0000                00042         extern  _PCON
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00043         extern  _IOCB
+  0000                00044         extern  _PCLATH
+  0000                00045         extern  _PDCON
+  0000                00046         extern  _ODCON
+  0000                00047         extern  _PHCON
+  0000                00048         extern  _INTECON
+  0000                00049         extern  _INTFLAG
+  0000                00050         extern  _OPTION
+  0000                00051         extern  _TRISB
+  0000                00052         extern  _PWMCON
+  0000                00053         extern  _PWM1P
+  0000                00054         extern  _PWM2P
+  0000                00055         extern  _T0CR
+  0000                00056         extern  _T1CON
+  0000                00057         extern  _T1
+  0000                00058         extern  _T1LOAD
+  0000                00059         extern  _PWM0P
+  0000                00060         extern  _OSCCON
+  0000                00061         extern  _CMPCR
+  0000                00062         extern  _PDCON1
+  0000                00063         extern  _CHARGE0
+  0000                00064         extern  _CHARGE1
+  0000                00065         extern  _RAMP
+  0000                00066         extern  _AUXR
+  0000                00067         extern  _HIRCTRM
+                      00068 
+  0000                00069         extern PSAVE
+  0000                00070         extern SSAVE
+  0000                00071         extern WSAVE
+  0000                00072         extern STK12
+  0000                00073         extern STK11
+  0000                00074         extern STK10
+  0000                00075         extern STK09
+  0000                00076         extern STK08
+  0000                00077         extern STK07
+  0000                00078         extern STK06
+  0000                00079         extern STK05
+  0000                00080         extern STK04
+  0000                00081         extern STK03
+  0000                00082         extern STK02
+  0000                00083         extern STK01
+  0000                00084         extern STK00
+                      00085 ;--------------------------------------------------------
+                      00086 ; global declarations
+                      00087 ;--------------------------------------------------------
+  0000                00088         global  _BITS_DATA0
+  0000                00089         global  _BITS_DATA1
+  0000                00090         global  _g_ucTimer10msCount
+  0000                00091         global  _g_ucTimerWorkCount
+  0000                00092         global  _g_ucFlashTimeHigh
+  0000                00093         global  _g_ucFlashTimeLow
+  0000                00094         global  _g_ucFlashTimeHigh1
+  0000                00095         global  _g_ucFlashTimeLow1
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00096         global  _g_ucFlashTimeHigh2
+  0000                00097         global  _g_ucFlashTimeLow2
+  0000                00098         global  _LvdModel
+  0000                00099         global  _LvdDebounceNew
+  0000                00100         global  _LvdDebounceOld
+  0000                00101         global  _LvdModelCount
+  0000                00102         global  _LvdLightCount
+  0000                00103         global  _TempCount
+  0000                00104         global  _TempFlag
+  0000                00105         global  _SleepCount
+  0000                00106         global  _SleepFlag
+  0000                00107         global  _MaxLight
+  0000                00108         global  _g_cucTIMER_COUNT_STATE
+                      00109 
+                      00110 ;--------------------------------------------------------
+                      00111 ; global definitions
+                      00112 ;--------------------------------------------------------
+                      00113 UD_variable_0   udata
+0000                  00114 _BITS_DATA0     res     1
+                      00115 
+                      00116 UD_variable_1   udata
+0000                  00117 _BITS_DATA1     res     2
+                      00118 
+                      00119 ;--------------------------------------------------------
+                      00120 ; absolute symbol definitions
+                      00121 ;--------------------------------------------------------
+                      00122 ;--------------------------------------------------------
+                      00123 ; compiler-defined variables
+                      00124 ;--------------------------------------------------------
+                      00125 ;--------------------------------------------------------
+                      00126 ; initialized data
+                      00127 ;--------------------------------------------------------
+                      00128 
+                      00129 ID_variable_0   idata
+0000                  00130 _g_ucTimer10msCount
+0000   00             00131         db      0x00
+                      00132 
+                      00133 
+                      00134 ID_variable_1   idata
+0000                  00135 _g_ucTimerWorkCount
+0000   00             00136         db      0x00
+                      00137 
+                      00138 
+                      00139 ID_variable_2   idata
+0000                  00140 _g_ucFlashTimeHigh
+0000   00             00141         db      0x00
+                      00142 
+                      00143 
+                      00144 ID_variable_3   idata
+0000                  00145 _g_ucFlashTimeLow
+0000   00             00146         db      0x00
+                      00147 
+                      00148 
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00149 ID_variable_4   idata
+0000                  00150 _g_ucFlashTimeHigh1
+0000   00             00151         db      0x00
+                      00152 
+                      00153 
+                      00154 ID_variable_5   idata
+0000                  00155 _g_ucFlashTimeLow1
+0000   00             00156         db      0x00
+                      00157 
+                      00158 
+                      00159 ID_variable_6   idata
+0000                  00160 _g_ucFlashTimeHigh2
+0000   00             00161         db      0x00
+                      00162 
+                      00163 
+                      00164 ID_variable_7   idata
+0000                  00165 _g_ucFlashTimeLow2
+0000   00             00166         db      0x00
+                      00167 
+                      00168 
+                      00169 ID_variable_8   idata
+0000                  00170 _LvdModel
+0000   00             00171         db      0x00
+                      00172 
+                      00173 
+                      00174 ID_variable_9   idata
+0000                  00175 _LvdDebounceNew
+0000   00             00176         db      0x00
+                      00177 
+                      00178 
+                      00179 ID_variable_10  idata
+0000                  00180 _LvdDebounceOld
+0000   00             00181         db      0x00
+                      00182 
+                      00183 
+                      00184 ID_variable_11  idata
+0000                  00185 _LvdModelCount
+0000   00             00186         db      0x00
+                      00187 
+                      00188 
+                      00189 ID_variable_12  idata
+0000                  00190 _LvdLightCount
+0000   00             00191         db      0x00
+                      00192 
+                      00193 
+                      00194 ID_variable_13  idata
+0000                  00195 _TempCount
+0000   00             00196         db      0x00
+                      00197 
+                      00198 
+                      00199 ID_variable_14  idata
+0000                  00200 _TempFlag
+0000   00             00201         db      0x00
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00202 
+                      00203 
+                      00204 ID_variable_15  idata
+0000                  00205 _SleepCount
+0000   00             00206         db      0x00
+                      00207 
+                      00208 
+                      00209 ID_variable_16  idata
+0000                  00210 _SleepFlag
+0000   00             00211         db      0x00
+                      00212 
+                      00213 
+                      00214 ID_variable_17  idata
+0000                  00215 _MaxLight
+0000   00             00216         db      0x00
+                      00217 
+                      00218 
+                      00219 ID_variable_18  code
+0000                  00220 _g_cucTIMER_COUNT_STATE
+0000   0101           00221         retlw 0x01
+0001   0101           00222         retlw 0x01
+0002   0101           00223         retlw 0x01
+0003   0101           00224         retlw 0x01
+0004   0104           00225         retlw 0x04
+0005   0104           00226         retlw 0x04
+0006   0101           00227         retlw 0x01
+0007   0104           00228         retlw 0x04
+0008   0101           00229         retlw 0x01
+0009   0101           00230         retlw 0x01
+                      00231 
+                      00232 ;--------------------------------------------------------
+                      00233 ; overlayable items in internal ram 
+                      00234 ;--------------------------------------------------------
+                      00235 ;       udata_ovr
+                      00236 ;--------------------------------------------------------
+                      00237 ; code
+                      00238 ;--------------------------------------------------------
+                      00239 code_variable   code
+                      00240 
+                      00241 ;       code size estimation:
+                      00242 ;           0+    0 =     0 instructions (    0 byte)
+                      00243 
+                      00244         end
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+AUXR                              CONSTANT      00000059             89
+BOR                               CONSTANT      00000006              6
+BUZ                               CONSTANT      00000005              5
+C                                 CONSTANT      00000000              0
+CHARE                             CONSTANT      00000005              5
+CHARF                             CONSTANT      00000005              5
+CHARGE0                           CONSTANT      00000053             83
+CHARGE1                           CONSTANT      00000054             84
+CHARGEN                           CONSTANT      00000007              7
+CMPCR                             CONSTANT      00000051             81
+CMPEN                             CONSTANT      00000000              0
+CMPF                              CONSTANT      00000003              3
+CMPIE                             CONSTANT      00000002              2
+CMPIES                            CONSTANT      00000001              1
+CMPOF                             CONSTANT      00000005              5
+CMPWK                             CONSTANT      00000003              3
+CPNIS0                            CONSTANT      00000001              1
+CPNIS1                            CONSTANT      00000002              2
+CPNIS2                            CONSTANT      00000003              3
+CPNIS3                            CONSTANT      00000004              4
+CPPIS                             CONSTANT      00000000              0
+DC                                CONSTANT      00000001              1
+EIS                               CONSTANT      00000006              6
+F                                 CONSTANT      00000001              1
+FSR                               CONSTANT      00000004              4
+GIE                               CONSTANT      00000007              7
+GP0                               CONSTANT      00000005              5
+GP1                               CONSTANT      00000006              6
+GPR                               CONSTANT      00000007              7
+HIRCTRM                           CONSTANT      0000005B             91
+HXEN                              CONSTANT      00000001              1
+INDF                              CONSTANT      00000000              0
+INTE                              CONSTANT      00000002              2
+INTECON                           CONSTANT      0000000E             14
+INTEDG                            CONSTANT      00000006              6
+INTF                              CONSTANT      00000002              2
+INTFLAG                           CONSTANT      0000000F             15
+IOCB                              CONSTANT      00000009              9
+IOCB0                             CONSTANT      00000000              0
+IOCB1                             CONSTANT      00000001              1
+IOCB2                             CONSTANT      00000002              2
+IOCB3                             CONSTANT      00000003              3
+IOCB4                             CONSTANT      00000004              4
+IOCB5                             CONSTANT      00000005              5
+IOCB6                             CONSTANT      00000006              6
+IOCB7                             CONSTANT      00000007              7
+LVDM                              CONSTANT      00000004              4
+MODSEL                            CONSTANT      00000007              7
+ODB0                              CONSTANT      00000000              0
+ODB1                              CONSTANT      00000001              1
+ODB2                              CONSTANT      00000002              2
+ODB3                              CONSTANT      00000003              3
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+ODB4                              CONSTANT      00000004              4
+ODB5                              CONSTANT      00000005              5
+ODB6                              CONSTANT      00000006              6
+ODB7                              CONSTANT      00000007              7
+ODCON                             CONSTANT      0000000C             12
+OPTION                            CONSTANT      00000041             65
+OSCCON                            CONSTANT      00000050             80
+PBIE                              CONSTANT      00000001              1
+PBIF                              CONSTANT      00000001              1
+PCL                               CONSTANT      00000002              2
+PCLATH                            CONSTANT      0000000A             10
+PCON                              CONSTANT      00000008              8
+PD                                CONSTANT      00000003              3
+PDB0                              CONSTANT      00000004              4
+PDB1                              CONSTANT      00000005              5
+PDB2                              CONSTANT      00000006              6
+PDB3                              CONSTANT      00000003              3
+PDB4                              CONSTANT      00000004              4
+PDB5                              CONSTANT      00000005              5
+PDB6                              CONSTANT      00000006              6
+PDB7                              CONSTANT      00000007              7
+PDCON                             CONSTANT      0000000B             11
+PDCON1                            CONSTANT      00000052             82
+PHB0                              CONSTANT      00000000              0
+PHB1                              CONSTANT      00000001              1
+PHB2                              CONSTANT      00000002              2
+PHB3                              CONSTANT      00000003              3
+PHB4                              CONSTANT      00000004              4
+PHB5                              CONSTANT      00000005              5
+PHB6                              CONSTANT      00000006              6
+PHB7                              CONSTANT      00000007              7
+PHCON                             CONSTANT      0000000D             13
+POR                               CONSTANT      00000007              7
+PORTB                             CONSTANT      00000006              6
+PORTB0                            CONSTANT      00000000              0
+PORTB1                            CONSTANT      00000001              1
+PORTB2                            CONSTANT      00000002              2
+PORTB3                            CONSTANT      00000003              3
+PORTB4                            CONSTANT      00000004              4
+PORTB5                            CONSTANT      00000005              5
+PORTB6                            CONSTANT      00000006              6
+PORTB7                            CONSTANT      00000007              7
+PS0                               CONSTANT      00000000              0
+PS1                               CONSTANT      00000001              1
+PS2                               CONSTANT      00000002              2
+PSA                               CONSTANT      00000003              3
+PSAVE                             EXTERNAL      00000000              0
+PWM0E                             CONSTANT      00000006              6
+PWM0OE                            CONSTANT      00000007              7
+PWM0P                             CONSTANT      0000004F             79
+PWM1E                             CONSTANT      00000001              1
+PWM1OE                            CONSTANT      00000006              6
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+PWM1P                             CONSTANT      00000049             73
+PWM2E                             CONSTANT      00000000              0
+PWM2OE                            CONSTANT      00000005              5
+PWM2P                             CONSTANT      0000004A             74
+PWM3CT                            CONSTANT      00000001              1
+PWMCK                             CONSTANT      00000004              4
+PWMCON                            CONSTANT      00000048             72
+PWMCT                             CONSTANT      00000000              0
+PWMINV                            CONSTANT      00000002              2
+PWMMD                             CONSTANT      00000003              3
+RAMP                              CONSTANT      00000055             85
+RCTRMEN                           CONSTANT      00000002              2
+RST                               CONSTANT      00000007              7
+S0                                CONSTANT      00000000              0
+S1                                CONSTANT      00000001              1
+S2                                CONSTANT      00000002              2
+S3                                CONSTANT      00000003              3
+S4                                CONSTANT      00000004              4
+S5                                CONSTANT      00000005              5
+S6                                CONSTANT      00000006              6
+S7                                CONSTANT      00000007              7
+S8                                CONSTANT      00000000              0
+S9                                CONSTANT      00000001              1
+SCS                               CONSTANT      00000000              0
+SINK_SEL                          CONSTANT      00000006              6
+SLOP0                             CONSTANT      00000000              0
+SLOP1                             CONSTANT      00000001              1
+SLOP2                             CONSTANT      00000002              2
+SSAVE                             EXTERNAL      00000000              0
+STATUS                            CONSTANT      00000003              3
+STK00                             EXTERNAL      00000000              0
+STK01                             EXTERNAL      00000000              0
+STK02                             EXTERNAL      00000000              0
+STK03                             EXTERNAL      00000000              0
+STK04                             EXTERNAL      00000000              0
+STK05                             EXTERNAL      00000000              0
+STK06                             EXTERNAL      00000000              0
+STK07                             EXTERNAL      00000000              0
+STK08                             EXTERNAL      00000000              0
+STK09                             EXTERNAL      00000000              0
+STK10                             EXTERNAL      00000000              0
+STK11                             EXTERNAL      00000000              0
+STK12                             EXTERNAL      00000000              0
+T0                                CONSTANT      00000001              1
+T0CK                              CONSTANT      00000007              7
+T0CR                              CONSTANT      0000004B             75
+T0CS                              CONSTANT      00000005              5
+T0IE                              CONSTANT      00000000              0
+T0IF                              CONSTANT      00000000              0
+T0OSCEN                           CONSTANT      00000007              7
+T0SE                              CONSTANT      00000004              4
+T1                                CONSTANT      0000004D             77
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+T1CK0                             CONSTANT      00000003              3
+T1CK1                             CONSTANT      00000004              4
+T1CON                             CONSTANT      0000004C             76
+T1EN                              CONSTANT      00000007              7
+T1IE                              CONSTANT      00000001              1
+T1IF                              CONSTANT      00000000              0
+T1LOAD                            CONSTANT      0000004E             78
+T1PR0                             CONSTANT      00000000              0
+T1PR1                             CONSTANT      00000001              1
+T1PR2                             CONSTANT      00000002              2
+TEMPEN                            CONSTANT      00000006              6
+TMPE                              CONSTANT      00000004              4
+TMPF                              CONSTANT      00000004              4
+TO                                CONSTANT      00000004              4
+TRISB                             CONSTANT      00000046             70
+TRISB0                            CONSTANT      00000000              0
+TRISB1                            CONSTANT      00000001              1
+TRISB2                            CONSTANT      00000002              2
+TRISB3                            CONSTANT      00000003              3
+TRISB4                            CONSTANT      00000004              4
+TRISB5                            CONSTANT      00000005              5
+TRISB6                            CONSTANT      00000006              6
+TRISB7                            CONSTANT      00000007              7
+W                                 CONSTANT      00000000              0
+WDTEN                             CONSTANT      00000007              7
+WSAVE                             EXTERNAL      00000000              0
+Z                                 CONSTANT      00000002              2
+_AUXR                             EXTERNAL      00000000              0
+_AUXRbits                         EXTERNAL      00000000              0
+_BITS_DATA0                       GLOBAL        00000000              0
+_BITS_DATA1                       GLOBAL        00000000              0
+_CHARGE0                          EXTERNAL      00000000              0
+_CHARGE0bits                      EXTERNAL      00000000              0
+_CHARGE1                          EXTERNAL      00000000              0
+_CHARGE1bits                      EXTERNAL      00000000              0
+_CMPCR                            EXTERNAL      00000000              0
+_CMPCRbits                        EXTERNAL      00000000              0
+_CONFIG                           CONSTANT      00002000           8192
+_CP_OFF                           CONSTANT      00003FFF          16383
+_CP_ON                            CONSTANT      00003FEF          16367
+_FOSC_HS                          CONSTANT      00003FFD          16381
+_FOSC_INTRCIO                     CONSTANT      00003FFC          16380
+_FOSC_LP                          CONSTANT      00003CFF          15615
+_FOSC_XT                          CONSTANT      00003DFF          15871
+_FSR                              EXTERNAL      00000000              0
+_GPR                              EXTERNAL      00000000              0
+_HIRCTRM                          EXTERNAL      00000000              0
+_HS_OSC                           CONSTANT      00003FFD          16381
+_INDF                             EXTERNAL      00000000              0
+_INTECON                          EXTERNAL      00000000              0
+_INTECONbits                      EXTERNAL      00000000              0
+_INTFLAG                          EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_INTFLAGbits                      EXTERNAL      00000000              0
+_INTOSCIO                         CONSTANT      00003FFC          16380
+_INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
+_IOCB                             EXTERNAL      00000000              0
+_IOCBbits                         EXTERNAL      00000000              0
+_LP_OSC                           CONSTANT      00003CFF          15615
+_LvdDebounceNew                   GLOBAL        00000000              0
+_LvdDebounceOld                   GLOBAL        00000000              0
+_LvdLightCount                    GLOBAL        00000000              0
+_LvdModel                         GLOBAL        00000000              0
+_LvdModelCount                    GLOBAL        00000000              0
+_MaxLight                         GLOBAL        00000000              0
+_ODCON                            EXTERNAL      00000000              0
+_ODCONbits                        EXTERNAL      00000000              0
+_OPTION                           EXTERNAL      00000000              0
+_OPTIONbits                       EXTERNAL      00000000              0
+_OSCCON                           EXTERNAL      00000000              0
+_OSCCONbits                       EXTERNAL      00000000              0
+_PCL                              EXTERNAL      00000000              0
+_PCLATH                           EXTERNAL      00000000              0
+_PCON                             EXTERNAL      00000000              0
+_PCONbits                         EXTERNAL      00000000              0
+_PDCON                            EXTERNAL      00000000              0
+_PDCON1                           EXTERNAL      00000000              0
+_PDCON1bits                       EXTERNAL      00000000              0
+_PDCONbits                        EXTERNAL      00000000              0
+_PHCON                            EXTERNAL      00000000              0
+_PHCONbits                        EXTERNAL      00000000              0
+_PORTB                            EXTERNAL      00000000              0
+_PORTBbits                        EXTERNAL      00000000              0
+_PWM0P                            EXTERNAL      00000000              0
+_PWM1P                            EXTERNAL      00000000              0
+_PWM2P                            EXTERNAL      00000000              0
+_PWMCON                           EXTERNAL      00000000              0
+_PWMCONbits                       EXTERNAL      00000000              0
+_RAMP                             EXTERNAL      00000000              0
+_RAMPbits                         EXTERNAL      00000000              0
+_STATUS                           EXTERNAL      00000000              0
+_STATUSbits                       EXTERNAL      00000000              0
+_SleepCount                       GLOBAL        00000000              0
+_SleepFlag                        GLOBAL        00000000              0
+_T0                               EXTERNAL      00000000              0
+_T0CR                             EXTERNAL      00000000              0
+_T0CRbits                         EXTERNAL      00000000              0
+_T1                               EXTERNAL      00000000              0
+_T1CON                            EXTERNAL      00000000              0
+_T1CONbits                        EXTERNAL      00000000              0
+_T1LOAD                           EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TempCount                        GLOBAL        00000000              0
+_TempFlag                         GLOBAL        00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  10:45:52          PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_WDTE_OFF                         CONSTANT      00003FFB          16379
+_WDTE_ON                          CONSTANT      00003FFF          16383
+_WDT_OFF                          CONSTANT      00003FFB          16379
+_WDT_ON                           CONSTANT      00003FFF          16383
+_XT_OSC                           CONSTANT      00003DFF          15871
+__14_BIT                          CONSTANT      00000001              1
+__18P018A0                        CONSTANT      00000001              1
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ACTIVE_PAGE_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      00000000              0
+__BANK_0                          CONSTANT      00000000              0
+__BANK_BITS                       CONSTANT      00000080            128
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000000              0
+__BANK_MASK                       CONSTANT      0000007F            127
+__BANK_SHIFT                      CONSTANT      00000007              7
+__BANK_SIZE                       CONSTANT      00000080            128
+__CODE_END                        CONSTANT      000003FF           1023
+__CODE_START                      CONSTANT      00000000              0
+__CONFIG_END                      CONSTANT      00002003           8195
+__CONFIG_START                    CONSTANT      00002000           8192
+__GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00002005           8197
+__IDLOCS_START                    CONSTANT      00002004           8196
+__NUM_BANKS                       CONSTANT      00000001              1
+__PAGE_BITS                       CONSTANT      00001800           6144
+__PAGE_INV                        CONSTANT      FFFFFFFF             -1
+__PAGE_MASK                       CONSTANT      00000000              0
+__PAGE_SHIFT                      CONSTANT      0000000B             11
+__PAGE_SIZE                       CONSTANT      00000000              0
+__VECTOR_INT                      CONSTANT      00000008              8
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+_g_cucTIMER_COUNT_STATE           GLOBAL        00000000              0
+_g_ucFlashTimeHigh                GLOBAL        00000000              0
+_g_ucFlashTimeHigh1               GLOBAL        00000000              0
+_g_ucFlashTimeHigh2               GLOBAL        00000000              0
+_g_ucFlashTimeLow                 GLOBAL        00000000              0
+_g_ucFlashTimeLow1                GLOBAL        00000000              0
+_g_ucFlashTimeLow2                GLOBAL        00000000              0
+_g_ucTimer10msCount               GLOBAL        00000000              0
+_g_ucTimerWorkCount               GLOBAL        00000000              0
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+

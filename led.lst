@@ -1,0 +1,1011 @@
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 3.6.0 #9615 (CYGWIN)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC port for the 14-bit core
+                      00006 ;--------------------------------------------------------
+                      00007 ;       .file   "led.c"
+                      00008         list    p=18p018a0
+                      00009         radix dec
+                      00010         include "p18p018a0.inc"
+                      00001        LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Jun 02 2017
+                      00005 ;  HCIDE HC18P018A0 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 2012-2021 Holychip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected processor."
+                      00378         LIST
+                      00011 ;--------------------------------------------------------
+                      00012 ; external declarations
+                      00013 ;--------------------------------------------------------
+  0000                00014         extern  _InitPort
+  0000                00015         extern  _InitSystem
+  0000                00016         extern  _InitPwm
+  0000                00017         extern  _InitRam
+  0000                00018         extern  _STATUSbits
+  0000                00019         extern  _PORTBbits
+  0000                00020         extern  _PCONbits
+  0000                00021         extern  _IOCBbits
+  0000                00022         extern  _PDCONbits
+  0000                00023         extern  _ODCONbits
+  0000                00024         extern  _PHCONbits
+  0000                00025         extern  _INTECONbits
+  0000                00026         extern  _INTFLAGbits
+  0000                00027         extern  _OPTIONbits
+  0000                00028         extern  _TRISBbits
+  0000                00029         extern  _PWMCONbits
+  0000                00030         extern  _T0CRbits
+  0000                00031         extern  _T1CONbits
+  0000                00032         extern  _OSCCONbits
+  0000                00033         extern  _CMPCRbits
+  0000                00034         extern  _PDCON1bits
+  0000                00035         extern  _CHARGE0bits
+  0000                00036         extern  _CHARGE1bits
+  0000                00037         extern  _RAMPbits
+  0000                00038         extern  _AUXRbits
+  0000                00039         extern  _BITS_DATA0
+  0000                00040         extern  _BITS_DATA1
+  0000                00041         extern  _g_ucTimer10msCount
+  0000                00042         extern  _g_ucTimerWorkCount
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00043         extern  _g_ucFlashTimeHigh
+  0000                00044         extern  _g_ucFlashTimeLow
+  0000                00045         extern  _g_ucFlashTimeHigh1
+  0000                00046         extern  _g_ucFlashTimeLow1
+  0000                00047         extern  _g_ucFlashTimeHigh2
+  0000                00048         extern  _g_ucFlashTimeLow2
+  0000                00049         extern  _LvdModel
+  0000                00050         extern  _LvdDebounceNew
+  0000                00051         extern  _LvdDebounceOld
+  0000                00052         extern  _LvdModelCount
+  0000                00053         extern  _LvdLightCount
+  0000                00054         extern  _TempCount
+  0000                00055         extern  _TempFlag
+  0000                00056         extern  _SleepCount
+  0000                00057         extern  _SleepFlag
+  0000                00058         extern  _MaxLight
+  0000                00059         extern  _g_cucTIMER_COUNT_STATE
+  0000                00060         extern  _INDF
+  0000                00061         extern  _T0
+  0000                00062         extern  _PCL
+  0000                00063         extern  _STATUS
+  0000                00064         extern  _FSR
+  0000                00065         extern  _PORTB
+  0000                00066         extern  _GPR
+  0000                00067         extern  _PCON
+  0000                00068         extern  _IOCB
+  0000                00069         extern  _PCLATH
+  0000                00070         extern  _PDCON
+  0000                00071         extern  _ODCON
+  0000                00072         extern  _PHCON
+  0000                00073         extern  _INTECON
+  0000                00074         extern  _INTFLAG
+  0000                00075         extern  _OPTION
+  0000                00076         extern  _TRISB
+  0000                00077         extern  _PWMCON
+  0000                00078         extern  _PWM1P
+  0000                00079         extern  _PWM2P
+  0000                00080         extern  _T0CR
+  0000                00081         extern  _T1CON
+  0000                00082         extern  _T1
+  0000                00083         extern  _T1LOAD
+  0000                00084         extern  _PWM0P
+  0000                00085         extern  _OSCCON
+  0000                00086         extern  _CMPCR
+  0000                00087         extern  _PDCON1
+  0000                00088         extern  _CHARGE0
+  0000                00089         extern  _CHARGE1
+  0000                00090         extern  _RAMP
+  0000                00091         extern  _AUXR
+  0000                00092         extern  _HIRCTRM
+                      00093 
+  0000                00094         extern PSAVE
+  0000                00095         extern SSAVE
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00096         extern WSAVE
+  0000                00097         extern STK12
+  0000                00098         extern STK11
+  0000                00099         extern STK10
+  0000                00100         extern STK09
+  0000                00101         extern STK08
+  0000                00102         extern STK07
+  0000                00103         extern STK06
+  0000                00104         extern STK05
+  0000                00105         extern STK04
+  0000                00106         extern STK03
+  0000                00107         extern STK02
+  0000                00108         extern STK01
+  0000                00109         extern STK00
+                      00110 ;--------------------------------------------------------
+                      00111 ; global declarations
+                      00112 ;--------------------------------------------------------
+  0000                00113         global  _PowOff
+  0000                00114         global  _PowOn
+  0000                00115         global  _MotoDisplay
+  0000                00116         global  _MotoSwitch
+  0000                00117         global  _LedOff
+  0000                00118         global  _LedOn
+  0000                00119         global  _LedDisplay
+  0000                00120         global  _LedSwitch
+  0000                00121         global  _MotoOn
+  0000                00122         global  _MotoOff
+                      00123 
+                      00124 ;--------------------------------------------------------
+                      00125 ; global definitions
+                      00126 ;--------------------------------------------------------
+                      00127 ;--------------------------------------------------------
+                      00128 ; absolute symbol definitions
+                      00129 ;--------------------------------------------------------
+                      00130 ;--------------------------------------------------------
+                      00131 ; compiler-defined variables
+                      00132 ;--------------------------------------------------------
+                      00133 UDL_led_0       udata
+0000                  00134 r0x1007 res     1
+0001                  00135 r0x1005 res     1
+0002                  00136 r0x1003 res     1
+0003                  00137 r0x1001 res     1
+                      00138 ;--------------------------------------------------------
+                      00139 ; initialized data
+                      00140 ;--------------------------------------------------------
+                      00141 ;--------------------------------------------------------
+                      00142 ; overlayable items in internal ram 
+                      00143 ;--------------------------------------------------------
+                      00144 ;       udata_ovr
+                      00145 ;--------------------------------------------------------
+                      00146 ; code
+                      00147 ;--------------------------------------------------------
+                      00148 code_led        code
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00149 ;***
+                      00150 ;  pBlock Stats: dbName = C
+                      00151 ;***
+                      00152 ;has an exit
+                      00153 ;; Starting pCode block
+                      00154 ;;[ICODE] led.c:79:  _entry($2) :
+                      00155 ;;[ICODE] led.c:79:     proc _PowOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) f
+                            ixed}
+                      00156 S_led__PowOff   code
+0000                  00157 _PowOff:
+                      00158 ; 2 exit points
+                      00159 ;;[ICODE] led.c:84:     _TRISB [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _TRISB [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xf7 {const-un
+                            signed-char literal}
+                      00160 ;       .line   84; "led.c"     TRISB  &= DEF_CLR_BIT3;
+0000   3D??           00161         BCF     _TRISB,3
+                      00162 ;;[ICODE] led.c:85:     _PHCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _PHCON [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x8 {const-uns
+                            igned-char literal}
+                      00163 ;       .line   85; "led.c"     PHCON |= DEF_SET_BIT3;
+0001   39??           00164         BSF     _PHCON,3
+                      00165 ;;[ICODE] led.c:85:  _return($1) :
+                      00166 ;;[ICODE] led.c:85:     eproc _PowOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
+                            fixed}
+0002   0002           00167         RETURN  
+                      00168 ; exit point of _PowOff
+                      00169 
+                      00170 ;***
+                      00171 ;  pBlock Stats: dbName = C
+                      00172 ;***
+                      00173 ;has an exit
+                      00174 ;; Starting pCode block
+                      00175 ;;[ICODE] led.c:72:  _entry($2) :
+                      00176 ;;[ICODE] led.c:72:     proc _PowOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fi
+                            xed}
+                      00177 S_led__PowOn    code
+0000                  00178 _PowOn:
+                      00179 ; 2 exit points
+                      00180 ;;[ICODE] led.c:75:     _TRISB [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _TRISB [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x8 {const-uns
+                            igned-char literal}
+                      00181 ;       .line   75; "led.c"     TRISB  |= DEF_SET_BIT3;
+0000   39??           00182         BSF     _TRISB,3
+                      00183 ;;[ICODE] led.c:76:     _PHCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _PHCON [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xf7 {const-un
+                            signed-char literal}
+                      00184 ;       .line   76; "led.c"     PHCON &= DEF_CLR_BIT3;
+0001   3D??           00185         BCF     _PHCON,3
+                      00186 ;;[ICODE] led.c:76:  _return($1) :
+                      00187 ;;[ICODE] led.c:76:     eproc _PowOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) f
+                            ixed}
+0002   0002           00188         RETURN  
+                      00189 ; exit point of _PowOn
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00190 
+                      00191 ;***
+                      00192 ;  pBlock Stats: dbName = C
+                      00193 ;***
+                      00194 ;has an exit
+                      00195 ;functions called:
+                      00196 ;   _MotoOn
+                      00197 ;   _MotoOff
+                      00198 ;   _MotoOn
+                      00199 ;   _MotoOff
+                      00200 ;2 compiler assigned registers:
+                      00201 ;   r0x1001
+                      00202 ;   r0x1002
+                      00203 ;; Starting pCode block
+                      00204 ;;[ICODE] led.c:61:  _entry($5) :
+                      00205 ;;[ICODE] led.c:61:     proc _MotoDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function 
+                            ( ) fixed}
+                      00206 S_led__MotoDisplay      code
+0000                  00207 _MotoDisplay:
+                      00208 ; 2 exit points
+                      00209 ;;[ICODE] led.c:63:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} n
+                            ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
+                            d} , 0x0 {const-unsigned-char literal}]
+                      00210 ;;[ICODE] led.c:63:     iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} f
+                            ixed}[r0x104C ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near*
+                             fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                      00211 ;       .line   63; "led.c"     if(IsMotor == 1)
+0000   18??           00212         CLRF    r0x1001
+0001   37??           00213         BTFSC   _BITS_DATA0,6
+0002   13??           00214         INCF    r0x1001,F
+                      00215 ;;[ICODE] led.c:63:     iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104D ] = (
+                            char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1
+                            04C ]
+0003   11??           00216         MOVF    r0x1001,W
+                      00217 ;;1     MOVWF   r0x1002
+0004   0D01           00218         XORLW   0x01
+0005   3103           00219         BTFSS   STATUS,2
+0006   2???           00220         GOTO    _00138_DS_
+                      00221 ;;[ICODE] led.c:63:     if iTemp4 [k8 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto 
+                            __iffalse_1($2)
+                      00222 ;;[ICODE] led.c:65:     iTemp5 [k10 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _Moto
+                            On [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00223 ;       .line   65; "led.c"     MotoOn();
+0007   2???           00224         CALL    _MotoOn
+                      00225 ;;[ICODE] led.c:65:      goto _return($4)
+0008   2???           00226         GOTO    _00140_DS_
+                      00227 ;;[ICODE] led.c:65:  __iffalse_1($2) :
+                      00228 ;;[ICODE] led.c:69:     iTemp6 [k12 lr12:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _Mo
+                            toOff [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+0009                  00229 _00138_DS_:
+                      00230 ;       .line   69; "led.c"     MotoOff();
+0009   2???           00231         CALL    _MotoOff
+                      00232 ;;[ICODE] led.c:69:  _return($4) :
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  6
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00233 ;;[ICODE] led.c:69:     eproc _MotoDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function
+                             ( ) fixed}
+000A                  00234 _00140_DS_:
+000A   0002           00235         RETURN  
+                      00236 ; exit point of _MotoDisplay
+                      00237 
+                      00238 ;***
+                      00239 ;  pBlock Stats: dbName = C
+                      00240 ;***
+                      00241 ;has an exit
+                      00242 ;; Starting pCode block
+                      00243 ;;[ICODE] led.c:55:  _entry($2) :
+                      00244 ;;[ICODE] led.c:55:     proc _MotoOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
+                            fixed}
+                      00245 S_led__MotoOff  code
+0000                  00246 _MotoOff:
+                      00247 ; 2 exit points
+                      00248 ;;[ICODE] led.c:57:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {0,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
+                            ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00249 ;;[ICODE] led.c:57:     *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00250 ;       .line   57; "led.c"     PORT_LED2 = LIGHT_TURN_OFF;
+0000   3C??           00251         BCF     _PORTBbits,0
+                      00252 ;;[ICODE] led.c:58:     iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struc
+                            t __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                      00253 ;;[ICODE] led.c:58:     *(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00254 ;       .line   58; "led.c"     MODSEL = 1;
+0001   3B??           00255         BSF     _RAMPbits,7
+                      00256 ;;[ICODE] led.c:58:  _return($1) :
+                      00257 ;;[ICODE] led.c:58:     eproc _MotoOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
+                             fixed}
+0002   0002           00258         RETURN  
+                      00259 ; exit point of _MotoOff
+                      00260 
+                      00261 ;***
+                      00262 ;  pBlock Stats: dbName = C
+                      00263 ;***
+                      00264 ;has an exit
+                      00265 ;; Starting pCode block
+                      00266 ;;[ICODE] led.c:49:  _entry($2) :
+                      00267 ;;[ICODE] led.c:49:     proc _MotoOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) f
+                            ixed}
+                      00268 S_led__MotoOn   code
+0000                  00269 _MotoOn:
+                      00270 ; 2 exit points
+                      00271 ;;[ICODE] led.c:51:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {0,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
+                            ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00272 ;;[ICODE] led.c:51:     *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00273 ;       .line   51; "led.c"     PORT_LED2 = LIGHT_TURN_ON;
+0000   38??           00274         BSF     _PORTBbits,0
+                      00275 ;;[ICODE] led.c:52:     iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struc
+                            t __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                      00276 ;;[ICODE] led.c:52:     *(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00277 ;       .line   52; "led.c"     MODSEL = 1;     
+0001   3B??           00278         BSF     _RAMPbits,7
+                      00279 ;;[ICODE] led.c:52:  _return($1) :
+                      00280 ;;[ICODE] led.c:52:     eproc _MotoOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
+                            fixed}
+0002   0002           00281         RETURN  
+                      00282 ; exit point of _MotoOn
+                      00283 
+                      00284 ;***
+                      00285 ;  pBlock Stats: dbName = C
+                      00286 ;***
+                      00287 ;has an exit
+                      00288 ;2 compiler assigned registers:
+                      00289 ;   r0x1003
+                      00290 ;   r0x1004
+                      00291 ;; Starting pCode block
+                      00292 ;;[ICODE] led.c:41:  _entry($2) :
+                      00293 ;;[ICODE] led.c:41:     proc _MotoSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
+                             ) fixed}
+                      00294 S_led__MotoSwitch       code
+0000                  00295 _MotoSwitch:
+                      00296 ; 2 exit points
+                      00297 ;;[ICODE] led.c:43:     iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} n
+                            ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
+                            d} , 0x0 {const-unsigned-char literal}]
+                      00298 ;;[ICODE] led.c:43:     iTemp1 [k5 lr4:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} n
+                            ear* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} nea
+                            r* fixed}[remat]
+                      00299 ;;[ICODE] led.c:43:     iTemp3 [k8 lr5:6 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} n
+                            ear* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} nea
+                            r* fixed}[remat]
+                      00300 ;;[ICODE] led.c:43:     iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} f
+                            ixed}[r0x104A ] = @[iTemp3 [k8 lr5:6 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near*
+                             fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                      00301 ;       .line   43; "led.c"     IsMotor =!IsMotor;
+0000   18??           00302         CLRF    r0x1003
+0001   37??           00303         BTFSC   _BITS_DATA0,6
+0002   13??           00304         INCF    r0x1003,F
+                      00305 ;;[ICODE] led.c:43:     iTemp5 [k10 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed}[r0x104B ] = n
+                            ot iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104A ]
+0003   11??           00306         MOVF    r0x1003,W
+0004   0400           00307         MOVLW   0x00
+0005   3503           00308         BTFSC   STATUS,2
+0006   0401           00309         MOVLW   0x01
+                      00310 ;;1     MOVWF   r0x1004
+0007   19??           00311         MOVWF   r0x1003
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00312 ;;[ICODE] led.c:43:     *(iTemp1 [k5 lr4:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1}
+                             near* fixed}[remat]) := iTemp6 [k11 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1}
+                             fixed}[r0x104A ]
+0008   15??           00313         RRF     r0x1003,W
+0009   3003           00314         BTFSS   STATUS,0
+000A   3F??           00315         BCF     _BITS_DATA0,6
+000B   3403           00316         BTFSC   STATUS,0
+000C   3B??           00317         BSF     _BITS_DATA0,6
+                      00318 ;;[ICODE] led.c:43:  _return($1) :
+                      00319 ;;[ICODE] led.c:43:     eproc _MotoSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function 
+                            ( ) fixed}
+000D   0002           00320         RETURN  
+                      00321 ; exit point of _MotoSwitch
+                      00322 
+                      00323 ;***
+                      00324 ;  pBlock Stats: dbName = C
+                      00325 ;***
+                      00326 ;has an exit
+                      00327 ;; Starting pCode block
+                      00328 ;;[ICODE] led.c:35:  _entry($2) :
+                      00329 ;;[ICODE] led.c:35:     proc _LedOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) f
+                            ixed}
+                      00330 S_led__LedOff   code
+0000                  00331 _LedOff:
+                      00332 ; 2 exit points
+                      00333 ;;[ICODE] led.c:37:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {1,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
+                            ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00334 ;;[ICODE] led.c:37:     *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00335 ;       .line   37; "led.c"     PORT_LED1 = LIGHT_TURN_OFF;
+0000   3C??           00336         BCF     _PORTBbits,1
+                      00337 ;;[ICODE] led.c:38:     iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struc
+                            t __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                      00338 ;;[ICODE] led.c:38:     *(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00339 ;       .line   38; "led.c"     MODSEL = 1;
+0001   3B??           00340         BSF     _RAMPbits,7
+                      00341 ;;[ICODE] led.c:38:  _return($1) :
+                      00342 ;;[ICODE] led.c:38:     eproc _LedOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
+                            fixed}
+0002   0002           00343         RETURN  
+                      00344 ; exit point of _LedOff
+                      00345 
+                      00346 ;***
+                      00347 ;  pBlock Stats: dbName = C
+                      00348 ;***
+                      00349 ;has an exit
+                      00350 ;; Starting pCode block
+                      00351 ;;[ICODE] led.c:29:  _entry($2) :
+                      00352 ;;[ICODE] led.c:29:     proc _LedOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fi
+                            xed}
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE  9
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00353 S_led__LedOn    code
+0000                  00354 _LedOn:
+                      00355 ; 2 exit points
+                      00356 ;;[ICODE] led.c:31:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {1,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
+                            ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00357 ;;[ICODE] led.c:31:     *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00358 ;       .line   31; "led.c"     PORT_LED1 = LIGHT_TURN_ON;
+0000   38??           00359         BSF     _PORTBbits,1
+                      00360 ;;[ICODE] led.c:32:     iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struc
+                            t __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                      00361 ;;[ICODE] led.c:32:     *(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00362 ;       .line   32; "led.c"     MODSEL = 1;        //使能内置限流电阻
+0001   3B??           00363         BSF     _RAMPbits,7
+                      00364 ;;[ICODE] led.c:32:  _return($1) :
+                      00365 ;;[ICODE] led.c:32:     eproc _LedOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) f
+                            ixed}
+0002   0002           00366         RETURN  
+                      00367 ; exit point of _LedOn
+                      00368 
+                      00369 ;***
+                      00370 ;  pBlock Stats: dbName = C
+                      00371 ;***
+                      00372 ;has an exit
+                      00373 ;functions called:
+                      00374 ;   _LedOn
+                      00375 ;   _LedOff
+                      00376 ;   _LedOn
+                      00377 ;   _LedOff
+                      00378 ;2 compiler assigned registers:
+                      00379 ;   r0x1005
+                      00380 ;   r0x1006
+                      00381 ;; Starting pCode block
+                      00382 ;;[ICODE] led.c:15:  _entry($5) :
+                      00383 ;;[ICODE] led.c:15:     proc _LedDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
+                             ) fixed}
+                      00384 S_led__LedDisplay       code
+0000                  00385 _LedDisplay:
+                      00386 ; 2 exit points
+                      00387 ;;[ICODE] led.c:17:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
+                            ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
+                            d} , 0x0 {const-unsigned-char literal}]
+                      00388 ;;[ICODE] led.c:17:     iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} f
+                            ixed}[r0x1048 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near*
+                             fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                      00389 ;       .line   17; "led.c"     if(IsLight == 1 )
+0000   18??           00390         CLRF    r0x1005
+0001   36??           00391         BTFSC   _BITS_DATA0,5
+0002   13??           00392         INCF    r0x1005,F
+                      00393 ;;[ICODE] led.c:17:     iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x1049 ] = (
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 10
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                            char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1
+                            048 ]
+0003   11??           00394         MOVF    r0x1005,W
+                      00395 ;;1     MOVWF   r0x1006
+0004   0D01           00396         XORLW   0x01
+0005   3103           00397         BTFSS   STATUS,2
+0006   2???           00398         GOTO    _00110_DS_
+                      00399 ;;[ICODE] led.c:17:     if iTemp4 [k8 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto 
+                            __iffalse_0($2)
+                      00400 ;;[ICODE] led.c:19:     iTemp5 [k10 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedO
+                            n [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00401 ;       .line   19; "led.c"     LedOn();
+0007   2???           00402         CALL    _LedOn
+                      00403 ;;[ICODE] led.c:19:      goto _return($4)
+0008   2???           00404         GOTO    _00112_DS_
+                      00405 ;;[ICODE] led.c:19:  __iffalse_0($2) :
+                      00406 ;;[ICODE] led.c:23:     iTemp6 [k12 lr12:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _Le
+                            dOff [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+0009                  00407 _00110_DS_:
+                      00408 ;       .line   23; "led.c"     LedOff();
+0009   2???           00409         CALL    _LedOff
+                      00410 ;;[ICODE] led.c:23:  _return($4) :
+                      00411 ;;[ICODE] led.c:23:     eproc _LedDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function 
+                            ( ) fixed}
+000A                  00412 _00112_DS_:
+000A   0002           00413         RETURN  
+                      00414 ; exit point of _LedDisplay
+                      00415 
+                      00416 ;***
+                      00417 ;  pBlock Stats: dbName = C
+                      00418 ;***
+                      00419 ;has an exit
+                      00420 ;2 compiler assigned registers:
+                      00421 ;   r0x1007
+                      00422 ;   r0x1008
+                      00423 ;; Starting pCode block
+                      00424 ;;[ICODE] led.c:6:  _entry($2) :
+                      00425 ;;[ICODE] led.c:6:      proc _LedSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
+                            ) fixed}
+                      00426 S_led__LedSwitch        code
+0000                  00427 _LedSwitch:
+                      00428 ; 2 exit points
+                      00429 ;;[ICODE] led.c:9:      iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
+                            ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
+                            d} , 0x0 {const-unsigned-char literal}]
+                      00430 ;;[ICODE] led.c:9:      iTemp1 [k5 lr4:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
+                            ear* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} nea
+                            r* fixed}[remat]
+                      00431 ;;[ICODE] led.c:9:      iTemp3 [k8 lr5:6 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
+                            ear* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} nea
+                            r* fixed}[remat]
+                      00432 ;;[ICODE] led.c:9:      iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} f
+                            ixed}[r0x1045 ] = @[iTemp3 [k8 lr5:6 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near*
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 11
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                             fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                      00433 ;       .line   9; "led.c"      IsLight = !IsLight;
+0000   18??           00434         CLRF    r0x1007
+0001   36??           00435         BTFSC   _BITS_DATA0,5
+0002   13??           00436         INCF    r0x1007,F
+                      00437 ;;[ICODE] led.c:9:      iTemp5 [k10 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed}[r0x1046 ] = n
+                            ot iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1045 ]
+0003   11??           00438         MOVF    r0x1007,W
+0004   0400           00439         MOVLW   0x00
+0005   3503           00440         BTFSC   STATUS,2
+0006   0401           00441         MOVLW   0x01
+                      00442 ;;1     MOVWF   r0x1008
+0007   19??           00443         MOVWF   r0x1007
+                      00444 ;;[ICODE] led.c:9:      *(iTemp1 [k5 lr4:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1}
+                             near* fixed}[remat]) := iTemp6 [k11 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1}
+                             fixed}[r0x1045 ]
+0008   15??           00445         RRF     r0x1007,W
+0009   3003           00446         BTFSS   STATUS,0
+000A   3E??           00447         BCF     _BITS_DATA0,5
+000B   3403           00448         BTFSC   STATUS,0
+000C   3A??           00449         BSF     _BITS_DATA0,5
+                      00450 ;;[ICODE] led.c:9:  _return($1) :
+                      00451 ;;[ICODE] led.c:9:      eproc _LedSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
+                             ) fixed}
+000D   0002           00452         RETURN  
+                      00453 ; exit point of _LedSwitch
+                      00454 
+                      00455 
+                      00456 ;       code size estimation:
+                      00457 ;          68+    0 =    68 instructions (  136 byte)
+                      00458 
+                      00459         end
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+AUXR                              CONSTANT      00000059             89
+BOR                               CONSTANT      00000006              6
+BUZ                               CONSTANT      00000005              5
+C                                 CONSTANT      00000000              0
+CHARE                             CONSTANT      00000005              5
+CHARF                             CONSTANT      00000005              5
+CHARGE0                           CONSTANT      00000053             83
+CHARGE1                           CONSTANT      00000054             84
+CHARGEN                           CONSTANT      00000007              7
+CMPCR                             CONSTANT      00000051             81
+CMPEN                             CONSTANT      00000000              0
+CMPF                              CONSTANT      00000003              3
+CMPIE                             CONSTANT      00000002              2
+CMPIES                            CONSTANT      00000001              1
+CMPOF                             CONSTANT      00000005              5
+CMPWK                             CONSTANT      00000003              3
+CPNIS0                            CONSTANT      00000001              1
+CPNIS1                            CONSTANT      00000002              2
+CPNIS2                            CONSTANT      00000003              3
+CPNIS3                            CONSTANT      00000004              4
+CPPIS                             CONSTANT      00000000              0
+DC                                CONSTANT      00000001              1
+EIS                               CONSTANT      00000006              6
+F                                 CONSTANT      00000001              1
+FSR                               CONSTANT      00000004              4
+GIE                               CONSTANT      00000007              7
+GP0                               CONSTANT      00000005              5
+GP1                               CONSTANT      00000006              6
+GPR                               CONSTANT      00000007              7
+HIRCTRM                           CONSTANT      0000005B             91
+HXEN                              CONSTANT      00000001              1
+INDF                              CONSTANT      00000000              0
+INTE                              CONSTANT      00000002              2
+INTECON                           CONSTANT      0000000E             14
+INTEDG                            CONSTANT      00000006              6
+INTF                              CONSTANT      00000002              2
+INTFLAG                           CONSTANT      0000000F             15
+IOCB                              CONSTANT      00000009              9
+IOCB0                             CONSTANT      00000000              0
+IOCB1                             CONSTANT      00000001              1
+IOCB2                             CONSTANT      00000002              2
+IOCB3                             CONSTANT      00000003              3
+IOCB4                             CONSTANT      00000004              4
+IOCB5                             CONSTANT      00000005              5
+IOCB6                             CONSTANT      00000006              6
+IOCB7                             CONSTANT      00000007              7
+LVDM                              CONSTANT      00000004              4
+MODSEL                            CONSTANT      00000007              7
+ODB0                              CONSTANT      00000000              0
+ODB1                              CONSTANT      00000001              1
+ODB2                              CONSTANT      00000002              2
+ODB3                              CONSTANT      00000003              3
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+ODB4                              CONSTANT      00000004              4
+ODB5                              CONSTANT      00000005              5
+ODB6                              CONSTANT      00000006              6
+ODB7                              CONSTANT      00000007              7
+ODCON                             CONSTANT      0000000C             12
+OPTION                            CONSTANT      00000041             65
+OSCCON                            CONSTANT      00000050             80
+PBIE                              CONSTANT      00000001              1
+PBIF                              CONSTANT      00000001              1
+PCL                               CONSTANT      00000002              2
+PCLATH                            CONSTANT      0000000A             10
+PCON                              CONSTANT      00000008              8
+PD                                CONSTANT      00000003              3
+PDB0                              CONSTANT      00000004              4
+PDB1                              CONSTANT      00000005              5
+PDB2                              CONSTANT      00000006              6
+PDB3                              CONSTANT      00000003              3
+PDB4                              CONSTANT      00000004              4
+PDB5                              CONSTANT      00000005              5
+PDB6                              CONSTANT      00000006              6
+PDB7                              CONSTANT      00000007              7
+PDCON                             CONSTANT      0000000B             11
+PDCON1                            CONSTANT      00000052             82
+PHB0                              CONSTANT      00000000              0
+PHB1                              CONSTANT      00000001              1
+PHB2                              CONSTANT      00000002              2
+PHB3                              CONSTANT      00000003              3
+PHB4                              CONSTANT      00000004              4
+PHB5                              CONSTANT      00000005              5
+PHB6                              CONSTANT      00000006              6
+PHB7                              CONSTANT      00000007              7
+PHCON                             CONSTANT      0000000D             13
+POR                               CONSTANT      00000007              7
+PORTB                             CONSTANT      00000006              6
+PORTB0                            CONSTANT      00000000              0
+PORTB1                            CONSTANT      00000001              1
+PORTB2                            CONSTANT      00000002              2
+PORTB3                            CONSTANT      00000003              3
+PORTB4                            CONSTANT      00000004              4
+PORTB5                            CONSTANT      00000005              5
+PORTB6                            CONSTANT      00000006              6
+PORTB7                            CONSTANT      00000007              7
+PS0                               CONSTANT      00000000              0
+PS1                               CONSTANT      00000001              1
+PS2                               CONSTANT      00000002              2
+PSA                               CONSTANT      00000003              3
+PSAVE                             EXTERNAL      00000000              0
+PWM0E                             CONSTANT      00000006              6
+PWM0OE                            CONSTANT      00000007              7
+PWM0P                             CONSTANT      0000004F             79
+PWM1E                             CONSTANT      00000001              1
+PWM1OE                            CONSTANT      00000006              6
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+PWM1P                             CONSTANT      00000049             73
+PWM2E                             CONSTANT      00000000              0
+PWM2OE                            CONSTANT      00000005              5
+PWM2P                             CONSTANT      0000004A             74
+PWM3CT                            CONSTANT      00000001              1
+PWMCK                             CONSTANT      00000004              4
+PWMCON                            CONSTANT      00000048             72
+PWMCT                             CONSTANT      00000000              0
+PWMINV                            CONSTANT      00000002              2
+PWMMD                             CONSTANT      00000003              3
+RAMP                              CONSTANT      00000055             85
+RCTRMEN                           CONSTANT      00000002              2
+RST                               CONSTANT      00000007              7
+S0                                CONSTANT      00000000              0
+S1                                CONSTANT      00000001              1
+S2                                CONSTANT      00000002              2
+S3                                CONSTANT      00000003              3
+S4                                CONSTANT      00000004              4
+S5                                CONSTANT      00000005              5
+S6                                CONSTANT      00000006              6
+S7                                CONSTANT      00000007              7
+S8                                CONSTANT      00000000              0
+S9                                CONSTANT      00000001              1
+SCS                               CONSTANT      00000000              0
+SINK_SEL                          CONSTANT      00000006              6
+SLOP0                             CONSTANT      00000000              0
+SLOP1                             CONSTANT      00000001              1
+SLOP2                             CONSTANT      00000002              2
+SSAVE                             EXTERNAL      00000000              0
+STATUS                            CONSTANT      00000003              3
+STK00                             EXTERNAL      00000000              0
+STK01                             EXTERNAL      00000000              0
+STK02                             EXTERNAL      00000000              0
+STK03                             EXTERNAL      00000000              0
+STK04                             EXTERNAL      00000000              0
+STK05                             EXTERNAL      00000000              0
+STK06                             EXTERNAL      00000000              0
+STK07                             EXTERNAL      00000000              0
+STK08                             EXTERNAL      00000000              0
+STK09                             EXTERNAL      00000000              0
+STK10                             EXTERNAL      00000000              0
+STK11                             EXTERNAL      00000000              0
+STK12                             EXTERNAL      00000000              0
+T0                                CONSTANT      00000001              1
+T0CK                              CONSTANT      00000007              7
+T0CR                              CONSTANT      0000004B             75
+T0CS                              CONSTANT      00000005              5
+T0IE                              CONSTANT      00000000              0
+T0IF                              CONSTANT      00000000              0
+T0OSCEN                           CONSTANT      00000007              7
+T0SE                              CONSTANT      00000004              4
+T1                                CONSTANT      0000004D             77
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+T1CK0                             CONSTANT      00000003              3
+T1CK1                             CONSTANT      00000004              4
+T1CON                             CONSTANT      0000004C             76
+T1EN                              CONSTANT      00000007              7
+T1IE                              CONSTANT      00000001              1
+T1IF                              CONSTANT      00000000              0
+T1LOAD                            CONSTANT      0000004E             78
+T1PR0                             CONSTANT      00000000              0
+T1PR1                             CONSTANT      00000001              1
+T1PR2                             CONSTANT      00000002              2
+TEMPEN                            CONSTANT      00000006              6
+TMPE                              CONSTANT      00000004              4
+TMPF                              CONSTANT      00000004              4
+TO                                CONSTANT      00000004              4
+TRISB                             CONSTANT      00000046             70
+TRISB0                            CONSTANT      00000000              0
+TRISB1                            CONSTANT      00000001              1
+TRISB2                            CONSTANT      00000002              2
+TRISB3                            CONSTANT      00000003              3
+TRISB4                            CONSTANT      00000004              4
+TRISB5                            CONSTANT      00000005              5
+TRISB6                            CONSTANT      00000006              6
+TRISB7                            CONSTANT      00000007              7
+W                                 CONSTANT      00000000              0
+WDTEN                             CONSTANT      00000007              7
+WSAVE                             EXTERNAL      00000000              0
+Z                                 CONSTANT      00000002              2
+_00110_DS_                        ADDRESS       00000009              9
+_00112_DS_                        ADDRESS       0000000A             10
+_00138_DS_                        ADDRESS       00000009              9
+_00140_DS_                        ADDRESS       0000000A             10
+_AUXR                             EXTERNAL      00000000              0
+_AUXRbits                         EXTERNAL      00000000              0
+_BITS_DATA0                       EXTERNAL      00000000              0
+_BITS_DATA1                       EXTERNAL      00000000              0
+_CHARGE0                          EXTERNAL      00000000              0
+_CHARGE0bits                      EXTERNAL      00000000              0
+_CHARGE1                          EXTERNAL      00000000              0
+_CHARGE1bits                      EXTERNAL      00000000              0
+_CMPCR                            EXTERNAL      00000000              0
+_CMPCRbits                        EXTERNAL      00000000              0
+_CONFIG                           CONSTANT      00002000           8192
+_CP_OFF                           CONSTANT      00003FFF          16383
+_CP_ON                            CONSTANT      00003FEF          16367
+_FOSC_HS                          CONSTANT      00003FFD          16381
+_FOSC_INTRCIO                     CONSTANT      00003FFC          16380
+_FOSC_LP                          CONSTANT      00003CFF          15615
+_FOSC_XT                          CONSTANT      00003DFF          15871
+_FSR                              EXTERNAL      00000000              0
+_GPR                              EXTERNAL      00000000              0
+_HIRCTRM                          EXTERNAL      00000000              0
+_HS_OSC                           CONSTANT      00003FFD          16381
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_INDF                             EXTERNAL      00000000              0
+_INTECON                          EXTERNAL      00000000              0
+_INTECONbits                      EXTERNAL      00000000              0
+_INTFLAG                          EXTERNAL      00000000              0
+_INTFLAGbits                      EXTERNAL      00000000              0
+_INTOSCIO                         CONSTANT      00003FFC          16380
+_INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
+_IOCB                             EXTERNAL      00000000              0
+_IOCBbits                         EXTERNAL      00000000              0
+_InitPort                         EXTERNAL      00000000              0
+_InitPwm                          EXTERNAL      00000000              0
+_InitRam                          EXTERNAL      00000000              0
+_InitSystem                       EXTERNAL      00000000              0
+_LP_OSC                           CONSTANT      00003CFF          15615
+_LedDisplay                       GLOBAL        00000000              0
+_LedOff                           GLOBAL        00000000              0
+_LedOn                            GLOBAL        00000000              0
+_LedSwitch                        GLOBAL        00000000              0
+_LvdDebounceNew                   EXTERNAL      00000000              0
+_LvdDebounceOld                   EXTERNAL      00000000              0
+_LvdLightCount                    EXTERNAL      00000000              0
+_LvdModel                         EXTERNAL      00000000              0
+_LvdModelCount                    EXTERNAL      00000000              0
+_MaxLight                         EXTERNAL      00000000              0
+_MotoDisplay                      GLOBAL        00000000              0
+_MotoOff                          GLOBAL        00000000              0
+_MotoOn                           GLOBAL        00000000              0
+_MotoSwitch                       GLOBAL        00000000              0
+_ODCON                            EXTERNAL      00000000              0
+_ODCONbits                        EXTERNAL      00000000              0
+_OPTION                           EXTERNAL      00000000              0
+_OPTIONbits                       EXTERNAL      00000000              0
+_OSCCON                           EXTERNAL      00000000              0
+_OSCCONbits                       EXTERNAL      00000000              0
+_PCL                              EXTERNAL      00000000              0
+_PCLATH                           EXTERNAL      00000000              0
+_PCON                             EXTERNAL      00000000              0
+_PCONbits                         EXTERNAL      00000000              0
+_PDCON                            EXTERNAL      00000000              0
+_PDCON1                           EXTERNAL      00000000              0
+_PDCON1bits                       EXTERNAL      00000000              0
+_PDCONbits                        EXTERNAL      00000000              0
+_PHCON                            EXTERNAL      00000000              0
+_PHCONbits                        EXTERNAL      00000000              0
+_PORTB                            EXTERNAL      00000000              0
+_PORTBbits                        EXTERNAL      00000000              0
+_PWM0P                            EXTERNAL      00000000              0
+_PWM1P                            EXTERNAL      00000000              0
+_PWM2P                            EXTERNAL      00000000              0
+_PWMCON                           EXTERNAL      00000000              0
+_PWMCONbits                       EXTERNAL      00000000              0
+_PowOff                           GLOBAL        00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_PowOn                            GLOBAL        00000000              0
+_RAMP                             EXTERNAL      00000000              0
+_RAMPbits                         EXTERNAL      00000000              0
+_STATUS                           EXTERNAL      00000000              0
+_STATUSbits                       EXTERNAL      00000000              0
+_SleepCount                       EXTERNAL      00000000              0
+_SleepFlag                        EXTERNAL      00000000              0
+_T0                               EXTERNAL      00000000              0
+_T0CR                             EXTERNAL      00000000              0
+_T0CRbits                         EXTERNAL      00000000              0
+_T1                               EXTERNAL      00000000              0
+_T1CON                            EXTERNAL      00000000              0
+_T1CONbits                        EXTERNAL      00000000              0
+_T1LOAD                           EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TempCount                        EXTERNAL      00000000              0
+_TempFlag                         EXTERNAL      00000000              0
+_WDTE_OFF                         CONSTANT      00003FFB          16379
+_WDTE_ON                          CONSTANT      00003FFF          16383
+_WDT_OFF                          CONSTANT      00003FFB          16379
+_WDT_ON                           CONSTANT      00003FFF          16383
+_XT_OSC                           CONSTANT      00003DFF          15871
+__14_BIT                          CONSTANT      00000001              1
+__18P018A0                        CONSTANT      00000001              1
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ACTIVE_PAGE_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      00000000              0
+__BANK_0                          CONSTANT      00000000              0
+__BANK_BITS                       CONSTANT      00000080            128
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000000              0
+__BANK_MASK                       CONSTANT      0000007F            127
+__BANK_SHIFT                      CONSTANT      00000007              7
+__BANK_SIZE                       CONSTANT      00000080            128
+__CODE_END                        CONSTANT      000003FF           1023
+__CODE_START                      CONSTANT      00000000              0
+__CONFIG_END                      CONSTANT      00002003           8195
+__CONFIG_START                    CONSTANT      00002000           8192
+__GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00002005           8197
+__IDLOCS_START                    CONSTANT      00002004           8196
+__NUM_BANKS                       CONSTANT      00000001              1
+__PAGE_BITS                       CONSTANT      00001800           6144
+__PAGE_INV                        CONSTANT      FFFFFFFF             -1
+__PAGE_MASK                       CONSTANT      00000000              0
+__PAGE_SHIFT                      CONSTANT      0000000B             11
+__PAGE_SIZE                       CONSTANT      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  10:45:51          PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+__VECTOR_INT                      CONSTANT      00000008              8
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
+_g_ucFlashTimeHigh                EXTERNAL      00000000              0
+_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
+_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
+_g_ucFlashTimeLow                 EXTERNAL      00000000              0
+_g_ucFlashTimeLow1                EXTERNAL      00000000              0
+_g_ucFlashTimeLow2                EXTERNAL      00000000              0
+_g_ucTimer10msCount               EXTERNAL      00000000              0
+_g_ucTimerWorkCount               EXTERNAL      00000000              0
+r0x1001                           STATIC        00000003              3
+r0x1003                           STATIC        00000002              2
+r0x1005                           STATIC        00000001              1
+r0x1007                           STATIC        00000000              0
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+

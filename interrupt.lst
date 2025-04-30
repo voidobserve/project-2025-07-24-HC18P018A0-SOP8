@@ -1,0 +1,639 @@
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 3.6.0 #9615 (CYGWIN)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC port for the 14-bit core
+                      00006 ;--------------------------------------------------------
+                      00007 ;       .file   "interrupt.c"
+                      00008         list    p=18p018a0
+                      00009         radix dec
+                      00010         include "p18p018a0.inc"
+                      00001        LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Jun 02 2017
+                      00005 ;  HCIDE HC18P018A0 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 2012-2021 Holychip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected processor."
+                      00378         LIST
+                      00011 ;--------------------------------------------------------
+                      00012 ; external declarations
+                      00013 ;--------------------------------------------------------
+  0000                00014         extern  _Interrupt
+  0000                00015         extern  _STATUSbits
+  0000                00016         extern  _PORTBbits
+  0000                00017         extern  _PCONbits
+  0000                00018         extern  _IOCBbits
+  0000                00019         extern  _PDCONbits
+  0000                00020         extern  _ODCONbits
+  0000                00021         extern  _PHCONbits
+  0000                00022         extern  _INTECONbits
+  0000                00023         extern  _INTFLAGbits
+  0000                00024         extern  _OPTIONbits
+  0000                00025         extern  _TRISBbits
+  0000                00026         extern  _PWMCONbits
+  0000                00027         extern  _T0CRbits
+  0000                00028         extern  _T1CONbits
+  0000                00029         extern  _OSCCONbits
+  0000                00030         extern  _CMPCRbits
+  0000                00031         extern  _PDCON1bits
+  0000                00032         extern  _CHARGE0bits
+  0000                00033         extern  _CHARGE1bits
+  0000                00034         extern  _RAMPbits
+  0000                00035         extern  _AUXRbits
+  0000                00036         extern  _BITS_DATA0
+  0000                00037         extern  _BITS_DATA1
+  0000                00038         extern  _g_ucTimer10msCount
+  0000                00039         extern  _g_ucTimerWorkCount
+  0000                00040         extern  _g_ucFlashTimeHigh
+  0000                00041         extern  _g_ucFlashTimeLow
+  0000                00042         extern  _g_ucFlashTimeHigh1
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00043         extern  _g_ucFlashTimeLow1
+  0000                00044         extern  _g_ucFlashTimeHigh2
+  0000                00045         extern  _g_ucFlashTimeLow2
+  0000                00046         extern  _LvdModel
+  0000                00047         extern  _LvdDebounceNew
+  0000                00048         extern  _LvdDebounceOld
+  0000                00049         extern  _LvdModelCount
+  0000                00050         extern  _LvdLightCount
+  0000                00051         extern  _TempCount
+  0000                00052         extern  _TempFlag
+  0000                00053         extern  _SleepCount
+  0000                00054         extern  _SleepFlag
+  0000                00055         extern  _MaxLight
+  0000                00056         extern  _g_cucTIMER_COUNT_STATE
+  0000                00057         extern  _INDF
+  0000                00058         extern  _T0
+  0000                00059         extern  _PCL
+  0000                00060         extern  _STATUS
+  0000                00061         extern  _FSR
+  0000                00062         extern  _PORTB
+  0000                00063         extern  _GPR
+  0000                00064         extern  _PCON
+  0000                00065         extern  _IOCB
+  0000                00066         extern  _PCLATH
+  0000                00067         extern  _PDCON
+  0000                00068         extern  _ODCON
+  0000                00069         extern  _PHCON
+  0000                00070         extern  _INTECON
+  0000                00071         extern  _INTFLAG
+  0000                00072         extern  _OPTION
+  0000                00073         extern  _TRISB
+  0000                00074         extern  _PWMCON
+  0000                00075         extern  _PWM1P
+  0000                00076         extern  _PWM2P
+  0000                00077         extern  _T0CR
+  0000                00078         extern  _T1CON
+  0000                00079         extern  _T1
+  0000                00080         extern  _T1LOAD
+  0000                00081         extern  _PWM0P
+  0000                00082         extern  _OSCCON
+  0000                00083         extern  _CMPCR
+  0000                00084         extern  _PDCON1
+  0000                00085         extern  _CHARGE0
+  0000                00086         extern  _CHARGE1
+  0000                00087         extern  _RAMP
+  0000                00088         extern  _AUXR
+  0000                00089         extern  _HIRCTRM
+  0000                00090         extern  ___sdcc_saved_fsr
+                      00091 
+  0000                00092         extern PSAVE
+  0000                00093         extern SSAVE
+  0000                00094         extern WSAVE
+  0000                00095         extern STK12
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00096         extern STK11
+  0000                00097         extern STK10
+  0000                00098         extern STK09
+  0000                00099         extern STK08
+  0000                00100         extern STK07
+  0000                00101         extern STK06
+  0000                00102         extern STK05
+  0000                00103         extern STK04
+  0000                00104         extern STK03
+  0000                00105         extern STK02
+  0000                00106         extern STK01
+  0000                00107         extern STK00
+                      00108 ;--------------------------------------------------------
+                      00109 ; global declarations
+                      00110 ;--------------------------------------------------------
+  0000                00111         global  _InterruptFunc
+                      00112 
+                      00113 ;--------------------------------------------------------
+                      00114 ; global definitions
+                      00115 ;--------------------------------------------------------
+                      00116 ;--------------------------------------------------------
+                      00117 ; absolute symbol definitions
+                      00118 ;--------------------------------------------------------
+                      00119 ;--------------------------------------------------------
+                      00120 ; compiler-defined variables
+                      00121 ;--------------------------------------------------------
+                      00122 ;--------------------------------------------------------
+                      00123 ; initialized data
+                      00124 ;--------------------------------------------------------
+                      00125 ;--------------------------------------------------------
+                      00126 ; overlayable items in internal ram 
+                      00127 ;--------------------------------------------------------
+                      00128 ;       udata_ovr
+                      00129 ;--------------------------------------------------------
+                      00130 ; interrupt and initialization code
+                      00131 ;--------------------------------------------------------
+                      00132 c_interrupt     code    0x0008
+0008                  00133 __sdcc_interrupt:
+                      00134 ;***
+                      00135 ;  pBlock Stats: dbName = I
+                      00136 ;***
+                      00137 ;; Starting pCode block
+                      00138 ;;[ICODE] interrupt.c:6:  _entry($8) :
+                      00139 ;;[ICODE] interrupt.c:6:        proc _InterruptFunc [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void
+                             function ( ) fixed}
+0008                  00140 _InterruptFunc:
+                      00141 ; 0 exit points
+                      00142 ;       .line   6; "interrupt.c"        void InterruptFunc(void) __interrupt 0
+0008   19??           00143         MOVWF   WSAVE
+0009   1703           00144         SWAPF   STATUS,W
+000A   1883           00145         CLRF    STATUS
+000B   19??           00146         MOVWF   SSAVE
+Message[1303]: Bank selection not needed for this device. No code generated.
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00147         BANKSEL PCLATH
+000C   110A           00148         MOVF    PCLATH,W
+000D   188A           00149         CLRF    PCLATH
+000E   19??           00150         MOVWF   PSAVE
+000F   1104           00151         MOVF    FSR,W
+                      00152 ;       .line   8; "interrupt.c"        if (PBIF)//产生端口电平变化中断
+0010   19??           00153         MOVWF   ___sdcc_saved_fsr
+                      00154 ;       .line   10; "interrupt.c"       PBIF = 0;
+0011   34??           00155         BTFSC   _INTFLAGbits,1
+                      00156 ;       .line   13; "interrupt.c"       if (T0IF)//产生TMR0溢出中断
+0012   3C??           00157         BCF     _INTFLAGbits,1
+0013   30??           00158         BTFSS   _INTFLAGbits,0
+0014   2???           00159         GOTO    _00108_DS_
+                      00160 ;;[ICODE] interrupt.c:13:       if iTemp7 [k13 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-un
+                            signed-bitfield {0,1} fixed}[r0x1046 ] == 0 goto __iffalse_1($4)
+                      00161 ;;[ICODE] interrupt.c:15:       iTemp9 [k16 lr15:17 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                            ned-bitfield {0,1} near* fixed}[remat] = &[_INTFLAGbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{
+                            volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+                      00162 ;;[ICODE] interrupt.c:15:       *(iTemp9 [k16 lr15:17 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                            igned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00163 ;       .line   15; "interrupt.c"       T0IF = 0;
+0015   3C??           00164         BCF     _INTFLAGbits,0
+                      00165 ;;[ICODE] interrupt.c:16:       _T0 [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-c
+                            har sfr} := 0xd9 {const-unsigned-char literal}
+                      00166 ;       .line   16; "interrupt.c"       T0 = 217;
+0016   04D9           00167         MOVLW   0xd9
+0017   19??           00168         MOVWF   _T0
+                      00169 ;;[ICODE] interrupt.c:16:  __iffalse_1($4) :
+                      00170 ;;[ICODE] interrupt.c:20:       _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{uns
+                            igned-char fixed} = _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char f
+                            ixed} + 0x1 {const-unsigned-char literal}
+0018                  00171 _00108_DS_:
+                      00172 ;       .line   20; "interrupt.c"       g_ucTimer10msCount++;           
+0018   13??           00173         INCF    _g_ucTimer10msCount,F
+                      00174 ;;[ICODE] interrupt.c:26:       iTemp13 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} =
+                             0xc8 {const-unsigned-char literal} == _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 d
+                            p0}{unsigned-char fixed}
+                      00175 ;       .line   26; "interrupt.c"       if (TIMER_COUNT_10MS == g_ucTimer10msCount)
+0019   11??           00176         MOVF    _g_ucTimer10msCount,W
+001A   0DC8           00177         XORLW   0xc8
+001B   3103           00178         BTFSS   STATUS,2
+001C   2???           00179         GOTO    _00111_DS_
+                      00180 ;;[ICODE] interrupt.c:26:       if iTemp13 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed
+                            } == 0 goto _return($7)
+                      00181 ;;[ICODE] interrupt.c:28:       _g_ucTimer10msCount [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{uns
+                            igned-char fixed} := 0x0 {const-unsigned-char literal}
+                      00182 ;       .line   28; "interrupt.c"       g_ucTimer10msCount = 0;
+001D   18??           00183         CLRF    _g_ucTimer10msCount
+                      00184 ;;[ICODE] interrupt.c:29:       iTemp16 [k27 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitf
+                            ield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct _
+                            _bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+                      00185 ;;[ICODE] interrupt.c:29:       *(iTemp16 [k27 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bi
+                            tfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00186 ;       .line   29; "interrupt.c"       BIT_TIMER_10MS = 1;
+001E   38??           00187         BSF     _BITS_DATA0,0
+                      00188 ;;[ICODE] interrupt.c:29:  _return($7) :
+                      00189 ;;[ICODE] interrupt.c:29:       eproc _InterruptFunc [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{voi
+                            d function ( ) fixed}
+001F                  00190 _00111_DS_:
+001F   11??           00191         MOVF    ___sdcc_saved_fsr,W
+Message[1303]: Bank selection not needed for this device. No code generated.
+                      00192         BANKSEL FSR
+0020   1984           00193         MOVWF   FSR
+0021   11??           00194         MOVF    PSAVE,W
+0022   198A           00195         MOVWF   PCLATH
+0023   1883           00196         CLRF    STATUS
+0024   17??           00197         SWAPF   SSAVE,W
+0025   1983           00198         MOVWF   STATUS
+0026   17??           00199         SWAPF   WSAVE,F
+0027   17??           00200         SWAPF   WSAVE,W
+0028                  00201 END_OF_INTERRUPT:
+0028   0001           00202         RETFIE  
+                      00203 
+                      00204 ;--------------------------------------------------------
+                      00205 ; code
+                      00206 ;--------------------------------------------------------
+                      00207 code_interrupt  code
+                      00208 
+                      00209 ;       code size estimation:
+                      00210 ;          33+    2 =    35 instructions (   74 byte)
+                      00211 
+                      00212         end
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+AUXR                              CONSTANT      00000059             89
+BOR                               CONSTANT      00000006              6
+BUZ                               CONSTANT      00000005              5
+C                                 CONSTANT      00000000              0
+CHARE                             CONSTANT      00000005              5
+CHARF                             CONSTANT      00000005              5
+CHARGE0                           CONSTANT      00000053             83
+CHARGE1                           CONSTANT      00000054             84
+CHARGEN                           CONSTANT      00000007              7
+CMPCR                             CONSTANT      00000051             81
+CMPEN                             CONSTANT      00000000              0
+CMPF                              CONSTANT      00000003              3
+CMPIE                             CONSTANT      00000002              2
+CMPIES                            CONSTANT      00000001              1
+CMPOF                             CONSTANT      00000005              5
+CMPWK                             CONSTANT      00000003              3
+CPNIS0                            CONSTANT      00000001              1
+CPNIS1                            CONSTANT      00000002              2
+CPNIS2                            CONSTANT      00000003              3
+CPNIS3                            CONSTANT      00000004              4
+CPPIS                             CONSTANT      00000000              0
+DC                                CONSTANT      00000001              1
+EIS                               CONSTANT      00000006              6
+END_OF_INTERRUPT                  ADDRESS       00000028             40
+F                                 CONSTANT      00000001              1
+FSR                               CONSTANT      00000004              4
+GIE                               CONSTANT      00000007              7
+GP0                               CONSTANT      00000005              5
+GP1                               CONSTANT      00000006              6
+GPR                               CONSTANT      00000007              7
+HIRCTRM                           CONSTANT      0000005B             91
+HXEN                              CONSTANT      00000001              1
+INDF                              CONSTANT      00000000              0
+INTE                              CONSTANT      00000002              2
+INTECON                           CONSTANT      0000000E             14
+INTEDG                            CONSTANT      00000006              6
+INTF                              CONSTANT      00000002              2
+INTFLAG                           CONSTANT      0000000F             15
+IOCB                              CONSTANT      00000009              9
+IOCB0                             CONSTANT      00000000              0
+IOCB1                             CONSTANT      00000001              1
+IOCB2                             CONSTANT      00000002              2
+IOCB3                             CONSTANT      00000003              3
+IOCB4                             CONSTANT      00000004              4
+IOCB5                             CONSTANT      00000005              5
+IOCB6                             CONSTANT      00000006              6
+IOCB7                             CONSTANT      00000007              7
+LVDM                              CONSTANT      00000004              4
+MODSEL                            CONSTANT      00000007              7
+ODB0                              CONSTANT      00000000              0
+ODB1                              CONSTANT      00000001              1
+ODB2                              CONSTANT      00000002              2
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+ODB3                              CONSTANT      00000003              3
+ODB4                              CONSTANT      00000004              4
+ODB5                              CONSTANT      00000005              5
+ODB6                              CONSTANT      00000006              6
+ODB7                              CONSTANT      00000007              7
+ODCON                             CONSTANT      0000000C             12
+OPTION                            CONSTANT      00000041             65
+OSCCON                            CONSTANT      00000050             80
+PBIE                              CONSTANT      00000001              1
+PBIF                              CONSTANT      00000001              1
+PCL                               CONSTANT      00000002              2
+PCLATH                            CONSTANT      0000000A             10
+PCON                              CONSTANT      00000008              8
+PD                                CONSTANT      00000003              3
+PDB0                              CONSTANT      00000004              4
+PDB1                              CONSTANT      00000005              5
+PDB2                              CONSTANT      00000006              6
+PDB3                              CONSTANT      00000003              3
+PDB4                              CONSTANT      00000004              4
+PDB5                              CONSTANT      00000005              5
+PDB6                              CONSTANT      00000006              6
+PDB7                              CONSTANT      00000007              7
+PDCON                             CONSTANT      0000000B             11
+PDCON1                            CONSTANT      00000052             82
+PHB0                              CONSTANT      00000000              0
+PHB1                              CONSTANT      00000001              1
+PHB2                              CONSTANT      00000002              2
+PHB3                              CONSTANT      00000003              3
+PHB4                              CONSTANT      00000004              4
+PHB5                              CONSTANT      00000005              5
+PHB6                              CONSTANT      00000006              6
+PHB7                              CONSTANT      00000007              7
+PHCON                             CONSTANT      0000000D             13
+POR                               CONSTANT      00000007              7
+PORTB                             CONSTANT      00000006              6
+PORTB0                            CONSTANT      00000000              0
+PORTB1                            CONSTANT      00000001              1
+PORTB2                            CONSTANT      00000002              2
+PORTB3                            CONSTANT      00000003              3
+PORTB4                            CONSTANT      00000004              4
+PORTB5                            CONSTANT      00000005              5
+PORTB6                            CONSTANT      00000006              6
+PORTB7                            CONSTANT      00000007              7
+PS0                               CONSTANT      00000000              0
+PS1                               CONSTANT      00000001              1
+PS2                               CONSTANT      00000002              2
+PSA                               CONSTANT      00000003              3
+PSAVE                             EXTERNAL      00000000              0
+PWM0E                             CONSTANT      00000006              6
+PWM0OE                            CONSTANT      00000007              7
+PWM0P                             CONSTANT      0000004F             79
+PWM1E                             CONSTANT      00000001              1
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+PWM1OE                            CONSTANT      00000006              6
+PWM1P                             CONSTANT      00000049             73
+PWM2E                             CONSTANT      00000000              0
+PWM2OE                            CONSTANT      00000005              5
+PWM2P                             CONSTANT      0000004A             74
+PWM3CT                            CONSTANT      00000001              1
+PWMCK                             CONSTANT      00000004              4
+PWMCON                            CONSTANT      00000048             72
+PWMCT                             CONSTANT      00000000              0
+PWMINV                            CONSTANT      00000002              2
+PWMMD                             CONSTANT      00000003              3
+RAMP                              CONSTANT      00000055             85
+RCTRMEN                           CONSTANT      00000002              2
+RST                               CONSTANT      00000007              7
+S0                                CONSTANT      00000000              0
+S1                                CONSTANT      00000001              1
+S2                                CONSTANT      00000002              2
+S3                                CONSTANT      00000003              3
+S4                                CONSTANT      00000004              4
+S5                                CONSTANT      00000005              5
+S6                                CONSTANT      00000006              6
+S7                                CONSTANT      00000007              7
+S8                                CONSTANT      00000000              0
+S9                                CONSTANT      00000001              1
+SCS                               CONSTANT      00000000              0
+SINK_SEL                          CONSTANT      00000006              6
+SLOP0                             CONSTANT      00000000              0
+SLOP1                             CONSTANT      00000001              1
+SLOP2                             CONSTANT      00000002              2
+SSAVE                             EXTERNAL      00000000              0
+STATUS                            CONSTANT      00000003              3
+STK00                             EXTERNAL      00000000              0
+STK01                             EXTERNAL      00000000              0
+STK02                             EXTERNAL      00000000              0
+STK03                             EXTERNAL      00000000              0
+STK04                             EXTERNAL      00000000              0
+STK05                             EXTERNAL      00000000              0
+STK06                             EXTERNAL      00000000              0
+STK07                             EXTERNAL      00000000              0
+STK08                             EXTERNAL      00000000              0
+STK09                             EXTERNAL      00000000              0
+STK10                             EXTERNAL      00000000              0
+STK11                             EXTERNAL      00000000              0
+STK12                             EXTERNAL      00000000              0
+T0                                CONSTANT      00000001              1
+T0CK                              CONSTANT      00000007              7
+T0CR                              CONSTANT      0000004B             75
+T0CS                              CONSTANT      00000005              5
+T0IE                              CONSTANT      00000000              0
+T0IF                              CONSTANT      00000000              0
+T0OSCEN                           CONSTANT      00000007              7
+T0SE                              CONSTANT      00000004              4
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+T1                                CONSTANT      0000004D             77
+T1CK0                             CONSTANT      00000003              3
+T1CK1                             CONSTANT      00000004              4
+T1CON                             CONSTANT      0000004C             76
+T1EN                              CONSTANT      00000007              7
+T1IE                              CONSTANT      00000001              1
+T1IF                              CONSTANT      00000000              0
+T1LOAD                            CONSTANT      0000004E             78
+T1PR0                             CONSTANT      00000000              0
+T1PR1                             CONSTANT      00000001              1
+T1PR2                             CONSTANT      00000002              2
+TEMPEN                            CONSTANT      00000006              6
+TMPE                              CONSTANT      00000004              4
+TMPF                              CONSTANT      00000004              4
+TO                                CONSTANT      00000004              4
+TRISB                             CONSTANT      00000046             70
+TRISB0                            CONSTANT      00000000              0
+TRISB1                            CONSTANT      00000001              1
+TRISB2                            CONSTANT      00000002              2
+TRISB3                            CONSTANT      00000003              3
+TRISB4                            CONSTANT      00000004              4
+TRISB5                            CONSTANT      00000005              5
+TRISB6                            CONSTANT      00000006              6
+TRISB7                            CONSTANT      00000007              7
+W                                 CONSTANT      00000000              0
+WDTEN                             CONSTANT      00000007              7
+WSAVE                             EXTERNAL      00000000              0
+Z                                 CONSTANT      00000002              2
+_00108_DS_                        ADDRESS       00000018             24
+_00111_DS_                        ADDRESS       0000001F             31
+_AUXR                             EXTERNAL      00000000              0
+_AUXRbits                         EXTERNAL      00000000              0
+_BITS_DATA0                       EXTERNAL      00000000              0
+_BITS_DATA1                       EXTERNAL      00000000              0
+_CHARGE0                          EXTERNAL      00000000              0
+_CHARGE0bits                      EXTERNAL      00000000              0
+_CHARGE1                          EXTERNAL      00000000              0
+_CHARGE1bits                      EXTERNAL      00000000              0
+_CMPCR                            EXTERNAL      00000000              0
+_CMPCRbits                        EXTERNAL      00000000              0
+_CONFIG                           CONSTANT      00002000           8192
+_CP_OFF                           CONSTANT      00003FFF          16383
+_CP_ON                            CONSTANT      00003FEF          16367
+_FOSC_HS                          CONSTANT      00003FFD          16381
+_FOSC_INTRCIO                     CONSTANT      00003FFC          16380
+_FOSC_LP                          CONSTANT      00003CFF          15615
+_FOSC_XT                          CONSTANT      00003DFF          15871
+_FSR                              EXTERNAL      00000000              0
+_GPR                              EXTERNAL      00000000              0
+_HIRCTRM                          EXTERNAL      00000000              0
+_HS_OSC                           CONSTANT      00003FFD          16381
+_INDF                             EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_INTECON                          EXTERNAL      00000000              0
+_INTECONbits                      EXTERNAL      00000000              0
+_INTFLAG                          EXTERNAL      00000000              0
+_INTFLAGbits                      EXTERNAL      00000000              0
+_INTOSCIO                         CONSTANT      00003FFC          16380
+_INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
+_IOCB                             EXTERNAL      00000000              0
+_IOCBbits                         EXTERNAL      00000000              0
+_Interrupt                        EXTERNAL      00000000              0
+_InterruptFunc                    GLOBAL        00000008              8
+_LP_OSC                           CONSTANT      00003CFF          15615
+_LvdDebounceNew                   EXTERNAL      00000000              0
+_LvdDebounceOld                   EXTERNAL      00000000              0
+_LvdLightCount                    EXTERNAL      00000000              0
+_LvdModel                         EXTERNAL      00000000              0
+_LvdModelCount                    EXTERNAL      00000000              0
+_MaxLight                         EXTERNAL      00000000              0
+_ODCON                            EXTERNAL      00000000              0
+_ODCONbits                        EXTERNAL      00000000              0
+_OPTION                           EXTERNAL      00000000              0
+_OPTIONbits                       EXTERNAL      00000000              0
+_OSCCON                           EXTERNAL      00000000              0
+_OSCCONbits                       EXTERNAL      00000000              0
+_PCL                              EXTERNAL      00000000              0
+_PCLATH                           EXTERNAL      00000000              0
+_PCON                             EXTERNAL      00000000              0
+_PCONbits                         EXTERNAL      00000000              0
+_PDCON                            EXTERNAL      00000000              0
+_PDCON1                           EXTERNAL      00000000              0
+_PDCON1bits                       EXTERNAL      00000000              0
+_PDCONbits                        EXTERNAL      00000000              0
+_PHCON                            EXTERNAL      00000000              0
+_PHCONbits                        EXTERNAL      00000000              0
+_PORTB                            EXTERNAL      00000000              0
+_PORTBbits                        EXTERNAL      00000000              0
+_PWM0P                            EXTERNAL      00000000              0
+_PWM1P                            EXTERNAL      00000000              0
+_PWM2P                            EXTERNAL      00000000              0
+_PWMCON                           EXTERNAL      00000000              0
+_PWMCONbits                       EXTERNAL      00000000              0
+_RAMP                             EXTERNAL      00000000              0
+_RAMPbits                         EXTERNAL      00000000              0
+_STATUS                           EXTERNAL      00000000              0
+_STATUSbits                       EXTERNAL      00000000              0
+_SleepCount                       EXTERNAL      00000000              0
+_SleepFlag                        EXTERNAL      00000000              0
+_T0                               EXTERNAL      00000000              0
+_T0CR                             EXTERNAL      00000000              0
+_T0CRbits                         EXTERNAL      00000000              0
+_T1                               EXTERNAL      00000000              0
+_T1CON                            EXTERNAL      00000000              0
+_T1CONbits                        EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_T1LOAD                           EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TempCount                        EXTERNAL      00000000              0
+_TempFlag                         EXTERNAL      00000000              0
+_WDTE_OFF                         CONSTANT      00003FFB          16379
+_WDTE_ON                          CONSTANT      00003FFF          16383
+_WDT_OFF                          CONSTANT      00003FFB          16379
+_WDT_ON                           CONSTANT      00003FFF          16383
+_XT_OSC                           CONSTANT      00003DFF          15871
+__14_BIT                          CONSTANT      00000001              1
+__18P018A0                        CONSTANT      00000001              1
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ACTIVE_PAGE_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      00000000              0
+__BANK_0                          CONSTANT      00000000              0
+__BANK_BITS                       CONSTANT      00000080            128
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000000              0
+__BANK_MASK                       CONSTANT      0000007F            127
+__BANK_SHIFT                      CONSTANT      00000007              7
+__BANK_SIZE                       CONSTANT      00000080            128
+__CODE_END                        CONSTANT      000003FF           1023
+__CODE_START                      CONSTANT      00000000              0
+__CONFIG_END                      CONSTANT      00002003           8195
+__CONFIG_START                    CONSTANT      00002000           8192
+__GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00002005           8197
+__IDLOCS_START                    CONSTANT      00002004           8196
+__NUM_BANKS                       CONSTANT      00000001              1
+__PAGE_BITS                       CONSTANT      00001800           6144
+__PAGE_INV                        CONSTANT      FFFFFFFF             -1
+__PAGE_MASK                       CONSTANT      00000000              0
+__PAGE_SHIFT                      CONSTANT      0000000B             11
+__PAGE_SIZE                       CONSTANT      00000000              0
+__VECTOR_INT                      CONSTANT      00000008              8
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+___sdcc_saved_fsr                 EXTERNAL      00000000              0
+__sdcc_interrupt                  ADDRESS       00000008              8
+_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
+_g_ucFlashTimeHigh                EXTERNAL      00000000              0
+_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
+_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
+_g_ucFlashTimeLow                 EXTERNAL      00000000              0
+_g_ucFlashTimeLow1                EXTERNAL      00000000              0
+_g_ucFlashTimeLow2                EXTERNAL      00000000              0
+_g_ucTimer10msCount               EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022) interrupt.asm   04/30/25  10:45:51          PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_g_ucTimerWorkCount               EXTERNAL      00000000              0
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     3 reported,     0 suppressed
+
+

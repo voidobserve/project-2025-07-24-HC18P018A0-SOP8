@@ -1,0 +1,1028 @@
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 3.6.0 #9615 (CYGWIN)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC port for the 14-bit core
+                      00006 ;--------------------------------------------------------
+                      00007 ;       .file   "key.c"
+                      00008         list    p=18p018a0
+                      00009         radix dec
+                      00010         include "p18p018a0.inc"
+                      00001        LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Jun 02 2017
+                      00005 ;  HCIDE HC18P018A0 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 2012-2021 Holychip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected processor."
+                      00378         LIST
+                      00011 ;--------------------------------------------------------
+                      00012 ; external declarations
+                      00013 ;--------------------------------------------------------
+  0000                00014         extern  _ControlLevelLow
+  0000                00015         extern  _ControlLevelHigh
+  0000                00016         extern  _ControlLevel
+  0000                00017         extern  _ControlFlash
+  0000                00018         extern  _ControlSos
+  0000                00019         extern  _LedDisplay
+  0000                00020         extern  _LedOn
+  0000                00021         extern  _LedOff
+  0000                00022         extern  _MotoDisplay
+  0000                00023         extern  _LedSwitch
+  0000                00024         extern  _MotoSwitch
+  0000                00025         extern  _PowOn
+  0000                00026         extern  _PowOff
+  0000                00027         extern  _STATUSbits
+  0000                00028         extern  _PORTBbits
+  0000                00029         extern  _PCONbits
+  0000                00030         extern  _IOCBbits
+  0000                00031         extern  _PDCONbits
+  0000                00032         extern  _ODCONbits
+  0000                00033         extern  _PHCONbits
+  0000                00034         extern  _INTECONbits
+  0000                00035         extern  _INTFLAGbits
+  0000                00036         extern  _OPTIONbits
+  0000                00037         extern  _TRISBbits
+  0000                00038         extern  _PWMCONbits
+  0000                00039         extern  _T0CRbits
+  0000                00040         extern  _T1CONbits
+  0000                00041         extern  _OSCCONbits
+  0000                00042         extern  _CMPCRbits
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00043         extern  _PDCON1bits
+  0000                00044         extern  _CHARGE0bits
+  0000                00045         extern  _CHARGE1bits
+  0000                00046         extern  _RAMPbits
+  0000                00047         extern  _AUXRbits
+  0000                00048         extern  _BITS_DATA0
+  0000                00049         extern  _BITS_DATA1
+  0000                00050         extern  _g_ucTimer10msCount
+  0000                00051         extern  _g_ucTimerWorkCount
+  0000                00052         extern  _g_ucFlashTimeHigh
+  0000                00053         extern  _g_ucFlashTimeLow
+  0000                00054         extern  _g_ucFlashTimeHigh1
+  0000                00055         extern  _g_ucFlashTimeLow1
+  0000                00056         extern  _g_ucFlashTimeHigh2
+  0000                00057         extern  _g_ucFlashTimeLow2
+  0000                00058         extern  _LvdModel
+  0000                00059         extern  _LvdDebounceNew
+  0000                00060         extern  _LvdDebounceOld
+  0000                00061         extern  _LvdModelCount
+  0000                00062         extern  _LvdLightCount
+  0000                00063         extern  _TempCount
+  0000                00064         extern  _TempFlag
+  0000                00065         extern  _SleepCount
+  0000                00066         extern  _SleepFlag
+  0000                00067         extern  _MaxLight
+  0000                00068         extern  _g_cucTIMER_COUNT_STATE
+  0000                00069         extern  _INDF
+  0000                00070         extern  _T0
+  0000                00071         extern  _PCL
+  0000                00072         extern  _STATUS
+  0000                00073         extern  _FSR
+  0000                00074         extern  _PORTB
+  0000                00075         extern  _GPR
+  0000                00076         extern  _PCON
+  0000                00077         extern  _IOCB
+  0000                00078         extern  _PCLATH
+  0000                00079         extern  _PDCON
+  0000                00080         extern  _ODCON
+  0000                00081         extern  _PHCON
+  0000                00082         extern  _INTECON
+  0000                00083         extern  _INTFLAG
+  0000                00084         extern  _OPTION
+  0000                00085         extern  _TRISB
+  0000                00086         extern  _PWMCON
+  0000                00087         extern  _PWM1P
+  0000                00088         extern  _PWM2P
+  0000                00089         extern  _T0CR
+  0000                00090         extern  _T1CON
+  0000                00091         extern  _T1
+  0000                00092         extern  _T1LOAD
+  0000                00093         extern  _PWM0P
+  0000                00094         extern  _OSCCON
+  0000                00095         extern  _CMPCR
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00096         extern  _PDCON1
+  0000                00097         extern  _CHARGE0
+  0000                00098         extern  _CHARGE1
+  0000                00099         extern  _RAMP
+  0000                00100         extern  _AUXR
+  0000                00101         extern  _HIRCTRM
+                      00102 
+  0000                00103         extern PSAVE
+  0000                00104         extern SSAVE
+  0000                00105         extern WSAVE
+  0000                00106         extern STK12
+  0000                00107         extern STK11
+  0000                00108         extern STK10
+  0000                00109         extern STK09
+  0000                00110         extern STK08
+  0000                00111         extern STK07
+  0000                00112         extern STK06
+  0000                00113         extern STK05
+  0000                00114         extern STK04
+  0000                00115         extern STK03
+  0000                00116         extern STK02
+  0000                00117         extern STK01
+  0000                00118         extern STK00
+                      00119 ;--------------------------------------------------------
+                      00120 ; global declarations
+                      00121 ;--------------------------------------------------------
+  0000                00122         global  _ScanKey
+  0000                00123         global  _test_turn
+  0000                00124         global  _longpress_cnt
+  0000                00125         global  _clink_event
+  0000                00126         global  _long_f
+  0000                00127         global  _turn
+                      00128 
+                      00129 ;--------------------------------------------------------
+                      00130 ; global definitions
+                      00131 ;--------------------------------------------------------
+                      00132 ;--------------------------------------------------------
+                      00133 ; absolute symbol definitions
+                      00134 ;--------------------------------------------------------
+                      00135 ;--------------------------------------------------------
+                      00136 ; compiler-defined variables
+                      00137 ;--------------------------------------------------------
+                      00138 UDL_key_0       udata
+0000                  00139 r0x1006 res     1
+0001                  00140 r0x1007 res     1
+                      00141 ;--------------------------------------------------------
+                      00142 ; initialized data
+                      00143 ;--------------------------------------------------------
+                      00144 
+                      00145 ID_key_0        idata
+0000                  00146 _longpress_cnt
+0000   00 00          00147         db      0x00, 0x00
+                      00148 
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00149 
+                      00150 ID_key_1        idata
+0000                  00151 _clink_event
+0000   00             00152         db      0x00
+                      00153 
+                      00154 
+                      00155 ID_key_2        idata
+0000                  00156 _long_f
+0000   00             00157         db      0x00
+                      00158 
+                      00159 
+                      00160 ID_key_3        idata
+0000                  00161 _turn
+0000   00             00162         db      0x00
+                      00163 
+                      00164 ;--------------------------------------------------------
+                      00165 ; overlayable items in internal ram 
+                      00166 ;--------------------------------------------------------
+                      00167 ;       udata_ovr
+                      00168 ;--------------------------------------------------------
+                      00169 ; code
+                      00170 ;--------------------------------------------------------
+                      00171 code_key        code
+                      00172 ;***
+                      00173 ;  pBlock Stats: dbName = C
+                      00174 ;***
+                      00175 ;has an exit
+                      00176 ;functions called:
+                      00177 ;   _PowOn
+                      00178 ;   _PowOff
+                      00179 ;   _PowOn
+                      00180 ;   _PowOff
+                      00181 ;; Starting pCode block
+                      00182 ;;[ICODE] key.c:87:  _entry($5) :
+                      00183 ;;[ICODE] key.c:87:     proc _test_turn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
+                            ) fixed}
+                      00184 S_key__test_turn        code
+0000                  00185 _test_turn:
+                      00186 ; 2 exit points
+                      00187 ;;[ICODE] key.c:90:     if _turn [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} ==
+                             0 goto __iffalse_13($2)
+                      00188 ;       .line   90; "key.c"     if(turn) {
+0000   0400           00189         MOVLW   0x00
+0001   1D??           00190         IORWF   _turn,W
+0002   3503           00191         BTFSC   STATUS,2
+0003   2???           00192         GOTO    _00191_DS_
+                      00193 ;;[ICODE] key.c:91:     _turn [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x
+                            0 {const-unsigned-char literal}
+                      00194 ;       .line   91; "key.c"     turn = 0;
+0004   18??           00195         CLRF    _turn
+                      00196 ;;[ICODE] key.c:92:     iTemp1 [k5 lr5:5 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOn
+                             [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00197 ;       .line   92; "key.c"     PowOn();
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0005   2???           00198         CALL    _PowOn
+                      00199 ;;[ICODE] key.c:92:      goto _return($4)
+0006   2???           00200         GOTO    _00193_DS_
+                      00201 ;;[ICODE] key.c:92:  __iffalse_13($2) :
+                      00202 ;;[ICODE] key.c:94:     _turn [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x
+                            1 {const-unsigned-char literal}
+0007                  00203 _00191_DS_:
+                      00204 ;       .line   94; "key.c"     turn = 1;
+0007   0401           00205         MOVLW   0x01
+0008   19??           00206         MOVWF   _turn
+                      00207 ;;[ICODE] key.c:95:     iTemp3 [k8 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOf
+                            f [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00208 ;       .line   95; "key.c"     PowOff();
+0009   2???           00209         CALL    _PowOff
+                      00210 ;;[ICODE] key.c:95:  _return($4) :
+                      00211 ;;[ICODE] key.c:95:     eproc _test_turn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
+                             ) fixed}
+000A                  00212 _00193_DS_:
+000A   0002           00213         RETURN  
+                      00214 ; exit point of _test_turn
+                      00215 
+                      00216 ;***
+                      00217 ;  pBlock Stats: dbName = C
+                      00218 ;***
+                      00219 ;has an exit
+                      00220 ;functions called:
+                      00221 ;   _MotoSwitch
+                      00222 ;   _LedSwitch
+                      00223 ;   _MotoSwitch
+                      00224 ;   _LedSwitch
+                      00225 ;2 compiler assigned registers:
+                      00226 ;   r0x1006
+                      00227 ;   r0x1007
+                      00228 ;; Starting pCode block
+                      00229 ;;[ICODE] key.c:11:  _entry($36) :
+                      00230 ;;[ICODE] key.c:11:     proc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
+                            fixed}
+                      00231 S_key__ScanKey  code
+0000                  00232 _ScanKey:
+                      00233 ; 2 exit points
+                      00234 ;;[ICODE] key.c:14:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {2,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
+                            ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00235 ;;[ICODE] key.c:14:     iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {2,1} fixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bi
+                            tfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                      00236 ;       .line   14; "key.c"     if(PORT_KEY_1 == 0 || PORT_KEY_2 == 0 || PORT_KEY_3 == 1 )
+0000   31??           00237         BTFSS   _PORTBbits,2
+0001   2???           00238         GOTO    _00134_DS_
+                      00239 ;;[ICODE] key.c:14:     if iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitf
+                            ield {2,1} fixed}[r0x1049 ] == 0 goto __iftrue_12($30)
+                      00240 ;;[ICODE] key.c:14:     iTemp4 [k9 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                            d {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  6
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                            ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00241 ;;[ICODE] key.c:14:     iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                            eld {4,1} fixed}[r0x1049 ] = @[iTemp4 [k9 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-
+                            bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+0002   32??           00242         BTFSS   _PORTBbits,4
+0003   2???           00243         GOTO    _00134_DS_
+                      00244 ;;[ICODE] key.c:14:     if iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bi
+                            tfield {4,1} fixed}[r0x1049 ] == 0 goto __iftrue_12($30)
+                      00245 ;;[ICODE] key.c:14:     iTemp7 [k13 lr11:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitf
+                            ield {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-s
+                            truct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00246 ;;[ICODE] key.c:14:     iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitf
+                            ield {5,1} fixed}[r0x1049 ] = @[iTemp7 [k13 lr11:13 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                            ned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+0004   18??           00247         CLRF    r0x1006
+0005   36??           00248         BTFSC   _PORTBbits,5
+0006   13??           00249         INCF    r0x1006,F
+                      00250 ;;[ICODE] key.c:14:     iTemp9 [k15 lr14:15 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] 
+                            = (char register)iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5
+                            ,1} fixed}[r0x1049 ]
+0007   11??           00251         MOVF    r0x1006,W
+0008   19??           00252         MOVWF   r0x1007
+0009   0D01           00253         XORLW   0x01
+000A   3103           00254         BTFSS   STATUS,2
+000B   2???           00255         GOTO    _00135_DS_
+                      00256 ;;[ICODE] key.c:14:     if iTemp10 [k16 lr15:16 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto __iffalse_12($31)
+                      00257 ;;[ICODE] key.c:14:  __iftrue_12($30) :
+                      00258 ;;[ICODE] key.c:17:     iTemp11 [k18 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpr
+                            ess_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0xffff {const-unsigned-in
+                            t literal}
+                      00259 ;;unsigned compare: left < lit(0xFFFF=65535), size=2
+000C                  00260 _00134_DS_:
+                      00261 ;       .line   17; "key.c"     if(longpress_cnt < 0xffff) {
+000C   04FF           00262         MOVLW   0xff
+000D   1B??           00263         SUBWF   (_longpress_cnt + 1),W
+000E   3103           00264         BTFSS   STATUS,2
+000F   2???           00265         GOTO    _00183_DS_
+0010   04FF           00266         MOVLW   0xff
+0011   1B??           00267         SUBWF   _longpress_cnt,W
+0012                  00268 _00183_DS_:
+0012   3403           00269         BTFSC   STATUS,0
+0013   2???           00270         GOTO    _00106_DS_
+                      00271 ;;genSkipc:3257: created from rifx:0x782c44
+                      00272 ;;[ICODE] key.c:17:     if iTemp11 [k18 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto __iffalse_0($2)
+                      00273 ;;[ICODE] key.c:18:     _longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fix
+                            ed} = _longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-u
+                            nsigned-char literal}
+                      00274 ;       .line   18; "key.c"     longpress_cnt++;
+0014   13??           00275         INCF    _longpress_cnt,F
+0015   3503           00276         BTFSC   STATUS,2
+0016   13??           00277         INCF    (_longpress_cnt + 1),F
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00278 ;;[ICODE] key.c:18:  __iffalse_0($2) :
+                      00279 ;;[ICODE] key.c:21:     iTemp15 [k22 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpr
+                            ess_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x32 {unsigned-int litera
+                            l}
+                      00280 ;;unsigned compare: left < lit(0x32=50), size=2
+0017                  00281 _00106_DS_:
+                      00282 ;       .line   21; "key.c"     if(longpress_cnt < 50){
+0017   0400           00283         MOVLW   0x00
+0018   1B??           00284         SUBWF   (_longpress_cnt + 1),W
+0019   3103           00285         BTFSS   STATUS,2
+001A   2???           00286         GOTO    _00184_DS_
+001B   0432           00287         MOVLW   0x32
+001C   1B??           00288         SUBWF   _longpress_cnt,W
+001D                  00289 _00184_DS_:
+001D   3403           00290         BTFSC   STATUS,0
+001E   2???           00291         GOTO    _00116_DS_
+                      00292 ;;genSkipc:3257: created from rifx:0x782c44
+                      00293 ;;[ICODE] key.c:21:     if iTemp15 [k22 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto __iffalse_4($12)
+                      00294 ;;[ICODE] key.c:24:     iTemp17 [k25 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {2,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00295 ;;[ICODE] key.c:24:     iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {2,1} fixed}[r0x1049 ] = @[iTemp17 [k25 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                            igned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                      00296 ;       .line   24; "key.c"     if(PORT_KEY_1 == 0) {
+001F   35??           00297         BTFSC   _PORTBbits,2
+0020   2???           00298         GOTO    _00113_DS_
+                      00299 ;;[ICODE] key.c:24:     if iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
+                            bitfield {2,1} fixed}[r0x1049 ] != 0 goto __iffalse_3($9)
+                      00300 ;;[ICODE] key.c:26:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x1 {const-unsigned-char literal}
+                      00301 ;       .line   26; "key.c"     clink_event = 1;
+0021   0401           00302         MOVLW   0x01
+0022   19??           00303         MOVWF   _clink_event
+                      00304 ;;[ICODE] key.c:26:      goto __iffalse_4($12)
+0023   2???           00305         GOTO    _00116_DS_
+                      00306 ;;[ICODE] key.c:26:  __iffalse_3($9) :
+                      00307 ;;[ICODE] key.c:28:     iTemp21 [k31 lr32:34 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00308 ;;[ICODE] key.c:28:     iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {4,1} fixed}[r0x1049 ] = @[iTemp21 [k31 lr32:34 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                            igned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+0024                  00309 _00113_DS_:
+                      00310 ;       .line   28; "key.c"     } else if(PORT_KEY_2 == 0) {
+0024   36??           00311         BTFSC   _PORTBbits,4
+0025   2???           00312         GOTO    _00110_DS_
+                      00313 ;;[ICODE] key.c:28:     if iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
+                            bitfield {4,1} fixed}[r0x1049 ] != 0 goto __iffalse_2($6)
+                      00314 ;;[ICODE] key.c:30:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x2 {const-unsigned-char literal}
+                      00315 ;       .line   30; "key.c"     clink_event = 2;
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0026   0402           00316         MOVLW   0x02
+0027   19??           00317         MOVWF   _clink_event
+                      00318 ;;[ICODE] key.c:30:      goto __iffalse_4($12)
+0028   2???           00319         GOTO    _00116_DS_
+                      00320 ;;[ICODE] key.c:30:  __iffalse_2($6) :
+                      00321 ;;[ICODE] key.c:32:     iTemp25 [k36 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00322 ;;[ICODE] key.c:32:     iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {5,1} fixed}[r0x1049 ] = @[iTemp25 [k36 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                            igned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+0029                  00323 _00110_DS_:
+                      00324 ;       .line   32; "key.c"     } else if(PORT_KEY_3 == 1) {
+0029   18??           00325         CLRF    r0x1006
+002A   36??           00326         BTFSC   _PORTBbits,5
+002B   13??           00327         INCF    r0x1006,F
+                      00328 ;;[ICODE] key.c:32:     iTemp27 [k38 lr42:43 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ]
+                             = (char register)iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield 
+                            {5,1} fixed}[r0x1049 ]
+002C   11??           00329         MOVF    r0x1006,W
+002D   19??           00330         MOVWF   r0x1007
+002E   0D01           00331         XORLW   0x01
+002F   3103           00332         BTFSS   STATUS,2
+0030   2???           00333         GOTO    _00116_DS_
+                      00334 ;;[ICODE] key.c:32:     if iTemp28 [k39 lr43:44 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto __iffalse_4($12)
+                      00335 ;;[ICODE] key.c:34:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x3 {const-unsigned-char literal}
+                      00336 ;       .line   34; "key.c"     clink_event = 3;
+0031   0403           00337         MOVLW   0x03
+0032   19??           00338         MOVWF   _clink_event
+                      00339 ;;[ICODE] key.c:34:  __iffalse_4($12) :
+                      00340 ;;[ICODE] key.c:41:     iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} = _longpre
+                            ss_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x64 {unsigned-int literal
+                            }
+                      00341 ;;unsigned compare: left < lit(0x64=100), size=2
+0033                  00342 _00116_DS_:
+                      00343 ;       .line   41; "key.c"     if(longpress_cnt >= 100){
+0033   0400           00344         MOVLW   0x00
+0034   1B??           00345         SUBWF   (_longpress_cnt + 1),W
+0035   3103           00346         BTFSS   STATUS,2
+0036   2???           00347         GOTO    _00185_DS_
+0037   0464           00348         MOVLW   0x64
+0038   1B??           00349         SUBWF   _longpress_cnt,W
+0039                  00350 _00185_DS_:
+0039   3003           00351         BTFSS   STATUS,0
+003A   2???           00352         GOTO    _00139_DS_
+                      00353 ;;genSkipc:3257: created from rifx:0x782c44
+                      00354 ;;[ICODE] key.c:41:     if iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 go
+                            to _return($35)
+                      00355 ;;[ICODE] key.c:43:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x0 {const-unsigned-char literal}
+                      00356 ;       .line   43; "key.c"     clink_event = 0;
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE  9
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+003B   18??           00357         CLRF    _clink_event
+                      00358 ;;[ICODE] key.c:45:     iTemp33 [k45 lr50:52 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+                      00359 ;;[ICODE] key.c:45:     iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {5,1} fixed}[r0x1049 ] = @[iTemp33 [k45 lr50:52 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                            igned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                      00360 ;       .line   45; "key.c"     if(PORT_KEY_3 == 1){
+003C   18??           00361         CLRF    r0x1006
+003D   36??           00362         BTFSC   _PORTBbits,5
+003E   13??           00363         INCF    r0x1006,F
+                      00364 ;;[ICODE] key.c:45:     iTemp35 [k47 lr53:54 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ]
+                             = (char register)iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield 
+                            {5,1} fixed}[r0x1049 ]
+003F   11??           00365         MOVF    r0x1006,W
+0040   19??           00366         MOVWF   r0x1007
+0041   0D01           00367         XORLW   0x01
+0042   3103           00368         BTFSS   STATUS,2
+0043   2???           00369         GOTO    _00139_DS_
+                      00370 ;;[ICODE] key.c:45:     if iTemp36 [k48 lr54:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto _return($35)
+                      00371 ;;[ICODE] key.c:46:     _long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} :=
+                             0x1 {const-unsigned-char literal}
+                      00372 ;       .line   46; "key.c"     long_f = 1;
+0044   0401           00373         MOVLW   0x01
+0045   19??           00374         MOVWF   _long_f
+                      00375 ;;[ICODE] key.c:48:     _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+                            ar fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
+                            0x1 {const-unsigned-char literal}
+                      00376 ;       .line   48; "key.c"     g_ucTimerWorkCount++;  //10ms
+0046   13??           00377         INCF    _g_ucTimerWorkCount,F
+                      00378 ;;[ICODE] key.c:48:      goto _return($35)
+0047   2???           00379         GOTO    _00139_DS_
+                      00380 ;;[ICODE] key.c:48:  __iffalse_12($31) :
+                      00381 ;;[ICODE] key.c:56:     _longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fix
+                            ed} := 0x0 {unsigned-int literal}
+0048                  00382 _00135_DS_:
+                      00383 ;       .line   56; "key.c"     longpress_cnt = 0;
+0048   18??           00384         CLRF    _longpress_cnt
+0049   18??           00385         CLRF    (_longpress_cnt + 1)
+                      00386 ;;[ICODE] key.c:58:     iTemp42 [k56 lr62:63 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
+                            event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x1 {const-unsigned-char 
+                            literal}
+                      00387 ;       .line   58; "key.c"     if(clink_event == 1){
+004A   11??           00388         MOVF    _clink_event,W
+004B   0D01           00389         XORLW   0x01
+004C   3103           00390         BTFSS   STATUS,2
+004D   2???           00391         GOTO    _00127_DS_
+                      00392 ;;[ICODE] key.c:58:     if iTemp42 [k56 lr62:63 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto __iffalse_9($23)
+                      00393 ;;[ICODE] key.c:60:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x0 {const-unsigned-char literal}
+                      00394 ;       .line   60; "key.c"     clink_event = 0;
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 10
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+004E   18??           00395         CLRF    _clink_event
+                      00396 ;;[ICODE] key.c:61:     iTemp44 [k59 lr65:65 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _M
+                            otoSwitch [k58 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00397 ;       .line   61; "key.c"     MotoSwitch();
+004F   2???           00398         CALL    _MotoSwitch
+                      00399 ;;[ICODE] key.c:61:      goto __ifend_9($24)
+0050   2???           00400         GOTO    _00128_DS_
+                      00401 ;;[ICODE] key.c:61:  __iffalse_9($23) :
+                      00402 ;;[ICODE] key.c:62:     iTemp45 [k60 lr68:69 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
+                            event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char 
+                            literal}
+0051                  00403 _00127_DS_:
+                      00404 ;       .line   62; "key.c"     } else if(clink_event == 2){
+0051   11??           00405         MOVF    _clink_event,W
+0052   0D02           00406         XORLW   0x02
+0053   3103           00407         BTFSS   STATUS,2
+0054   2???           00408         GOTO    _00124_DS_
+                      00409 ;;[ICODE] key.c:62:     if iTemp45 [k60 lr68:69 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto __iffalse_8($20)
+                      00410 ;;[ICODE] key.c:63:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x0 {const-unsigned-char literal}
+                      00411 ;       .line   63; "key.c"     clink_event = 0;
+0055   18??           00412         CLRF    _clink_event
+                      00413 ;;[ICODE] key.c:64:     iTemp47 [k63 lr71:71 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _L
+                            edSwitch [k62 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00414 ;       .line   64; "key.c"     LedSwitch();
+0056   2???           00415         CALL    _LedSwitch
+                      00416 ;;[ICODE] key.c:64:      goto __ifend_9($24)
+0057   2???           00417         GOTO    _00128_DS_
+                      00418 ;;[ICODE] key.c:64:  __iffalse_8($20) :
+                      00419 ;;[ICODE] key.c:66:     iTemp48 [k64 lr74:75 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
+                            event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char 
+                            literal}
+0058                  00420 _00124_DS_:
+                      00421 ;       .line   66; "key.c"     } else if(clink_event == 3){
+0058   11??           00422         MOVF    _clink_event,W
+                      00423 ;       .line   68; "key.c"     clink_event = 0;
+0059   0D03           00424         XORLW   0x03
+                      00425 ;       .line   71; "key.c"     if(long_f){
+005A   3503           00426         BTFSC   STATUS,2
+005B   18??           00427         CLRF    _clink_event
+005C                  00428 _00128_DS_:
+005C   0400           00429         MOVLW   0x00
+005D   1D??           00430         IORWF   _long_f,W
+005E   3503           00431         BTFSC   STATUS,2
+005F   2???           00432         GOTO    _00139_DS_
+                      00433 ;;[ICODE] key.c:73:     iTemp50 [k66 lr79:80 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTi
+                            merWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x32 {const-unsigne
+                            d-char literal}
+                      00434 ;;unsigned compare: left < lit(0x32=50), size=1
+                      00435 ;       .line   73; "key.c"     if(g_ucTimerWorkCount <  50) {
+0060   0432           00436         MOVLW   0x32
+0061   1B??           00437         SUBWF   _g_ucTimerWorkCount,W
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 11
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0062   3403           00438         BTFSC   STATUS,0
+0063   2???           00439         GOTO    _00130_DS_
+                      00440 ;;genSkipc:3257: created from rifx:0x782c44
+                      00441 ;;[ICODE] key.c:73:     if iTemp50 [k66 lr79:80 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                            oto __iffalse_10($26)
+                      00442 ;;[ICODE] key.c:74:     _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+                            ar fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
+                            0x1 {const-unsigned-char literal}
+                      00443 ;       .line   74; "key.c"     g_ucTimerWorkCount++;
+0064   13??           00444         INCF    _g_ucTimerWorkCount,F
+                      00445 ;;[ICODE] key.c:74:      goto _return($35)
+0065   2???           00446         GOTO    _00139_DS_
+                      00447 ;;[ICODE] key.c:74:  __iffalse_10($26) :
+                      00448 ;;[ICODE] key.c:76:     _long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} :=
+                             0x0 {const-unsigned-char literal}
+0066                  00449 _00130_DS_:
+                      00450 ;       .line   76; "key.c"     long_f = 0;
+0066   18??           00451         CLRF    _long_f
+                      00452 ;;[ICODE] key.c:77:     _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+                            ar fixed} := 0x0 {const-unsigned-char literal}
+                      00453 ;       .line   77; "key.c"     g_ucTimerWorkCount = 0;
+0067   18??           00454         CLRF    _g_ucTimerWorkCount
+                      00455 ;;[ICODE] key.c:77:  _return($35) :
+                      00456 ;;[ICODE] key.c:77:     eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
+                             fixed}
+0068                  00457 _00139_DS_:
+0068   0002           00458         RETURN  
+                      00459 ; exit point of _ScanKey
+                      00460 
+                      00461 
+                      00462 ;       code size estimation:
+                      00463 ;         116+    0 =   116 instructions (  232 byte)
+                      00464 
+                      00465         end
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+AUXR                              CONSTANT      00000059             89
+BOR                               CONSTANT      00000006              6
+BUZ                               CONSTANT      00000005              5
+C                                 CONSTANT      00000000              0
+CHARE                             CONSTANT      00000005              5
+CHARF                             CONSTANT      00000005              5
+CHARGE0                           CONSTANT      00000053             83
+CHARGE1                           CONSTANT      00000054             84
+CHARGEN                           CONSTANT      00000007              7
+CMPCR                             CONSTANT      00000051             81
+CMPEN                             CONSTANT      00000000              0
+CMPF                              CONSTANT      00000003              3
+CMPIE                             CONSTANT      00000002              2
+CMPIES                            CONSTANT      00000001              1
+CMPOF                             CONSTANT      00000005              5
+CMPWK                             CONSTANT      00000003              3
+CPNIS0                            CONSTANT      00000001              1
+CPNIS1                            CONSTANT      00000002              2
+CPNIS2                            CONSTANT      00000003              3
+CPNIS3                            CONSTANT      00000004              4
+CPPIS                             CONSTANT      00000000              0
+DC                                CONSTANT      00000001              1
+EIS                               CONSTANT      00000006              6
+F                                 CONSTANT      00000001              1
+FSR                               CONSTANT      00000004              4
+GIE                               CONSTANT      00000007              7
+GP0                               CONSTANT      00000005              5
+GP1                               CONSTANT      00000006              6
+GPR                               CONSTANT      00000007              7
+HIRCTRM                           CONSTANT      0000005B             91
+HXEN                              CONSTANT      00000001              1
+INDF                              CONSTANT      00000000              0
+INTE                              CONSTANT      00000002              2
+INTECON                           CONSTANT      0000000E             14
+INTEDG                            CONSTANT      00000006              6
+INTF                              CONSTANT      00000002              2
+INTFLAG                           CONSTANT      0000000F             15
+IOCB                              CONSTANT      00000009              9
+IOCB0                             CONSTANT      00000000              0
+IOCB1                             CONSTANT      00000001              1
+IOCB2                             CONSTANT      00000002              2
+IOCB3                             CONSTANT      00000003              3
+IOCB4                             CONSTANT      00000004              4
+IOCB5                             CONSTANT      00000005              5
+IOCB6                             CONSTANT      00000006              6
+IOCB7                             CONSTANT      00000007              7
+LVDM                              CONSTANT      00000004              4
+MODSEL                            CONSTANT      00000007              7
+ODB0                              CONSTANT      00000000              0
+ODB1                              CONSTANT      00000001              1
+ODB2                              CONSTANT      00000002              2
+ODB3                              CONSTANT      00000003              3
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+ODB4                              CONSTANT      00000004              4
+ODB5                              CONSTANT      00000005              5
+ODB6                              CONSTANT      00000006              6
+ODB7                              CONSTANT      00000007              7
+ODCON                             CONSTANT      0000000C             12
+OPTION                            CONSTANT      00000041             65
+OSCCON                            CONSTANT      00000050             80
+PBIE                              CONSTANT      00000001              1
+PBIF                              CONSTANT      00000001              1
+PCL                               CONSTANT      00000002              2
+PCLATH                            CONSTANT      0000000A             10
+PCON                              CONSTANT      00000008              8
+PD                                CONSTANT      00000003              3
+PDB0                              CONSTANT      00000004              4
+PDB1                              CONSTANT      00000005              5
+PDB2                              CONSTANT      00000006              6
+PDB3                              CONSTANT      00000003              3
+PDB4                              CONSTANT      00000004              4
+PDB5                              CONSTANT      00000005              5
+PDB6                              CONSTANT      00000006              6
+PDB7                              CONSTANT      00000007              7
+PDCON                             CONSTANT      0000000B             11
+PDCON1                            CONSTANT      00000052             82
+PHB0                              CONSTANT      00000000              0
+PHB1                              CONSTANT      00000001              1
+PHB2                              CONSTANT      00000002              2
+PHB3                              CONSTANT      00000003              3
+PHB4                              CONSTANT      00000004              4
+PHB5                              CONSTANT      00000005              5
+PHB6                              CONSTANT      00000006              6
+PHB7                              CONSTANT      00000007              7
+PHCON                             CONSTANT      0000000D             13
+POR                               CONSTANT      00000007              7
+PORTB                             CONSTANT      00000006              6
+PORTB0                            CONSTANT      00000000              0
+PORTB1                            CONSTANT      00000001              1
+PORTB2                            CONSTANT      00000002              2
+PORTB3                            CONSTANT      00000003              3
+PORTB4                            CONSTANT      00000004              4
+PORTB5                            CONSTANT      00000005              5
+PORTB6                            CONSTANT      00000006              6
+PORTB7                            CONSTANT      00000007              7
+PS0                               CONSTANT      00000000              0
+PS1                               CONSTANT      00000001              1
+PS2                               CONSTANT      00000002              2
+PSA                               CONSTANT      00000003              3
+PSAVE                             EXTERNAL      00000000              0
+PWM0E                             CONSTANT      00000006              6
+PWM0OE                            CONSTANT      00000007              7
+PWM0P                             CONSTANT      0000004F             79
+PWM1E                             CONSTANT      00000001              1
+PWM1OE                            CONSTANT      00000006              6
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+PWM1P                             CONSTANT      00000049             73
+PWM2E                             CONSTANT      00000000              0
+PWM2OE                            CONSTANT      00000005              5
+PWM2P                             CONSTANT      0000004A             74
+PWM3CT                            CONSTANT      00000001              1
+PWMCK                             CONSTANT      00000004              4
+PWMCON                            CONSTANT      00000048             72
+PWMCT                             CONSTANT      00000000              0
+PWMINV                            CONSTANT      00000002              2
+PWMMD                             CONSTANT      00000003              3
+RAMP                              CONSTANT      00000055             85
+RCTRMEN                           CONSTANT      00000002              2
+RST                               CONSTANT      00000007              7
+S0                                CONSTANT      00000000              0
+S1                                CONSTANT      00000001              1
+S2                                CONSTANT      00000002              2
+S3                                CONSTANT      00000003              3
+S4                                CONSTANT      00000004              4
+S5                                CONSTANT      00000005              5
+S6                                CONSTANT      00000006              6
+S7                                CONSTANT      00000007              7
+S8                                CONSTANT      00000000              0
+S9                                CONSTANT      00000001              1
+SCS                               CONSTANT      00000000              0
+SINK_SEL                          CONSTANT      00000006              6
+SLOP0                             CONSTANT      00000000              0
+SLOP1                             CONSTANT      00000001              1
+SLOP2                             CONSTANT      00000002              2
+SSAVE                             EXTERNAL      00000000              0
+STATUS                            CONSTANT      00000003              3
+STK00                             EXTERNAL      00000000              0
+STK01                             EXTERNAL      00000000              0
+STK02                             EXTERNAL      00000000              0
+STK03                             EXTERNAL      00000000              0
+STK04                             EXTERNAL      00000000              0
+STK05                             EXTERNAL      00000000              0
+STK06                             EXTERNAL      00000000              0
+STK07                             EXTERNAL      00000000              0
+STK08                             EXTERNAL      00000000              0
+STK09                             EXTERNAL      00000000              0
+STK10                             EXTERNAL      00000000              0
+STK11                             EXTERNAL      00000000              0
+STK12                             EXTERNAL      00000000              0
+T0                                CONSTANT      00000001              1
+T0CK                              CONSTANT      00000007              7
+T0CR                              CONSTANT      0000004B             75
+T0CS                              CONSTANT      00000005              5
+T0IE                              CONSTANT      00000000              0
+T0IF                              CONSTANT      00000000              0
+T0OSCEN                           CONSTANT      00000007              7
+T0SE                              CONSTANT      00000004              4
+T1                                CONSTANT      0000004D             77
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+T1CK0                             CONSTANT      00000003              3
+T1CK1                             CONSTANT      00000004              4
+T1CON                             CONSTANT      0000004C             76
+T1EN                              CONSTANT      00000007              7
+T1IE                              CONSTANT      00000001              1
+T1IF                              CONSTANT      00000000              0
+T1LOAD                            CONSTANT      0000004E             78
+T1PR0                             CONSTANT      00000000              0
+T1PR1                             CONSTANT      00000001              1
+T1PR2                             CONSTANT      00000002              2
+TEMPEN                            CONSTANT      00000006              6
+TMPE                              CONSTANT      00000004              4
+TMPF                              CONSTANT      00000004              4
+TO                                CONSTANT      00000004              4
+TRISB                             CONSTANT      00000046             70
+TRISB0                            CONSTANT      00000000              0
+TRISB1                            CONSTANT      00000001              1
+TRISB2                            CONSTANT      00000002              2
+TRISB3                            CONSTANT      00000003              3
+TRISB4                            CONSTANT      00000004              4
+TRISB5                            CONSTANT      00000005              5
+TRISB6                            CONSTANT      00000006              6
+TRISB7                            CONSTANT      00000007              7
+W                                 CONSTANT      00000000              0
+WDTEN                             CONSTANT      00000007              7
+WSAVE                             EXTERNAL      00000000              0
+Z                                 CONSTANT      00000002              2
+_00106_DS_                        ADDRESS       00000017             23
+_00110_DS_                        ADDRESS       00000029             41
+_00113_DS_                        ADDRESS       00000024             36
+_00116_DS_                        ADDRESS       00000033             51
+_00124_DS_                        ADDRESS       00000058             88
+_00127_DS_                        ADDRESS       00000051             81
+_00128_DS_                        ADDRESS       0000005C             92
+_00130_DS_                        ADDRESS       00000066            102
+_00134_DS_                        ADDRESS       0000000C             12
+_00135_DS_                        ADDRESS       00000048             72
+_00139_DS_                        ADDRESS       00000068            104
+_00183_DS_                        ADDRESS       00000012             18
+_00184_DS_                        ADDRESS       0000001D             29
+_00185_DS_                        ADDRESS       00000039             57
+_00191_DS_                        ADDRESS       00000007              7
+_00193_DS_                        ADDRESS       0000000A             10
+_AUXR                             EXTERNAL      00000000              0
+_AUXRbits                         EXTERNAL      00000000              0
+_BITS_DATA0                       EXTERNAL      00000000              0
+_BITS_DATA1                       EXTERNAL      00000000              0
+_CHARGE0                          EXTERNAL      00000000              0
+_CHARGE0bits                      EXTERNAL      00000000              0
+_CHARGE1                          EXTERNAL      00000000              0
+_CHARGE1bits                      EXTERNAL      00000000              0
+_CMPCR                            EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_CMPCRbits                        EXTERNAL      00000000              0
+_CONFIG                           CONSTANT      00002000           8192
+_CP_OFF                           CONSTANT      00003FFF          16383
+_CP_ON                            CONSTANT      00003FEF          16367
+_ControlFlash                     EXTERNAL      00000000              0
+_ControlLevel                     EXTERNAL      00000000              0
+_ControlLevelHigh                 EXTERNAL      00000000              0
+_ControlLevelLow                  EXTERNAL      00000000              0
+_ControlSos                       EXTERNAL      00000000              0
+_FOSC_HS                          CONSTANT      00003FFD          16381
+_FOSC_INTRCIO                     CONSTANT      00003FFC          16380
+_FOSC_LP                          CONSTANT      00003CFF          15615
+_FOSC_XT                          CONSTANT      00003DFF          15871
+_FSR                              EXTERNAL      00000000              0
+_GPR                              EXTERNAL      00000000              0
+_HIRCTRM                          EXTERNAL      00000000              0
+_HS_OSC                           CONSTANT      00003FFD          16381
+_INDF                             EXTERNAL      00000000              0
+_INTECON                          EXTERNAL      00000000              0
+_INTECONbits                      EXTERNAL      00000000              0
+_INTFLAG                          EXTERNAL      00000000              0
+_INTFLAGbits                      EXTERNAL      00000000              0
+_INTOSCIO                         CONSTANT      00003FFC          16380
+_INTRC_OSC_NOCLKOUT               CONSTANT      00003FFC          16380
+_IOCB                             EXTERNAL      00000000              0
+_IOCBbits                         EXTERNAL      00000000              0
+_LP_OSC                           CONSTANT      00003CFF          15615
+_LedDisplay                       EXTERNAL      00000000              0
+_LedOff                           EXTERNAL      00000000              0
+_LedOn                            EXTERNAL      00000000              0
+_LedSwitch                        EXTERNAL      00000000              0
+_LvdDebounceNew                   EXTERNAL      00000000              0
+_LvdDebounceOld                   EXTERNAL      00000000              0
+_LvdLightCount                    EXTERNAL      00000000              0
+_LvdModel                         EXTERNAL      00000000              0
+_LvdModelCount                    EXTERNAL      00000000              0
+_MaxLight                         EXTERNAL      00000000              0
+_MotoDisplay                      EXTERNAL      00000000              0
+_MotoSwitch                       EXTERNAL      00000000              0
+_ODCON                            EXTERNAL      00000000              0
+_ODCONbits                        EXTERNAL      00000000              0
+_OPTION                           EXTERNAL      00000000              0
+_OPTIONbits                       EXTERNAL      00000000              0
+_OSCCON                           EXTERNAL      00000000              0
+_OSCCONbits                       EXTERNAL      00000000              0
+_PCL                              EXTERNAL      00000000              0
+_PCLATH                           EXTERNAL      00000000              0
+_PCON                             EXTERNAL      00000000              0
+_PCONbits                         EXTERNAL      00000000              0
+_PDCON                            EXTERNAL      00000000              0
+_PDCON1                           EXTERNAL      00000000              0
+_PDCON1bits                       EXTERNAL      00000000              0
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_PDCONbits                        EXTERNAL      00000000              0
+_PHCON                            EXTERNAL      00000000              0
+_PHCONbits                        EXTERNAL      00000000              0
+_PORTB                            EXTERNAL      00000000              0
+_PORTBbits                        EXTERNAL      00000000              0
+_PWM0P                            EXTERNAL      00000000              0
+_PWM1P                            EXTERNAL      00000000              0
+_PWM2P                            EXTERNAL      00000000              0
+_PWMCON                           EXTERNAL      00000000              0
+_PWMCONbits                       EXTERNAL      00000000              0
+_PowOff                           EXTERNAL      00000000              0
+_PowOn                            EXTERNAL      00000000              0
+_RAMP                             EXTERNAL      00000000              0
+_RAMPbits                         EXTERNAL      00000000              0
+_STATUS                           EXTERNAL      00000000              0
+_STATUSbits                       EXTERNAL      00000000              0
+_ScanKey                          GLOBAL        00000000              0
+_SleepCount                       EXTERNAL      00000000              0
+_SleepFlag                        EXTERNAL      00000000              0
+_T0                               EXTERNAL      00000000              0
+_T0CR                             EXTERNAL      00000000              0
+_T0CRbits                         EXTERNAL      00000000              0
+_T1                               EXTERNAL      00000000              0
+_T1CON                            EXTERNAL      00000000              0
+_T1CONbits                        EXTERNAL      00000000              0
+_T1LOAD                           EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TempCount                        EXTERNAL      00000000              0
+_TempFlag                         EXTERNAL      00000000              0
+_WDTE_OFF                         CONSTANT      00003FFB          16379
+_WDTE_ON                          CONSTANT      00003FFF          16383
+_WDT_OFF                          CONSTANT      00003FFB          16379
+_WDT_ON                           CONSTANT      00003FFF          16383
+_XT_OSC                           CONSTANT      00003DFF          15871
+__14_BIT                          CONSTANT      00000001              1
+__18P018A0                        CONSTANT      00000001              1
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ACTIVE_PAGE_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      00000000              0
+__BANK_0                          CONSTANT      00000000              0
+__BANK_BITS                       CONSTANT      00000080            128
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000000              0
+__BANK_MASK                       CONSTANT      0000007F            127
+__BANK_SHIFT                      CONSTANT      00000007              7
+__BANK_SIZE                       CONSTANT      00000080            128
+__CODE_END                        CONSTANT      000003FF           1023
+__CODE_START                      CONSTANT      00000000              0
+__CONFIG_END                      CONSTANT      00002003           8195
+__CONFIG_START                    CONSTANT      00002000           8192
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  10:45:51          PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+__GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00002005           8197
+__IDLOCS_START                    CONSTANT      00002004           8196
+__NUM_BANKS                       CONSTANT      00000001              1
+__PAGE_BITS                       CONSTANT      00001800           6144
+__PAGE_INV                        CONSTANT      FFFFFFFF             -1
+__PAGE_MASK                       CONSTANT      00000000              0
+__PAGE_SHIFT                      CONSTANT      0000000B             11
+__PAGE_SIZE                       CONSTANT      00000000              0
+__VECTOR_INT                      CONSTANT      00000008              8
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+_clink_event                      GLOBAL        00000000              0
+_g_cucTIMER_COUNT_STATE           EXTERNAL      00000000              0
+_g_ucFlashTimeHigh                EXTERNAL      00000000              0
+_g_ucFlashTimeHigh1               EXTERNAL      00000000              0
+_g_ucFlashTimeHigh2               EXTERNAL      00000000              0
+_g_ucFlashTimeLow                 EXTERNAL      00000000              0
+_g_ucFlashTimeLow1                EXTERNAL      00000000              0
+_g_ucFlashTimeLow2                EXTERNAL      00000000              0
+_g_ucTimer10msCount               EXTERNAL      00000000              0
+_g_ucTimerWorkCount               EXTERNAL      00000000              0
+_long_f                           GLOBAL        00000000              0
+_longpress_cnt                    GLOBAL        00000000              0
+_test_turn                        GLOBAL        00000000              0
+_turn                             GLOBAL        00000000              0
+r0x1006                           STATIC        00000000              0
+r0x1007                           STATIC        00000001              1
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+
