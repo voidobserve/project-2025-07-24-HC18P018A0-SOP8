@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _BITS_DATA1
   0000                00041         extern  _g_ucTimer10msCount
   0000                00042         extern  _g_ucTimerWorkCount
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern STK04
   0000                00094         extern STK03
   0000                00095         extern STK02
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 ;--------------------------------------------------------
                       00147 ;       udata_ovr
                       00148 ;--------------------------------------------------------
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000E   13??           00187         INCF    (_lampTiming + 3),F
                       00188 ;;[ICODE] led.c:102:    iTemp8 [k13 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _lampTim
                             ing [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} > 0x1e460 {unsigned-long-in
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             1} fixed}[r0x1050 ] = @[iTemp13 [k20 lr20:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,
                             1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 0025                  00229 _00157_DS_:
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             oto _return($11)
                       00273 ;;[ICODE] led.c:123:    iTemp22 [k31 lr29:30 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,
                             1} near* fixed}[remat] := iTemp12 [k18 lr19:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00314 ;***
                       00315 ;  pBlock Stats: dbName = C
                       00316 ;***
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -470,7 +470,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0000   18??           00356         CLRF    r0x100B
 0001   37??           00357         BTFSC   _BITS_DATA0,6
 0002   13??           00358         INCF    r0x100B,F
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -529,7 +529,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00397 ;;[ICODE] led.c:58:     *(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
                             eld {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                       00398 ;       .line   58; "led.c"     MODSEL = 1;
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -588,7 +588,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0000                  00439 _MotoSwitch:
                       00440 ; 2 exit points
                       00441 ;;[ICODE] led.c:43:     iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} n
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -647,7 +647,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                       00478 ;;[ICODE] led.c:37:     *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
                             eld {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 12
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -706,7 +706,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00517 ;functions called:
                       00518 ;   _LedOn
                       00519 ;   _LedOff
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 13
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -765,7 +765,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00559 
                       00560 ;***
                       00561 ;  pBlock Stats: dbName = C
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 14
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -824,7 +824,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00599 
                       00600 ;       code size estimation:
                       00601 ;         143+    0 =   143 instructions (  286 byte)
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 15
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -832,7 +832,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 
                       00602 
                       00603         end
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 16
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 16
 
 
 SYMBOL TABLE
@@ -891,7 +891,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 17
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 17
 
 
 SYMBOL TABLE
@@ -950,7 +950,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 18
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 18
 
 
 SYMBOL TABLE
@@ -1009,7 +1009,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 19
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 19
 
 
 SYMBOL TABLE
@@ -1068,7 +1068,7 @@ _CP_OFF                           CONSTANT      00003FFF          16383
 _CP_ON                            CONSTANT      00003FEF          16367
 _CountdownDisplay                 GLOBAL        00000000              0
 _FOSC_HS                          CONSTANT      00003FFD          16381
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 20
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 20
 
 
 SYMBOL TABLE
@@ -1127,7 +1127,7 @@ _PWM0P                            EXTERNAL      00000000              0
 _PWM1P                            EXTERNAL      00000000              0
 _PWM2P                            EXTERNAL      00000000              0
 _PWMCON                           EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 21
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 21
 
 
 SYMBOL TABLE
@@ -1186,7 +1186,7 @@ __NUM_BANKS                       CONSTANT      00000001              1
 __PAGE_BITS                       CONSTANT      00001800           6144
 __PAGE_INV                        CONSTANT      FFFFFFFF             -1
 __PAGE_MASK                       CONSTANT      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  13:40:46          PAGE 22
+gpasm-1.5.0 #1284 (Oct 14 2022)       led.asm   04/30/25  14:43:36          PAGE 22
 
 
 SYMBOL TABLE

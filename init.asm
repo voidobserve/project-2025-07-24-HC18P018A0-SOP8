@@ -260,9 +260,9 @@ _InitPort:
 ;	.line	27; "init.c"	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
 	MOVLW	0xff
 	MOVWF	_PDCON
-;;[ICODE] init.c:28: 	_PDCON1 [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xdf {const-unsigned-char literal}
-;	.line	28; "init.c"	PDCON1 = DEF_CLR_BIT5; // 1 disenable down pull ,0 enable down pull
-	MOVLW	0xdf
+;;[ICODE] init.c:28: 	_PDCON1 [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+;	.line	28; "init.c"	PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+	MOVLW	0xff
 	MOVWF	_PDCON1
 ;;[ICODE] init.c:32: 	_IOCB [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
 ;	.line	32; "init.c"	IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
@@ -271,19 +271,25 @@ _InitPort:
 ;;[ICODE] init.c:34: 	*(iTemp6 [k17 lr20:22 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
 ;	.line	34; "init.c"	PBIE = 0; // 0	disenable Port level change interrupt , 1 enable Port level change interrupt
 	BCF	_INTECONbits,1
-;;[ICODE] init.c:36: 	_ODCON [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-;	.line	36; "init.c"	ODCON = 0; // 0 disenable open drain output, 1 enable open drain output
+;;[ICODE] init.c:35: 	_ODCON [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	35; "init.c"	ODCON = 0;
 	CLRF	_ODCON
-;;[ICODE] init.c:40: 	iTemp8 [k22 lr24:26 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] init.c:40: 	*(iTemp8 [k22 lr24:26 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;;[ICODE] init.c:36: 	_ODCON [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _ODCON [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x1 {const-unsigned-char literal}
+;	.line	36; "init.c"	ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open drain output
+	BSF	_ODCON,0
+;;[ICODE] init.c:37: 	_ODCON [k18 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _ODCON [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x2 {const-unsigned-char literal}
+;	.line	37; "init.c"	ODCON |= DEF_SET_BIT1;
+	BSF	_ODCON,1
+;;[ICODE] init.c:40: 	iTemp10 [k24 lr28:30 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] init.c:40: 	*(iTemp10 [k24 lr28:30 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
 ;	.line	40; "init.c"	PORT_LED1 = 1;  //µÆ¹â  1£ºÃð  0£ºÁÁ
 	BSF	_PORTBbits,1
-;;[ICODE] init.c:41: 	iTemp10 [k25 lr27:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PORTBbits [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] init.c:41: 	*(iTemp10 [k25 lr27:29 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;;[ICODE] init.c:41: 	iTemp12 [k27 lr31:33 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] init.c:41: 	*(iTemp12 [k27 lr31:33 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
 ;	.line	41; "init.c"	PORT_LED2 = 1;  //µç»ú 1£ºÃð  0£ºÁÁ
 	BSF	_PORTBbits,0
-;;[ICODE] init.c:42: 	iTemp12 [k28 lr30:32 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat] = &[_PORTBbits [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] init.c:42: 	*(iTemp12 [k28 lr30:32 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;;[ICODE] init.c:42: 	iTemp14 [k30 lr34:36 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] init.c:42: 	*(iTemp14 [k30 lr34:36 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
 ;	.line	42; "init.c"	PORT_LED3 = 0; //pow
 	BCF	_PORTBbits,3
 ;;[ICODE] init.c:42:  _return($1) :
@@ -293,6 +299,6 @@ _InitPort:
 
 
 ;	code size estimation:
-;	   44+    0 =    44 instructions (   88 byte)
+;	   46+    0 =    46 instructions (   92 byte)
 
 	end

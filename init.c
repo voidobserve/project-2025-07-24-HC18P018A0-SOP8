@@ -23,18 +23,18 @@ void InitPort(void)
 	PHCON &= DEF_CLR_BIT4;
 
 	//配置下拉
-	//5需要下拉
+	
 	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
-    PDCON1 = DEF_CLR_BIT5; // 1 disenable down pull ,0 enable down pull
+    PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
     
 
    
     IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
 
     PBIE = 0; // 0	disenable Port level change interrupt , 1 enable Port level change interrupt
-
-	ODCON = 0; // 0 disenable open drain output, 1 enable open drain output
-
+	ODCON = 0;
+	ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open drain output
+	ODCON |= DEF_SET_BIT1;
 
 	//IOCB = 0X08;
 	PORT_LED1 = 1;  //灯光  1：灭  0：亮

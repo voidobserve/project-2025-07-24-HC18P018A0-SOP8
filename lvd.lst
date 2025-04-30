@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _AUXRbits
   0000                00041         extern  _BITS_DATA0
   0000                00042         extern  _BITS_DATA1
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern STK06
   0000                00094         extern STK05
   0000                00095         extern STK04
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00144 ;***
                       00145 ;  pBlock Stats: dbName = C
                       00146 ;***
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00191 
                       00192 
                       00193 ;       code size estimation:
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -243,7 +243,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00194 ;           4+    0 =     4 instructions (    8 byte)
                       00195 
                       00196         end
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  6
 
 
 SYMBOL TABLE
@@ -302,7 +302,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  7
 
 
 SYMBOL TABLE
@@ -361,7 +361,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  8
 
 
 SYMBOL TABLE
@@ -420,7 +420,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE  9
 
 
 SYMBOL TABLE
@@ -479,7 +479,7 @@ _ControlSos                       EXTERNAL      00000000              0
 _DelayMs                          EXTERNAL      00000000              0
 _FOSC_HS                          CONSTANT      00003FFD          16381
 _FOSC_INTRCIO                     CONSTANT      00003FFC          16380
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE 10
 
 
 SYMBOL TABLE
@@ -538,7 +538,7 @@ _T0CRbits                         EXTERNAL      00000000              0
 _T1                               EXTERNAL      00000000              0
 _T1CON                            EXTERNAL      00000000              0
 _T1CONbits                        EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  13:40:47          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  14:43:36          PAGE 11
 
 
 SYMBOL TABLE

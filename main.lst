@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _PCONbits
   0000                00041         extern  _IOCBbits
   0000                00042         extern  _PDCONbits
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern  _OSCCON
   0000                00094         extern  _CMPCR
   0000                00095         extern  _PDCON1
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 ;--------------------------------------------------------
                       00147 ; absolute symbol definitions
                       00148 ;--------------------------------------------------------
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00199 ;has an exit
                       00200 ;functions called:
                       00201 ;   _InitPort
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0006                  00242 _00112_DS_:
 0006   0004           00243         clrwdt
                       00244 ;;[ICODE] main.c:29:    iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00280 ;; Starting pCode block
                       00281 ;;[ICODE] main.c:14:  _entry($2) :
                       00282 ;;[ICODE] main.c:14:    proc __sdcc_gsinit_startup [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void 
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -377,7 +377,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00297 ;          15+    0 =    15 instructions (   30 byte)
                       00298 
                       00299         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  8
 
 
 SYMBOL TABLE
@@ -436,7 +436,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE  9
 
 
 SYMBOL TABLE
@@ -495,7 +495,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE 10
 
 
 SYMBOL TABLE
@@ -554,7 +554,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE 11
 
 
 SYMBOL TABLE
@@ -613,7 +613,7 @@ _ControlLevelHigh                 EXTERNAL      00000000              0
 _ControlLevelLow                  EXTERNAL      00000000              0
 _ControlSos                       EXTERNAL      00000000              0
 _CountdownDisplay                 EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE 12
 
 
 SYMBOL TABLE
@@ -672,7 +672,7 @@ _PWM1P                            EXTERNAL      00000000              0
 _PWM2P                            EXTERNAL      00000000              0
 _PWMCON                           EXTERNAL      00000000              0
 _PWMCONbits                       EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE 13
 
 
 SYMBOL TABLE
@@ -731,7 +731,7 @@ __IDLOCS_END                      CONSTANT      00002005           8197
 __IDLOCS_START                    CONSTANT      00002004           8196
 __NUM_BANKS                       CONSTANT      00000001              1
 __PAGE_BITS                       CONSTANT      00001800           6144
-gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  13:40:47          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)      main.asm   04/30/25  14:43:37          PAGE 14
 
 
 SYMBOL TABLE
