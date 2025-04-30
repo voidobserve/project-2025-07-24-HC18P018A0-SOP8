@@ -44,7 +44,7 @@ void ScanKey(void)
 		
 			if(PORT_KEY_3 == 1){
 				long_f = 1;
-				// PowOn();
+				PowOn();
 				g_ucTimerWorkCount++;  //10ms
 			}
 		
@@ -75,7 +75,7 @@ void ScanKey(void)
 		} else {
 			long_f = 0;
 			g_ucTimerWorkCount = 0;
-			// PowOff();
+			PowOff();
 		}
 	 }
 
@@ -83,21 +83,21 @@ void ScanKey(void)
 
 }
 
-unsigned char  turn = 0;
-void test_turn(void)
-{
+// unsigned char  turn = 0;
+// void test_turn(void)
+// {
 
-	if(turn) {
-		turn = 0;
-		PowOn();
-	} else {
-		turn = 1;
-		PowOff();
-	}
+// 	if(turn) {
+// 		turn = 0;
+// 		PowOn();
+// 	} else {
+// 		turn = 1;
+// 		PowOff();
+// 	}
 
 
 
-}
+// }
 
 
 

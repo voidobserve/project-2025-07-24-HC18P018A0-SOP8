@@ -110,6 +110,7 @@
 ;--------------------------------------------------------
 ; global declarations
 ;--------------------------------------------------------
+	global	_CountdownDisplay
 	global	_PowOff
 	global	_PowOn
 	global	_MotoDisplay
@@ -120,6 +121,8 @@
 	global	_LedSwitch
 	global	_MotoOn
 	global	_MotoOff
+	global	_lampTiming
+	global	_motoTiming
 
 ;--------------------------------------------------------
 ; global definitions
@@ -131,13 +134,25 @@
 ; compiler-defined variables
 ;--------------------------------------------------------
 UDL_led_0	udata
+r0x100D	res	1
+r0x100B	res	1
+r0x1009	res	1
 r0x1007	res	1
 r0x1005	res	1
-r0x1003	res	1
-r0x1001	res	1
+r0x1006	res	1
 ;--------------------------------------------------------
 ; initialized data
 ;--------------------------------------------------------
+
+ID_led_0	idata
+_lampTiming
+	db	0x00, 0x00
+
+
+ID_led_1	idata
+_motoTiming
+	db	0x00, 0x00
+
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
 ;--------------------------------------------------------
@@ -146,6 +161,119 @@ r0x1001	res	1
 ; code
 ;--------------------------------------------------------
 code_led	code
+;***
+;  pBlock Stats: dbName = C
+;***
+;has an exit
+;2 compiler assigned registers:
+;   r0x1005
+;   r0x1006
+;; Starting pCode block
+;;[ICODE] led.c:94:  _entry($12) :
+;;[ICODE] led.c:94: 	proc _CountdownDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+S_led__CountdownDisplay	code
+_CountdownDisplay:
+; 2 exit points
+;;[ICODE] led.c:98: 	iTemp0 [k3 lr3:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] led.c:98: 	iTemp1 [k5 lr4:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] := iTemp0 [k3 lr3:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]
+;;[ICODE] led.c:98: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1050 ] = @[iTemp1 [k5 lr4:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;	.line	98; "led.c"	if(IsLight == 1) {
+	CLRF	r0x1005
+	BTFSC	_BITS_DATA0,5
+	INCF	r0x1005,F
+;;[ICODE] led.c:98: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x1051 ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1050 ]
+	MOVF	r0x1005,W
+	MOVWF	r0x1006
+	XORLW	0x01
+	BTFSS	STATUS,2
+	GOTO	_00156_DS_
+;;[ICODE] led.c:98: 	if iTemp4 [k8 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_3($4)
+;;[ICODE] led.c:100: 	_lampTiming [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} = _lampTiming [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-unsigned-char literal}
+;	.line	100; "led.c"	lampTiming++;
+	INCF	_lampTiming,F
+	BTFSC	STATUS,2
+	INCF	(_lampTiming + 1),F
+;;[ICODE] led.c:104: 	iTemp8 [k13 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _lampTiming [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} > 0x3e8 {unsigned-int literal}
+;;swapping arguments (AOP_TYPEs 1/3)
+;;unsigned compare: left >= lit(0x3E9=1001), size=2
+;	.line	104; "led.c"	if(lampTiming > 1000) {    //10s
+	MOVLW	0x03
+	SUBWF	(_lampTiming + 1),W
+	BTFSS	STATUS,2
+	GOTO	_00177_DS_
+	MOVLW	0xe9
+	SUBWF	_lampTiming,W
+_00177_DS_:
+	BTFSS	STATUS,0
+	GOTO	_00157_DS_
+;;genSkipc:3257: created from rifx:0x782c44
+;;[ICODE] led.c:104: 	if iTemp8 [k13 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __ifend_3($5)
+;;[ICODE] led.c:105: 	iTemp10 [k16 lr13:14 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] := iTemp0 [k3 lr3:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]
+;;[ICODE] led.c:105: 	*(iTemp10 [k16 lr13:14 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	105; "led.c"	IsLight = 0;
+	BCF	_BITS_DATA0,5
+;;[ICODE] led.c:105: 	 goto __ifend_3($5)
+	GOTO	_00157_DS_
+;;[ICODE] led.c:105:  __iffalse_3($4) :
+;;[ICODE] led.c:112: 	_lampTiming [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+_00156_DS_:
+;	.line	112; "led.c"	lampTiming = 0;
+	CLRF	_lampTiming
+	CLRF	(_lampTiming + 1)
+;;[ICODE] led.c:112:  __ifend_3($5) :
+;;[ICODE] led.c:117: 	iTemp12 [k18 lr19:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] led.c:117: 	iTemp13 [k20 lr20:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] := iTemp12 [k18 lr19:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]
+;;[ICODE] led.c:117: 	iTemp14 [k21 lr21:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1050 ] = @[iTemp13 [k20 lr20:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+_00157_DS_:
+;	.line	117; "led.c"	if(IsMotor == 1){
+	CLRF	r0x1005
+	BTFSC	_BITS_DATA0,6
+	INCF	r0x1005,F
+;;[ICODE] led.c:117: 	iTemp15 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x1051 ] = (char register)iTemp14 [k21 lr21:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1050 ]
+	MOVF	r0x1005,W
+	MOVWF	r0x1006
+	XORLW	0x01
+	BTFSS	STATUS,2
+	GOTO	_00161_DS_
+;;[ICODE] led.c:117: 	if iTemp16 [k23 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_5($9)
+;;[ICODE] led.c:118: 	_motoTiming [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} = _motoTiming [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-unsigned-char literal}
+;	.line	118; "led.c"	motoTiming++;
+	INCF	_motoTiming,F
+	BTFSC	STATUS,2
+	INCF	(_motoTiming + 1),F
+;;[ICODE] led.c:123: 	iTemp20 [k28 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _motoTiming [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} > 0x3e8 {unsigned-int literal}
+;;swapping arguments (AOP_TYPEs 1/3)
+;;unsigned compare: left >= lit(0x3E9=1001), size=2
+;	.line	123; "led.c"	if(motoTiming > 1000) {    //10s
+	MOVLW	0x03
+	SUBWF	(_motoTiming + 1),W
+	BTFSS	STATUS,2
+	GOTO	_00178_DS_
+	MOVLW	0xe9
+	SUBWF	_motoTiming,W
+_00178_DS_:
+	BTFSS	STATUS,0
+	GOTO	_00163_DS_
+;;genSkipc:3257: created from rifx:0x782c44
+;;[ICODE] led.c:123: 	if iTemp20 [k28 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto _return($11)
+;;[ICODE] led.c:124: 	iTemp22 [k31 lr29:30 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] := iTemp12 [k18 lr19:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]
+;;[ICODE] led.c:124: 	*(iTemp22 [k31 lr29:30 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	124; "led.c"	IsMotor = 0;
+	BCF	_BITS_DATA0,6
+;;[ICODE] led.c:124: 	 goto _return($11)
+	GOTO	_00163_DS_
+;;[ICODE] led.c:124:  __iffalse_5($9) :
+;;[ICODE] led.c:131: 	_motoTiming [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+_00161_DS_:
+;	.line	131; "led.c"	motoTiming = 0;
+	CLRF	_motoTiming
+	CLRF	(_motoTiming + 1)
+;;[ICODE] led.c:131:  _return($11) :
+;;[ICODE] led.c:131: 	eproc _CountdownDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+_00163_DS_:
+	RETURN	
+; exit point of _CountdownDisplay
+
 ;***
 ;  pBlock Stats: dbName = C
 ;***
@@ -198,8 +326,8 @@ _PowOn:
 ;   _MotoOn
 ;   _MotoOff
 ;2 compiler assigned registers:
-;   r0x1001
-;   r0x1002
+;   r0x1007
+;   r0x1008
 ;; Starting pCode block
 ;;[ICODE] led.c:61:  _entry($5) :
 ;;[ICODE] led.c:61: 	proc _MotoDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
@@ -209,12 +337,12 @@ _MotoDisplay:
 ;;[ICODE] led.c:63: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
 ;;[ICODE] led.c:63: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104C ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	63; "led.c"	if(IsMotor == 1)
-	CLRF	r0x1001
+	CLRF	r0x1007
 	BTFSC	_BITS_DATA0,6
-	INCF	r0x1001,F
+	INCF	r0x1007,F
 ;;[ICODE] led.c:63: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104D ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104C ]
-	MOVF	r0x1001,W
-;;1	MOVWF	r0x1002
+	MOVF	r0x1007,W
+;;1	MOVWF	r0x1008
 	XORLW	0x01
 	BTFSS	STATUS,2
 	GOTO	_00138_DS_
@@ -286,8 +414,8 @@ _MotoOn:
 ;***
 ;has an exit
 ;2 compiler assigned registers:
-;   r0x1003
-;   r0x1004
+;   r0x1009
+;   r0x100A
 ;; Starting pCode block
 ;;[ICODE] led.c:41:  _entry($2) :
 ;;[ICODE] led.c:41: 	proc _MotoSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
@@ -299,18 +427,18 @@ _MotoSwitch:
 ;;[ICODE] led.c:43: 	iTemp3 [k8 lr5:6 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]
 ;;[ICODE] led.c:43: 	iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104A ] = @[iTemp3 [k8 lr5:6 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	43; "led.c"	IsMotor =!IsMotor;
-	CLRF	r0x1003
+	CLRF	r0x1009
 	BTFSC	_BITS_DATA0,6
-	INCF	r0x1003,F
+	INCF	r0x1009,F
 ;;[ICODE] led.c:43: 	iTemp5 [k10 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed}[r0x104B ] = not iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104A ]
-	MOVF	r0x1003,W
+	MOVF	r0x1009,W
 	MOVLW	0x00
 	BTFSC	STATUS,2
 	MOVLW	0x01
-;;1	MOVWF	r0x1004
-	MOVWF	r0x1003
+;;1	MOVWF	r0x100A
+	MOVWF	r0x1009
 ;;[ICODE] led.c:43: 	*(iTemp1 [k5 lr4:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]) := iTemp6 [k11 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104A ]
-	RRF	r0x1003,W
+	RRF	r0x1009,W
 	BTFSS	STATUS,0
 	BCF	_BITS_DATA0,6
 	BTFSC	STATUS,0
@@ -376,8 +504,8 @@ _LedOn:
 ;   _LedOn
 ;   _LedOff
 ;2 compiler assigned registers:
-;   r0x1005
-;   r0x1006
+;   r0x100B
+;   r0x100C
 ;; Starting pCode block
 ;;[ICODE] led.c:15:  _entry($5) :
 ;;[ICODE] led.c:15: 	proc _LedDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
@@ -387,12 +515,12 @@ _LedDisplay:
 ;;[ICODE] led.c:17: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
 ;;[ICODE] led.c:17: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1048 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	17; "led.c"	if(IsLight == 1 )
-	CLRF	r0x1005
+	CLRF	r0x100B
 	BTFSC	_BITS_DATA0,5
-	INCF	r0x1005,F
+	INCF	r0x100B,F
 ;;[ICODE] led.c:17: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x1049 ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1048 ]
-	MOVF	r0x1005,W
-;;1	MOVWF	r0x1006
+	MOVF	r0x100B,W
+;;1	MOVWF	r0x100C
 	XORLW	0x01
 	BTFSS	STATUS,2
 	GOTO	_00110_DS_
@@ -418,8 +546,8 @@ _00112_DS_:
 ;***
 ;has an exit
 ;2 compiler assigned registers:
-;   r0x1007
-;   r0x1008
+;   r0x100D
+;   r0x100E
 ;; Starting pCode block
 ;;[ICODE] led.c:6:  _entry($2) :
 ;;[ICODE] led.c:6: 	proc _LedSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
@@ -431,18 +559,18 @@ _LedSwitch:
 ;;[ICODE] led.c:9: 	iTemp3 [k8 lr5:6 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]
 ;;[ICODE] led.c:9: 	iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1045 ] = @[iTemp3 [k8 lr5:6 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	9; "led.c"	IsLight = !IsLight;
-	CLRF	r0x1007
+	CLRF	r0x100D
 	BTFSC	_BITS_DATA0,5
-	INCF	r0x1007,F
+	INCF	r0x100D,F
 ;;[ICODE] led.c:9: 	iTemp5 [k10 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed}[r0x1046 ] = not iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1045 ]
-	MOVF	r0x1007,W
+	MOVF	r0x100D,W
 	MOVLW	0x00
 	BTFSC	STATUS,2
 	MOVLW	0x01
-;;1	MOVWF	r0x1008
-	MOVWF	r0x1007
+;;1	MOVWF	r0x100E
+	MOVWF	r0x100D
 ;;[ICODE] led.c:9: 	*(iTemp1 [k5 lr4:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]) := iTemp6 [k11 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1045 ]
-	RRF	r0x1007,W
+	RRF	r0x100D,W
 	BTFSS	STATUS,0
 	BCF	_BITS_DATA0,5
 	BTFSC	STATUS,0
@@ -454,6 +582,6 @@ _LedSwitch:
 
 
 ;	code size estimation:
-;	   68+    0 =    68 instructions (  136 byte)
+;	  115+    0 =   115 instructions (  230 byte)
 
 	end

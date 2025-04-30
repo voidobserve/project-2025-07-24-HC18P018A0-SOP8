@@ -9,5 +9,5 @@ void LedSwitch(void);
 void MotoSwitch(void);
 void PowOn(void);
 void PowOff(void);
-
+void CountdownDisplay(void);
 #endif //__LED_H__

@@ -86,3 +86,56 @@ void PowOff(void)
 
 }
 
+
+
+unsigned int lampTiming = 0;
+unsigned int motoTiming = 0;
+
+void CountdownDisplay(void)
+{
+
+
+	if(IsLight == 1) {
+
+		lampTiming++;
+		// if(lampTiming > 124000) {    //20分钟
+		// 	IsLight = 0;
+		// }
+		if(lampTiming > 1000) {    //10s
+			IsLight = 0;
+		}
+
+
+
+	} else {
+
+		lampTiming = 0;
+
+	}
+
+
+	if(IsMotor == 1){
+		motoTiming++;
+		// if(motoTiming > 124000) {    //20分钟
+		// 	IsMotor = 0;
+		// }
+
+		if(motoTiming > 1000) {    //10s
+			IsMotor = 0;
+		}
+
+	} else {
+
+
+
+		motoTiming = 0;
+	}
+	
+
+}
+
+
+
+
+
+

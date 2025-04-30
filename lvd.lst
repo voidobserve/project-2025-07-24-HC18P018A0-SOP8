@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _AUXRbits
   0000                00041         extern  _BITS_DATA0
   0000                00042         extern  _BITS_DATA1
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern  _AUXR
   0000                00094         extern  _HIRCTRM
                       00095 
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 ;***
                       00147 ;has an exit
                       00148 ;1 compiler assigned register :
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00188 ;;[ICODE] lvd.c:161:    if iTemp3 [k9 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 got
                             o __iffalse_21($2)
                       00189 ;;[ICODE] lvd.c:163:    _CHARGE0 [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             st-unsigned-char literal} == iTemp0 [k2 lr3:28 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed
                             }{ sir@ _ControlLvdCfg_num_1_32}[r0x1050 ]
 0022                  00231 _00176_DS_:
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00277 ; 2 exit points
                       00278 ;;[ICODE] lvd.c:105:    iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
                             d {5,1} near* fixed}[remat] = &[_INTFLAGbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-st
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             ed}[r0x104D ]
 000B   11??           00312         MOVF    r0x100A,W
                       00313 ;;1     MOVWF   r0x100B
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -470,7 +470,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0019   2???           00349         GOTO    _00152_DS_
                       00350 ;;[ICODE] lvd.c:128:    if iTemp24 [k37 lr38:39 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield 
                             {1,1} fixed}[r0x104D ] != 0 goto __iffalse_14($9)
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -529,7 +529,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00389 ;;[ICODE] lvd.c:141:  __iffalse_16($13) :
                       00390 ;;[ICODE] lvd.c:142:    iTemp32 [k49 lr57:58 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _LvdMod
                             el [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char lit
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -588,7 +588,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 003A   2???           00430         CALL    _ControlLvdCfg
                       00431 ;;[ICODE] lvd.c:147:  __iffalse_19($19) :
                       00432 ;;[ICODE] lvd.c:148:    iTemp38 [k55 lr72:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _LvdMod
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -647,7 +647,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00474 ;;[ICODE] lvd.c:38:     _PCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
                             } := 0x1e {const-unsigned-char literal}
                       00475 ;       .line   38; "lvd.c"     PCON = PCON0;  //00011110  4.2v
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 12
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -706,7 +706,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0017   3103           00516         BTFSS   STATUS,2
 0018   2???           00517         GOTO    _00112_DS_
                       00518 ;;[ICODE] lvd.c:43:     if iTemp3 [k7 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 got
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 13
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -765,7 +765,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             [k2 lr3:46 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _CheckLvdElectric_num_1_12}[
                             r0x1049 ] == _LvdDebounceOld [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
                       00554 ;       .line   55; "lvd.c"     if(num == LvdDebounceOld)
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 14
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -824,7 +824,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0036   19??           00593         MOVWF   _LvdDebounceOld
                       00594 ;;[ICODE] lvd.c:70:      goto __ifend_7($23)
 0037   2???           00595         GOTO    _00131_DS_
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 15
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -883,7 +883,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0046   11??           00635         MOVF    _LvdDebounceOld,W
 0047   19??           00636         MOVWF   _LvdModel
                       00637 ;;[ICODE] lvd.c:92:     iTemp36 [k50 lr73:74 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x5 {co
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 16
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 16
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -942,7 +942,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00676 ; exit point of _CheckLvd
                       00677 
                       00678 
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 17
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 17
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -952,7 +952,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00680 ;         188+    0 =   188 instructions (  376 byte)
                       00681 
                       00682         end
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 18
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 18
 
 
 SYMBOL TABLE
@@ -1011,7 +1011,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 19
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 19
 
 
 SYMBOL TABLE
@@ -1070,7 +1070,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 20
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 20
 
 
 SYMBOL TABLE
@@ -1129,7 +1129,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 21
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 21
 
 
 SYMBOL TABLE
@@ -1188,7 +1188,7 @@ _00165_DS_                        ADDRESS       00000041             65
 _00171_DS_                        ADDRESS       00000015             21
 _00176_DS_                        ADDRESS       00000022             34
 _00179_DS_                        ADDRESS       0000001A             26
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 22
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 22
 
 
 SYMBOL TABLE
@@ -1247,7 +1247,7 @@ _MaxLight                         EXTERNAL      00000000              0
 _ODCON                            EXTERNAL      00000000              0
 _ODCONbits                        EXTERNAL      00000000              0
 _OPTION                           EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 23
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 23
 
 
 SYMBOL TABLE
@@ -1306,7 +1306,7 @@ __BANK_BITS                       CONSTANT      00000080            128
 __BANK_FIRST                      CONSTANT      00000000              0
 __BANK_INV                        CONSTANT      FFFFFFFF             -1
 __BANK_LAST                       CONSTANT      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  10:45:51          PAGE 24
+gpasm-1.5.0 #1284 (Oct 14 2022)       lvd.asm   04/30/25  11:05:29          PAGE 24
 
 
 SYMBOL TABLE

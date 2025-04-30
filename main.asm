@@ -34,7 +34,7 @@
 	extern	_MotoSwitch
 	extern	_PowOn
 	extern	_PowOff
-	extern	_test_turn
+	extern	_CountdownDisplay
 	extern	_STATUSbits
 	extern	_PORTBbits
 	extern	_PCONbits
@@ -214,63 +214,63 @@ code_main	code
 ;   _InitSystem
 ;   _InitRam
 ;   _ScanKey
-;   _test_turn
+;   _CountdownDisplay
 ;   _LedDisplay
 ;   _MotoDisplay
 ;   _InitPort
 ;   _InitSystem
 ;   _InitRam
 ;   _ScanKey
-;   _test_turn
+;   _CountdownDisplay
 ;   _LedDisplay
 ;   _MotoDisplay
 ;; Starting pCode block
-;;[ICODE] main.c:17:  _entry($7) :
-;;[ICODE] main.c:17: 	proc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] main.c:16:  _entry($7) :
+;;[ICODE] main.c:16: 	proc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 S_main__main	code
 _main:
 ; 2 exit points
-;;[ICODE] main.c:19: 	iTemp0 [k3 lr3:3 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	19; "main.c"	InitPort();
+;;[ICODE] main.c:18: 	iTemp0 [k3 lr3:3 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	18; "main.c"	InitPort();
 	CALL	_InitPort
-;;[ICODE] main.c:20: 	iTemp1 [k5 lr4:4 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitSystem [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	20; "main.c"	InitSystem();
+;;[ICODE] main.c:19: 	iTemp1 [k5 lr4:4 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitSystem [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	19; "main.c"	InitSystem();
 	CALL	_InitSystem
-;;[ICODE] main.c:21: 	iTemp2 [k7 lr5:5 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitRam [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	21; "main.c"	InitRam();
+;;[ICODE] main.c:20: 	iTemp2 [k7 lr5:5 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitRam [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	20; "main.c"	InitRam();
 	CALL	_InitRam
-;;[ICODE] main.c:22: 	iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] main.c:22: 	*(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-;	.line	22; "main.c"	T0IE = 1;		//使能TMR0溢出中断
+;;[ICODE] main.c:21: 	iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] main.c:21: 	*(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	21; "main.c"	T0IE = 1;		//使能TMR0溢出中断
 	BSF	_INTECONbits,0
-;;[ICODE] main.c:23: 	iTemp6 [k14 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] main.c:23: 	*(iTemp6 [k14 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-;	.line	23; "main.c"	GIE = 1;		//使能所有中断   
+;;[ICODE] main.c:22: 	iTemp6 [k14 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] main.c:22: 	*(iTemp6 [k14 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	22; "main.c"	GIE = 1;		//使能所有中断   
 	BSF	_INTECONbits,7
-;;[ICODE] main.c:24: inline
+;;[ICODE] main.c:23: inline
 	clrwdt
-;;[ICODE] main.c:26:  _whilebody_0($4) :
-;;[ICODE] main.c:28: inline
+;;[ICODE] main.c:25:  _whilebody_0($4) :
+;;[ICODE] main.c:27: inline
 _00112_DS_:
 	clrwdt
-;;[ICODE] main.c:30: 	iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] main.c:30: 	iTemp8 [k18 lr17:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
-;;[ICODE] main.c:30: 	iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1045 ] = @[iTemp8 [k18 lr17:18 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-;	.line	30; "main.c"	if (BIT_TIMER_10MS)
+;;[ICODE] main.c:29: 	iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] main.c:29: 	iTemp8 [k18 lr17:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
+;;[ICODE] main.c:29: 	iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1045 ] = @[iTemp8 [k18 lr17:18 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;	.line	29; "main.c"	if (BIT_TIMER_10MS)
 	BTFSS	_BITS_DATA0,0
 	GOTO	_00110_DS_
-;;[ICODE] main.c:30: 	if iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1045 ] == 0 goto __iffalse_0($2)
-;;[ICODE] main.c:32: 	iTemp11 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
-;;[ICODE] main.c:32: 	*(iTemp11 [k22 lr20:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	32; "main.c"	BIT_TIMER_10MS = 0;
+;;[ICODE] main.c:29: 	if iTemp9 [k19 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1045 ] == 0 goto __iffalse_0($2)
+;;[ICODE] main.c:31: 	iTemp11 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp7 [k16 lr16:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
+;;[ICODE] main.c:31: 	*(iTemp11 [k22 lr20:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	31; "main.c"	BIT_TIMER_10MS = 0;
 	BCF	_BITS_DATA0,0
-;;[ICODE] main.c:34: 	iTemp12 [k24 lr22:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _ScanKey [k23 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	34; "main.c"	ScanKey();                       //按键检测	
+;;[ICODE] main.c:33: 	iTemp12 [k24 lr22:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _ScanKey [k23 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	33; "main.c"	ScanKey();                       //按键检测	
 	CALL	_ScanKey
-;;[ICODE] main.c:35: 	iTemp13 [k26 lr23:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _test_turn [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	35; "main.c"	test_turn();
-	CALL	_test_turn
-;;[ICODE] main.c:35:  __iffalse_0($2) :
+;;[ICODE] main.c:34: 	iTemp13 [k26 lr23:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CountdownDisplay [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	34; "main.c"	CountdownDisplay();			 //倒计时
+	CALL	_CountdownDisplay
+;;[ICODE] main.c:34:  __iffalse_0($2) :
 ;;[ICODE] main.c:38: 	iTemp14 [k28 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedDisplay [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 _00110_DS_:
 ;	.line	38; "main.c"	LedDisplay();					 //LED指示灯

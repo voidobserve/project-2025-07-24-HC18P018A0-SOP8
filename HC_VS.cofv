@@ -1,7 +1,7 @@
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:50 2025
+Time Stamp           Wed Apr 30 11:05:27 2025
 Number of Sections   3
 Number of Symbols    84
 Characteristics      0
@@ -174,7 +174,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:50 2025
+Time Stamp           Wed Apr 30 11:05:27 2025
 Number of Sections   7
 Number of Symbols    114
 Characteristics      0
@@ -551,7 +551,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:50 2025
+Time Stamp           Wed Apr 30 11:05:28 2025
 Number of Sections   5
 Number of Symbols    107
 Characteristics      0
@@ -894,7 +894,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:51 2025
+Time Stamp           Wed Apr 30 11:05:28 2025
 Number of Sections   2
 Number of Symbols    107
 Characteristics      0
@@ -1140,9 +1140,9 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:51 2025
-Number of Sections   8
-Number of Symbols    143
+Time Stamp           Wed Apr 30 11:05:28 2025
+Number of Sections   6
+Number of Symbols    138
 Characteristics      0
 
 Section Header
@@ -1196,19 +1196,6 @@ Data
 0000:  00
 
 Section Header
-Name                    ID_key_3
-Physical address        0
-Virtual address         0
-Size of Section         1
-Number of Relocations   0
-Number of Line Numbers  0
-Flags                   0x40
-  Initialized data.
-
-Data
-0000:  00
-
-Section Header
 Name                    code_key
 Physical address        0
 Virtual address         0
@@ -1219,60 +1206,12 @@ Flags                   0x20
   Executable code.
 
 Section Header
-Name                    S_key__test_turn
-Physical address        0
-Virtual address         0
-Size of Section         22
-Number of Relocations   7
-Number of Line Numbers  11
-Flags                   0x20
-  Executable code.
-
-Data
-0000:  0400  movlw   0x00
-0001:  1d00  iorwf   0x00, 0x0
-0002:  3503  btfsc   0x03, 0x2
-0003:  2000  goto    0x0000
-0004:  1880  clrf    0x00
-0005:  2800  call    0x0000
-0006:  2000  goto    0x0000
-0007:  0401  movlw   0x01
-0008:  1980  movwf   0x00
-0009:  2800  call    0x0000
-000a:  0002  return
-
-Relocations Table
-Address     Offset      Offset       Type                        Symbol
-            (hex)       (dec)
-0x0001      0x00000000            0  0x000a RELOC_F              _turn
-0x0003      0x00000000            0  0x0002 RELOC_GOTO           _00191_DS_
-0x0004      0x00000000            0  0x000a RELOC_F              _turn
-0x0005      0x00000000            0  0x0001 RELOC_CALL           _PowOn
-0x0006      0x00000000            0  0x0002 RELOC_GOTO           _00193_DS_
-0x0008      0x00000000            0  0x000a RELOC_F              _turn
-0x0009      0x00000000            0  0x0001 RELOC_CALL           _PowOff
-
-Line Number Table
-Line      Address     Symbol
-189       0x0000      key.asm
-190       0x0001      key.asm
-191       0x0002      key.asm
-192       0x0003      key.asm
-195       0x0004      key.asm
-198       0x0005      key.asm
-200       0x0006      key.asm
-205       0x0007      key.asm
-206       0x0008      key.asm
-209       0x0009      key.asm
-213       0x000a      key.asm
-
-Section Header
 Name                    S_key__ScanKey
 Physical address        0
 Virtual address         0
-Size of Section         210
-Number of Relocations   71
-Number of Line Numbers  105
+Size of Section         214
+Number of Relocations   73
+Number of Line Numbers  107
 Flags                   0x20
   Executable code.
 
@@ -1347,41 +1286,43 @@ Data
 0043:  2000  goto    0x0000
 0044:  0401  movlw   0x01
 0045:  1980  movwf   0x00
-0046:  1380  incf    0x00, 0x1
-0047:  2000  goto    0x0000
-0048:  1880  clrf    0x00
+0046:  2800  call    0x0000
+0047:  1380  incf    0x00, 0x1
+0048:  2000  goto    0x0000
 0049:  1880  clrf    0x00
-004a:  1100  movf    0x00, 0x0
-004b:  0d01  xorlw   0x01
-004c:  3103  btfss   0x03, 0x2
-004d:  2000  goto    0x0000
-004e:  1880  clrf    0x00
-004f:  2800  call    0x0000
-0050:  2000  goto    0x0000
-0051:  1100  movf    0x00, 0x0
-0052:  0d02  xorlw   0x02
-0053:  3103  btfss   0x03, 0x2
-0054:  2000  goto    0x0000
-0055:  1880  clrf    0x00
-0056:  2800  call    0x0000
-0057:  2000  goto    0x0000
-0058:  1100  movf    0x00, 0x0
-0059:  0d03  xorlw   0x03
-005a:  3503  btfsc   0x03, 0x2
-005b:  1880  clrf    0x00
-005c:  0400  movlw   0x00
-005d:  1d00  iorwf   0x00, 0x0
-005e:  3503  btfsc   0x03, 0x2
-005f:  2000  goto    0x0000
-0060:  0432  movlw   0x32
-0061:  1b00  subwf   0x00, 0x0
-0062:  3403  btfsc   0x03, 0x0
-0063:  2000  goto    0x0000
-0064:  1380  incf    0x00, 0x1
-0065:  2000  goto    0x0000
-0066:  1880  clrf    0x00
+004a:  1880  clrf    0x00
+004b:  1100  movf    0x00, 0x0
+004c:  0d01  xorlw   0x01
+004d:  3103  btfss   0x03, 0x2
+004e:  2000  goto    0x0000
+004f:  1880  clrf    0x00
+0050:  2800  call    0x0000
+0051:  2000  goto    0x0000
+0052:  1100  movf    0x00, 0x0
+0053:  0d02  xorlw   0x02
+0054:  3103  btfss   0x03, 0x2
+0055:  2000  goto    0x0000
+0056:  1880  clrf    0x00
+0057:  2800  call    0x0000
+0058:  2000  goto    0x0000
+0059:  1100  movf    0x00, 0x0
+005a:  0d03  xorlw   0x03
+005b:  3503  btfsc   0x03, 0x2
+005c:  1880  clrf    0x00
+005d:  0400  movlw   0x00
+005e:  1d00  iorwf   0x00, 0x0
+005f:  3503  btfsc   0x03, 0x2
+0060:  2000  goto    0x0000
+0061:  0432  movlw   0x32
+0062:  1b00  subwf   0x00, 0x0
+0063:  3403  btfsc   0x03, 0x0
+0064:  2000  goto    0x0000
+0065:  1380  incf    0x00, 0x1
+0066:  2000  goto    0x0000
 0067:  1880  clrf    0x00
-0068:  0002  return
+0068:  1880  clrf    0x00
+0069:  2800  call    0x0000
+006a:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
@@ -1390,11 +1331,11 @@ Address     Offset      Offset       Type                        Symbol
 0x0001      0x00000000            0  0x0002 RELOC_GOTO           _00134_DS_
 0x0002      0x00000000            0  0x000a RELOC_F              _PORTBbits
 0x0003      0x00000000            0  0x0002 RELOC_GOTO           _00134_DS_
-0x0004      0x00000000            0  0x000a RELOC_F              r0x1006
+0x0004      0x00000000            0  0x000a RELOC_F              r0x1005
 0x0005      0x00000000            0  0x000a RELOC_F              _PORTBbits
-0x0006      0x00000000            0  0x000a RELOC_F              r0x1006
-0x0007      0x00000000            0  0x000a RELOC_F              r0x1006
-0x0008      0x00000000            0  0x000a RELOC_F              r0x1007
+0x0006      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0007      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0008      0x00000000            0  0x000a RELOC_F              r0x1006
 0x000b      0x00000000            0  0x0002 RELOC_GOTO           _00135_DS_
 0x000d      0x00000001            1  0x000a RELOC_F              _longpress_cnt
 0x000f      0x00000000            0  0x0002 RELOC_GOTO           _00183_DS_
@@ -1414,11 +1355,11 @@ Address     Offset      Offset       Type                        Symbol
 0x0025      0x00000000            0  0x0002 RELOC_GOTO           _00110_DS_
 0x0027      0x00000000            0  0x000a RELOC_F              _clink_event
 0x0028      0x00000000            0  0x0002 RELOC_GOTO           _00116_DS_
-0x0029      0x00000000            0  0x000a RELOC_F              r0x1006
+0x0029      0x00000000            0  0x000a RELOC_F              r0x1005
 0x002a      0x00000000            0  0x000a RELOC_F              _PORTBbits
-0x002b      0x00000000            0  0x000a RELOC_F              r0x1006
-0x002c      0x00000000            0  0x000a RELOC_F              r0x1006
-0x002d      0x00000000            0  0x000a RELOC_F              r0x1007
+0x002b      0x00000000            0  0x000a RELOC_F              r0x1005
+0x002c      0x00000000            0  0x000a RELOC_F              r0x1005
+0x002d      0x00000000            0  0x000a RELOC_F              r0x1006
 0x0030      0x00000000            0  0x0002 RELOC_GOTO           _00116_DS_
 0x0032      0x00000000            0  0x000a RELOC_F              _clink_event
 0x0034      0x00000001            1  0x000a RELOC_F              _longpress_cnt
@@ -1426,145 +1367,149 @@ Address     Offset      Offset       Type                        Symbol
 0x0038      0x00000000            0  0x000a RELOC_F              _longpress_cnt
 0x003a      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
 0x003b      0x00000000            0  0x000a RELOC_F              _clink_event
-0x003c      0x00000000            0  0x000a RELOC_F              r0x1006
+0x003c      0x00000000            0  0x000a RELOC_F              r0x1005
 0x003d      0x00000000            0  0x000a RELOC_F              _PORTBbits
-0x003e      0x00000000            0  0x000a RELOC_F              r0x1006
-0x003f      0x00000000            0  0x000a RELOC_F              r0x1006
-0x0040      0x00000000            0  0x000a RELOC_F              r0x1007
+0x003e      0x00000000            0  0x000a RELOC_F              r0x1005
+0x003f      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0040      0x00000000            0  0x000a RELOC_F              r0x1006
 0x0043      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
 0x0045      0x00000000            0  0x000a RELOC_F              _long_f
-0x0046      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0047      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
-0x0048      0x00000000            0  0x000a RELOC_F              _longpress_cnt
-0x0049      0x00000001            1  0x000a RELOC_F              _longpress_cnt
-0x004a      0x00000000            0  0x000a RELOC_F              _clink_event
-0x004d      0x00000000            0  0x0002 RELOC_GOTO           _00127_DS_
-0x004e      0x00000000            0  0x000a RELOC_F              _clink_event
-0x004f      0x00000000            0  0x0001 RELOC_CALL           _MotoSwitch
-0x0050      0x00000000            0  0x0002 RELOC_GOTO           _00128_DS_
-0x0051      0x00000000            0  0x000a RELOC_F              _clink_event
-0x0054      0x00000000            0  0x0002 RELOC_GOTO           _00124_DS_
-0x0055      0x00000000            0  0x000a RELOC_F              _clink_event
-0x0056      0x00000000            0  0x0001 RELOC_CALL           _LedSwitch
-0x0057      0x00000000            0  0x0002 RELOC_GOTO           _00128_DS_
-0x0058      0x00000000            0  0x000a RELOC_F              _clink_event
-0x005b      0x00000000            0  0x000a RELOC_F              _clink_event
-0x005d      0x00000000            0  0x000a RELOC_F              _long_f
-0x005f      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
-0x0061      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0063      0x00000000            0  0x0002 RELOC_GOTO           _00130_DS_
-0x0064      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0065      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
-0x0066      0x00000000            0  0x000a RELOC_F              _long_f
-0x0067      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x0046      0x00000000            0  0x0001 RELOC_CALL           _PowOn
+0x0047      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x0048      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
+0x0049      0x00000000            0  0x000a RELOC_F              _longpress_cnt
+0x004a      0x00000001            1  0x000a RELOC_F              _longpress_cnt
+0x004b      0x00000000            0  0x000a RELOC_F              _clink_event
+0x004e      0x00000000            0  0x0002 RELOC_GOTO           _00127_DS_
+0x004f      0x00000000            0  0x000a RELOC_F              _clink_event
+0x0050      0x00000000            0  0x0001 RELOC_CALL           _MotoSwitch
+0x0051      0x00000000            0  0x0002 RELOC_GOTO           _00128_DS_
+0x0052      0x00000000            0  0x000a RELOC_F              _clink_event
+0x0055      0x00000000            0  0x0002 RELOC_GOTO           _00124_DS_
+0x0056      0x00000000            0  0x000a RELOC_F              _clink_event
+0x0057      0x00000000            0  0x0001 RELOC_CALL           _LedSwitch
+0x0058      0x00000000            0  0x0002 RELOC_GOTO           _00128_DS_
+0x0059      0x00000000            0  0x000a RELOC_F              _clink_event
+0x005c      0x00000000            0  0x000a RELOC_F              _clink_event
+0x005e      0x00000000            0  0x000a RELOC_F              _long_f
+0x0060      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
+0x0062      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x0064      0x00000000            0  0x0002 RELOC_GOTO           _00130_DS_
+0x0065      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x0066      0x00000000            0  0x0002 RELOC_GOTO           _00139_DS_
+0x0067      0x00000000            0  0x000a RELOC_F              _long_f
+0x0068      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x0069      0x00000000            0  0x0001 RELOC_CALL           _PowOff
 
 Line Number Table
 Line      Address     Symbol
-237       0x0000      key.asm
-238       0x0001      key.asm
-242       0x0002      key.asm
-243       0x0003      key.asm
-247       0x0004      key.asm
-248       0x0005      key.asm
-249       0x0006      key.asm
-251       0x0007      key.asm
-252       0x0008      key.asm
-253       0x0009      key.asm
-254       0x000a      key.asm
-255       0x000b      key.asm
-262       0x000c      key.asm
-263       0x000d      key.asm
-264       0x000e      key.asm
-265       0x000f      key.asm
-266       0x0010      key.asm
-267       0x0011      key.asm
-269       0x0012      key.asm
-270       0x0013      key.asm
-275       0x0014      key.asm
-276       0x0015      key.asm
-277       0x0016      key.asm
-283       0x0017      key.asm
-284       0x0018      key.asm
-285       0x0019      key.asm
-286       0x001a      key.asm
-287       0x001b      key.asm
-288       0x001c      key.asm
-290       0x001d      key.asm
-291       0x001e      key.asm
-297       0x001f      key.asm
-298       0x0020      key.asm
-302       0x0021      key.asm
-303       0x0022      key.asm
-305       0x0023      key.asm
-311       0x0024      key.asm
-312       0x0025      key.asm
-316       0x0026      key.asm
-317       0x0027      key.asm
-319       0x0028      key.asm
-325       0x0029      key.asm
-326       0x002a      key.asm
-327       0x002b      key.asm
-329       0x002c      key.asm
-330       0x002d      key.asm
-331       0x002e      key.asm
-332       0x002f      key.asm
-333       0x0030      key.asm
-337       0x0031      key.asm
-338       0x0032      key.asm
-344       0x0033      key.asm
-345       0x0034      key.asm
-346       0x0035      key.asm
-347       0x0036      key.asm
-348       0x0037      key.asm
-349       0x0038      key.asm
-351       0x0039      key.asm
-352       0x003a      key.asm
-357       0x003b      key.asm
-361       0x003c      key.asm
-362       0x003d      key.asm
-363       0x003e      key.asm
-365       0x003f      key.asm
-366       0x0040      key.asm
-367       0x0041      key.asm
-368       0x0042      key.asm
-369       0x0043      key.asm
-373       0x0044      key.asm
-374       0x0045      key.asm
-377       0x0046      key.asm
-379       0x0047      key.asm
-384       0x0048      key.asm
-385       0x0049      key.asm
-388       0x004a      key.asm
-389       0x004b      key.asm
-390       0x004c      key.asm
-391       0x004d      key.asm
-395       0x004e      key.asm
-398       0x004f      key.asm
-400       0x0050      key.asm
-405       0x0051      key.asm
-406       0x0052      key.asm
-407       0x0053      key.asm
-408       0x0054      key.asm
-412       0x0055      key.asm
-415       0x0056      key.asm
-417       0x0057      key.asm
-422       0x0058      key.asm
-424       0x0059      key.asm
-426       0x005a      key.asm
-427       0x005b      key.asm
-429       0x005c      key.asm
-430       0x005d      key.asm
-431       0x005e      key.asm
-432       0x005f      key.asm
-436       0x0060      key.asm
-437       0x0061      key.asm
-438       0x0062      key.asm
-439       0x0063      key.asm
-444       0x0064      key.asm
-446       0x0065      key.asm
-451       0x0066      key.asm
-454       0x0067      key.asm
-458       0x0068      key.asm
+191       0x0000      key.asm
+192       0x0001      key.asm
+196       0x0002      key.asm
+197       0x0003      key.asm
+201       0x0004      key.asm
+202       0x0005      key.asm
+203       0x0006      key.asm
+205       0x0007      key.asm
+206       0x0008      key.asm
+207       0x0009      key.asm
+208       0x000a      key.asm
+209       0x000b      key.asm
+216       0x000c      key.asm
+217       0x000d      key.asm
+218       0x000e      key.asm
+219       0x000f      key.asm
+220       0x0010      key.asm
+221       0x0011      key.asm
+223       0x0012      key.asm
+224       0x0013      key.asm
+229       0x0014      key.asm
+230       0x0015      key.asm
+231       0x0016      key.asm
+237       0x0017      key.asm
+238       0x0018      key.asm
+239       0x0019      key.asm
+240       0x001a      key.asm
+241       0x001b      key.asm
+242       0x001c      key.asm
+244       0x001d      key.asm
+245       0x001e      key.asm
+251       0x001f      key.asm
+252       0x0020      key.asm
+256       0x0021      key.asm
+257       0x0022      key.asm
+259       0x0023      key.asm
+265       0x0024      key.asm
+266       0x0025      key.asm
+270       0x0026      key.asm
+271       0x0027      key.asm
+273       0x0028      key.asm
+279       0x0029      key.asm
+280       0x002a      key.asm
+281       0x002b      key.asm
+283       0x002c      key.asm
+284       0x002d      key.asm
+285       0x002e      key.asm
+286       0x002f      key.asm
+287       0x0030      key.asm
+291       0x0031      key.asm
+292       0x0032      key.asm
+298       0x0033      key.asm
+299       0x0034      key.asm
+300       0x0035      key.asm
+301       0x0036      key.asm
+302       0x0037      key.asm
+303       0x0038      key.asm
+305       0x0039      key.asm
+306       0x003a      key.asm
+311       0x003b      key.asm
+315       0x003c      key.asm
+316       0x003d      key.asm
+317       0x003e      key.asm
+319       0x003f      key.asm
+320       0x0040      key.asm
+321       0x0041      key.asm
+322       0x0042      key.asm
+323       0x0043      key.asm
+327       0x0044      key.asm
+328       0x0045      key.asm
+331       0x0046      key.asm
+334       0x0047      key.asm
+336       0x0048      key.asm
+341       0x0049      key.asm
+342       0x004a      key.asm
+345       0x004b      key.asm
+346       0x004c      key.asm
+347       0x004d      key.asm
+348       0x004e      key.asm
+352       0x004f      key.asm
+355       0x0050      key.asm
+357       0x0051      key.asm
+362       0x0052      key.asm
+363       0x0053      key.asm
+364       0x0054      key.asm
+365       0x0055      key.asm
+369       0x0056      key.asm
+372       0x0057      key.asm
+374       0x0058      key.asm
+379       0x0059      key.asm
+381       0x005a      key.asm
+383       0x005b      key.asm
+384       0x005c      key.asm
+386       0x005d      key.asm
+387       0x005e      key.asm
+388       0x005f      key.asm
+389       0x0060      key.asm
+393       0x0061      key.asm
+394       0x0062      key.asm
+395       0x0063      key.asm
+396       0x0064      key.asm
+401       0x0065      key.asm
+403       0x0066      key.asm
+408       0x0067      key.asm
+411       0x0068      key.asm
+414       0x0069      key.asm
+418       0x006a      key.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -1593,172 +1538,189 @@ Idx  Name                     Section          Value      Type     DT           
 0019 _MotoSwitch              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0020 _PowOn                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0021 _PowOff                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0022 _STATUSbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0023 _PORTBbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0024 _PCONbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0025 _IOCBbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0026 _PDCONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0027 _ODCONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0028 _PHCONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0029 _INTECONbits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0030 _INTFLAGbits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0031 _OPTIONbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0032 _TRISBbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0033 _PWMCONbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0034 _T0CRbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0035 _T1CONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0036 _OSCCONbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0037 _CMPCRbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0038 _PDCON1bits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0039 _CHARGE0bits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0040 _CHARGE1bits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0041 _RAMPbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0042 _AUXRbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0043 _BITS_DATA0              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0044 _BITS_DATA1              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0045 _g_ucTimer10msCount      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0046 _g_ucTimerWorkCount      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0047 _g_ucFlashTimeHigh       UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0048 _g_ucFlashTimeLow        UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0049 _g_ucFlashTimeHigh1      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0050 _g_ucFlashTimeLow1       UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0051 _g_ucFlashTimeHigh2      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0052 _g_ucFlashTimeLow2       UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0053 _LvdModel                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0054 _LvdDebounceNew          UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0055 _LvdDebounceOld          UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0056 _LvdModelCount           UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0057 _LvdLightCount           UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0058 _TempCount               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0059 _TempFlag                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0060 _SleepCount              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0061 _SleepFlag               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0062 _MaxLight                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0063 _g_cucTIMER_COUNT_STATE  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0064 _INDF                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0065 _T0                      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0066 _PCL                     UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0067 _STATUS                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0068 _FSR                     UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0069 _PORTB                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0070 _GPR                     UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0071 _PCON                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0072 _IOCB                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0073 _PCLATH                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0074 _PDCON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0075 _ODCON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0076 _PHCON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0077 _INTECON                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0078 _INTFLAG                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0079 _OPTION                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0080 _TRISB                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0081 _PWMCON                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0082 _PWM1P                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0083 _PWM2P                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0084 _T0CR                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0085 _T1CON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0086 _T1                      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0087 _T1LOAD                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0088 _PWM0P                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0089 _OSCCON                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0090 _CMPCR                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0091 _PDCON1                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0092 _CHARGE0                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0093 _CHARGE1                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0094 _RAMP                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0095 _AUXR                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0096 _HIRCTRM                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0097 PSAVE                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0098 SSAVE                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0099 WSAVE                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0100 STK12                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0101 STK11                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0102 STK10                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0103 STK09                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0104 STK08                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0105 STK07                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0106 STK06                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0107 STK05                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0108 STK04                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0109 STK03                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0110 STK02                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0111 STK01                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0112 STK00                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0113 UDL_key_0                UDL_key_0        0x00000000 T_NULL   DT_NON       C_SECTION 1
+0022 _CountdownDisplay        UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0023 _STATUSbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0024 _PORTBbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0025 _PCONbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0026 _IOCBbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0027 _PDCONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0028 _ODCONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0029 _PHCONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0030 _INTECONbits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0031 _INTFLAGbits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0032 _OPTIONbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0033 _TRISBbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0034 _PWMCONbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0035 _T0CRbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0036 _T1CONbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0037 _OSCCONbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0038 _CMPCRbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0039 _PDCON1bits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0040 _CHARGE0bits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0041 _CHARGE1bits             UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0042 _RAMPbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0043 _AUXRbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0044 _BITS_DATA0              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0045 _BITS_DATA1              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0046 _g_ucTimer10msCount      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0047 _g_ucTimerWorkCount      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0048 _g_ucFlashTimeHigh       UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0049 _g_ucFlashTimeLow        UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0050 _g_ucFlashTimeHigh1      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0051 _g_ucFlashTimeLow1       UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0052 _g_ucFlashTimeHigh2      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0053 _g_ucFlashTimeLow2       UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0054 _LvdModel                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0055 _LvdDebounceNew          UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0056 _LvdDebounceOld          UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0057 _LvdModelCount           UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0058 _LvdLightCount           UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0059 _TempCount               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0060 _TempFlag                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0061 _SleepCount              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0062 _SleepFlag               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0063 _MaxLight                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0064 _g_cucTIMER_COUNT_STATE  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0065 _INDF                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0066 _T0                      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0067 _PCL                     UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0068 _STATUS                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0069 _FSR                     UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0070 _PORTB                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0071 _GPR                     UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0072 _PCON                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0073 _IOCB                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0074 _PCLATH                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0075 _PDCON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0076 _ODCON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0077 _PHCON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0078 _INTECON                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0079 _INTFLAG                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0080 _OPTION                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0081 _TRISB                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0082 _PWMCON                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0083 _PWM1P                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0084 _PWM2P                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0085 _T0CR                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0086 _T1CON                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0087 _T1                      UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0088 _T1LOAD                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0089 _PWM0P                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0090 _OSCCON                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0091 _CMPCR                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0092 _PDCON1                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0093 _CHARGE0                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0094 _CHARGE1                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0095 _RAMP                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0096 _AUXR                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0097 _HIRCTRM                 UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0098 PSAVE                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0099 SSAVE                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0100 WSAVE                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0101 STK12                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0102 STK11                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0103 STK10                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0104 STK09                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0105 STK08                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0106 STK07                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0107 STK06                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0108 STK05                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0109 STK04                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0110 STK03                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0111 STK02                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0112 STK01                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0113 STK00                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0114 UDL_key_0                UDL_key_0        0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 2
        number of relocations  = 0
        number of line numbers = 0
-0115 r0x1006                  UDL_key_0        0x00000000 T_NULL   DT_NON       C_STAT    0
-0116 r0x1007                  UDL_key_0        0x00000001 T_NULL   DT_NON       C_STAT    0
-0117 ID_key_0                 ID_key_0         0x00000000 T_NULL   DT_NON       C_SECTION 1
+0116 r0x1005                  UDL_key_0        0x00000000 T_NULL   DT_NON       C_STAT    0
+0117 r0x1006                  UDL_key_0        0x00000001 T_NULL   DT_NON       C_STAT    0
+0118 ID_key_0                 ID_key_0         0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 2
        number of relocations  = 0
        number of line numbers = 0
-0119 _longpress_cnt           ID_key_0         0x00000000 T_NULL   DT_NON       C_EXT     0
-0120 ID_key_1                 ID_key_1         0x00000000 T_NULL   DT_NON       C_SECTION 1
+0120 _longpress_cnt           ID_key_0         0x00000000 T_NULL   DT_NON       C_EXT     0
+0121 ID_key_1                 ID_key_1         0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 1
        number of relocations  = 0
        number of line numbers = 0
-0122 _clink_event             ID_key_1         0x00000000 T_NULL   DT_NON       C_EXT     0
-0123 ID_key_2                 ID_key_2         0x00000000 T_NULL   DT_NON       C_SECTION 1
+0123 _clink_event             ID_key_1         0x00000000 T_NULL   DT_NON       C_EXT     0
+0124 ID_key_2                 ID_key_2         0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 1
        number of relocations  = 0
        number of line numbers = 0
-0125 _long_f                  ID_key_2         0x00000000 T_NULL   DT_NON       C_EXT     0
-0126 ID_key_3                 ID_key_3         0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 1
-       number of relocations  = 0
-       number of line numbers = 0
-0128 _turn                    ID_key_3         0x00000000 T_NULL   DT_NON       C_EXT     0
-0129 code_key                 code_key         0x00000000 T_NULL   DT_NON       C_SECTION 1
+0126 _long_f                  ID_key_2         0x00000000 T_NULL   DT_NON       C_EXT     0
+0127 code_key                 code_key         0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 0
        number of relocations  = 0
        number of line numbers = 0
-0131 S_key__test_turn         S_key__test_turn 0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 22
-       number of relocations  = 7
-       number of line numbers = 11
-0133 _test_turn               S_key__test_turn 0x00000000 T_NULL   DT_NON       C_EXT     0
-0134 _00191_DS_               S_key__test_turn 0x00000007 T_NULL   DT_NON       C_LABEL   0
-0135 _00193_DS_               S_key__test_turn 0x0000000a T_NULL   DT_NON       C_LABEL   0
-0136 S_key__ScanKey           S_key__ScanKey   0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 210
-       number of relocations  = 71
-       number of line numbers = 105
-0138 _ScanKey                 S_key__ScanKey   0x00000000 T_NULL   DT_NON       C_EXT     0
-0139 _00134_DS_               S_key__ScanKey   0x0000000c T_NULL   DT_NON       C_LABEL   0
-0140 _00183_DS_               S_key__ScanKey   0x00000012 T_NULL   DT_NON       C_LABEL   0
-0141 _00106_DS_               S_key__ScanKey   0x00000017 T_NULL   DT_NON       C_LABEL   0
-0142 _00184_DS_               S_key__ScanKey   0x0000001d T_NULL   DT_NON       C_LABEL   0
-0143 _00113_DS_               S_key__ScanKey   0x00000024 T_NULL   DT_NON       C_LABEL   0
-0144 _00110_DS_               S_key__ScanKey   0x00000029 T_NULL   DT_NON       C_LABEL   0
-0145 _00116_DS_               S_key__ScanKey   0x00000033 T_NULL   DT_NON       C_LABEL   0
-0146 _00185_DS_               S_key__ScanKey   0x00000039 T_NULL   DT_NON       C_LABEL   0
-0147 _00135_DS_               S_key__ScanKey   0x00000048 T_NULL   DT_NON       C_LABEL   0
-0148 _00127_DS_               S_key__ScanKey   0x00000051 T_NULL   DT_NON       C_LABEL   0
-0149 _00124_DS_               S_key__ScanKey   0x00000058 T_NULL   DT_NON       C_LABEL   0
-0150 _00128_DS_               S_key__ScanKey   0x0000005c T_NULL   DT_NON       C_LABEL   0
-0151 _00130_DS_               S_key__ScanKey   0x00000066 T_NULL   DT_NON       C_LABEL   0
-0152 _00139_DS_               S_key__ScanKey   0x00000068 T_NULL   DT_NON       C_LABEL   0
-0153 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
+0129 S_key__ScanKey           S_key__ScanKey   0x00000000 T_NULL   DT_NON       C_SECTION 1
+       length                 = 214
+       number of relocations  = 73
+       number of line numbers = 107
+0131 _ScanKey                 S_key__ScanKey   0x00000000 T_NULL   DT_NON       C_EXT     0
+0132 _00134_DS_               S_key__ScanKey   0x0000000c T_NULL   DT_NON       C_LABEL   0
+0133 _00183_DS_               S_key__ScanKey   0x00000012 T_NULL   DT_NON       C_LABEL   0
+0134 _00106_DS_               S_key__ScanKey   0x00000017 T_NULL   DT_NON       C_LABEL   0
+0135 _00184_DS_               S_key__ScanKey   0x0000001d T_NULL   DT_NON       C_LABEL   0
+0136 _00113_DS_               S_key__ScanKey   0x00000024 T_NULL   DT_NON       C_LABEL   0
+0137 _00110_DS_               S_key__ScanKey   0x00000029 T_NULL   DT_NON       C_LABEL   0
+0138 _00116_DS_               S_key__ScanKey   0x00000033 T_NULL   DT_NON       C_LABEL   0
+0139 _00185_DS_               S_key__ScanKey   0x00000039 T_NULL   DT_NON       C_LABEL   0
+0140 _00135_DS_               S_key__ScanKey   0x00000049 T_NULL   DT_NON       C_LABEL   0
+0141 _00127_DS_               S_key__ScanKey   0x00000052 T_NULL   DT_NON       C_LABEL   0
+0142 _00124_DS_               S_key__ScanKey   0x00000059 T_NULL   DT_NON       C_LABEL   0
+0143 _00128_DS_               S_key__ScanKey   0x0000005d T_NULL   DT_NON       C_LABEL   0
+0144 _00130_DS_               S_key__ScanKey   0x00000067 T_NULL   DT_NON       C_LABEL   0
+0145 _00139_DS_               S_key__ScanKey   0x0000006a T_NULL   DT_NON       C_LABEL   0
+0146 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
 
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:51 2025
-Number of Sections   12
-Number of Symbols    132
+Time Stamp           Wed Apr 30 11:05:28 2025
+Number of Sections   15
+Number of Symbols    146
 Characteristics      0
 
 Section Header
 Name                    UDL_led_0
 Physical address        0
 Virtual address         0
-Size of Section         4
+Size of Section         6
 Number of Relocations   0
 Number of Line Numbers  0
 Flags                   0x80
   Uninitialized data.
+
+Section Header
+Name                    ID_led_0
+Physical address        0
+Virtual address         0
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x40
+  Initialized data.
+
+Data
+0000:  00
+0001:  00
+
+Section Header
+Name                    ID_led_1
+Physical address        0
+Virtual address         0
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x40
+  Initialized data.
+
+Data
+0000:  00
+0001:  00
 
 Section Header
 Name                    code_led
@@ -1769,6 +1731,151 @@ Number of Relocations   0
 Number of Line Numbers  0
 Flags                   0x20
   Executable code.
+
+Section Header
+Name                    S_led__CountdownDisplay
+Physical address        0
+Virtual address         0
+Size of Section         94
+Number of Relocations   32
+Number of Line Numbers  47
+Flags                   0x20
+  Executable code.
+
+Data
+0000:  1880  clrf    0x00
+0001:  3680  btfsc   0x00, 0x5
+0002:  1380  incf    0x00, 0x1
+0003:  1100  movf    0x00, 0x0
+0004:  1980  movwf   0x00
+0005:  0d01  xorlw   0x01
+0006:  3103  btfss   0x03, 0x2
+0007:  2000  goto    0x0000
+0008:  1380  incf    0x00, 0x1
+0009:  3503  btfsc   0x03, 0x2
+000a:  1380  incf    0x00, 0x1
+000b:  0403  movlw   0x03
+000c:  1b00  subwf   0x00, 0x0
+000d:  3103  btfss   0x03, 0x2
+000e:  2000  goto    0x0000
+000f:  04e9  movlw   0xe9
+0010:  1b00  subwf   0x00, 0x0
+0011:  3003  btfss   0x03, 0x0
+0012:  2000  goto    0x0000
+0013:  3e80  bcf     0x00, 0x5
+0014:  2000  goto    0x0000
+0015:  1880  clrf    0x00
+0016:  1880  clrf    0x00
+0017:  1880  clrf    0x00
+0018:  3700  btfsc   0x00, 0x6
+0019:  1380  incf    0x00, 0x1
+001a:  1100  movf    0x00, 0x0
+001b:  1980  movwf   0x00
+001c:  0d01  xorlw   0x01
+001d:  3103  btfss   0x03, 0x2
+001e:  2000  goto    0x0000
+001f:  1380  incf    0x00, 0x1
+0020:  3503  btfsc   0x03, 0x2
+0021:  1380  incf    0x00, 0x1
+0022:  0403  movlw   0x03
+0023:  1b00  subwf   0x00, 0x0
+0024:  3103  btfss   0x03, 0x2
+0025:  2000  goto    0x0000
+0026:  04e9  movlw   0xe9
+0027:  1b00  subwf   0x00, 0x0
+0028:  3003  btfss   0x03, 0x0
+0029:  2000  goto    0x0000
+002a:  3f00  bcf     0x00, 0x6
+002b:  2000  goto    0x0000
+002c:  1880  clrf    0x00
+002d:  1880  clrf    0x00
+002e:  0002  return
+
+Relocations Table
+Address     Offset      Offset       Type                        Symbol
+            (hex)       (dec)
+0x0000      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0001      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
+0x0002      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0003      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0004      0x00000000            0  0x000a RELOC_F              r0x1006
+0x0007      0x00000000            0  0x0002 RELOC_GOTO           _00156_DS_
+0x0008      0x00000000            0  0x000a RELOC_F              _lampTiming
+0x000a      0x00000001            1  0x000a RELOC_F              _lampTiming
+0x000c      0x00000001            1  0x000a RELOC_F              _lampTiming
+0x000e      0x00000000            0  0x0002 RELOC_GOTO           _00177_DS_
+0x0010      0x00000000            0  0x000a RELOC_F              _lampTiming
+0x0012      0x00000000            0  0x0002 RELOC_GOTO           _00157_DS_
+0x0013      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
+0x0014      0x00000000            0  0x0002 RELOC_GOTO           _00157_DS_
+0x0015      0x00000000            0  0x000a RELOC_F              _lampTiming
+0x0016      0x00000001            1  0x000a RELOC_F              _lampTiming
+0x0017      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0018      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
+0x0019      0x00000000            0  0x000a RELOC_F              r0x1005
+0x001a      0x00000000            0  0x000a RELOC_F              r0x1005
+0x001b      0x00000000            0  0x000a RELOC_F              r0x1006
+0x001e      0x00000000            0  0x0002 RELOC_GOTO           _00161_DS_
+0x001f      0x00000000            0  0x000a RELOC_F              _motoTiming
+0x0021      0x00000001            1  0x000a RELOC_F              _motoTiming
+0x0023      0x00000001            1  0x000a RELOC_F              _motoTiming
+0x0025      0x00000000            0  0x0002 RELOC_GOTO           _00178_DS_
+0x0027      0x00000000            0  0x000a RELOC_F              _motoTiming
+0x0029      0x00000000            0  0x0002 RELOC_GOTO           _00163_DS_
+0x002a      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
+0x002b      0x00000000            0  0x0002 RELOC_GOTO           _00163_DS_
+0x002c      0x00000000            0  0x000a RELOC_F              _motoTiming
+0x002d      0x00000001            1  0x000a RELOC_F              _motoTiming
+
+Line Number Table
+Line      Address     Symbol
+181       0x0000      led.asm
+182       0x0001      led.asm
+183       0x0002      led.asm
+185       0x0003      led.asm
+186       0x0004      led.asm
+187       0x0005      led.asm
+188       0x0006      led.asm
+189       0x0007      led.asm
+193       0x0008      led.asm
+194       0x0009      led.asm
+195       0x000a      led.asm
+200       0x000b      led.asm
+201       0x000c      led.asm
+202       0x000d      led.asm
+203       0x000e      led.asm
+204       0x000f      led.asm
+205       0x0010      led.asm
+207       0x0011      led.asm
+208       0x0012      led.asm
+214       0x0013      led.asm
+216       0x0014      led.asm
+221       0x0015      led.asm
+222       0x0016      led.asm
+229       0x0017      led.asm
+230       0x0018      led.asm
+231       0x0019      led.asm
+233       0x001a      led.asm
+234       0x001b      led.asm
+235       0x001c      led.asm
+236       0x001d      led.asm
+237       0x001e      led.asm
+241       0x001f      led.asm
+242       0x0020      led.asm
+243       0x0021      led.asm
+248       0x0022      led.asm
+249       0x0023      led.asm
+250       0x0024      led.asm
+251       0x0025      led.asm
+252       0x0026      led.asm
+253       0x0027      led.asm
+255       0x0028      led.asm
+256       0x0029      led.asm
+262       0x002a      led.asm
+264       0x002b      led.asm
+269       0x002c      led.asm
+270       0x002d      led.asm
+274       0x002e      led.asm
 
 Section Header
 Name                    S_led__PowOff
@@ -1793,9 +1900,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-161       0x0000      led.asm
-164       0x0001      led.asm
-167       0x0002      led.asm
+289       0x0000      led.asm
+292       0x0001      led.asm
+295       0x0002      led.asm
 
 Section Header
 Name                    S_led__PowOn
@@ -1820,9 +1927,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-182       0x0000      led.asm
-185       0x0001      led.asm
-188       0x0002      led.asm
+310       0x0000      led.asm
+313       0x0001      led.asm
+316       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoDisplay
@@ -1850,10 +1957,10 @@ Data
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              r0x1001
+0x0000      0x00000000            0  0x000a RELOC_F              r0x1007
 0x0001      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
-0x0002      0x00000000            0  0x000a RELOC_F              r0x1001
-0x0003      0x00000000            0  0x000a RELOC_F              r0x1001
+0x0002      0x00000000            0  0x000a RELOC_F              r0x1007
+0x0003      0x00000000            0  0x000a RELOC_F              r0x1007
 0x0006      0x00000000            0  0x0002 RELOC_GOTO           _00138_DS_
 0x0007      0x00000000            0  0x0001 RELOC_CALL           _MotoOn
 0x0008      0x00000000            0  0x0002 RELOC_GOTO           _00140_DS_
@@ -1861,17 +1968,17 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-212       0x0000      led.asm
-213       0x0001      led.asm
-214       0x0002      led.asm
-216       0x0003      led.asm
-218       0x0004      led.asm
-219       0x0005      led.asm
-220       0x0006      led.asm
-224       0x0007      led.asm
-226       0x0008      led.asm
-231       0x0009      led.asm
-235       0x000a      led.asm
+340       0x0000      led.asm
+341       0x0001      led.asm
+342       0x0002      led.asm
+344       0x0003      led.asm
+346       0x0004      led.asm
+347       0x0005      led.asm
+348       0x0006      led.asm
+352       0x0007      led.asm
+354       0x0008      led.asm
+359       0x0009      led.asm
+363       0x000a      led.asm
 
 Section Header
 Name                    S_led__MotoOff
@@ -1896,9 +2003,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-251       0x0000      led.asm
-255       0x0001      led.asm
-258       0x0002      led.asm
+379       0x0000      led.asm
+383       0x0001      led.asm
+386       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoOn
@@ -1923,9 +2030,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-274       0x0000      led.asm
-278       0x0001      led.asm
-281       0x0002      led.asm
+402       0x0000      led.asm
+406       0x0001      led.asm
+409       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoSwitch
@@ -1956,31 +2063,31 @@ Data
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              r0x1003
+0x0000      0x00000000            0  0x000a RELOC_F              r0x1009
 0x0001      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
-0x0002      0x00000000            0  0x000a RELOC_F              r0x1003
-0x0003      0x00000000            0  0x000a RELOC_F              r0x1003
-0x0007      0x00000000            0  0x000a RELOC_F              r0x1003
-0x0008      0x00000000            0  0x000a RELOC_F              r0x1003
+0x0002      0x00000000            0  0x000a RELOC_F              r0x1009
+0x0003      0x00000000            0  0x000a RELOC_F              r0x1009
+0x0007      0x00000000            0  0x000a RELOC_F              r0x1009
+0x0008      0x00000000            0  0x000a RELOC_F              r0x1009
 0x000a      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
 0x000c      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
 
 Line Number Table
 Line      Address     Symbol
-302       0x0000      led.asm
-303       0x0001      led.asm
-304       0x0002      led.asm
-306       0x0003      led.asm
-307       0x0004      led.asm
-308       0x0005      led.asm
-309       0x0006      led.asm
-311       0x0007      led.asm
-313       0x0008      led.asm
-314       0x0009      led.asm
-315       0x000a      led.asm
-316       0x000b      led.asm
-317       0x000c      led.asm
-320       0x000d      led.asm
+430       0x0000      led.asm
+431       0x0001      led.asm
+432       0x0002      led.asm
+434       0x0003      led.asm
+435       0x0004      led.asm
+436       0x0005      led.asm
+437       0x0006      led.asm
+439       0x0007      led.asm
+441       0x0008      led.asm
+442       0x0009      led.asm
+443       0x000a      led.asm
+444       0x000b      led.asm
+445       0x000c      led.asm
+448       0x000d      led.asm
 
 Section Header
 Name                    S_led__LedOff
@@ -2005,9 +2112,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-336       0x0000      led.asm
-340       0x0001      led.asm
-343       0x0002      led.asm
+464       0x0000      led.asm
+468       0x0001      led.asm
+471       0x0002      led.asm
 
 Section Header
 Name                    S_led__LedOn
@@ -2032,9 +2139,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-359       0x0000      led.asm
-363       0x0001      led.asm
-366       0x0002      led.asm
+487       0x0000      led.asm
+491       0x0001      led.asm
+494       0x0002      led.asm
 
 Section Header
 Name                    S_led__LedDisplay
@@ -2062,10 +2169,10 @@ Data
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0000      0x00000000            0  0x000a RELOC_F              r0x100B
 0x0001      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
-0x0002      0x00000000            0  0x000a RELOC_F              r0x1005
-0x0003      0x00000000            0  0x000a RELOC_F              r0x1005
+0x0002      0x00000000            0  0x000a RELOC_F              r0x100B
+0x0003      0x00000000            0  0x000a RELOC_F              r0x100B
 0x0006      0x00000000            0  0x0002 RELOC_GOTO           _00110_DS_
 0x0007      0x00000000            0  0x0001 RELOC_CALL           _LedOn
 0x0008      0x00000000            0  0x0002 RELOC_GOTO           _00112_DS_
@@ -2073,17 +2180,17 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-390       0x0000      led.asm
-391       0x0001      led.asm
-392       0x0002      led.asm
-394       0x0003      led.asm
-396       0x0004      led.asm
-397       0x0005      led.asm
-398       0x0006      led.asm
-402       0x0007      led.asm
-404       0x0008      led.asm
-409       0x0009      led.asm
-413       0x000a      led.asm
+518       0x0000      led.asm
+519       0x0001      led.asm
+520       0x0002      led.asm
+522       0x0003      led.asm
+524       0x0004      led.asm
+525       0x0005      led.asm
+526       0x0006      led.asm
+530       0x0007      led.asm
+532       0x0008      led.asm
+537       0x0009      led.asm
+541       0x000a      led.asm
 
 Section Header
 Name                    S_led__LedSwitch
@@ -2114,31 +2221,31 @@ Data
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              r0x1007
+0x0000      0x00000000            0  0x000a RELOC_F              r0x100D
 0x0001      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
-0x0002      0x00000000            0  0x000a RELOC_F              r0x1007
-0x0003      0x00000000            0  0x000a RELOC_F              r0x1007
-0x0007      0x00000000            0  0x000a RELOC_F              r0x1007
-0x0008      0x00000000            0  0x000a RELOC_F              r0x1007
+0x0002      0x00000000            0  0x000a RELOC_F              r0x100D
+0x0003      0x00000000            0  0x000a RELOC_F              r0x100D
+0x0007      0x00000000            0  0x000a RELOC_F              r0x100D
+0x0008      0x00000000            0  0x000a RELOC_F              r0x100D
 0x000a      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
 0x000c      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
 
 Line Number Table
 Line      Address     Symbol
-434       0x0000      led.asm
-435       0x0001      led.asm
-436       0x0002      led.asm
-438       0x0003      led.asm
-439       0x0004      led.asm
-440       0x0005      led.asm
-441       0x0006      led.asm
-443       0x0007      led.asm
-445       0x0008      led.asm
-446       0x0009      led.asm
-447       0x000a      led.asm
-448       0x000b      led.asm
-449       0x000c      led.asm
-452       0x000d      led.asm
+562       0x0000      led.asm
+563       0x0001      led.asm
+564       0x0002      led.asm
+566       0x0003      led.asm
+567       0x0004      led.asm
+568       0x0005      led.asm
+569       0x0006      led.asm
+571       0x0007      led.asm
+573       0x0008      led.asm
+574       0x0009      led.asm
+575       0x000a      led.asm
+576       0x000b      led.asm
+577       0x000c      led.asm
+580       0x000d      led.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -2250,77 +2357,100 @@ Idx  Name                     Section          Value      Type     DT           
 0102 STK01                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0103 STK00                    UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0104 UDL_led_0                UDL_led_0        0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 4
+       length                 = 6
        number of relocations  = 0
        number of line numbers = 0
-0106 r0x1007                  UDL_led_0        0x00000000 T_NULL   DT_NON       C_STAT    0
-0107 r0x1005                  UDL_led_0        0x00000001 T_NULL   DT_NON       C_STAT    0
-0108 r0x1003                  UDL_led_0        0x00000002 T_NULL   DT_NON       C_STAT    0
-0109 r0x1001                  UDL_led_0        0x00000003 T_NULL   DT_NON       C_STAT    0
-0110 code_led                 code_led         0x00000000 T_NULL   DT_NON       C_SECTION 1
+0106 r0x100D                  UDL_led_0        0x00000000 T_NULL   DT_NON       C_STAT    0
+0107 r0x100B                  UDL_led_0        0x00000001 T_NULL   DT_NON       C_STAT    0
+0108 r0x1009                  UDL_led_0        0x00000002 T_NULL   DT_NON       C_STAT    0
+0109 r0x1007                  UDL_led_0        0x00000003 T_NULL   DT_NON       C_STAT    0
+0110 r0x1005                  UDL_led_0        0x00000004 T_NULL   DT_NON       C_STAT    0
+0111 r0x1006                  UDL_led_0        0x00000005 T_NULL   DT_NON       C_STAT    0
+0112 ID_led_0                 ID_led_0         0x00000000 T_NULL   DT_NON       C_SECTION 1
+       length                 = 2
+       number of relocations  = 0
+       number of line numbers = 0
+0114 _lampTiming              ID_led_0         0x00000000 T_NULL   DT_NON       C_EXT     0
+0115 ID_led_1                 ID_led_1         0x00000000 T_NULL   DT_NON       C_SECTION 1
+       length                 = 2
+       number of relocations  = 0
+       number of line numbers = 0
+0117 _motoTiming              ID_led_1         0x00000000 T_NULL   DT_NON       C_EXT     0
+0118 code_led                 code_led         0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 0
        number of relocations  = 0
        number of line numbers = 0
-0112 S_led__PowOff            S_led__PowOff    0x00000000 T_NULL   DT_NON       C_SECTION 1
+0120 S_led__CountdownDisplay  S_led__CountdownDisplay 0x00000000 T_NULL   DT_NON       C_SECTION 1
+       length                 = 94
+       number of relocations  = 32
+       number of line numbers = 47
+0122 _CountdownDisplay        S_led__CountdownDisplay 0x00000000 T_NULL   DT_NON       C_EXT     0
+0123 _00177_DS_               S_led__CountdownDisplay 0x00000011 T_NULL   DT_NON       C_LABEL   0
+0124 _00156_DS_               S_led__CountdownDisplay 0x00000015 T_NULL   DT_NON       C_LABEL   0
+0125 _00157_DS_               S_led__CountdownDisplay 0x00000017 T_NULL   DT_NON       C_LABEL   0
+0126 _00178_DS_               S_led__CountdownDisplay 0x00000028 T_NULL   DT_NON       C_LABEL   0
+0127 _00161_DS_               S_led__CountdownDisplay 0x0000002c T_NULL   DT_NON       C_LABEL   0
+0128 _00163_DS_               S_led__CountdownDisplay 0x0000002e T_NULL   DT_NON       C_LABEL   0
+0129 S_led__PowOff            S_led__PowOff    0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 6
        number of relocations  = 2
        number of line numbers = 3
-0114 _PowOff                  S_led__PowOff    0x00000000 T_NULL   DT_NON       C_EXT     0
-0115 S_led__PowOn             S_led__PowOn     0x00000000 T_NULL   DT_NON       C_SECTION 1
+0131 _PowOff                  S_led__PowOff    0x00000000 T_NULL   DT_NON       C_EXT     0
+0132 S_led__PowOn             S_led__PowOn     0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 6
        number of relocations  = 2
        number of line numbers = 3
-0117 _PowOn                   S_led__PowOn     0x00000000 T_NULL   DT_NON       C_EXT     0
-0118 S_led__MotoDisplay       S_led__MotoDisplay 0x00000000 T_NULL   DT_NON       C_SECTION 1
+0134 _PowOn                   S_led__PowOn     0x00000000 T_NULL   DT_NON       C_EXT     0
+0135 S_led__MotoDisplay       S_led__MotoDisplay 0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 22
        number of relocations  = 8
        number of line numbers = 11
-0120 _MotoDisplay             S_led__MotoDisplay 0x00000000 T_NULL   DT_NON       C_EXT     0
-0121 _00138_DS_               S_led__MotoDisplay 0x00000009 T_NULL   DT_NON       C_LABEL   0
-0122 _00140_DS_               S_led__MotoDisplay 0x0000000a T_NULL   DT_NON       C_LABEL   0
-0123 S_led__MotoOff           S_led__MotoOff   0x00000000 T_NULL   DT_NON       C_SECTION 1
+0137 _MotoDisplay             S_led__MotoDisplay 0x00000000 T_NULL   DT_NON       C_EXT     0
+0138 _00138_DS_               S_led__MotoDisplay 0x00000009 T_NULL   DT_NON       C_LABEL   0
+0139 _00140_DS_               S_led__MotoDisplay 0x0000000a T_NULL   DT_NON       C_LABEL   0
+0140 S_led__MotoOff           S_led__MotoOff   0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 6
        number of relocations  = 2
        number of line numbers = 3
-0125 _MotoOff                 S_led__MotoOff   0x00000000 T_NULL   DT_NON       C_EXT     0
-0126 S_led__MotoOn            S_led__MotoOn    0x00000000 T_NULL   DT_NON       C_SECTION 1
+0142 _MotoOff                 S_led__MotoOff   0x00000000 T_NULL   DT_NON       C_EXT     0
+0143 S_led__MotoOn            S_led__MotoOn    0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 6
        number of relocations  = 2
        number of line numbers = 3
-0128 _MotoOn                  S_led__MotoOn    0x00000000 T_NULL   DT_NON       C_EXT     0
-0129 S_led__MotoSwitch        S_led__MotoSwitch 0x00000000 T_NULL   DT_NON       C_SECTION 1
+0145 _MotoOn                  S_led__MotoOn    0x00000000 T_NULL   DT_NON       C_EXT     0
+0146 S_led__MotoSwitch        S_led__MotoSwitch 0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 28
        number of relocations  = 8
        number of line numbers = 14
-0131 _MotoSwitch              S_led__MotoSwitch 0x00000000 T_NULL   DT_NON       C_EXT     0
-0132 S_led__LedOff            S_led__LedOff    0x00000000 T_NULL   DT_NON       C_SECTION 1
+0148 _MotoSwitch              S_led__MotoSwitch 0x00000000 T_NULL   DT_NON       C_EXT     0
+0149 S_led__LedOff            S_led__LedOff    0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 6
        number of relocations  = 2
        number of line numbers = 3
-0134 _LedOff                  S_led__LedOff    0x00000000 T_NULL   DT_NON       C_EXT     0
-0135 S_led__LedOn             S_led__LedOn     0x00000000 T_NULL   DT_NON       C_SECTION 1
+0151 _LedOff                  S_led__LedOff    0x00000000 T_NULL   DT_NON       C_EXT     0
+0152 S_led__LedOn             S_led__LedOn     0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 6
        number of relocations  = 2
        number of line numbers = 3
-0137 _LedOn                   S_led__LedOn     0x00000000 T_NULL   DT_NON       C_EXT     0
-0138 S_led__LedDisplay        S_led__LedDisplay 0x00000000 T_NULL   DT_NON       C_SECTION 1
+0154 _LedOn                   S_led__LedOn     0x00000000 T_NULL   DT_NON       C_EXT     0
+0155 S_led__LedDisplay        S_led__LedDisplay 0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 22
        number of relocations  = 8
        number of line numbers = 11
-0140 _LedDisplay              S_led__LedDisplay 0x00000000 T_NULL   DT_NON       C_EXT     0
-0141 _00110_DS_               S_led__LedDisplay 0x00000009 T_NULL   DT_NON       C_LABEL   0
-0142 _00112_DS_               S_led__LedDisplay 0x0000000a T_NULL   DT_NON       C_LABEL   0
-0143 S_led__LedSwitch         S_led__LedSwitch 0x00000000 T_NULL   DT_NON       C_SECTION 1
+0157 _LedDisplay              S_led__LedDisplay 0x00000000 T_NULL   DT_NON       C_EXT     0
+0158 _00110_DS_               S_led__LedDisplay 0x00000009 T_NULL   DT_NON       C_LABEL   0
+0159 _00112_DS_               S_led__LedDisplay 0x0000000a T_NULL   DT_NON       C_LABEL   0
+0160 S_led__LedSwitch         S_led__LedSwitch 0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 28
        number of relocations  = 8
        number of line numbers = 14
-0145 _LedSwitch               S_led__LedSwitch 0x00000000 T_NULL   DT_NON       C_EXT     0
-0146 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
+0162 _LedSwitch               S_led__LedSwitch 0x00000000 T_NULL   DT_NON       C_EXT     0
+0163 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
 
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:51 2025
+Time Stamp           Wed Apr 30 11:05:29 2025
 Number of Sections   6
 Number of Symbols    144
 Characteristics      0
@@ -3088,7 +3218,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:52 2025
+Time Stamp           Wed Apr 30 11:05:29 2025
 Number of Sections   7
 Number of Symbols    135
 Characteristics      0
@@ -3250,7 +3380,7 @@ Address     Offset      Offset       Type                        Symbol
 0x0008      0x00000000            0  0x0002 RELOC_GOTO           _00110_DS_
 0x0009      0x00000000            0  0x000a RELOC_F              _BITS_DATA0
 0x000a      0x00000000            0  0x0001 RELOC_CALL           _ScanKey
-0x000b      0x00000000            0  0x0001 RELOC_CALL           _test_turn
+0x000b      0x00000000            0  0x0001 RELOC_CALL           _CountdownDisplay
 0x000c      0x00000000            0  0x0001 RELOC_CALL           _LedDisplay
 0x000d      0x00000000            0  0x0001 RELOC_CALL           _MotoDisplay
 0x000e      0x00000000            0  0x0002 RELOC_GOTO           _00112_DS_
@@ -3335,7 +3465,7 @@ Idx  Name                     Section          Value      Type     DT           
 0029 _MotoSwitch              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0030 _PowOn                   UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0031 _PowOff                  UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
-0032 _test_turn               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
+0032 _CountdownDisplay        UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0033 _STATUSbits              UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0034 _PORTBbits               UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
 0035 _PCONbits                UNDEFINED        0x00000000 T_NULL   DT_NON       C_EXT     0
@@ -3466,7 +3596,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:52 2025
+Time Stamp           Wed Apr 30 11:05:29 2025
 Number of Sections   4
 Number of Symbols    119
 Characteristics      0
@@ -3892,7 +4022,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:52 2025
+Time Stamp           Wed Apr 30 11:05:30 2025
 Number of Sections   22
 Number of Symbols    120
 Characteristics      0
@@ -4394,7 +4524,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 10:45:53 2025
+Time Stamp           Wed Apr 30 11:05:30 2025
 Number of Sections   2
 Number of Symbols    106
 Characteristics      0

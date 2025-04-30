@@ -13,7 +13,6 @@
 const char VERSION[] = {VERSION_STR};
 void _sdcc_gsinit_startup(void) { __asm pagesel _main __endasm; __asm goto _main __endasm; }
 
-extern void test_turn(void);
 void main()
 {
 	InitPort();
@@ -32,13 +31,12 @@ void main()
 			BIT_TIMER_10MS = 0;
 
 		   ScanKey();                       //按键检测	
-		   test_turn();
+		   CountdownDisplay();			 //倒计时
+
 		}	
 
 		LedDisplay();					 //LED指示灯
 		MotoDisplay();					 //电机控制
-
-
 	
 	}
 }

@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _g_ucFlashTimeHigh
   0000                00041         extern  _g_ucFlashTimeLow
   0000                00042         extern  _g_ucFlashTimeHigh1
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern WSAVE
   0000                00094         extern STK12
   0000                00095         extern STK11
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 ;;[ICODE] function.c:103:       proc _ControlSos [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fu
                             nction ( ) fixed}
                       00147 S_function__ControlSos  code
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00191 ;;[ICODE] function.c:26: iTemp1 [k4 lr4:18 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ s
                             ir@ _ControlLevel_lightnum2_1_11}[r0x1048 ] = recv _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 
                             ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00225 ;;[ICODE] function.c:36:        _PWM0P [k23 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigne
                             d-char sfr} := iTemp2 [k6 lr5:19 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _Contr
                             olLevel_lightnum3_1_11}[r0x1049 ]
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00266 ;;[ICODE] function.c:23:        eproc _ControlLevelHigh [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{
                             void function ( ) fixed}
 0007   0002           00267         RETURN  
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00303 ;;[ICODE] function.c:13:        iTemp7 [k20 lr16:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{vo
                             latile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -453,7 +453,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00326 ;          42+    0 =    42 instructions (   84 byte)
                       00327 
                       00328         end
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE  9
 
 
 SYMBOL TABLE
@@ -512,7 +512,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 10
 
 
 SYMBOL TABLE
@@ -571,7 +571,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 11
 
 
 SYMBOL TABLE
@@ -630,7 +630,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 12
 
 
 SYMBOL TABLE
@@ -689,7 +689,7 @@ _FOSC_XT                          CONSTANT      00003DFF          15871
 _FSR                              EXTERNAL      00000000              0
 _GPR                              EXTERNAL      00000000              0
 _HIRCTRM                          EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 13
 
 
 SYMBOL TABLE
@@ -748,7 +748,7 @@ _T0CR                             EXTERNAL      00000000              0
 _T0CRbits                         EXTERNAL      00000000              0
 _T1                               EXTERNAL      00000000              0
 _T1CON                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 14
 
 
 SYMBOL TABLE
@@ -807,7 +807,7 @@ _g_ucFlashTimeLow1                EXTERNAL      00000000              0
 _g_ucFlashTimeLow2                EXTERNAL      00000000              0
 _g_ucTimer10msCount               EXTERNAL      00000000              0
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  10:45:50          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)  function.asm   04/30/25  11:05:27          PAGE 15
 
 
 SYMBOL TABLE
