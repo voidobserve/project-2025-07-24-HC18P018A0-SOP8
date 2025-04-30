@@ -1,7 +1,7 @@
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:34 2025
+Time Stamp           Wed Apr 30 14:51:04 2025
 Number of Sections   3
 Number of Symbols    84
 Characteristics      0
@@ -174,7 +174,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:35 2025
+Time Stamp           Wed Apr 30 14:51:05 2025
 Number of Sections   7
 Number of Symbols    102
 Characteristics      0
@@ -539,7 +539,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:35 2025
+Time Stamp           Wed Apr 30 14:51:05 2025
 Number of Sections   5
 Number of Symbols    95
 Characteristics      0
@@ -677,9 +677,9 @@ Section Header
 Name                    S_init__InitPort
 Physical address        0
 Virtual address         0
-Size of Section         46
-Number of Relocations   19
-Number of Line Numbers  23
+Size of Section         50
+Number of Relocations   21
+Number of Line Numbers  25
 Flags                   0x20
   Executable code.
 
@@ -692,21 +692,23 @@ Data
 0005:  3a80  bsf     0x00, 0x5
 0006:  04ff  movlw   0xff
 0007:  1980  movwf   0x00
-0008:  3d00  bcf     0x00, 0x2
-0009:  3e00  bcf     0x00, 0x4
-000a:  04ff  movlw   0xff
-000b:  1980  movwf   0x00
+0008:  3c00  bcf     0x00, 0x0
+0009:  3c80  bcf     0x00, 0x1
+000a:  3d00  bcf     0x00, 0x2
+000b:  3e00  bcf     0x00, 0x4
 000c:  04ff  movlw   0xff
 000d:  1980  movwf   0x00
-000e:  1880  clrf    0x00
-000f:  3c80  bcf     0x00, 0x1
+000e:  04ff  movlw   0xff
+000f:  1980  movwf   0x00
 0010:  1880  clrf    0x00
-0011:  3800  bsf     0x00, 0x0
-0012:  3880  bsf     0x00, 0x1
-0013:  3880  bsf     0x00, 0x1
-0014:  3800  bsf     0x00, 0x0
-0015:  3d80  bcf     0x00, 0x3
-0016:  0002  return
+0011:  3c80  bcf     0x00, 0x1
+0012:  1880  clrf    0x00
+0013:  3800  bsf     0x00, 0x0
+0014:  3880  bsf     0x00, 0x1
+0015:  3880  bsf     0x00, 0x1
+0016:  3800  bsf     0x00, 0x0
+0017:  3d80  bcf     0x00, 0x3
+0018:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
@@ -720,16 +722,18 @@ Address     Offset      Offset       Type                        Symbol
 0x0007      0x00000000            0  0x000a RELOC_F              _PHCON
 0x0008      0x00000000            0  0x000a RELOC_F              _PHCON
 0x0009      0x00000000            0  0x000a RELOC_F              _PHCON
-0x000b      0x00000000            0  0x000a RELOC_F              _PDCON
-0x000d      0x00000000            0  0x000a RELOC_F              _PDCON1
-0x000e      0x00000000            0  0x000a RELOC_F              _IOCB
-0x000f      0x00000000            0  0x000a RELOC_F              _INTECONbits
-0x0010      0x00000000            0  0x000a RELOC_F              _ODCON
-0x0011      0x00000000            0  0x000a RELOC_F              _ODCON
+0x000a      0x00000000            0  0x000a RELOC_F              _PHCON
+0x000b      0x00000000            0  0x000a RELOC_F              _PHCON
+0x000d      0x00000000            0  0x000a RELOC_F              _PDCON
+0x000f      0x00000000            0  0x000a RELOC_F              _PDCON1
+0x0010      0x00000000            0  0x000a RELOC_F              _IOCB
+0x0011      0x00000000            0  0x000a RELOC_F              _INTECONbits
 0x0012      0x00000000            0  0x000a RELOC_F              _ODCON
-0x0013      0x00000000            0  0x000a RELOC_F              _PORTBbits
-0x0014      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0013      0x00000000            0  0x000a RELOC_F              _ODCON
+0x0014      0x00000000            0  0x000a RELOC_F              _ODCON
 0x0015      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0016      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0017      0x00000000            0  0x000a RELOC_F              _PORTBbits
 
 Line Number Table
 Line      Address     Symbol
@@ -744,18 +748,20 @@ Line      Address     Symbol
 255       0x0008      init.asm
 258       0x0009      init.asm
 261       0x000a      init.asm
-262       0x000b      init.asm
-265       0x000c      init.asm
-266       0x000d      init.asm
-269       0x000e      init.asm
-273       0x000f      init.asm
-276       0x0010      init.asm
+264       0x000b      init.asm
+267       0x000c      init.asm
+268       0x000d      init.asm
+271       0x000e      init.asm
+272       0x000f      init.asm
+275       0x0010      init.asm
 279       0x0011      init.asm
 282       0x0012      init.asm
-286       0x0013      init.asm
-290       0x0014      init.asm
-294       0x0015      init.asm
-297       0x0016      init.asm
+285       0x0013      init.asm
+288       0x0014      init.asm
+292       0x0015      init.asm
+296       0x0016      init.asm
+300       0x0017      init.asm
+303       0x0018      init.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -870,16 +876,16 @@ Idx  Name                     Section          Value      Type     DT           
        number of line numbers = 10
 0098 _InitSystem              S_init__InitSystem 0x00000000 T_NULL   DT_NON       C_EXT     0
 0099 S_init__InitPort         S_init__InitPort 0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 46
-       number of relocations  = 19
-       number of line numbers = 23
+       length                 = 50
+       number of relocations  = 21
+       number of line numbers = 25
 0101 _InitPort                S_init__InitPort 0x00000000 T_NULL   DT_NON       C_EXT     0
 0102 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
 
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:35 2025
+Time Stamp           Wed Apr 30 14:51:05 2025
 Number of Sections   2
 Number of Symbols    95
 Characteristics      0
@@ -1113,7 +1119,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:36 2025
+Time Stamp           Wed Apr 30 14:51:05 2025
 Number of Sections   7
 Number of Symbols    131
 Characteristics      0
@@ -1726,7 +1732,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:36 2025
+Time Stamp           Wed Apr 30 14:51:06 2025
 Number of Sections   15
 Number of Symbols    134
 Characteristics      0
@@ -2561,7 +2567,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:36 2025
+Time Stamp           Wed Apr 30 14:51:06 2025
 Number of Sections   5
 Number of Symbols    101
 Characteristics      0
@@ -2772,7 +2778,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:37 2025
+Time Stamp           Wed Apr 30 14:51:06 2025
 Number of Sections   7
 Number of Symbols    123
 Characteristics      0
@@ -3138,7 +3144,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:37 2025
+Time Stamp           Wed Apr 30 14:51:07 2025
 Number of Sections   4
 Number of Symbols    107
 Characteristics      0
@@ -3543,7 +3549,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:37 2025
+Time Stamp           Wed Apr 30 14:51:07 2025
 Number of Sections   11
 Number of Symbols    98
 Characteristics      0
@@ -3847,7 +3853,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 14:43:37 2025
+Time Stamp           Wed Apr 30 14:51:07 2025
 Number of Sections   2
 Number of Symbols    94
 Characteristics      0

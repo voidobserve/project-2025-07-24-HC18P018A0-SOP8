@@ -19,6 +19,11 @@ void InitPort(void)
     //配置上拉  
 	// 2 4需要拉上
     PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
+	// 0 1是开漏输出，靠内部上拉提供高低
+	PHCON &= DEF_CLR_BIT0;
+	PHCON &= DEF_CLR_BIT1;
+
+
 	PHCON &= DEF_CLR_BIT2;
 	PHCON &= DEF_CLR_BIT4;
 
