@@ -1,7 +1,7 @@
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:45:59 2025
+Time Stamp           Wed Apr 30 16:58:23 2025
 Number of Sections   3
 Number of Symbols    84
 Characteristics      0
@@ -174,7 +174,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:45:59 2025
+Time Stamp           Wed Apr 30 16:58:23 2025
 Number of Sections   7
 Number of Symbols    102
 Characteristics      0
@@ -539,7 +539,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:00 2025
+Time Stamp           Wed Apr 30 16:58:24 2025
 Number of Sections   5
 Number of Symbols    95
 Characteristics      0
@@ -888,7 +888,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:00 2025
+Time Stamp           Wed Apr 30 16:58:24 2025
 Number of Sections   2
 Number of Symbols    95
 Characteristics      0
@@ -1122,9 +1122,9 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:00 2025
+Time Stamp           Wed Apr 30 16:58:24 2025
 Number of Sections   7
-Number of Symbols    131
+Number of Symbols    130
 Characteristics      0
 
 Section Header
@@ -1204,9 +1204,9 @@ Section Header
 Name                    S_key__ScanKey
 Physical address        0
 Virtual address         0
-Size of Section         262
-Number of Relocations   90
-Number of Line Numbers  131
+Size of Section         256
+Number of Relocations   87
+Number of Line Numbers  128
 Flags                   0x20
   Executable code.
 
@@ -1283,87 +1283,84 @@ Data
 0045:  1980  movwf   0x00
 0046:  04ff  movlw   0xff
 0047:  1b00  subwf   0x00, 0x0
-0048:  3403  btfsc   0x03, 0x0
-0049:  2000  goto    0x0000
-004a:  1380  incf    0x00, 0x1
-004b:  2800  call    0x0000
-004c:  2000  goto    0x0000
-004d:  2800  call    0x0000
-004e:  2000  goto    0x0000
-004f:  1880  clrf    0x00
-0050:  1880  clrf    0x00
-0051:  1100  movf    0x00, 0x0
-0052:  0d01  xorlw   0x01
-0053:  3103  btfss   0x03, 0x2
+0048:  3003  btfss   0x03, 0x0
+0049:  1380  incf    0x00, 0x1
+004a:  2800  call    0x0000
+004b:  2000  goto    0x0000
+004c:  1880  clrf    0x00
+004d:  1880  clrf    0x00
+004e:  1100  movf    0x00, 0x0
+004f:  0d01  xorlw   0x01
+0050:  3103  btfss   0x03, 0x2
+0051:  2000  goto    0x0000
+0052:  1880  clrf    0x00
+0053:  2800  call    0x0000
 0054:  2000  goto    0x0000
-0055:  1880  clrf    0x00
-0056:  2800  call    0x0000
-0057:  2000  goto    0x0000
-0058:  1100  movf    0x00, 0x0
-0059:  0d02  xorlw   0x02
-005a:  3103  btfss   0x03, 0x2
+0055:  1100  movf    0x00, 0x0
+0056:  0d02  xorlw   0x02
+0057:  3103  btfss   0x03, 0x2
+0058:  2000  goto    0x0000
+0059:  1880  clrf    0x00
+005a:  2800  call    0x0000
 005b:  2000  goto    0x0000
-005c:  1880  clrf    0x00
-005d:  2800  call    0x0000
-005e:  2000  goto    0x0000
-005f:  1100  movf    0x00, 0x0
-0060:  0d03  xorlw   0x03
-0061:  3103  btfss   0x03, 0x2
-0062:  2000  goto    0x0000
-0063:  1880  clrf    0x00
-0064:  2800  call    0x0000
-0065:  1380  incf    0x00, 0x1
-0066:  0401  movlw   0x01
-0067:  1980  movwf   0x00
-0068:  0400  movlw   0x00
-0069:  1d00  iorwf   0x00, 0x0
-006a:  3503  btfsc   0x03, 0x2
-006b:  2000  goto    0x0000
-006c:  043c  movlw   0x3c
-006d:  1b00  subwf   0x00, 0x0
-006e:  3403  btfsc   0x03, 0x0
-006f:  2000  goto    0x0000
-0070:  1380  incf    0x00, 0x1
-0071:  2000  goto    0x0000
-0072:  1880  clrf    0x00
-0073:  1880  clrf    0x00
-0074:  2800  call    0x0000
-0075:  0400  movlw   0x00
-0076:  1d00  iorwf   0x00, 0x0
-0077:  3503  btfsc   0x03, 0x2
-0078:  2000  goto    0x0000
-0079:  043c  movlw   0x3c
-007a:  1b00  subwf   0x00, 0x0
-007b:  3403  btfsc   0x03, 0x0
-007c:  2000  goto    0x0000
-007d:  1380  incf    0x00, 0x1
-007e:  2000  goto    0x0000
-007f:  1880  clrf    0x00
-0080:  1880  clrf    0x00
-0081:  2800  call    0x0000
-0082:  0002  return
+005c:  1100  movf    0x00, 0x0
+005d:  0d03  xorlw   0x03
+005e:  3103  btfss   0x03, 0x2
+005f:  2000  goto    0x0000
+0060:  1880  clrf    0x00
+0061:  2800  call    0x0000
+0062:  1380  incf    0x00, 0x1
+0063:  0401  movlw   0x01
+0064:  1980  movwf   0x00
+0065:  0400  movlw   0x00
+0066:  1d00  iorwf   0x00, 0x0
+0067:  3503  btfsc   0x03, 0x2
+0068:  2000  goto    0x0000
+0069:  043c  movlw   0x3c
+006a:  1b00  subwf   0x00, 0x0
+006b:  3403  btfsc   0x03, 0x0
+006c:  2000  goto    0x0000
+006d:  1380  incf    0x00, 0x1
+006e:  2000  goto    0x0000
+006f:  1880  clrf    0x00
+0070:  1880  clrf    0x00
+0071:  2800  call    0x0000
+0072:  0400  movlw   0x00
+0073:  1d00  iorwf   0x00, 0x0
+0074:  3503  btfsc   0x03, 0x2
+0075:  2000  goto    0x0000
+0076:  043c  movlw   0x3c
+0077:  1b00  subwf   0x00, 0x0
+0078:  3403  btfsc   0x03, 0x0
+0079:  2000  goto    0x0000
+007a:  1380  incf    0x00, 0x1
+007b:  2000  goto    0x0000
+007c:  1880  clrf    0x00
+007d:  1880  clrf    0x00
+007e:  2800  call    0x0000
+007f:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
 0x0000      0x00000000            0  0x000a RELOC_F              _PORTBbits
-0x0001      0x00000000            0  0x0002 RELOC_GOTO           _00142_DS_
+0x0001      0x00000000            0  0x0002 RELOC_GOTO           _00141_DS_
 0x0002      0x00000000            0  0x000a RELOC_F              _PORTBbits
-0x0003      0x00000000            0  0x0002 RELOC_GOTO           _00142_DS_
+0x0003      0x00000000            0  0x0002 RELOC_GOTO           _00141_DS_
 0x0004      0x00000000            0  0x000a RELOC_F              r0x1006
 0x0005      0x00000000            0  0x000a RELOC_F              _PORTBbits
 0x0006      0x00000000            0  0x000a RELOC_F              r0x1006
 0x0007      0x00000000            0  0x000a RELOC_F              r0x1006
 0x0008      0x00000000            0  0x000a RELOC_F              r0x1007
-0x000b      0x00000000            0  0x0002 RELOC_GOTO           _00143_DS_
+0x000b      0x00000000            0  0x0002 RELOC_GOTO           _00142_DS_
 0x000d      0x00000001            1  0x000a RELOC_F              _longpress_cnt
-0x000f      0x00000000            0  0x0002 RELOC_GOTO           _00200_DS_
+0x000f      0x00000000            0  0x0002 RELOC_GOTO           _00199_DS_
 0x0011      0x00000000            0  0x000a RELOC_F              _longpress_cnt
 0x0013      0x00000000            0  0x0002 RELOC_GOTO           _00106_DS_
 0x0014      0x00000000            0  0x000a RELOC_F              _longpress_cnt
 0x0016      0x00000001            1  0x000a RELOC_F              _longpress_cnt
 0x0018      0x00000001            1  0x000a RELOC_F              _longpress_cnt
-0x001a      0x00000000            0  0x0002 RELOC_GOTO           _00201_DS_
+0x001a      0x00000000            0  0x0002 RELOC_GOTO           _00200_DS_
 0x001c      0x00000000            0  0x000a RELOC_F              _longpress_cnt
 0x001e      0x00000000            0  0x0002 RELOC_GOTO           _00116_DS_
 0x001f      0x00000000            0  0x000a RELOC_F              _PORTBbits
@@ -1382,194 +1379,188 @@ Address     Offset      Offset       Type                        Symbol
 0x0030      0x00000000            0  0x0002 RELOC_GOTO           _00116_DS_
 0x0032      0x00000000            0  0x000a RELOC_F              _clink_event
 0x0034      0x00000001            1  0x000a RELOC_F              _longpress_cnt
-0x0036      0x00000000            0  0x0002 RELOC_GOTO           _00202_DS_
+0x0036      0x00000000            0  0x0002 RELOC_GOTO           _00201_DS_
 0x0038      0x00000000            0  0x000a RELOC_F              _longpress_cnt
-0x003a      0x00000000            0  0x0002 RELOC_GOTO           _00147_DS_
+0x003a      0x00000000            0  0x0002 RELOC_GOTO           _00146_DS_
 0x003b      0x00000000            0  0x000a RELOC_F              _clink_event
 0x003c      0x00000000            0  0x000a RELOC_F              r0x1006
 0x003d      0x00000000            0  0x000a RELOC_F              _PORTBbits
 0x003e      0x00000000            0  0x000a RELOC_F              r0x1006
 0x003f      0x00000000            0  0x000a RELOC_F              r0x1006
 0x0040      0x00000000            0  0x000a RELOC_F              r0x1007
-0x0043      0x00000000            0  0x0002 RELOC_GOTO           _00147_DS_
+0x0043      0x00000000            0  0x0002 RELOC_GOTO           _00146_DS_
 0x0045      0x00000000            0  0x000a RELOC_F              _long_f
 0x0047      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0049      0x00000000            0  0x0002 RELOC_GOTO           _00118_DS_
-0x004a      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x004b      0x00000000            0  0x0001 RELOC_CALL           _PowOn
-0x004c      0x00000000            0  0x0002 RELOC_GOTO           _00147_DS_
-0x004d      0x00000000            0  0x0001 RELOC_CALL           _PowOff
-0x004e      0x00000000            0  0x0002 RELOC_GOTO           _00147_DS_
-0x004f      0x00000000            0  0x000a RELOC_F              _longpress_cnt
-0x0050      0x00000001            1  0x000a RELOC_F              _longpress_cnt
-0x0051      0x00000000            0  0x000a RELOC_F              _clink_event
+0x0049      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x004a      0x00000000            0  0x0001 RELOC_CALL           _PowOn
+0x004b      0x00000000            0  0x0002 RELOC_GOTO           _00146_DS_
+0x004c      0x00000000            0  0x000a RELOC_F              _longpress_cnt
+0x004d      0x00000001            1  0x000a RELOC_F              _longpress_cnt
+0x004e      0x00000000            0  0x000a RELOC_F              _clink_event
+0x0051      0x00000000            0  0x0002 RELOC_GOTO           _00129_DS_
+0x0052      0x00000000            0  0x000a RELOC_F              _clink_event
+0x0053      0x00000000            0  0x0001 RELOC_CALL           _LedSwitch
 0x0054      0x00000000            0  0x0002 RELOC_GOTO           _00130_DS_
 0x0055      0x00000000            0  0x000a RELOC_F              _clink_event
-0x0056      0x00000000            0  0x0001 RELOC_CALL           _LedSwitch
-0x0057      0x00000000            0  0x0002 RELOC_GOTO           _00131_DS_
-0x0058      0x00000000            0  0x000a RELOC_F              _clink_event
-0x005b      0x00000000            0  0x0002 RELOC_GOTO           _00127_DS_
+0x0058      0x00000000            0  0x0002 RELOC_GOTO           _00126_DS_
+0x0059      0x00000000            0  0x000a RELOC_F              _clink_event
+0x005a      0x00000000            0  0x0001 RELOC_CALL           _MotoSwitch
+0x005b      0x00000000            0  0x0002 RELOC_GOTO           _00130_DS_
 0x005c      0x00000000            0  0x000a RELOC_F              _clink_event
-0x005d      0x00000000            0  0x0001 RELOC_CALL           _MotoSwitch
-0x005e      0x00000000            0  0x0002 RELOC_GOTO           _00131_DS_
-0x005f      0x00000000            0  0x000a RELOC_F              _clink_event
-0x0062      0x00000000            0  0x0002 RELOC_GOTO           _00131_DS_
-0x0063      0x00000000            0  0x000a RELOC_F              _clink_event
-0x0064      0x00000000            0  0x0001 RELOC_CALL           _PowOn
-0x0065      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0067      0x00000000            0  0x000a RELOC_F              _holdOn_f
-0x0069      0x00000000            0  0x000a RELOC_F              _holdOn_f
-0x006b      0x00000000            0  0x0002 RELOC_GOTO           _00136_DS_
+0x005f      0x00000000            0  0x0002 RELOC_GOTO           _00130_DS_
+0x0060      0x00000000            0  0x000a RELOC_F              _clink_event
+0x0061      0x00000000            0  0x0001 RELOC_CALL           _PowOn
+0x0062      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x0064      0x00000000            0  0x000a RELOC_F              _holdOn_f
+0x0066      0x00000000            0  0x000a RELOC_F              _holdOn_f
+0x0068      0x00000000            0  0x0002 RELOC_GOTO           _00135_DS_
+0x006a      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x006c      0x00000000            0  0x0002 RELOC_GOTO           _00132_DS_
 0x006d      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x006f      0x00000000            0  0x0002 RELOC_GOTO           _00133_DS_
+0x006e      0x00000000            0  0x0002 RELOC_GOTO           _00135_DS_
+0x006f      0x00000000            0  0x000a RELOC_F              _holdOn_f
 0x0070      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0071      0x00000000            0  0x0002 RELOC_GOTO           _00136_DS_
-0x0072      0x00000000            0  0x000a RELOC_F              _holdOn_f
-0x0073      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0074      0x00000000            0  0x0001 RELOC_CALL           _PowOff
-0x0076      0x00000000            0  0x000a RELOC_F              _long_f
-0x0078      0x00000000            0  0x0002 RELOC_GOTO           _00147_DS_
+0x0071      0x00000000            0  0x0001 RELOC_CALL           _PowOff
+0x0073      0x00000000            0  0x000a RELOC_F              _long_f
+0x0075      0x00000000            0  0x0002 RELOC_GOTO           _00146_DS_
+0x0077      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
+0x0079      0x00000000            0  0x0002 RELOC_GOTO           _00137_DS_
 0x007a      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x007c      0x00000000            0  0x0002 RELOC_GOTO           _00138_DS_
+0x007b      0x00000000            0  0x0002 RELOC_GOTO           _00146_DS_
+0x007c      0x00000000            0  0x000a RELOC_F              _long_f
 0x007d      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x007e      0x00000000            0  0x0002 RELOC_GOTO           _00147_DS_
-0x007f      0x00000000            0  0x000a RELOC_F              _long_f
-0x0080      0x00000000            0  0x000a RELOC_F              _g_ucTimerWorkCount
-0x0081      0x00000000            0  0x0001 RELOC_CALL           _PowOff
+0x007e      0x00000000            0  0x0001 RELOC_CALL           _PowOff
 
 Line Number Table
 Line      Address     Symbol
-191       0x0000      key.asm
-192       0x0001      key.asm
-196       0x0002      key.asm
-197       0x0003      key.asm
-201       0x0004      key.asm
-202       0x0005      key.asm
-203       0x0006      key.asm
-205       0x0007      key.asm
-206       0x0008      key.asm
-207       0x0009      key.asm
-208       0x000a      key.asm
-209       0x000b      key.asm
-216       0x000c      key.asm
-217       0x000d      key.asm
-218       0x000e      key.asm
-219       0x000f      key.asm
-220       0x0010      key.asm
-221       0x0011      key.asm
-223       0x0012      key.asm
-224       0x0013      key.asm
-229       0x0014      key.asm
-230       0x0015      key.asm
-231       0x0016      key.asm
-237       0x0017      key.asm
-238       0x0018      key.asm
-239       0x0019      key.asm
-240       0x001a      key.asm
-241       0x001b      key.asm
-242       0x001c      key.asm
-244       0x001d      key.asm
-245       0x001e      key.asm
-251       0x001f      key.asm
-252       0x0020      key.asm
-256       0x0021      key.asm
-257       0x0022      key.asm
-259       0x0023      key.asm
-265       0x0024      key.asm
-266       0x0025      key.asm
-270       0x0026      key.asm
-271       0x0027      key.asm
-273       0x0028      key.asm
-279       0x0029      key.asm
-280       0x002a      key.asm
-281       0x002b      key.asm
-283       0x002c      key.asm
-284       0x002d      key.asm
-285       0x002e      key.asm
-286       0x002f      key.asm
-287       0x0030      key.asm
-291       0x0031      key.asm
-292       0x0032      key.asm
-298       0x0033      key.asm
-299       0x0034      key.asm
-300       0x0035      key.asm
-301       0x0036      key.asm
-302       0x0037      key.asm
-303       0x0038      key.asm
-305       0x0039      key.asm
-306       0x003a      key.asm
-311       0x003b      key.asm
-315       0x003c      key.asm
-316       0x003d      key.asm
-317       0x003e      key.asm
-319       0x003f      key.asm
-320       0x0040      key.asm
-321       0x0041      key.asm
-322       0x0042      key.asm
-323       0x0043      key.asm
-327       0x0044      key.asm
-328       0x0045      key.asm
-332       0x0046      key.asm
-333       0x0047      key.asm
+189       0x0000      key.asm
+190       0x0001      key.asm
+194       0x0002      key.asm
+195       0x0003      key.asm
+199       0x0004      key.asm
+200       0x0005      key.asm
+201       0x0006      key.asm
+203       0x0007      key.asm
+204       0x0008      key.asm
+205       0x0009      key.asm
+206       0x000a      key.asm
+207       0x000b      key.asm
+214       0x000c      key.asm
+215       0x000d      key.asm
+216       0x000e      key.asm
+217       0x000f      key.asm
+218       0x0010      key.asm
+219       0x0011      key.asm
+221       0x0012      key.asm
+222       0x0013      key.asm
+227       0x0014      key.asm
+228       0x0015      key.asm
+229       0x0016      key.asm
+235       0x0017      key.asm
+236       0x0018      key.asm
+237       0x0019      key.asm
+238       0x001a      key.asm
+239       0x001b      key.asm
+240       0x001c      key.asm
+242       0x001d      key.asm
+243       0x001e      key.asm
+249       0x001f      key.asm
+250       0x0020      key.asm
+254       0x0021      key.asm
+255       0x0022      key.asm
+257       0x0023      key.asm
+263       0x0024      key.asm
+264       0x0025      key.asm
+268       0x0026      key.asm
+269       0x0027      key.asm
+271       0x0028      key.asm
+277       0x0029      key.asm
+278       0x002a      key.asm
+279       0x002b      key.asm
+281       0x002c      key.asm
+282       0x002d      key.asm
+283       0x002e      key.asm
+284       0x002f      key.asm
+285       0x0030      key.asm
+289       0x0031      key.asm
+290       0x0032      key.asm
+296       0x0033      key.asm
+297       0x0034      key.asm
+298       0x0035      key.asm
+299       0x0036      key.asm
+300       0x0037      key.asm
+301       0x0038      key.asm
+303       0x0039      key.asm
+304       0x003a      key.asm
+309       0x003b      key.asm
+313       0x003c      key.asm
+314       0x003d      key.asm
+315       0x003e      key.asm
+317       0x003f      key.asm
+318       0x0040      key.asm
+319       0x0041      key.asm
+320       0x0042      key.asm
+321       0x0043      key.asm
+325       0x0044      key.asm
+326       0x0045      key.asm
+330       0x0046      key.asm
+332       0x0047      key.asm
 334       0x0048      key.asm
 335       0x0049      key.asm
-340       0x004a      key.asm
-343       0x004b      key.asm
-345       0x004c      key.asm
-350       0x004d      key.asm
-352       0x004e      key.asm
-357       0x004f      key.asm
-358       0x0050      key.asm
-361       0x0051      key.asm
-362       0x0052      key.asm
-363       0x0053      key.asm
-364       0x0054      key.asm
-368       0x0055      key.asm
-371       0x0056      key.asm
-373       0x0057      key.asm
-378       0x0058      key.asm
-379       0x0059      key.asm
-380       0x005a      key.asm
-381       0x005b      key.asm
-385       0x005c      key.asm
-388       0x005d      key.asm
-390       0x005e      key.asm
-395       0x005f      key.asm
-396       0x0060      key.asm
-397       0x0061      key.asm
-398       0x0062      key.asm
-402       0x0063      key.asm
-405       0x0064      key.asm
-408       0x0065      key.asm
-411       0x0066      key.asm
-412       0x0067      key.asm
-417       0x0068      key.asm
-418       0x0069      key.asm
-419       0x006a      key.asm
-420       0x006b      key.asm
-424       0x006c      key.asm
-425       0x006d      key.asm
-426       0x006e      key.asm
-427       0x006f      key.asm
-432       0x0070      key.asm
-434       0x0071      key.asm
-439       0x0072      key.asm
-442       0x0073      key.asm
-445       0x0074      key.asm
-450       0x0075      key.asm
-451       0x0076      key.asm
-452       0x0077      key.asm
-453       0x0078      key.asm
-457       0x0079      key.asm
-458       0x007a      key.asm
-459       0x007b      key.asm
-460       0x007c      key.asm
-465       0x007d      key.asm
-467       0x007e      key.asm
-472       0x007f      key.asm
-475       0x0080      key.asm
-478       0x0081      key.asm
-482       0x0082      key.asm
+336       0x004a      key.asm
+337       0x004b      key.asm
+342       0x004c      key.asm
+343       0x004d      key.asm
+346       0x004e      key.asm
+347       0x004f      key.asm
+348       0x0050      key.asm
+349       0x0051      key.asm
+353       0x0052      key.asm
+356       0x0053      key.asm
+358       0x0054      key.asm
+363       0x0055      key.asm
+364       0x0056      key.asm
+365       0x0057      key.asm
+366       0x0058      key.asm
+370       0x0059      key.asm
+373       0x005a      key.asm
+375       0x005b      key.asm
+380       0x005c      key.asm
+381       0x005d      key.asm
+382       0x005e      key.asm
+383       0x005f      key.asm
+387       0x0060      key.asm
+390       0x0061      key.asm
+393       0x0062      key.asm
+396       0x0063      key.asm
+397       0x0064      key.asm
+402       0x0065      key.asm
+403       0x0066      key.asm
+404       0x0067      key.asm
+405       0x0068      key.asm
+409       0x0069      key.asm
+410       0x006a      key.asm
+411       0x006b      key.asm
+412       0x006c      key.asm
+417       0x006d      key.asm
+419       0x006e      key.asm
+424       0x006f      key.asm
+427       0x0070      key.asm
+430       0x0071      key.asm
+435       0x0072      key.asm
+436       0x0073      key.asm
+437       0x0074      key.asm
+438       0x0075      key.asm
+442       0x0076      key.asm
+443       0x0077      key.asm
+444       0x0078      key.asm
+445       0x0079      key.asm
+450       0x007a      key.asm
+452       0x007b      key.asm
+457       0x007c      key.asm
+460       0x007d      key.asm
+463       0x007e      key.asm
+467       0x007f      key.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -1709,33 +1700,32 @@ Idx  Name                     Section          Value      Type     DT           
        number of relocations  = 0
        number of line numbers = 0
 0120 S_key__ScanKey           S_key__ScanKey   0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 262
-       number of relocations  = 90
-       number of line numbers = 131
+       length                 = 256
+       number of relocations  = 87
+       number of line numbers = 128
 0122 _ScanKey                 S_key__ScanKey   0x00000000 T_NULL   DT_NON       C_EXT     0
-0123 _00142_DS_               S_key__ScanKey   0x0000000c T_NULL   DT_NON       C_LABEL   0
-0124 _00200_DS_               S_key__ScanKey   0x00000012 T_NULL   DT_NON       C_LABEL   0
+0123 _00141_DS_               S_key__ScanKey   0x0000000c T_NULL   DT_NON       C_LABEL   0
+0124 _00199_DS_               S_key__ScanKey   0x00000012 T_NULL   DT_NON       C_LABEL   0
 0125 _00106_DS_               S_key__ScanKey   0x00000017 T_NULL   DT_NON       C_LABEL   0
-0126 _00201_DS_               S_key__ScanKey   0x0000001d T_NULL   DT_NON       C_LABEL   0
+0126 _00200_DS_               S_key__ScanKey   0x0000001d T_NULL   DT_NON       C_LABEL   0
 0127 _00113_DS_               S_key__ScanKey   0x00000024 T_NULL   DT_NON       C_LABEL   0
 0128 _00110_DS_               S_key__ScanKey   0x00000029 T_NULL   DT_NON       C_LABEL   0
 0129 _00116_DS_               S_key__ScanKey   0x00000033 T_NULL   DT_NON       C_LABEL   0
-0130 _00202_DS_               S_key__ScanKey   0x00000039 T_NULL   DT_NON       C_LABEL   0
-0131 _00118_DS_               S_key__ScanKey   0x0000004d T_NULL   DT_NON       C_LABEL   0
-0132 _00143_DS_               S_key__ScanKey   0x0000004f T_NULL   DT_NON       C_LABEL   0
-0133 _00130_DS_               S_key__ScanKey   0x00000058 T_NULL   DT_NON       C_LABEL   0
-0134 _00127_DS_               S_key__ScanKey   0x0000005f T_NULL   DT_NON       C_LABEL   0
-0135 _00131_DS_               S_key__ScanKey   0x00000068 T_NULL   DT_NON       C_LABEL   0
-0136 _00133_DS_               S_key__ScanKey   0x00000072 T_NULL   DT_NON       C_LABEL   0
-0137 _00136_DS_               S_key__ScanKey   0x00000075 T_NULL   DT_NON       C_LABEL   0
-0138 _00138_DS_               S_key__ScanKey   0x0000007f T_NULL   DT_NON       C_LABEL   0
-0139 _00147_DS_               S_key__ScanKey   0x00000082 T_NULL   DT_NON       C_LABEL   0
-0140 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
+0130 _00201_DS_               S_key__ScanKey   0x00000039 T_NULL   DT_NON       C_LABEL   0
+0131 _00142_DS_               S_key__ScanKey   0x0000004c T_NULL   DT_NON       C_LABEL   0
+0132 _00129_DS_               S_key__ScanKey   0x00000055 T_NULL   DT_NON       C_LABEL   0
+0133 _00126_DS_               S_key__ScanKey   0x0000005c T_NULL   DT_NON       C_LABEL   0
+0134 _00130_DS_               S_key__ScanKey   0x00000065 T_NULL   DT_NON       C_LABEL   0
+0135 _00132_DS_               S_key__ScanKey   0x0000006f T_NULL   DT_NON       C_LABEL   0
+0136 _00135_DS_               S_key__ScanKey   0x00000072 T_NULL   DT_NON       C_LABEL   0
+0137 _00137_DS_               S_key__ScanKey   0x0000007c T_NULL   DT_NON       C_LABEL   0
+0138 _00146_DS_               S_key__ScanKey   0x0000007f T_NULL   DT_NON       C_LABEL   0
+0139 .eof                     DEBUG            0x00000000 T_NULL   DT_NON       C_EOF     0
 
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:01 2025
+Time Stamp           Wed Apr 30 16:58:24 2025
 Number of Sections   15
 Number of Symbols    134
 Characteristics      0
@@ -2564,7 +2554,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:01 2025
+Time Stamp           Wed Apr 30 16:58:25 2025
 Number of Sections   5
 Number of Symbols    101
 Characteristics      0
@@ -2775,7 +2765,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:01 2025
+Time Stamp           Wed Apr 30 16:58:25 2025
 Number of Sections   9
 Number of Symbols    134
 Characteristics      0
@@ -3270,7 +3260,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:01 2025
+Time Stamp           Wed Apr 30 16:58:25 2025
 Number of Sections   4
 Number of Symbols    107
 Characteristics      0
@@ -3675,7 +3665,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:02 2025
+Time Stamp           Wed Apr 30 16:58:26 2025
 Number of Sections   11
 Number of Symbols    98
 Characteristics      0
@@ -3979,7 +3969,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Wed Apr 30 16:46:02 2025
+Time Stamp           Wed Apr 30 16:58:26 2025
 Number of Sections   2
 Number of Symbols    94
 Characteristics      0

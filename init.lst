@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _TempFlag
   0000                00041         extern  _SleepCount
   0000                00042         extern  _SleepFlag
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern STK00
                       00094 ;--------------------------------------------------------
                       00095 ; global declarations
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0001   3E??           00139         BCF     _BITS_DATA0,5
                       00140 ;;[ICODE] init.c:86:    _TempCount [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
                             := 0x0 {const-unsigned-char literal}
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00182 
                       00183 ;***
                       00184 ;  pBlock Stats: dbName = C
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00223 ;***
                       00224 ;has an exit
                       00225 ;; Starting pCode block
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             signed-char literal}
                       00260 ;       .line   31; "init.c"    PHCON &= DEF_CLR_BIT1;
 000A   3C??           00261         BCF     _PHCON,1
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00293 ;;[ICODE] init.c:53:    *(iTemp13 [k27 lr34:36 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
                             itfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                       00294 ;       .line   53; "init.c"    PORT_LED1 = 1;  //µÆ¹â  1£ºÃð  0£ºÁÁ
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -443,7 +443,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00311 ;          49+    0 =    49 instructions (   98 byte)
                       00312 
                       00313         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE  9
 
 
 SYMBOL TABLE
@@ -502,7 +502,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE 10
 
 
 SYMBOL TABLE
@@ -561,7 +561,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE 11
 
 
 SYMBOL TABLE
@@ -620,7 +620,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE 12
 
 
 SYMBOL TABLE
@@ -679,7 +679,7 @@ _INDF                             EXTERNAL      00000000              0
 _INTECON                          EXTERNAL      00000000              0
 _INTECONbits                      EXTERNAL      00000000              0
 _INTFLAG                          EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE 13
 
 
 SYMBOL TABLE
@@ -738,7 +738,7 @@ _TRISBbits                        EXTERNAL      00000000              0
 _TempCount                        EXTERNAL      00000000              0
 _TempFlag                         EXTERNAL      00000000              0
 _WDTE_OFF                         CONSTANT      00003FFB          16379
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:46:00          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   04/30/25  16:58:24          PAGE 14
 
 
 SYMBOL TABLE

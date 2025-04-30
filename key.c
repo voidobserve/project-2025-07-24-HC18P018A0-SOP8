@@ -45,13 +45,19 @@ void ScanKey(void)
 			if(PORT_KEY_3 == 1){
 				long_f = 1;
 
-				
+				//???????
 				if(g_ucTimerWorkCount <  0xff) {
-					g_ucTimerWorkCount++;
-					PowOn();
-				} else {
-					PowOff();
+						g_ucTimerWorkCount++;
 				}
+				PowOn();
+
+				// //2s????
+				// if(g_ucTimerWorkCount <  0xff) {
+				// 	g_ucTimerWorkCount++;
+				// 	PowOn();
+				// } else {
+				// 	PowOff();
+				// }
 				 
 				
 			}

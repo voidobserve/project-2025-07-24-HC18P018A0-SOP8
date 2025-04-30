@@ -163,14 +163,12 @@ code_key	code
 ;has an exit
 ;functions called:
 ;   _PowOn
-;   _PowOff
 ;   _LedSwitch
 ;   _MotoSwitch
 ;   _PowOn
 ;   _PowOff
 ;   _PowOff
 ;   _PowOn
-;   _PowOff
 ;   _LedSwitch
 ;   _MotoSwitch
 ;   _PowOn
@@ -180,7 +178,7 @@ code_key	code
 ;   r0x1006
 ;   r0x1007
 ;; Starting pCode block
-;;[ICODE] key.c:11:  _entry($44) :
+;;[ICODE] key.c:11:  _entry($43) :
 ;;[ICODE] key.c:11: 	proc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 S_key__ScanKey	code
 _ScanKey:
@@ -189,13 +187,13 @@ _ScanKey:
 ;;[ICODE] key.c:14: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104A ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 ;	.line	14; "key.c"	if(PORT_KEY_1 == 0 || PORT_KEY_2 == 0 || PORT_KEY_3 == 1 )
 	BTFSS	_PORTBbits,2
-	GOTO	_00142_DS_
-;;[ICODE] key.c:14: 	if iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104A ] == 0 goto __iftrue_15($38)
+	GOTO	_00141_DS_
+;;[ICODE] key.c:14: 	if iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {2,1} fixed}[r0x104A ] == 0 goto __iftrue_15($37)
 ;;[ICODE] key.c:14: 	iTemp4 [k9 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
 ;;[ICODE] key.c:14: 	iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x104A ] = @[iTemp4 [k9 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 	BTFSS	_PORTBbits,4
-	GOTO	_00142_DS_
-;;[ICODE] key.c:14: 	if iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x104A ] == 0 goto __iftrue_15($38)
+	GOTO	_00141_DS_
+;;[ICODE] key.c:14: 	if iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x104A ] == 0 goto __iftrue_15($37)
 ;;[ICODE] key.c:14: 	iTemp7 [k13 lr11:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
 ;;[ICODE] key.c:14: 	iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} fixed}[r0x104A ] = @[iTemp7 [k13 lr11:13 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 	CLRF	r0x1006
@@ -206,20 +204,20 @@ _ScanKey:
 	MOVWF	r0x1007
 	XORLW	0x01
 	BTFSS	STATUS,2
-	GOTO	_00143_DS_
-;;[ICODE] key.c:14: 	if iTemp10 [k16 lr15:16 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_15($39)
-;;[ICODE] key.c:14:  __iftrue_15($38) :
+	GOTO	_00142_DS_
+;;[ICODE] key.c:14: 	if iTemp10 [k16 lr15:16 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_15($38)
+;;[ICODE] key.c:14:  __iftrue_15($37) :
 ;;[ICODE] key.c:17: 	iTemp11 [k18 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpress_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0xffff {const-unsigned-int literal}
 ;;unsigned compare: left < lit(0xFFFF=65535), size=2
-_00142_DS_:
+_00141_DS_:
 ;	.line	17; "key.c"	if(longpress_cnt < 0xffff) {
 	MOVLW	0xff
 	SUBWF	(_longpress_cnt + 1),W
 	BTFSS	STATUS,2
-	GOTO	_00200_DS_
+	GOTO	_00199_DS_
 	MOVLW	0xff
 	SUBWF	_longpress_cnt,W
-_00200_DS_:
+_00199_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00106_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
@@ -237,10 +235,10 @@ _00106_DS_:
 	MOVLW	0x00
 	SUBWF	(_longpress_cnt + 1),W
 	BTFSS	STATUS,2
-	GOTO	_00201_DS_
+	GOTO	_00200_DS_
 	MOVLW	0x50
 	SUBWF	_longpress_cnt,W
-_00201_DS_:
+_00200_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00116_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
@@ -298,14 +296,14 @@ _00116_DS_:
 	MOVLW	0x00
 	SUBWF	(_longpress_cnt + 1),W
 	BTFSS	STATUS,2
-	GOTO	_00202_DS_
+	GOTO	_00201_DS_
 	MOVLW	0x64
 	SUBWF	_longpress_cnt,W
-_00202_DS_:
+_00201_DS_:
 	BTFSS	STATUS,0
-	GOTO	_00147_DS_
+	GOTO	_00146_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
-;;[ICODE] key.c:41: 	if iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 goto _return($43)
+;;[ICODE] key.c:41: 	if iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 goto _return($42)
 ;;[ICODE] key.c:43: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 ;	.line	43; "key.c"	clink_event = 0;
 	CLRF	_clink_event
@@ -320,8 +318,8 @@ _00202_DS_:
 	MOVWF	r0x1007
 	XORLW	0x01
 	BTFSS	STATUS,2
-	GOTO	_00147_DS_
-;;[ICODE] key.c:45: 	if iTemp36 [k48 lr54:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto _return($43)
+	GOTO	_00146_DS_
+;;[ICODE] key.c:45: 	if iTemp36 [k48 lr54:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto _return($42)
 ;;[ICODE] key.c:46: 	_long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x1 {const-unsigned-char literal}
 ;	.line	46; "key.c"	long_f = 1;
 	MOVLW	0x01
@@ -330,160 +328,147 @@ _00202_DS_:
 ;;unsigned compare: left < lit(0xFF=255), size=1
 ;	.line	49; "key.c"	if(g_ucTimerWorkCount <  0xff) {
 	MOVLW	0xff
-	SUBWF	_g_ucTimerWorkCount,W
-	BTFSC	STATUS,0
-	GOTO	_00118_DS_
-;;genSkipc:3257: created from rifx:0x782c44
-;;[ICODE] key.c:49: 	if iTemp38 [k52 lr57:58 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_5($14)
-;;[ICODE] key.c:50: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
 ;	.line	50; "key.c"	g_ucTimerWorkCount++;
+	SUBWF	_g_ucTimerWorkCount,W
+;	.line	52; "key.c"	PowOn();
+	BTFSS	STATUS,0
 	INCF	_g_ucTimerWorkCount,F
-;;[ICODE] key.c:51: 	iTemp42 [k57 lr61:61 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOn [k56 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	51; "key.c"	PowOn();
 	CALL	_PowOn
-;;[ICODE] key.c:51: 	 goto _return($43)
-	GOTO	_00147_DS_
-;;[ICODE] key.c:51:  __iffalse_5($14) :
-;;[ICODE] key.c:53: 	iTemp43 [k59 lr64:64 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k58 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-_00118_DS_:
-;	.line	53; "key.c"	PowOff();
-	CALL	_PowOff
-;;[ICODE] key.c:53: 	 goto _return($43)
-	GOTO	_00147_DS_
-;;[ICODE] key.c:53:  __iffalse_15($39) :
-;;[ICODE] key.c:64: 	_longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
-_00143_DS_:
-;	.line	64; "key.c"	longpress_cnt = 0;
+	GOTO	_00146_DS_
+;;[ICODE] key.c:52:  __iffalse_15($38) :
+;;[ICODE] key.c:70: 	_longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+_00142_DS_:
+;	.line	70; "key.c"	longpress_cnt = 0;
 	CLRF	_longpress_cnt
 	CLRF	(_longpress_cnt + 1)
-;;[ICODE] key.c:66: 	iTemp45 [k61 lr68:69 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x1 {const-unsigned-char literal}
-;	.line	66; "key.c"	if(clink_event == 1){
+;;[ICODE] key.c:72: 	iTemp44 [k59 lr66:67 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x1 {const-unsigned-char literal}
+;	.line	72; "key.c"	if(clink_event == 1){
 	MOVF	_clink_event,W
 	XORLW	0x01
 	BTFSS	STATUS,2
-	GOTO	_00130_DS_
-;;[ICODE] key.c:66: 	if iTemp45 [k61 lr68:69 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_10($26)
-;;[ICODE] key.c:68: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	68; "key.c"	clink_event = 0;
+	GOTO	_00129_DS_
+;;[ICODE] key.c:72: 	if iTemp44 [k59 lr66:67 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_10($25)
+;;[ICODE] key.c:74: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	74; "key.c"	clink_event = 0;
 	CLRF	_clink_event
-;;[ICODE] key.c:69: 	iTemp47 [k64 lr71:71 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k63 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	69; "key.c"	LedSwitch();
+;;[ICODE] key.c:75: 	iTemp46 [k62 lr69:69 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k61 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	75; "key.c"	LedSwitch();
 	CALL	_LedSwitch
-;;[ICODE] key.c:69: 	 goto __ifend_10($27)
-	GOTO	_00131_DS_
-;;[ICODE] key.c:69:  __iffalse_10($26) :
-;;[ICODE] key.c:70: 	iTemp48 [k65 lr74:75 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char literal}
-_00130_DS_:
-;	.line	70; "key.c"	} else if(clink_event == 2){
+;;[ICODE] key.c:75: 	 goto __ifend_10($26)
+	GOTO	_00130_DS_
+;;[ICODE] key.c:75:  __iffalse_10($25) :
+;;[ICODE] key.c:76: 	iTemp47 [k63 lr72:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char literal}
+_00129_DS_:
+;	.line	76; "key.c"	} else if(clink_event == 2){
 	MOVF	_clink_event,W
 	XORLW	0x02
 	BTFSS	STATUS,2
-	GOTO	_00127_DS_
-;;[ICODE] key.c:70: 	if iTemp48 [k65 lr74:75 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_9($23)
-;;[ICODE] key.c:71: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	71; "key.c"	clink_event = 0;
+	GOTO	_00126_DS_
+;;[ICODE] key.c:76: 	if iTemp47 [k63 lr72:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_9($22)
+;;[ICODE] key.c:77: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	77; "key.c"	clink_event = 0;
 	CLRF	_clink_event
-;;[ICODE] key.c:73: 	iTemp50 [k68 lr77:77 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k67 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	73; "key.c"	MotoSwitch();
+;;[ICODE] key.c:79: 	iTemp49 [k66 lr75:75 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	79; "key.c"	MotoSwitch();
 	CALL	_MotoSwitch
-;;[ICODE] key.c:73: 	 goto __ifend_10($27)
-	GOTO	_00131_DS_
-;;[ICODE] key.c:73:  __iffalse_9($23) :
-;;[ICODE] key.c:74: 	iTemp51 [k69 lr80:81 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char literal}
-_00127_DS_:
-;	.line	74; "key.c"	} else if(clink_event == 3){
+;;[ICODE] key.c:79: 	 goto __ifend_10($26)
+	GOTO	_00130_DS_
+;;[ICODE] key.c:79:  __iffalse_9($22) :
+;;[ICODE] key.c:80: 	iTemp50 [k67 lr78:79 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char literal}
+_00126_DS_:
+;	.line	80; "key.c"	} else if(clink_event == 3){
 	MOVF	_clink_event,W
 	XORLW	0x03
 	BTFSS	STATUS,2
-	GOTO	_00131_DS_
-;;[ICODE] key.c:74: 	if iTemp51 [k69 lr80:81 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __ifend_10($27)
-;;[ICODE] key.c:76: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	76; "key.c"	clink_event = 0;
+	GOTO	_00130_DS_
+;;[ICODE] key.c:80: 	if iTemp50 [k67 lr78:79 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __ifend_10($26)
+;;[ICODE] key.c:82: 	_clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	82; "key.c"	clink_event = 0;
 	CLRF	_clink_event
-;;[ICODE] key.c:78: 	iTemp53 [k71 lr83:83 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOn [k56 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	78; "key.c"	PowOn();
+;;[ICODE] key.c:84: 	iTemp52 [k69 lr81:81 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOn [k56 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	84; "key.c"	PowOn();
 	CALL	_PowOn
-;;[ICODE] key.c:79: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
-;	.line	79; "key.c"	g_ucTimerWorkCount++;  //10ms
+;;[ICODE] key.c:85: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
+;	.line	85; "key.c"	g_ucTimerWorkCount++;  //10ms
 	INCF	_g_ucTimerWorkCount,F
-;;[ICODE] key.c:80: 	_holdOn_f [k75 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x1 {const-unsigned-char literal}
-;	.line	80; "key.c"	holdOn_f = 1;
+;;[ICODE] key.c:86: 	_holdOn_f [k73 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x1 {const-unsigned-char literal}
+;	.line	86; "key.c"	holdOn_f = 1;
 	MOVLW	0x01
 	MOVWF	_holdOn_f
-;;[ICODE] key.c:80:  __ifend_10($27) :
-;;[ICODE] key.c:84: 	if _holdOn_f [k75 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0 goto __iffalse_12($32)
-_00131_DS_:
-;	.line	84; "key.c"	if(holdOn_f) {
+;;[ICODE] key.c:86:  __ifend_10($26) :
+;;[ICODE] key.c:90: 	if _holdOn_f [k73 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0 goto __iffalse_12($31)
+_00130_DS_:
+;	.line	90; "key.c"	if(holdOn_f) {
 	MOVLW	0x00
 	IORWF	_holdOn_f,W
 	BTFSC	STATUS,2
-	GOTO	_00136_DS_
-;;[ICODE] key.c:86: 	iTemp58 [k77 lr89:90 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigned-char literal}
+	GOTO	_00135_DS_
+;;[ICODE] key.c:92: 	iTemp57 [k75 lr87:88 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigned-char literal}
 ;;unsigned compare: left < lit(0x3C=60), size=1
-;	.line	86; "key.c"	if(g_ucTimerWorkCount <  60) {
+;	.line	92; "key.c"	if(g_ucTimerWorkCount <  60) {
 	MOVLW	0x3c
 	SUBWF	_g_ucTimerWorkCount,W
 	BTFSC	STATUS,0
-	GOTO	_00133_DS_
+	GOTO	_00132_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
-;;[ICODE] key.c:86: 	if iTemp58 [k77 lr89:90 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_11($29)
-;;[ICODE] key.c:87: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
-;	.line	87; "key.c"	g_ucTimerWorkCount++;
+;;[ICODE] key.c:92: 	if iTemp57 [k75 lr87:88 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_11($28)
+;;[ICODE] key.c:93: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
+;	.line	93; "key.c"	g_ucTimerWorkCount++;
 	INCF	_g_ucTimerWorkCount,F
-;;[ICODE] key.c:87: 	 goto __iffalse_12($32)
-	GOTO	_00136_DS_
-;;[ICODE] key.c:87:  __iffalse_11($29) :
-;;[ICODE] key.c:89: 	_holdOn_f [k75 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-_00133_DS_:
-;	.line	89; "key.c"	holdOn_f = 0;
+;;[ICODE] key.c:93: 	 goto __iffalse_12($31)
+	GOTO	_00135_DS_
+;;[ICODE] key.c:93:  __iffalse_11($28) :
+;;[ICODE] key.c:95: 	_holdOn_f [k73 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+_00132_DS_:
+;	.line	95; "key.c"	holdOn_f = 0;
 	CLRF	_holdOn_f
-;;[ICODE] key.c:90: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	90; "key.c"	g_ucTimerWorkCount = 0;
+;;[ICODE] key.c:96: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	96; "key.c"	g_ucTimerWorkCount = 0;
 	CLRF	_g_ucTimerWorkCount
-;;[ICODE] key.c:91: 	iTemp64 [k83 lr97:97 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k58 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	91; "key.c"	PowOff();
+;;[ICODE] key.c:97: 	iTemp63 [k82 lr95:95 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k81 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	97; "key.c"	PowOff();
 	CALL	_PowOff
-;;[ICODE] key.c:91:  __iffalse_12($32) :
-;;[ICODE] key.c:99: 	if _long_f [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0 goto _return($43)
-_00136_DS_:
-;	.line	99; "key.c"	if(long_f){
+;;[ICODE] key.c:97:  __iffalse_12($31) :
+;;[ICODE] key.c:105: 	if _long_f [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0 goto _return($42)
+_00135_DS_:
+;	.line	105; "key.c"	if(long_f){
 	MOVLW	0x00
 	IORWF	_long_f,W
 	BTFSC	STATUS,2
-	GOTO	_00147_DS_
-;;[ICODE] key.c:101: 	iTemp65 [k84 lr100:101 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigned-char literal}
+	GOTO	_00146_DS_
+;;[ICODE] key.c:107: 	iTemp64 [k83 lr98:99 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigned-char literal}
 ;;unsigned compare: left < lit(0x3C=60), size=1
-;	.line	101; "key.c"	if(g_ucTimerWorkCount <  60) {
+;	.line	107; "key.c"	if(g_ucTimerWorkCount <  60) {
 	MOVLW	0x3c
 	SUBWF	_g_ucTimerWorkCount,W
 	BTFSC	STATUS,0
-	GOTO	_00138_DS_
+	GOTO	_00137_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
-;;[ICODE] key.c:101: 	if iTemp65 [k84 lr100:101 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_13($34)
-;;[ICODE] key.c:102: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
-;	.line	102; "key.c"	g_ucTimerWorkCount++;
+;;[ICODE] key.c:107: 	if iTemp64 [k83 lr98:99 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_13($33)
+;;[ICODE] key.c:108: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
+;	.line	108; "key.c"	g_ucTimerWorkCount++;
 	INCF	_g_ucTimerWorkCount,F
-;;[ICODE] key.c:102: 	 goto _return($43)
-	GOTO	_00147_DS_
-;;[ICODE] key.c:102:  __iffalse_13($34) :
-;;[ICODE] key.c:104: 	_long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-_00138_DS_:
-;	.line	104; "key.c"	long_f = 0;
+;;[ICODE] key.c:108: 	 goto _return($42)
+	GOTO	_00146_DS_
+;;[ICODE] key.c:108:  __iffalse_13($33) :
+;;[ICODE] key.c:110: 	_long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+_00137_DS_:
+;	.line	110; "key.c"	long_f = 0;
 	CLRF	_long_f
-;;[ICODE] key.c:105: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
-;	.line	105; "key.c"	g_ucTimerWorkCount = 0;
+;;[ICODE] key.c:111: 	_g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
+;	.line	111; "key.c"	g_ucTimerWorkCount = 0;
 	CLRF	_g_ucTimerWorkCount
-;;[ICODE] key.c:106: 	iTemp71 [k90 lr108:108 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k58 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	106; "key.c"	PowOff();
+;;[ICODE] key.c:112: 	iTemp70 [k89 lr106:106 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k81 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	112; "key.c"	PowOff();
 	CALL	_PowOff
-;;[ICODE] key.c:106:  _return($43) :
-;;[ICODE] key.c:106: 	eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-_00147_DS_:
+;;[ICODE] key.c:112:  _return($42) :
+;;[ICODE] key.c:112: 	eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+_00146_DS_:
 	RETURN	
 ; exit point of _ScanKey
 
 
 ;	code size estimation:
-;	  131+    0 =   131 instructions (  262 byte)
+;	  128+    0 =   128 instructions (  256 byte)
 
 	end
