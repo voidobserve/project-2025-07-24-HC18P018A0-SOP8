@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _PORTB
   0000                00041         extern  _GPR
   0000                00042         extern  _PCON
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         global  _TempFlag
   0000                00094         global  _SleepCount
   0000                00095         global  _SleepFlag
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -166,7 +166,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00137 
                       00138 ID_variable_4   idata
 0000                  00139 _SleepCount
-0000   00             00140         db      0x00
+0000   00 00          00140         db      0x00, 0x00
                       00141 
                       00142 
                       00143 ID_variable_5   idata
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 
                       00147 
                       00148 ID_variable_6   idata
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -211,7 +211,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00176 ;           0+    0 =     0 instructions (    0 byte)
                       00177 
                       00178         end
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  5
 
 
 SYMBOL TABLE
@@ -270,7 +270,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  6
 
 
 SYMBOL TABLE
@@ -329,7 +329,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  7
 
 
 SYMBOL TABLE
@@ -388,7 +388,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  8
 
 
 SYMBOL TABLE
@@ -447,7 +447,7 @@ _INDF                             EXTERNAL      00000000              0
 _INTECON                          EXTERNAL      00000000              0
 _INTECONbits                      EXTERNAL      00000000              0
 _INTFLAG                          EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE  9
 
 
 SYMBOL TABLE
@@ -506,7 +506,7 @@ _WDTE_ON                          CONSTANT      00003FFF          16383
 _WDT_OFF                          CONSTANT      00003FFB          16379
 _WDT_ON                           CONSTANT      00003FFF          16383
 _XT_OSC                           CONSTANT      00003DFF          15871
-gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   04/30/25  16:58:26          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)  variable.asm   05/05/25  10:34:47          PAGE 10
 
 
 SYMBOL TABLE

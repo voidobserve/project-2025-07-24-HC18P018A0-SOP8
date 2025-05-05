@@ -51,7 +51,7 @@ void main()
 
 		   ScanKey();                       //按键检测	
 		   CountdownDisplay();			 //倒计时
-
+		   CheckSleep();						 //休眠--低功耗
 		}	
 
 		LedDisplay();					 //LED指示灯

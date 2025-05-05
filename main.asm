@@ -210,6 +210,7 @@ code_main	code
 ;   _delay_ms
 ;   _ScanKey
 ;   _CountdownDisplay
+;   _CheckSleep
 ;   _LedDisplay
 ;   _MotoDisplay
 ;   _InitPort
@@ -218,6 +219,7 @@ code_main	code
 ;   _delay_ms
 ;   _ScanKey
 ;   _CountdownDisplay
+;   _CheckSleep
 ;   _LedDisplay
 ;   _MotoDisplay
 ;1 compiler assigned register :
@@ -275,12 +277,15 @@ _00123_DS_:
 ;;[ICODE] main.c:53: 	iTemp14 [k29 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CountdownDisplay [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 ;	.line	53; "main.c"	CountdownDisplay();			 //倒计时
 	CALL	_CountdownDisplay
-;;[ICODE] main.c:53:  __iffalse_0($2) :
-;;[ICODE] main.c:57: 	iTemp15 [k31 lr27:27 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedDisplay [k30 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] main.c:54: 	iTemp15 [k31 lr26:26 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CheckSleep [k30 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	54; "main.c"	CheckSleep();						 //休眠--低功耗
+	CALL	_CheckSleep
+;;[ICODE] main.c:54:  __iffalse_0($2) :
+;;[ICODE] main.c:57: 	iTemp16 [k33 lr28:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedDisplay [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 _00121_DS_:
 ;	.line	57; "main.c"	LedDisplay();					 //LED指示灯
 	CALL	_LedDisplay
-;;[ICODE] main.c:58: 	iTemp16 [k33 lr28:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoDisplay [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] main.c:58: 	iTemp17 [k35 lr29:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoDisplay [k34 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 ;	.line	58; "main.c"	MotoDisplay();					 //电机控制
 	CALL	_MotoDisplay
 ;;[ICODE] main.c:58: 	 goto _whilebody_2($4)
@@ -381,6 +386,6 @@ __sdcc_gsinit_startup:
 
 
 ;	code size estimation:
-;	   45+    0 =    45 instructions (   90 byte)
+;	   46+    0 =    46 instructions (   92 byte)
 
 	end

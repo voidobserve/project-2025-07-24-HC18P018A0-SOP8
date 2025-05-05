@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _T0CRbits
   0000                00041         extern  _T1CONbits
   0000                00042         extern  _OSCCONbits
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern SSAVE
   0000                00094         extern WSAVE
   0000                00095         extern STK12
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -153,8 +153,8 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00124 ; compiler-defined variables
                       00125 ;--------------------------------------------------------
                       00126 UDL_key_0       udata
-0000                  00127 r0x1006 res     1
-0001                  00128 r0x1007 res     1
+0000                  00127 r0x1008 res     1
+0001                  00128 r0x1009 res     1
                       00129 ;--------------------------------------------------------
                       00130 ; initialized data
                       00131 ;--------------------------------------------------------
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 
                       00147 
                       00148 ID_key_3        idata
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -210,8 +210,8 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00175 ;   _PowOff
                       00176 ;   _PowOff
                       00177 ;2 compiler assigned registers:
-                      00178 ;   r0x1006
-                      00179 ;   r0x1007
+                      00178 ;   r0x1008
+                      00179 ;   r0x1009
                       00180 ;; Starting pCode block
                       00181 ;;[ICODE] key.c:11:  _entry($43) :
                       00182 ;;[ICODE] key.c:11:     proc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
@@ -223,43 +223,43 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             d {2,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
                             ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                       00187 ;;[ICODE] key.c:14:     iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfiel
-                            d {2,1} fixed}[r0x104A ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bi
+                            d {2,1} fixed}[r0x104B ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bi
                             tfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                       00188 ;       .line   14; "key.c"     if(PORT_KEY_1 == 0 || PORT_KEY_2 == 0 || PORT_KEY_3 == 1 )
 0000   31??           00189         BTFSS   _PORTBbits,2
 0001   2???           00190         GOTO    _00141_DS_
                       00191 ;;[ICODE] key.c:14:     if iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitf
-                            ield {2,1} fixed}[r0x104A ] == 0 goto __iftrue_15($37)
+                            ield {2,1} fixed}[r0x104B ] == 0 goto __iftrue_15($37)
                       00192 ;;[ICODE] key.c:14:     iTemp4 [k9 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
                             d {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
                             ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                       00193 ;;[ICODE] key.c:14:     iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfi
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                            eld {4,1} fixed}[r0x104A ] = @[iTemp4 [k9 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-
+                            eld {4,1} fixed}[r0x104B ] = @[iTemp4 [k9 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-
                             bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
 0002   32??           00194         BTFSS   _PORTBbits,4
 0003   2???           00195         GOTO    _00141_DS_
                       00196 ;;[ICODE] key.c:14:     if iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bi
-                            tfield {4,1} fixed}[r0x104A ] == 0 goto __iftrue_15($37)
+                            tfield {4,1} fixed}[r0x104B ] == 0 goto __iftrue_15($37)
                       00197 ;;[ICODE] key.c:14:     iTemp7 [k13 lr11:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitf
                             ield {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-s
                             truct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                       00198 ;;[ICODE] key.c:14:     iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitf
-                            ield {5,1} fixed}[r0x104A ] = @[iTemp7 [k13 lr11:13 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
+                            ield {5,1} fixed}[r0x104B ] = @[iTemp7 [k13 lr11:13 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsig
                             ned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-0004   18??           00199         CLRF    r0x1006
+0004   18??           00199         CLRF    r0x1008
 0005   36??           00200         BTFSC   _PORTBbits,5
-0006   13??           00201         INCF    r0x1006,F
-                      00202 ;;[ICODE] key.c:14:     iTemp9 [k15 lr14:15 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104B ] 
+0006   13??           00201         INCF    r0x1008,F
+                      00202 ;;[ICODE] key.c:14:     iTemp9 [k15 lr14:15 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104C ] 
                             = (char register)iTemp8 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {5
-                            ,1} fixed}[r0x104A ]
-0007   11??           00203         MOVF    r0x1006,W
-0008   19??           00204         MOVWF   r0x1007
+                            ,1} fixed}[r0x104B ]
+0007   11??           00203         MOVF    r0x1008,W
+0008   19??           00204         MOVWF   r0x1009
 0009   0D01           00205         XORLW   0x01
 000A   3103           00206         BTFSS   STATUS,2
 000B   2???           00207         GOTO    _00142_DS_
@@ -291,363 +291,374 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0014   13??           00227         INCF    _longpress_cnt,F
 0015   3503           00228         BTFSC   STATUS,2
 0016   13??           00229         INCF    (_longpress_cnt + 1),F
-                      00230 ;;[ICODE] key.c:18:  __iffalse_0($2) :
-                      00231 ;;[ICODE] key.c:21:     iTemp15 [k22 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpr
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  6
+                      00230 ;;[ICODE] key.c:20:     _SleepCount [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
+                             := 0x0 {unsigned-int literal}
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
+                      00231 ;       .line   20; "key.c"     SleepCount = 0;
+0017   18??           00232         CLRF    _SleepCount
+0018   18??           00233         CLRF    (_SleepCount + 1)
+                      00234 ;;[ICODE] key.c:20:  __iffalse_0($2) :
+                      00235 ;;[ICODE] key.c:23:     iTemp16 [k24 lr24:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _longpr
                             ess_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x50 {unsigned-int litera
                             l}
-                      00232 ;;unsigned compare: left < lit(0x50=80), size=2
-0017                  00233 _00106_DS_:
-                      00234 ;       .line   21; "key.c"     if(longpress_cnt < 80){
-0017   0400           00235         MOVLW   0x00
-0018   1B??           00236         SUBWF   (_longpress_cnt + 1),W
-0019   3103           00237         BTFSS   STATUS,2
-001A   2???           00238         GOTO    _00200_DS_
-001B   0450           00239         MOVLW   0x50
-001C   1B??           00240         SUBWF   _longpress_cnt,W
-001D                  00241 _00200_DS_:
-001D   3403           00242         BTFSC   STATUS,0
-001E   2???           00243         GOTO    _00116_DS_
-                      00244 ;;genSkipc:3257: created from rifx:0x782c44
-                      00245 ;;[ICODE] key.c:21:     if iTemp15 [k22 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                      00236 ;;unsigned compare: left < lit(0x50=80), size=2
+0019                  00237 _00106_DS_:
+                      00238 ;       .line   23; "key.c"     if(longpress_cnt < 80){
+0019   0400           00239         MOVLW   0x00
+001A   1B??           00240         SUBWF   (_longpress_cnt + 1),W
+001B   3103           00241         BTFSS   STATUS,2
+001C   2???           00242         GOTO    _00200_DS_
+001D   0450           00243         MOVLW   0x50
+001E   1B??           00244         SUBWF   _longpress_cnt,W
+001F                  00245 _00200_DS_:
+001F   3403           00246         BTFSC   STATUS,0
+0020   2???           00247         GOTO    _00116_DS_
+                      00248 ;;genSkipc:3257: created from rifx:0x782c44
+                      00249 ;;[ICODE] key.c:23:     if iTemp16 [k24 lr24:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __iffalse_4($12)
-                      00246 ;;[ICODE] key.c:24:     iTemp17 [k25 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00250 ;;[ICODE] key.c:26:     iTemp18 [k27 lr26:28 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {2,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
                             struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00247 ;;[ICODE] key.c:24:     iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {2,1} fixed}[r0x104A ] = @[iTemp17 [k25 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00251 ;;[ICODE] key.c:26:     iTemp19 [k28 lr28:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {2,1} fixed}[r0x104B ] = @[iTemp18 [k27 lr26:28 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {2,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                      00248 ;       .line   24; "key.c"     if(PORT_KEY_1 == 0) {
-001F   35??           00249         BTFSC   _PORTBbits,2
-0020   2???           00250         GOTO    _00113_DS_
-                      00251 ;;[ICODE] key.c:24:     if iTemp18 [k26 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
-                            bitfield {2,1} fixed}[r0x104A ] != 0 goto __iffalse_3($9)
-                      00252 ;;[ICODE] key.c:26:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                      00252 ;       .line   26; "key.c"     if(PORT_KEY_1 == 0) {
+0021   35??           00253         BTFSC   _PORTBbits,2
+0022   2???           00254         GOTO    _00113_DS_
+                      00255 ;;[ICODE] key.c:26:     if iTemp19 [k28 lr28:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
+                            bitfield {2,1} fixed}[r0x104B ] != 0 goto __iffalse_3($9)
+                      00256 ;;[ICODE] key.c:28:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
                             d} := 0x1 {const-unsigned-char literal}
-                      00253 ;       .line   26; "key.c"     clink_event = 1;  //??
-0021   0401           00254         MOVLW   0x01
-0022   19??           00255         MOVWF   _clink_event
-                      00256 ;;[ICODE] key.c:26:      goto __iffalse_4($12)
-0023   2???           00257         GOTO    _00116_DS_
-                      00258 ;;[ICODE] key.c:26:  __iffalse_3($9) :
-                      00259 ;;[ICODE] key.c:28:     iTemp21 [k31 lr32:34 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00257 ;       .line   28; "key.c"     clink_event = 1;  
+0023   0401           00258         MOVLW   0x01
+0024   19??           00259         MOVWF   _clink_event
+                      00260 ;;[ICODE] key.c:28:      goto __iffalse_4($12)
+0025   2???           00261         GOTO    _00116_DS_
+                      00262 ;;[ICODE] key.c:28:  __iffalse_3($9) :
+                      00263 ;;[ICODE] key.c:30:     iTemp22 [k33 lr33:35 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
                             struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00260 ;;[ICODE] key.c:28:     iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {4,1} fixed}[r0x104A ] = @[iTemp21 [k31 lr32:34 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00264 ;;[ICODE] key.c:30:     iTemp23 [k34 lr35:36 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {4,1} fixed}[r0x104B ] = @[iTemp22 [k33 lr33:35 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-0024                  00261 _00113_DS_:
-                      00262 ;       .line   28; "key.c"     } else if(PORT_KEY_2 == 0) {
-0024   36??           00263         BTFSC   _PORTBbits,4
-0025   2???           00264         GOTO    _00110_DS_
-                      00265 ;;[ICODE] key.c:28:     if iTemp22 [k32 lr34:35 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
-                            bitfield {4,1} fixed}[r0x104A ] != 0 goto __iffalse_2($6)
-                      00266 ;;[ICODE] key.c:30:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
-                            d} := 0x2 {const-unsigned-char literal}
-                      00267 ;       .line   30; "key.c"     clink_event = 2; //???
-0026   0402           00268         MOVLW   0x02
-0027   19??           00269         MOVWF   _clink_event
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  7
+0026                  00265 _00113_DS_:
+                      00266 ;       .line   30; "key.c"     } else if(PORT_KEY_2 == 0) {
+0026   36??           00267         BTFSC   _PORTBbits,4
+0027   2???           00268         GOTO    _00110_DS_
+                      00269 ;;[ICODE] key.c:30:     if iTemp23 [k34 lr35:36 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
+                            bitfield {4,1} fixed}[r0x104B ] != 0 goto __iffalse_2($6)
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00270 ;;[ICODE] key.c:30:      goto __iffalse_4($12)
-0028   2???           00271         GOTO    _00116_DS_
-                      00272 ;;[ICODE] key.c:30:  __iffalse_2($6) :
-                      00273 ;;[ICODE] key.c:32:     iTemp25 [k36 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00270 ;;[ICODE] key.c:32:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x2 {const-unsigned-char literal}
+                      00271 ;       .line   32; "key.c"     clink_event = 2; 
+0028   0402           00272         MOVLW   0x02
+0029   19??           00273         MOVWF   _clink_event
+                      00274 ;;[ICODE] key.c:32:      goto __iffalse_4($12)
+002A   2???           00275         GOTO    _00116_DS_
+                      00276 ;;[ICODE] key.c:32:  __iffalse_2($6) :
+                      00277 ;;[ICODE] key.c:34:     iTemp26 [k38 lr40:42 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
                             struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00274 ;;[ICODE] key.c:32:     iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {5,1} fixed}[r0x104A ] = @[iTemp25 [k36 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00278 ;;[ICODE] key.c:34:     iTemp27 [k39 lr42:43 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {5,1} fixed}[r0x104B ] = @[iTemp26 [k38 lr40:42 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-0029                  00275 _00110_DS_:
-                      00276 ;       .line   32; "key.c"     } else if(PORT_KEY_3 == 1) {
-0029   18??           00277         CLRF    r0x1006
-002A   36??           00278         BTFSC   _PORTBbits,5
-002B   13??           00279         INCF    r0x1006,F
-                      00280 ;;[ICODE] key.c:32:     iTemp27 [k38 lr42:43 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104B ]
-                             = (char register)iTemp26 [k37 lr41:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield 
-                            {5,1} fixed}[r0x104A ]
-002C   11??           00281         MOVF    r0x1006,W
-002D   19??           00282         MOVWF   r0x1007
-002E   0D01           00283         XORLW   0x01
-002F   3103           00284         BTFSS   STATUS,2
-0030   2???           00285         GOTO    _00116_DS_
-                      00286 ;;[ICODE] key.c:32:     if iTemp28 [k39 lr43:44 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+002B                  00279 _00110_DS_:
+                      00280 ;       .line   34; "key.c"     } else if(PORT_KEY_3 == 1) {
+002B   18??           00281         CLRF    r0x1008
+002C   36??           00282         BTFSC   _PORTBbits,5
+002D   13??           00283         INCF    r0x1008,F
+                      00284 ;;[ICODE] key.c:34:     iTemp28 [k40 lr43:44 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104C ]
+                             = (char register)iTemp27 [k39 lr42:43 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield 
+                            {5,1} fixed}[r0x104B ]
+002E   11??           00285         MOVF    r0x1008,W
+002F   19??           00286         MOVWF   r0x1009
+0030   0D01           00287         XORLW   0x01
+0031   3103           00288         BTFSS   STATUS,2
+0032   2???           00289         GOTO    _00116_DS_
+                      00290 ;;[ICODE] key.c:34:     if iTemp29 [k41 lr44:45 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __iffalse_4($12)
-                      00287 ;;[ICODE] key.c:34:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                      00291 ;;[ICODE] key.c:36:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
                             d} := 0x3 {const-unsigned-char literal}
-                      00288 ;       .line   34; "key.c"     clink_event = 3; //???
-0031   0403           00289         MOVLW   0x03
-0032   19??           00290         MOVWF   _clink_event
-                      00291 ;;[ICODE] key.c:34:  __iffalse_4($12) :
-                      00292 ;;[ICODE] key.c:41:     iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} = _longpre
+                      00292 ;       .line   36; "key.c"     clink_event = 3; 
+0033   0403           00293         MOVLW   0x03
+0034   19??           00294         MOVWF   _clink_event
+                      00295 ;;[ICODE] key.c:36:  __iffalse_4($12) :
+                      00296 ;;[ICODE] key.c:43:     iTemp31 [k43 lr48:49 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} = _longpre
                             ss_cnt [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x64 {unsigned-int literal
                             }
-                      00293 ;;unsigned compare: left < lit(0x64=100), size=2
-0033                  00294 _00116_DS_:
-                      00295 ;       .line   41; "key.c"     if(longpress_cnt >= 100){
-0033   0400           00296         MOVLW   0x00
-0034   1B??           00297         SUBWF   (_longpress_cnt + 1),W
-0035   3103           00298         BTFSS   STATUS,2
-0036   2???           00299         GOTO    _00201_DS_
-0037   0464           00300         MOVLW   0x64
-0038   1B??           00301         SUBWF   _longpress_cnt,W
-0039                  00302 _00201_DS_:
-0039   3003           00303         BTFSS   STATUS,0
-003A   2???           00304         GOTO    _00146_DS_
-                      00305 ;;genSkipc:3257: created from rifx:0x782c44
-                      00306 ;;[ICODE] key.c:41:     if iTemp30 [k41 lr47:48 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 go
+                      00297 ;;unsigned compare: left < lit(0x64=100), size=2
+0035                  00298 _00116_DS_:
+                      00299 ;       .line   43; "key.c"     if(longpress_cnt >= 100){
+0035   0400           00300         MOVLW   0x00
+0036   1B??           00301         SUBWF   (_longpress_cnt + 1),W
+0037   3103           00302         BTFSS   STATUS,2
+0038   2???           00303         GOTO    _00201_DS_
+0039   0464           00304         MOVLW   0x64
+003A   1B??           00305         SUBWF   _longpress_cnt,W
+003B                  00306 _00201_DS_:
+003B   3003           00307         BTFSS   STATUS,0
+003C   2???           00308         GOTO    _00146_DS_
+                      00309 ;;genSkipc:3257: created from rifx:0x782c44
+                      00310 ;;[ICODE] key.c:43:     if iTemp31 [k43 lr48:49 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 go
                             to _return($42)
-                      00307 ;;[ICODE] key.c:43:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
-                            d} := 0x0 {const-unsigned-char literal}
-                      00308 ;       .line   43; "key.c"     clink_event = 0;
-003B   18??           00309         CLRF    _clink_event
-                      00310 ;;[ICODE] key.c:45:     iTemp33 [k45 lr50:52 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
+                      00311 ;;[ICODE] key.c:45:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                            d} := 0x0 {const-unsigned-char literal}
+                      00312 ;       .line   45; "key.c"     clink_event = 0;
+003D   18??           00313         CLRF    _clink_event
+                      00314 ;;[ICODE] key.c:47:     iTemp34 [k47 lr51:53 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {5,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
                             struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00311 ;;[ICODE] key.c:45:     iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {5,1} fixed}[r0x104A ] = @[iTemp33 [k45 lr50:52 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
+                      00315 ;;[ICODE] key.c:47:     iTemp35 [k48 lr53:54 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {5,1} fixed}[r0x104B ] = @[iTemp34 [k47 lr51:53 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-uns
                             igned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                      00312 ;       .line   45; "key.c"     if(PORT_KEY_3 == 1){
-003C   18??           00313         CLRF    r0x1006
-003D   36??           00314         BTFSC   _PORTBbits,5
-003E   13??           00315         INCF    r0x1006,F
-                      00316 ;;[ICODE] key.c:45:     iTemp35 [k47 lr53:54 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104B ]
-                             = (char register)iTemp34 [k46 lr52:53 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield 
-                            {5,1} fixed}[r0x104A ]
-003F   11??           00317         MOVF    r0x1006,W
-0040   19??           00318         MOVWF   r0x1007
-0041   0D01           00319         XORLW   0x01
-0042   3103           00320         BTFSS   STATUS,2
-0043   2???           00321         GOTO    _00146_DS_
-                      00322 ;;[ICODE] key.c:45:     if iTemp36 [k48 lr54:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                      00316 ;       .line   47; "key.c"     if(PORT_KEY_3 == 1){
+003E   18??           00317         CLRF    r0x1008
+003F   36??           00318         BTFSC   _PORTBbits,5
+0040   13??           00319         INCF    r0x1008,F
+                      00320 ;;[ICODE] key.c:47:     iTemp36 [k49 lr54:55 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104C ]
+                             = (char register)iTemp35 [k48 lr53:54 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield 
+                            {5,1} fixed}[r0x104B ]
+0041   11??           00321         MOVF    r0x1008,W
+0042   19??           00322         MOVWF   r0x1009
+0043   0D01           00323         XORLW   0x01
+0044   3103           00324         BTFSS   STATUS,2
+0045   2???           00325         GOTO    _00146_DS_
+                      00326 ;;[ICODE] key.c:47:     if iTemp37 [k50 lr55:56 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto _return($42)
-                      00323 ;;[ICODE] key.c:46:     _long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} :=
+                      00327 ;;[ICODE] key.c:48:     _long_f [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} :=
                              0x1 {const-unsigned-char literal}
-                      00324 ;       .line   46; "key.c"     long_f = 1;
-0044   0401           00325         MOVLW   0x01
-0045   19??           00326         MOVWF   _long_f
-                      00327 ;;[ICODE] key.c:49:     iTemp38 [k52 lr57:58 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTi
-                            merWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0xff {const-unsigne
+                      00328 ;       .line   48; "key.c"     long_f = 1;
+0046   0401           00329         MOVLW   0x01
+0047   19??           00330         MOVWF   _long_f
+                      00331 ;;[ICODE] key.c:50:     iTemp39 [k54 lr58:59 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTi
+                            merWorkCount [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0xff {const-unsigne
                             d-char literal}
-                      00328 ;;unsigned compare: left < lit(0xFF=255), size=1
-                      00329 ;       .line   49; "key.c"     if(g_ucTimerWorkCount <  0xff) {
-0046   04FF           00330         MOVLW   0xff
-                      00331 ;       .line   50; "key.c"     g_ucTimerWorkCount++;
-0047   1B??           00332         SUBWF   _g_ucTimerWorkCount,W
-                      00333 ;       .line   52; "key.c"     PowOn();
-0048   3003           00334         BTFSS   STATUS,0
-0049   13??           00335         INCF    _g_ucTimerWorkCount,F
-004A   2???           00336         CALL    _PowOn
-004B   2???           00337         GOTO    _00146_DS_
-                      00338 ;;[ICODE] key.c:52:  __iffalse_15($38) :
-                      00339 ;;[ICODE] key.c:70:     _longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fix
+                      00332 ;;unsigned compare: left < lit(0xFF=255), size=1
+                      00333 ;       .line   50; "key.c"     if(g_ucTimerWorkCount <  0xff) {
+0048   04FF           00334         MOVLW   0xff
+                      00335 ;       .line   51; "key.c"     g_ucTimerWorkCount++;
+0049   1B??           00336         SUBWF   _g_ucTimerWorkCount,W
+                      00337 ;       .line   53; "key.c"     PowOn();
+004A   3003           00338         BTFSS   STATUS,0
+004B   13??           00339         INCF    _g_ucTimerWorkCount,F
+004C   2???           00340         CALL    _PowOn
+004D   2???           00341         GOTO    _00146_DS_
+                      00342 ;;[ICODE] key.c:53:  __iffalse_15($38) :
+                      00343 ;;[ICODE] key.c:61:     _longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fix
                             ed} := 0x0 {unsigned-int literal}
-004C                  00340 _00142_DS_:
-                      00341 ;       .line   70; "key.c"     longpress_cnt = 0;
-004C   18??           00342         CLRF    _longpress_cnt
-004D   18??           00343         CLRF    (_longpress_cnt + 1)
-                      00344 ;;[ICODE] key.c:72:     iTemp44 [k59 lr66:67 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
-                            event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x1 {const-unsigned-char 
+004E                  00344 _00142_DS_:
+                      00345 ;       .line   61; "key.c"     longpress_cnt = 0;
+004E   18??           00346         CLRF    _longpress_cnt
+004F   18??           00347         CLRF    (_longpress_cnt + 1)
+                      00348 ;;[ICODE] key.c:63:     iTemp45 [k61 lr67:68 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
+                            event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x1 {const-unsigned-char 
                             literal}
-                      00345 ;       .line   72; "key.c"     if(clink_event == 1){
-004E   11??           00346         MOVF    _clink_event,W
-004F   0D01           00347         XORLW   0x01
-0050   3103           00348         BTFSS   STATUS,2
-0051   2???           00349         GOTO    _00129_DS_
-                      00350 ;;[ICODE] key.c:72:     if iTemp44 [k59 lr66:67 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE  9
+                      00349 ;       .line   63; "key.c"     if(clink_event == 1){
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
+0050   11??           00350         MOVF    _clink_event,W
+0051   0D01           00351         XORLW   0x01
+0052   3103           00352         BTFSS   STATUS,2
+0053   2???           00353         GOTO    _00129_DS_
+                      00354 ;;[ICODE] key.c:63:     if iTemp45 [k61 lr67:68 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __iffalse_10($25)
-                      00351 ;;[ICODE] key.c:74:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                      00355 ;;[ICODE] key.c:65:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
                             d} := 0x0 {const-unsigned-char literal}
-                      00352 ;       .line   74; "key.c"     clink_event = 0;
-0052   18??           00353         CLRF    _clink_event
-                      00354 ;;[ICODE] key.c:75:     iTemp46 [k62 lr69:69 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _L
-                            edSwitch [k61 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00355 ;       .line   75; "key.c"     LedSwitch();
-0053   2???           00356         CALL    _LedSwitch
-                      00357 ;;[ICODE] key.c:75:      goto __ifend_10($26)
-0054   2???           00358         GOTO    _00130_DS_
-                      00359 ;;[ICODE] key.c:75:  __iffalse_10($25) :
-                      00360 ;;[ICODE] key.c:76:     iTemp47 [k63 lr72:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
-                            event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char 
+                      00356 ;       .line   65; "key.c"     clink_event = 0;
+0054   18??           00357         CLRF    _clink_event
+                      00358 ;;[ICODE] key.c:66:     iTemp47 [k64 lr70:70 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _L
+                            edSwitch [k63 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00359 ;       .line   66; "key.c"     LedSwitch();
+0055   2???           00360         CALL    _LedSwitch
+                      00361 ;;[ICODE] key.c:66:      goto __ifend_10($26)
+0056   2???           00362         GOTO    _00130_DS_
+                      00363 ;;[ICODE] key.c:66:  __iffalse_10($25) :
+                      00364 ;;[ICODE] key.c:69:     iTemp48 [k65 lr73:74 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
+                            event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char 
                             literal}
-0055                  00361 _00129_DS_:
-                      00362 ;       .line   76; "key.c"     } else if(clink_event == 2){
-0055   11??           00363         MOVF    _clink_event,W
-0056   0D02           00364         XORLW   0x02
-0057   3103           00365         BTFSS   STATUS,2
-0058   2???           00366         GOTO    _00126_DS_
-                      00367 ;;[ICODE] key.c:76:     if iTemp47 [k63 lr72:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+0057                  00365 _00129_DS_:
+                      00366 ;       .line   69; "key.c"     } else if(clink_event == 2){
+0057   11??           00367         MOVF    _clink_event,W
+0058   0D02           00368         XORLW   0x02
+0059   3103           00369         BTFSS   STATUS,2
+005A   2???           00370         GOTO    _00126_DS_
+                      00371 ;;[ICODE] key.c:69:     if iTemp48 [k65 lr73:74 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __iffalse_9($22)
-                      00368 ;;[ICODE] key.c:77:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                      00372 ;;[ICODE] key.c:70:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
                             d} := 0x0 {const-unsigned-char literal}
-                      00369 ;       .line   77; "key.c"     clink_event = 0;
-0059   18??           00370         CLRF    _clink_event
-                      00371 ;;[ICODE] key.c:79:     iTemp49 [k66 lr75:75 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _M
-                            otoSwitch [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00372 ;       .line   79; "key.c"     MotoSwitch();
-005A   2???           00373         CALL    _MotoSwitch
-                      00374 ;;[ICODE] key.c:79:      goto __ifend_10($26)
-005B   2???           00375         GOTO    _00130_DS_
-                      00376 ;;[ICODE] key.c:79:  __iffalse_9($22) :
-                      00377 ;;[ICODE] key.c:80:     iTemp50 [k67 lr78:79 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
-                            event [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char 
+                      00373 ;       .line   70; "key.c"     clink_event = 0;
+005B   18??           00374         CLRF    _clink_event
+                      00375 ;;[ICODE] key.c:72:     iTemp50 [k68 lr76:76 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _M
+                            otoSwitch [k67 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00376 ;       .line   72; "key.c"     MotoSwitch();
+005C   2???           00377         CALL    _MotoSwitch
+                      00378 ;;[ICODE] key.c:72:      goto __ifend_10($26)
+005D   2???           00379         GOTO    _00130_DS_
+                      00380 ;;[ICODE] key.c:72:  __iffalse_9($22) :
+                      00381 ;;[ICODE] key.c:75:     iTemp51 [k69 lr79:80 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_
+                            event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char 
                             literal}
-005C                  00378 _00126_DS_:
-                      00379 ;       .line   80; "key.c"     } else if(clink_event == 3){
-005C   11??           00380         MOVF    _clink_event,W
-005D   0D03           00381         XORLW   0x03
-005E   3103           00382         BTFSS   STATUS,2
-005F   2???           00383         GOTO    _00130_DS_
-                      00384 ;;[ICODE] key.c:80:     if iTemp50 [k67 lr78:79 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+005E                  00382 _00126_DS_:
+                      00383 ;       .line   75; "key.c"     } else if(clink_event == 3){
+005E   11??           00384         MOVF    _clink_event,W
+005F   0D03           00385         XORLW   0x03
+0060   3103           00386         BTFSS   STATUS,2
+0061   2???           00387         GOTO    _00130_DS_
+                      00388 ;;[ICODE] key.c:75:     if iTemp51 [k69 lr79:80 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __ifend_10($26)
-                      00385 ;;[ICODE] key.c:82:     _clink_event [k27 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                      00389 ;;[ICODE] key.c:77:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
                             d} := 0x0 {const-unsigned-char literal}
-                      00386 ;       .line   82; "key.c"     clink_event = 0;
-0060   18??           00387         CLRF    _clink_event
-                      00388 ;;[ICODE] key.c:84:     iTemp52 [k69 lr81:81 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _P
-                            owOn [k56 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00389 ;       .line   84; "key.c"     PowOn();
-0061   2???           00390         CALL    _PowOn
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 10
+                      00390 ;       .line   77; "key.c"     clink_event = 0;
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00391 ;;[ICODE] key.c:85:     _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
-                            ar fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
+0062   18??           00391         CLRF    _clink_event
+                      00392 ;;[ICODE] key.c:79:     iTemp53 [k71 lr82:82 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _P
+                            owOn [k58 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00393 ;       .line   79; "key.c"     PowOn();
+0063   2???           00394         CALL    _PowOn
+                      00395 ;;[ICODE] key.c:80:     _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+                            ar fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
                             0x1 {const-unsigned-char literal}
-                      00392 ;       .line   85; "key.c"     g_ucTimerWorkCount++;  //10ms
-0062   13??           00393         INCF    _g_ucTimerWorkCount,F
-                      00394 ;;[ICODE] key.c:86:     _holdOn_f [k73 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
+                      00396 ;       .line   80; "key.c"     g_ucTimerWorkCount++;  //10ms
+0064   13??           00397         INCF    _g_ucTimerWorkCount,F
+                      00398 ;;[ICODE] key.c:81:     _holdOn_f [k75 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
                             := 0x1 {const-unsigned-char literal}
-                      00395 ;       .line   86; "key.c"     holdOn_f = 1;
-0063   0401           00396         MOVLW   0x01
-0064   19??           00397         MOVWF   _holdOn_f
-                      00398 ;;[ICODE] key.c:86:  __ifend_10($26) :
-                      00399 ;;[ICODE] key.c:90:     if _holdOn_f [k73 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
+                      00399 ;       .line   81; "key.c"     holdOn_f = 1;
+0065   0401           00400         MOVLW   0x01
+0066   19??           00401         MOVWF   _holdOn_f
+                      00402 ;;[ICODE] key.c:81:  __ifend_10($26) :
+                      00403 ;;[ICODE] key.c:87:     if _holdOn_f [k75 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
                             d} == 0 goto __iffalse_12($31)
-0065                  00400 _00130_DS_:
-                      00401 ;       .line   90; "key.c"     if(holdOn_f) {
-0065   0400           00402         MOVLW   0x00
-0066   1D??           00403         IORWF   _holdOn_f,W
-0067   3503           00404         BTFSC   STATUS,2
-0068   2???           00405         GOTO    _00135_DS_
-                      00406 ;;[ICODE] key.c:92:     iTemp57 [k75 lr87:88 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTi
-                            merWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigne
+0067                  00404 _00130_DS_:
+                      00405 ;       .line   87; "key.c"     if(holdOn_f) {
+0067   0400           00406         MOVLW   0x00
+0068   1D??           00407         IORWF   _holdOn_f,W
+0069   3503           00408         BTFSC   STATUS,2
+006A   2???           00409         GOTO    _00135_DS_
+                      00410 ;;[ICODE] key.c:89:     iTemp58 [k77 lr88:89 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTi
+                            merWorkCount [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigne
                             d-char literal}
-                      00407 ;;unsigned compare: left < lit(0x3C=60), size=1
-                      00408 ;       .line   92; "key.c"     if(g_ucTimerWorkCount <  60) {
-0069   043C           00409         MOVLW   0x3c
-006A   1B??           00410         SUBWF   _g_ucTimerWorkCount,W
-006B   3403           00411         BTFSC   STATUS,0
-006C   2???           00412         GOTO    _00132_DS_
-                      00413 ;;genSkipc:3257: created from rifx:0x782c44
-                      00414 ;;[ICODE] key.c:92:     if iTemp57 [k75 lr87:88 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+                      00411 ;;unsigned compare: left < lit(0x3C=60), size=1
+                      00412 ;       .line   89; "key.c"     if(g_ucTimerWorkCount <  60) {
+006B   043C           00413         MOVLW   0x3c
+006C   1B??           00414         SUBWF   _g_ucTimerWorkCount,W
+006D   3403           00415         BTFSC   STATUS,0
+006E   2???           00416         GOTO    _00132_DS_
+                      00417 ;;genSkipc:3257: created from rifx:0x782c44
+                      00418 ;;[ICODE] key.c:89:     if iTemp58 [k77 lr88:89 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __iffalse_11($28)
-                      00415 ;;[ICODE] key.c:93:     _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
-                            ar fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
+                      00419 ;;[ICODE] key.c:90:     _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+                            ar fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
                             0x1 {const-unsigned-char literal}
-                      00416 ;       .line   93; "key.c"     g_ucTimerWorkCount++;
-006D   13??           00417         INCF    _g_ucTimerWorkCount,F
-                      00418 ;;[ICODE] key.c:93:      goto __iffalse_12($31)
-006E   2???           00419         GOTO    _00135_DS_
-                      00420 ;;[ICODE] key.c:93:  __iffalse_11($28) :
-                      00421 ;;[ICODE] key.c:95:     _holdOn_f [k73 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
+                      00420 ;       .line   90; "key.c"     g_ucTimerWorkCount++;
+006F   13??           00421         INCF    _g_ucTimerWorkCount,F
+                      00422 ;;[ICODE] key.c:90:      goto __iffalse_12($31)
+0070   2???           00423         GOTO    _00135_DS_
+                      00424 ;;[ICODE] key.c:90:  __iffalse_11($28) :
+                      00425 ;;[ICODE] key.c:92:     _holdOn_f [k75 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
                             := 0x0 {const-unsigned-char literal}
-006F                  00422 _00132_DS_:
-                      00423 ;       .line   95; "key.c"     holdOn_f = 0;
-006F   18??           00424         CLRF    _holdOn_f
-                      00425 ;;[ICODE] key.c:96:     _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+0071                  00426 _00132_DS_:
+                      00427 ;       .line   92; "key.c"     holdOn_f = 0;
+0071   18??           00428         CLRF    _holdOn_f
+                      00429 ;;[ICODE] key.c:93:     _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
                             ar fixed} := 0x0 {const-unsigned-char literal}
-                      00426 ;       .line   96; "key.c"     g_ucTimerWorkCount = 0;
-0070   18??           00427         CLRF    _g_ucTimerWorkCount
-                      00428 ;;[ICODE] key.c:97:     iTemp63 [k82 lr95:95 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _P
-                            owOff [k81 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00429 ;       .line   97; "key.c"     PowOff();
-0071   2???           00430         CALL    _PowOff
-                      00431 ;;[ICODE] key.c:97:  __iffalse_12($31) :
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 11
+                      00430 ;       .line   93; "key.c"     g_ucTimerWorkCount = 0;
+0072   18??           00431         CLRF    _g_ucTimerWorkCount
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00432 ;;[ICODE] key.c:105:    if _long_f [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
+                      00432 ;;[ICODE] key.c:94:     iTemp64 [k84 lr96:96 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _P
+                            owOff [k83 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00433 ;       .line   94; "key.c"     PowOff();
+0073   2???           00434         CALL    _PowOff
+                      00435 ;;[ICODE] key.c:94:  __iffalse_12($31) :
+                      00436 ;;[ICODE] key.c:102:    if _long_f [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
                              == 0 goto _return($42)
-0072                  00433 _00135_DS_:
-                      00434 ;       .line   105; "key.c"    if(long_f){
-0072   0400           00435         MOVLW   0x00
-0073   1D??           00436         IORWF   _long_f,W
-0074   3503           00437         BTFSC   STATUS,2
-0075   2???           00438         GOTO    _00146_DS_
-                      00439 ;;[ICODE] key.c:107:    iTemp64 [k83 lr98:99 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucTi
-                            merWorkCount [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsigne
-                            d-char literal}
-                      00440 ;;unsigned compare: left < lit(0x3C=60), size=1
-                      00441 ;       .line   107; "key.c"    if(g_ucTimerWorkCount <  60) {
-0076   043C           00442         MOVLW   0x3c
-0077   1B??           00443         SUBWF   _g_ucTimerWorkCount,W
-0078   3403           00444         BTFSC   STATUS,0
-0079   2???           00445         GOTO    _00137_DS_
-                      00446 ;;genSkipc:3257: created from rifx:0x782c44
-                      00447 ;;[ICODE] key.c:107:    if iTemp64 [k83 lr98:99 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
-                            oto __iffalse_13($33)
-                      00448 ;;[ICODE] key.c:108:    _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
-                            ar fixed} = _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
+0074                  00437 _00135_DS_:
+                      00438 ;       .line   102; "key.c"    if(long_f){
+0074   0400           00439         MOVLW   0x00
+0075   1D??           00440         IORWF   _long_f,W
+0076   3503           00441         BTFSC   STATUS,2
+0077   2???           00442         GOTO    _00146_DS_
+                      00443 ;;[ICODE] key.c:104:    iTemp65 [k85 lr99:100 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _g_ucT
+                            imerWorkCount [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} < 0x3c {const-unsign
+                            ed-char literal}
+                      00444 ;;unsigned compare: left < lit(0x3C=60), size=1
+                      00445 ;       .line   104; "key.c"    if(g_ucTimerWorkCount <  60) {
+0078   043C           00446         MOVLW   0x3c
+0079   1B??           00447         SUBWF   _g_ucTimerWorkCount,W
+007A   3403           00448         BTFSC   STATUS,0
+007B   2???           00449         GOTO    _00137_DS_
+                      00450 ;;genSkipc:3257: created from rifx:0x782c44
+                      00451 ;;[ICODE] key.c:104:    if iTemp65 [k85 lr99:100 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 
+                            goto __iffalse_13($33)
+                      00452 ;;[ICODE] key.c:106:    _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+                            ar fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 
                             0x1 {const-unsigned-char literal}
-                      00449 ;       .line   108; "key.c"    g_ucTimerWorkCount++;
-007A   13??           00450         INCF    _g_ucTimerWorkCount,F
-                      00451 ;;[ICODE] key.c:108:     goto _return($42)
-007B   2???           00452         GOTO    _00146_DS_
-                      00453 ;;[ICODE] key.c:108:  __iffalse_13($33) :
-                      00454 ;;[ICODE] key.c:110:    _long_f [k49 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} :=
+                      00453 ;       .line   106; "key.c"    g_ucTimerWorkCount++;
+007C   13??           00454         INCF    _g_ucTimerWorkCount,F
+                      00455 ;;[ICODE] key.c:106:     goto _return($42)
+007D   2???           00456         GOTO    _00146_DS_
+                      00457 ;;[ICODE] key.c:106:  __iffalse_13($33) :
+                      00458 ;;[ICODE] key.c:110:    _long_f [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} :=
                              0x0 {const-unsigned-char literal}
-007C                  00455 _00137_DS_:
-                      00456 ;       .line   110; "key.c"    long_f = 0;
-007C   18??           00457         CLRF    _long_f
-                      00458 ;;[ICODE] key.c:111:    _g_ucTimerWorkCount [k51 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
+007E                  00459 _00137_DS_:
+                      00460 ;       .line   110; "key.c"    long_f = 0;
+007E   18??           00461         CLRF    _long_f
+                      00462 ;;[ICODE] key.c:111:    _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-ch
                             ar fixed} := 0x0 {const-unsigned-char literal}
-                      00459 ;       .line   111; "key.c"    g_ucTimerWorkCount = 0;
-007D   18??           00460         CLRF    _g_ucTimerWorkCount
-                      00461 ;;[ICODE] key.c:112:    iTemp70 [k89 lr106:106 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call 
-                            _PowOff [k81 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00462 ;       .line   112; "key.c"    PowOff();
-007E   2???           00463         CALL    _PowOff
-                      00464 ;;[ICODE] key.c:112:  _return($42) :
-                      00465 ;;[ICODE] key.c:112:    eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
+                      00463 ;       .line   111; "key.c"    g_ucTimerWorkCount = 0;
+007F   18??           00464         CLRF    _g_ucTimerWorkCount
+                      00465 ;;[ICODE] key.c:112:    iTemp71 [k91 lr107:107 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call 
+                            _PowOff [k83 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00466 ;       .line   112; "key.c"    PowOff();
+0080   2???           00467         CALL    _PowOff
+                      00468 ;;[ICODE] key.c:112:  _return($42) :
+                      00469 ;;[ICODE] key.c:112:    eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
                              fixed}
-007F                  00466 _00146_DS_:
-007F   0002           00467         RETURN  
-                      00468 ; exit point of _ScanKey
-                      00469 
-                      00470 
-                      00471 ;       code size estimation:
-                      00472 ;         128+    0 =   128 instructions (  256 byte)
+0081                  00470 _00146_DS_:
+0081   0002           00471         RETURN  
+                      00472 ; exit point of _ScanKey
                       00473 
-                      00474         end
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 12
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00474 
+                      00475 ;       code size estimation:
+                      00476 ;         130+    0 =   130 instructions (  260 byte)
+                      00477 
+                      00478         end
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 13
 
 
 SYMBOL TABLE
@@ -706,7 +717,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 14
 
 
 SYMBOL TABLE
@@ -765,7 +776,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 15
 
 
 SYMBOL TABLE
@@ -824,7 +835,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 16
 
 
 SYMBOL TABLE
@@ -858,22 +869,22 @@ W                                 CONSTANT      00000000              0
 WDTEN                             CONSTANT      00000007              7
 WSAVE                             EXTERNAL      00000000              0
 Z                                 CONSTANT      00000002              2
-_00106_DS_                        ADDRESS       00000017             23
-_00110_DS_                        ADDRESS       00000029             41
-_00113_DS_                        ADDRESS       00000024             36
-_00116_DS_                        ADDRESS       00000033             51
-_00126_DS_                        ADDRESS       0000005C             92
-_00129_DS_                        ADDRESS       00000055             85
-_00130_DS_                        ADDRESS       00000065            101
-_00132_DS_                        ADDRESS       0000006F            111
-_00135_DS_                        ADDRESS       00000072            114
-_00137_DS_                        ADDRESS       0000007C            124
+_00106_DS_                        ADDRESS       00000019             25
+_00110_DS_                        ADDRESS       0000002B             43
+_00113_DS_                        ADDRESS       00000026             38
+_00116_DS_                        ADDRESS       00000035             53
+_00126_DS_                        ADDRESS       0000005E             94
+_00129_DS_                        ADDRESS       00000057             87
+_00130_DS_                        ADDRESS       00000067            103
+_00132_DS_                        ADDRESS       00000071            113
+_00135_DS_                        ADDRESS       00000074            116
+_00137_DS_                        ADDRESS       0000007E            126
 _00141_DS_                        ADDRESS       0000000C             12
-_00142_DS_                        ADDRESS       0000004C             76
-_00146_DS_                        ADDRESS       0000007F            127
+_00142_DS_                        ADDRESS       0000004E             78
+_00146_DS_                        ADDRESS       00000081            129
 _00199_DS_                        ADDRESS       00000012             18
-_00200_DS_                        ADDRESS       0000001D             29
-_00201_DS_                        ADDRESS       00000039             57
+_00200_DS_                        ADDRESS       0000001F             31
+_00201_DS_                        ADDRESS       0000003B             59
 _AUXR                             EXTERNAL      00000000              0
 _AUXRbits                         EXTERNAL      00000000              0
 _BITS_DATA0                       EXTERNAL      00000000              0
@@ -883,7 +894,7 @@ _CHARGE0bits                      EXTERNAL      00000000              0
 _CHARGE1                          EXTERNAL      00000000              0
 _CHARGE1bits                      EXTERNAL      00000000              0
 _CMPCR                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 16
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 17
 
 
 SYMBOL TABLE
@@ -942,7 +953,7 @@ _PDCONbits                        EXTERNAL      00000000              0
 _PHCON                            EXTERNAL      00000000              0
 _PHCONbits                        EXTERNAL      00000000              0
 _PORTB                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 17
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 18
 
 
 SYMBOL TABLE
@@ -1001,7 +1012,7 @@ __GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
 __GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
 __GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
 __GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   04/30/25  16:58:24          PAGE 18
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/05/25  10:34:46          PAGE 19
 
 
 SYMBOL TABLE
@@ -1025,8 +1036,8 @@ _g_ucTimerWorkCount               EXTERNAL      00000000              0
 _holdOn_f                         GLOBAL        00000000              0
 _long_f                           GLOBAL        00000000              0
 _longpress_cnt                    GLOBAL        00000000              0
-r0x1006                           STATIC        00000000              0
-r0x1007                           STATIC        00000001              1
+r0x1008                           STATIC        00000000              0
+r0x1009                           STATIC        00000001              1
 
 Errors   :     0
 Warnings :     0 reported,     0 suppressed

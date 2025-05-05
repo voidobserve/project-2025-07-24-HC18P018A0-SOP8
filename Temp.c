@@ -3,7 +3,7 @@
 #include "delay.h"
 #include "variable.h"
 #include "function.h"
-
+#include "init.h"
 void CheckTemp()
 {
 	TEMPEN = 1;
@@ -29,21 +29,21 @@ void CheckTemp()
 
 void CheckSleep()
 {
-	if(1 == IsLight || 1 == CHARF)
+	if(1 == IsLight || 1 == IsMotor)
 	{
 		SleepCount = 0;
 	}
 
-	if(SleepCount < 250)
+
+	//delay one minute
+	// if(SleepCount < 6000)
+	if(SleepCount < 1000)
 	{
 		SleepCount++;
 		return;
 	}
 	
-	if(PORT_KEY_1 == KEY_TURN_ON)
-	{
-		return;
-	}
+
 		
 	LVDM = 0;		
 	CMPEN = 0;
@@ -52,14 +52,14 @@ void CheckSleep()
 	TMPF = 0;
 	MODSEL = 0;
 	DelayMs();
-	
 	WDTEN = 0;
-	TRISB = 0x0C; //00001100
-	PORTB = 0x2F; //00101111 
-	IOCB = 0x08;
-	
+
+	InitPort();
+
+
+
 	__asm
-	movf	PORTB,W
+	movf	PORTB,W            //read portb
 	__endasm;
 	
 	PBIF = 0;
@@ -84,11 +84,12 @@ void CheckSleep()
 	asm(clrwdt)
 	WDTEN = 1;
 	GIE = 1;
-	PORTB = 0x00;
-	TRISB = 0xCC; //00001100
+
+
+	InitPort();
+
+	
 	MODSEL = 1;
 	SleepCount = 0;
-//	LvdDebounceNew = 0;
-//	LvdModelCount = 0;
-//	LowBat = 0;
+
 }

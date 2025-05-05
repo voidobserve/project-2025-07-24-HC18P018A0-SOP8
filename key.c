@@ -16,6 +16,8 @@ void ScanKey(void)
 		
 		if(longpress_cnt < 0xffff) {
 			longpress_cnt++;
+
+			SleepCount = 0;
 		}
 		
 		if(longpress_cnt < 80){
@@ -23,15 +25,15 @@ void ScanKey(void)
 
 			if(PORT_KEY_1 == 0) {
 
-				clink_event = 1;  //??
+				clink_event = 1;  
 
 			} else if(PORT_KEY_2 == 0) {
 
-				clink_event = 2; //???
+				clink_event = 2; 
 
 			} else if(PORT_KEY_3 == 1) {
 
-				clink_event = 3; //???
+				clink_event = 3; 
 
 			}
 
@@ -45,21 +47,10 @@ void ScanKey(void)
 			if(PORT_KEY_3 == 1){
 				long_f = 1;
 
-				//???????
 				if(g_ucTimerWorkCount <  0xff) {
 						g_ucTimerWorkCount++;
 				}
 				PowOn();
-
-				// //2s????
-				// if(g_ucTimerWorkCount <  0xff) {
-				// 	g_ucTimerWorkCount++;
-				// 	PowOn();
-				// } else {
-				// 	PowOff();
-				// }
-				 
-				
 			}
 		
 		}
@@ -67,27 +58,33 @@ void ScanKey(void)
 	}else{
 
 
-		   longpress_cnt = 0;
-		  
-		   if(clink_event == 1){
+		longpress_cnt = 0;
+		
+		if(clink_event == 1){
 
-				clink_event = 0;
-				LedSwitch();
-		   } else if(clink_event == 2){
-				clink_event = 0;
-				
-				MotoSwitch();
-		   } else if(clink_event == 3){
+			clink_event = 0;
+			LedSwitch();
 
-				clink_event = 0;
-				
-				PowOn();
-				g_ucTimerWorkCount++;  //10ms
-				holdOn_f = 1;
-		   }
-	
+			
+		} else if(clink_event == 2){
+			clink_event = 0;
+			
+			MotoSwitch();
 
-		   if(holdOn_f) {
+			
+		} else if(clink_event == 3){
+
+			clink_event = 0;
+			
+			PowOn();
+			g_ucTimerWorkCount++;  //10ms
+			holdOn_f = 1;
+
+			
+		}
+
+
+		if(holdOn_f) {
 
 			if(g_ucTimerWorkCount <  60) {
 				g_ucTimerWorkCount++;
@@ -98,20 +95,27 @@ void ScanKey(void)
 			}
 
 
-		   }
+		}
 
 
 
 		if(long_f){
 			
 			if(g_ucTimerWorkCount <  60) {
+
 				g_ucTimerWorkCount++;
+
 			} else {
+
 				long_f = 0;
 				g_ucTimerWorkCount = 0;
 				PowOff();
 			}
 		}
+
+
+
+
 
 	}
 

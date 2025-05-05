@@ -29,7 +29,7 @@ BYTE g_ucTimerWorkCount = 0;
 BYTE TempCount = 0;
 BYTE TempFlag = 0;
 
-BYTE SleepCount = 0;
+WORD SleepCount = 0;
 BYTE SleepFlag = 0;
 
 BYTE MaxLight = 0;

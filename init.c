@@ -13,6 +13,9 @@ void InitPort(void)
 
 	PORTB = 0;  // 0 disenable output, 1 enable output
   
+
+   //=====================================================================================
+
 	//配置端口模式 
 	//PB 01 3输出  2 4 5输入
 	
@@ -20,9 +23,11 @@ void InitPort(void)
 	TRISB |= DEF_SET_BIT2;    //input
 	TRISB |= DEF_SET_BIT4;  //input
 	TRISB |= DEF_SET_BIT5;  //input
-	
 	TRISB |= DEF_SET_BIT3;  //input
 
+
+	
+   //=====================================================================================
     //配置上拉  
 	// 2 4需要拉上
     PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
@@ -30,26 +35,37 @@ void InitPort(void)
 	PHCON &= DEF_CLR_BIT0;
 	PHCON &= DEF_CLR_BIT1;
 	// PHCON &= DEF_CLR_BIT3;
-
-
 	PHCON &= DEF_CLR_BIT2;
 	PHCON &= DEF_CLR_BIT4;
 
+
+   //=====================================================================================
 	//配置下拉
 	
 	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
     PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
     
 
-   
+   //=====================================================================================
     IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
-
+	IOCB |= DEF_SET_BIT2;
+	IOCB |= DEF_SET_BIT4;
+	IOCB |= DEF_SET_BIT5;
     PBIE = 0; // 0	disenable Port level change interrupt , 1 enable Port level change interrupt
+
+
+   //=====================================================================================
+
+
 	ODCON = 0;
 	ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open drain output
 	ODCON |= DEF_SET_BIT1;
 	// ODCON |= DEF_SET_BIT3;
-	//IOCB = 0X08;
+
+
+
+   //=====================================================================================
+    MODSEL = 1;   // 1：使能内置限流电阻
 	PORT_LED1 = 1;  //灯光  1：灭  0：亮
 	PORT_LED2 = 1;  //电机 1：灭  0：亮
 	PORT_LED3 = 0; //pow
@@ -82,10 +98,9 @@ void InitRam(void)
 {
 	BIT_TIMER_10MS = 0;
 	IsLight = 0;
+	IsMotor = 0;
 
-	TempCount = 0;
-	TempFlag = 0;
 	
  	SleepCount = 0;
- 	SleepFlag = 0;
+ 
 }

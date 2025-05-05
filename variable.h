@@ -60,7 +60,7 @@ extern BYTE g_ucTimerWorkCount;
 extern BYTE TempCount;
 extern BYTE TempFlag;
 
-extern BYTE SleepCount;
+extern WORD SleepCount;
 extern BYTE SleepFlag;
 
 extern BYTE MaxLight;

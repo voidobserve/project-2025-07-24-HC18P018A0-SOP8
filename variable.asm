@@ -137,7 +137,7 @@ _TempFlag
 
 ID_variable_4	idata
 _SleepCount
-	db	0x00
+	db	0x00, 0x00
 
 
 ID_variable_5	idata
