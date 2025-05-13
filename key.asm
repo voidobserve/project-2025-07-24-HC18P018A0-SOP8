@@ -163,14 +163,14 @@ code_key	code
 ;has an exit
 ;functions called:
 ;   _PowOn
-;   _LedSwitch
 ;   _MotoSwitch
+;   _LedSwitch
 ;   _PowOn
 ;   _PowOff
 ;   _PowOff
 ;   _PowOn
-;   _LedSwitch
 ;   _MotoSwitch
+;   _LedSwitch
 ;   _PowOn
 ;   _PowOff
 ;   _PowOff
@@ -355,12 +355,12 @@ _00142_DS_:
 ;;[ICODE] key.c:65: 	_clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 ;	.line	65; "key.c"	clink_event = 0;
 	CLRF	_clink_event
-;;[ICODE] key.c:66: 	iTemp47 [k64 lr70:70 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k63 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	66; "key.c"	LedSwitch();
-	CALL	_LedSwitch
-;;[ICODE] key.c:66: 	 goto __ifend_10($26)
+;;[ICODE] key.c:68: 	iTemp47 [k64 lr70:70 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k63 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	68; "key.c"	MotoSwitch();
+	CALL	_MotoSwitch
+;;[ICODE] key.c:68: 	 goto __ifend_10($26)
 	GOTO	_00130_DS_
-;;[ICODE] key.c:66:  __iffalse_10($25) :
+;;[ICODE] key.c:68:  __iffalse_10($25) :
 ;;[ICODE] key.c:69: 	iTemp48 [k65 lr73:74 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char literal}
 _00129_DS_:
 ;	.line	69; "key.c"	} else if(clink_event == 2){
@@ -372,12 +372,12 @@ _00129_DS_:
 ;;[ICODE] key.c:70: 	_clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
 ;	.line	70; "key.c"	clink_event = 0;
 	CLRF	_clink_event
-;;[ICODE] key.c:72: 	iTemp50 [k68 lr76:76 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k67 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	72; "key.c"	MotoSwitch();
-	CALL	_MotoSwitch
-;;[ICODE] key.c:72: 	 goto __ifend_10($26)
+;;[ICODE] key.c:73: 	iTemp50 [k68 lr76:76 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k67 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	73; "key.c"	LedSwitch();
+	CALL	_LedSwitch
+;;[ICODE] key.c:73: 	 goto __ifend_10($26)
 	GOTO	_00130_DS_
-;;[ICODE] key.c:72:  __iffalse_9($22) :
+;;[ICODE] key.c:73:  __iffalse_9($22) :
 ;;[ICODE] key.c:75: 	iTemp51 [k69 lr79:80 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char literal}
 _00126_DS_:
 ;	.line	75; "key.c"	} else if(clink_event == 3){

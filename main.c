@@ -39,6 +39,23 @@ void main()
 	InitRam();
 	T0IE = 1;		//使能TMR0溢出中断
 	GIE = 1;		//使能所有中断   
+
+	// PORT_LED1 = 0;
+	// delay_ms(10);
+	// PORT_LED1 = 1;
+	// delay_ms(10);
+	// PORT_LED1 = 0;
+	// delay_ms(10);
+	// PORT_LED1 = 1;
+	// delay_ms(10);
+	// PORT_LED1 = 0;
+	// delay_ms(10);
+	// PORT_LED1 = 1;
+	// delay_ms(10);
+	// PORT_LED1 = 0;
+	// delay_ms(10);
+	// PORT_LED1 = 1;
+
 	asm(clrwdt)		//清零看门狗定时器
 	delay_ms(500);
 	while (1)

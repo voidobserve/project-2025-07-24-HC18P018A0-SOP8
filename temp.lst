@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -38,7 +38,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00021         extern  _InitSystem
   0000                00022         extern  _InitPwm
   0000                00023         extern  _InitRam
-  0000                00024         extern  _lowPower_IO_Init
+  0000                00024         extern  _delay_ms
   0000                00025         extern  _STATUSbits
   0000                00026         extern  _PORTBbits
   0000                00027         extern  _PCONbits
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _CMPCRbits
   0000                00041         extern  _PDCON1bits
   0000                00042         extern  _CHARGE0bits
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern STK11
   0000                00094         extern STK10
   0000                00095         extern STK09
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -165,378 +165,464 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00136 ;***
                       00137 ;has an exit
                       00138 ;functions called:
-                      00139 ;   _DelayMs
-                      00140 ;   _lowPower_IO_Init
-                      00141 ;   _InitPort
-                      00142 ;   _DelayMs
-                      00143 ;   _lowPower_IO_Init
-                      00144 ;   _InitPort
-                      00145 ;2 compiler assigned registers:
-                      00146 ;   r0x1005
-                      00147 ;   r0x1006
-                      00148 ;; Starting pCode block
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  4
+                      00139 ;   _InitPort
+                      00140 ;   _InitPort
+                      00141 ;2 compiler assigned registers:
+                      00142 ;   r0x1005
+                      00143 ;   r0x1006
+                      00144 ;; Starting pCode block
+                      00145 ;;[ICODE] temp.c:33:  _entry($7) :
+                      00146 ;;[ICODE] temp.c:33:    proc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
+                             ) fixed}
+                      00147 S_temp__CheckSleep      code
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00149 ;;[ICODE] temp.c:30:  _entry($7) :
-                      00150 ;;[ICODE] temp.c:30:    proc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
-                             ) fixed}
-                      00151 S_temp__CheckSleep      code
-0000                  00152 _CheckSleep:
-                      00153 ; 2 exit points
-                      00154 ;;[ICODE] temp.c:32:    iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
+0000                  00148 _CheckSleep:
+                      00149 ; 2 exit points
+                      00150 ;;[ICODE] temp.c:35:    iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
                             ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
                             d} , 0x0 {const-unsigned-char literal}]
-                      00155 ;;[ICODE] temp.c:32:    iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} f
+                      00151 ;;[ICODE] temp.c:35:    iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} f
                             ixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near*
                              fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                      00156 ;       .line   32; "temp.c"    if(1 == IsLight || 1 == IsMotor)
-0000   18??           00157         CLRF    r0x1005
-0001   36??           00158         BTFSC   _BITS_DATA0,5
-0002   13??           00159         INCF    r0x1005,F
-                      00160 ;;[ICODE] temp.c:32:    iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (
+                      00152 ;       .line   35; "temp.c"    if(1 == IsLight || 1 == IsMotor)
+0000   18??           00153         CLRF    r0x1005
+0001   36??           00154         BTFSC   _BITS_DATA0,5
+0002   13??           00155         INCF    r0x1005,F
+                      00156 ;;[ICODE] temp.c:35:    iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (
                             char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1
                             049 ]
-0003   11??           00161         MOVF    r0x1005,W
-0004   19??           00162         MOVWF   r0x1006
-0005   0D01           00163         XORLW   0x01
-0006   3503           00164         BTFSC   STATUS,2
-0007   2???           00165         GOTO    _00114_DS_
-0008   18??           00166         CLRF    r0x1005
-0009   37??           00167         BTFSC   _BITS_DATA0,6
-000A   13??           00168         INCF    r0x1005,F
-                      00169 ;;[ICODE] temp.c:32:    iTemp8 [k13 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] 
+0003   11??           00157         MOVF    r0x1005,W
+0004   19??           00158         MOVWF   r0x1006
+0005   0D01           00159         XORLW   0x01
+0006   3503           00160         BTFSC   STATUS,2
+0007   2???           00161         GOTO    _00114_DS_
+0008   18??           00162         CLRF    r0x1005
+0009   37??           00163         BTFSC   _BITS_DATA0,6
+000A   13??           00164         INCF    r0x1005,F
+                      00165 ;;[ICODE] temp.c:35:    iTemp8 [k13 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] 
                             = (char register)iTemp7 [k12 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed
                             }[r0x1049 ]
-000B   11??           00170         MOVF    r0x1005,W
-000C   19??           00171         MOVWF   r0x1006
-000D   0D01           00172         XORLW   0x01
-000E   3103           00173         BTFSS   STATUS,2
-000F   2???           00174         GOTO    _00115_DS_
-                      00175 ;;[ICODE] temp.c:32:    if iTemp9 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 go
+000B   11??           00166         MOVF    r0x1005,W
+000C   19??           00167         MOVWF   r0x1006
+000D   0D01           00168         XORLW   0x01
+000E   3103           00169         BTFSS   STATUS,2
+000F   2???           00170         GOTO    _00115_DS_
+                      00171 ;;[ICODE] temp.c:35:    if iTemp9 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 go
                             to __iffalse_2($2)
-                      00176 ;;[ICODE] temp.c:32:  __iftrue_2($1) :
-                      00177 ;;[ICODE] temp.c:34:    _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
+                      00172 ;;[ICODE] temp.c:35:  __iftrue_2($1) :
+                      00173 ;;[ICODE] temp.c:37:    _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
                              := 0x0 {unsigned-int literal}
-0010                  00178 _00114_DS_:
-                      00179 ;       .line   34; "temp.c"    SleepCount = 0;
-0010   18??           00180         CLRF    _SleepCount
-0011   18??           00181         CLRF    (_SleepCount + 1)
-                      00182 ;;[ICODE] temp.c:34:  __iffalse_2($2) :
-                      00183 ;;[ICODE] temp.c:40:    iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepC
-                            ount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x3e8 {unsigned-int literal}
-                      00184 ;;unsigned compare: left < lit(0x3E8=1000), size=2
-0012                  00185 _00115_DS_:
-                      00186 ;       .line   40; "temp.c"    if(SleepCount < 1000)
-0012   0403           00187         MOVLW   0x03
-0013   1B??           00188         SUBWF   (_SleepCount + 1),W
-0014   3103           00189         BTFSS   STATUS,2
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  5
+0010                  00174 _00114_DS_:
+                      00175 ;       .line   37; "temp.c"    SleepCount = 0;
+0010   18??           00176         CLRF    _SleepCount
+0011   18??           00177         CLRF    (_SleepCount + 1)
+                      00178 ;;[ICODE] temp.c:37:  __iffalse_2($2) :
+                      00179 ;;[ICODE] temp.c:42:    iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepC
+                            ount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x1770 {unsigned-int literal
+                            }
+                      00180 ;;unsigned compare: left < lit(0x1770=6000), size=2
+0012                  00181 _00115_DS_:
+                      00182 ;       .line   42; "temp.c"    if(SleepCount < 6000)
+0012   0417           00183         MOVLW   0x17
+0013   1B??           00184         SUBWF   (_SleepCount + 1),W
+0014   3103           00185         BTFSS   STATUS,2
+0015   2???           00186         GOTO    _00128_DS_
+0016   0470           00187         MOVLW   0x70
+0017   1B??           00188         SUBWF   _SleepCount,W
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0015   2???           00190         GOTO    _00128_DS_
-0016   04E8           00191         MOVLW   0xe8
-0017   1B??           00192         SUBWF   _SleepCount,W
-0018                  00193 _00128_DS_:
-0018   3403           00194         BTFSC   STATUS,0
-0019   2???           00195         GOTO    _00118_DS_
-                      00196 ;;genSkipc:3257: created from rifx:0x782c44
-                      00197 ;;[ICODE] temp.c:40:    if iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+0018                  00189 _00128_DS_:
+0018   3403           00190         BTFSC   STATUS,0
+0019   2???           00191         GOTO    _00118_DS_
+                      00192 ;;genSkipc:3257: created from rifx:0x782c44
+                      00193 ;;[ICODE] temp.c:42:    if iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __iffalse_3($5)
-                      00198 ;;[ICODE] temp.c:42:    _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
+                      00194 ;;[ICODE] temp.c:45:    _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
                              = _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-unsigne
                             d-char literal}
-                      00199 ;       .line   42; "temp.c"    SleepCount++;
-001A   13??           00200         INCF    _SleepCount,F
-001B   3503           00201         BTFSC   STATUS,2
-001C   13??           00202         INCF    (_SleepCount + 1),F
-                      00203 ;;[ICODE] temp.c:43:    ret
-                      00204 ;       .line   43; "temp.c"    return;
-001D   2???           00205         GOTO    _00119_DS_
-                      00206 ;;[ICODE] temp.c:43:  __iffalse_3($5) :
-                      00207 ;;[ICODE] temp.c:48:    iTemp16 [k24 lr24:26 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {4,1} near* fixed}[remat] = &[_CMPCRbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
-                            -struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
-                      00208 ;;[ICODE] temp.c:48:    *(iTemp16 [k24 lr24:26 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-001E                  00209 _00118_DS_:
-                      00210 ;       .line   48; "temp.c"    LVDM = 0;               
-001E   3E??           00211         BCF     _CMPCRbits,4
-                      00212 ;;[ICODE] temp.c:49:    iTemp18 [k28 lr27:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {0,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
-                            struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                      00213 ;;[ICODE] temp.c:49:    *(iTemp18 [k28 lr27:29 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00214 ;       .line   49; "temp.c"    CMPEN = 0;
-001F   3C??           00215         BCF     _PCONbits,0
-                      00216 ;;[ICODE] temp.c:50:    iTemp20 [k31 lr30:32 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {5,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
-                            struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                      00217 ;;[ICODE] temp.c:50:    *(iTemp20 [k31 lr30:32 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00218 ;       .line   50; "temp.c"    CMPOF = 0;
-0020   3E??           00219         BCF     _PCONbits,5
-                      00220 ;;[ICODE] temp.c:51:    iTemp22 [k35 lr33:35 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {6,1} near* fixed}[remat] = &[_CHARGE1bits [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
-                            le-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
-                      00221 ;;[ICODE] temp.c:51:    *(iTemp22 [k35 lr33:35 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00222 ;       .line   51; "temp.c"    TEMPEN = 0;
-0021   3F??           00223         BCF     _CHARGE1bits,6
-                      00224 ;;[ICODE] temp.c:52:    iTemp24 [k39 lr36:38 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {4,1} near* fixed}[remat] = &[_INTFLAGbits [k36 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
-                            le-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                      00225 ;;[ICODE] temp.c:52:    *(iTemp24 [k39 lr36:38 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  6
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-                            itfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00226 ;       .line   52; "temp.c"    TMPF = 0;
-0022   3E??           00227         BCF     _INTFLAGbits,4
-                      00228 ;;[ICODE] temp.c:53:    iTemp26 [k43 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
-                            struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-                      00229 ;;[ICODE] temp.c:53:    *(iTemp26 [k43 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00230 ;       .line   53; "temp.c"    MODSEL = 0;
-0023   3F??           00231         BCF     _RAMPbits,7
-                      00232 ;;[ICODE] temp.c:54:    iTemp27 [k45 lr42:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _D
-                            elayMs [k44 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00233 ;       .line   54; "temp.c"    DelayMs();
-0024   2???           00234         CALL    _DelayMs
-                      00235 ;;[ICODE] temp.c:55:    iTemp29 [k48 lr43:45 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {7,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
-                            struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                      00236 ;;[ICODE] temp.c:55:    *(iTemp29 [k48 lr43:45 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00237 ;       .line   55; "temp.c"    WDTEN = 0;
-0025   3F??           00238         BCF     _PCONbits,7
-                      00239 ;;[ICODE] temp.c:57:    iTemp30 [k50 lr46:46 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _l
-                            owPower_IO_Init [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00240 ;       .line   57; "temp.c"    lowPower_IO_Init();
-0026   2???           00241         CALL    _lowPower_IO_Init
-                      00242 ;;[ICODE] temp.c:63: inline
-0027   1106           00243         movf    PORTB,W
-                      00244         
-                      00245 ;;[ICODE] temp.c:65:    iTemp32 [k53 lr48:50 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {1,1} near* fixed}[remat] = &[_INTFLAGbits [k36 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
-                            le-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                      00246 ;;[ICODE] temp.c:65:    *(iTemp32 [k53 lr48:50 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00247 ;       .line   65; "temp.c"    PBIF = 0;
-0028   3C??           00248         BCF     _INTFLAGbits,1
-                      00249 ;;[ICODE] temp.c:66:    iTemp34 [k57 lr51:53 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {1,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
-                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                      00250 ;;[ICODE] temp.c:66:    *(iTemp34 [k57 lr51:53 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00251 ;       .line   66; "temp.c"    PBIE = 1;
-0029   38??           00252         BSF     _INTECONbits,1
-                      00253 ;;[ICODE] temp.c:67:    iTemp36 [k60 lr54:56 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {7,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
-                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                      00254 ;;[ICODE] temp.c:67:    *(iTemp36 [k60 lr54:56 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00255 ;       .line   67; "temp.c"    GIE = 0;
-002A   3F??           00256         BCF     _INTECONbits,7
-                      00257 ;;[ICODE] temp.c:75: inline
-002B   0003           00258         SLEEP
-002C   0000           00259         nop
-002D   0000           00260         nop
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  7
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-002E   0000           00261         nop
-002F   0000           00262         nop
-                      00263         
-                      00264 ;;[ICODE] temp.c:79: inline
-0030   1106           00265         movf    PORTB,W
-                      00266         
-                      00267 ;;[ICODE] temp.c:81:    iTemp38 [k63 lr59:61 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {1,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
-                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                      00268 ;;[ICODE] temp.c:81:    *(iTemp38 [k63 lr59:61 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00269 ;       .line   81; "temp.c"    PBIE = 0;
-0031   3C??           00270         BCF     _INTECONbits,1
-                      00271 ;;[ICODE] temp.c:82:    _IOCB [k64 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00195 ;       .line   45; "temp.c"    SleepCount++;
+001A   13??           00196         INCF    _SleepCount,F
+001B   3503           00197         BTFSC   STATUS,2
+001C   13??           00198         INCF    (_SleepCount + 1),F
+                      00199 ;;[ICODE] temp.c:46:    ret
+                      00200 ;       .line   46; "temp.c"    return;
+001D   2???           00201         GOTO    _00119_DS_
+                      00202 ;;[ICODE] temp.c:46:  __iffalse_3($5) :
+                      00203 ;;[ICODE] temp.c:49:    _RAMP [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} := 0x0 {const-unsigned-char literal}
-                      00272 ;       .line   82; "temp.c"    IOCB = 0;
-0032   18??           00273         CLRF    _IOCB
-                      00274 ;;[ICODE] temp.c:83:    iTemp40 [k67 lr63:65 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {4,1} near* fixed}[remat] = &[_CMPCRbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
+001E                  00204 _00118_DS_:
+                      00205 ;       .line   49; "temp.c"    RAMP = 0;
+001E   18??           00206         CLRF    _RAMP
+                      00207 ;;[ICODE] temp.c:50:    _T1CON [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} := 0x0 {const-unsigned-char literal}
+                      00208 ;       .line   50; "temp.c"    T1CON = 0;
+001F   18??           00209         CLRF    _T1CON
+                      00210 ;;[ICODE] temp.c:51:    _CHARGE1 [k23 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char
+                             sfr} := 0x0 {const-unsigned-char literal}
+                      00211 ;       .line   51; "temp.c"    CHARGE1 = 0;
+0020   18??           00212         CLRF    _CHARGE1
+                      00213 ;;[ICODE] temp.c:52:    _CHARGE0 [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char
+                             sfr} := 0x0 {const-unsigned-char literal}
+                      00214 ;       .line   52; "temp.c"    CHARGE0 = 0;
+0021   18??           00215         CLRF    _CHARGE0
+                      00216 ;;[ICODE] temp.c:53:    _PCON [k25 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} := 0x0 {const-unsigned-char literal}
+                      00217 ;       .line   53; "temp.c"    PCON = 0;
+0022   18??           00218         CLRF    _PCON
+                      00219 ;;[ICODE] temp.c:54:    _CMPCR [k26 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} := 0x0 {const-unsigned-char literal}
+                      00220 ;       .line   54; "temp.c"    CMPCR = 0;
+0023   18??           00221         CLRF    _CMPCR
+                      00222 ;;[ICODE] temp.c:57:    iTemp16 [k30 lr30:32 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {4,1} near* fixed}[remat] = &[_CMPCRbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
                             -struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
-                      00275 ;;[ICODE] temp.c:83:    *(iTemp40 [k67 lr63:65 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {4,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00276 ;       .line   83; "temp.c"    LVDM = 1;
-0033   3A??           00277         BSF     _CMPCRbits,4
-                      00278 ;;[ICODE] temp.c:84: inline
-0034   0004           00279         clrwdt
-                      00280 ;;[ICODE] temp.c:85:    iTemp42 [k70 lr67:69 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {7,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                      00223 ;;[ICODE] temp.c:57:    *(iTemp16 [k30 lr30:32 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00224 ;       .line   57; "temp.c"    LVDM = 0;               
+0024   3E??           00225         BCF     _CMPCRbits,4
+                      00226 ;;[ICODE] temp.c:58:    iTemp18 [k34 lr33:35 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {0,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
                             struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                      00281 ;;[ICODE] temp.c:85:    *(iTemp42 [k70 lr67:69 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00282 ;       .line   85; "temp.c"    WDTEN = 1;
-0035   3B??           00283         BSF     _PCONbits,7
-                      00284 ;;[ICODE] temp.c:86:    iTemp44 [k73 lr70:72 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {7,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
-                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                      00285 ;;[ICODE] temp.c:86:    *(iTemp44 [k73 lr70:72 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00286 ;       .line   86; "temp.c"    GIE = 1;
-0036   3B??           00287         BSF     _INTECONbits,7
-                      00288 ;;[ICODE] temp.c:89:    iTemp45 [k75 lr73:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _I
-                            nitPort [k74 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00289 ;       .line   89; "temp.c"    InitPort();
-0037   2???           00290         CALL    _InitPort
-                      00291 ;;[ICODE] temp.c:92:    iTemp47 [k78 lr74:76 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
-                            struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-                      00292 ;;[ICODE] temp.c:92:    *(iTemp47 [k78 lr74:76 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00293 ;       .line   92; "temp.c"    MODSEL = 1;
-0038   3B??           00294         BSF     _RAMPbits,7
-                      00295 ;;[ICODE] temp.c:93:    _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
-                             := 0x0 {unsigned-int literal}
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  8
+                      00227 ;;[ICODE] temp.c:58:    *(iTemp18 [k34 lr33:35 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00296 ;       .line   93; "temp.c"    SleepCount = 0;
-0039   18??           00297         CLRF    _SleepCount
-003A   18??           00298         CLRF    (_SleepCount + 1)
-                      00299 ;;[ICODE] temp.c:93:  _return($6) :
-                      00300 ;;[ICODE] temp.c:93:    eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function 
+                            itfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00228 ;       .line   58; "temp.c"    CMPEN = 0;
+0025   3C??           00229         BCF     _PCONbits,0
+                      00230 ;;[ICODE] temp.c:59:    iTemp20 [k37 lr36:38 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {5,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+                      00231 ;;[ICODE] temp.c:59:    *(iTemp20 [k37 lr36:38 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00232 ;       .line   59; "temp.c"    CMPOF = 0;
+0026   3E??           00233         BCF     _PCONbits,5
+                      00234 ;;[ICODE] temp.c:60:    iTemp22 [k41 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {6,1} near* fixed}[remat] = &[_CHARGE1bits [k38 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
+                      00235 ;;[ICODE] temp.c:60:    *(iTemp22 [k41 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00236 ;       .line   60; "temp.c"    TEMPEN = 0;
+0027   3F??           00237         BCF     _CHARGE1bits,6
+                      00238 ;;[ICODE] temp.c:61:    iTemp24 [k45 lr42:44 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {4,1} near* fixed}[remat] = &[_INTFLAGbits [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+                      00239 ;;[ICODE] temp.c:61:    *(iTemp24 [k45 lr42:44 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00240 ;       .line   61; "temp.c"    TMPF = 0;
+0028   3E??           00241         BCF     _INTFLAGbits,4
+                      00242 ;;[ICODE] temp.c:62:    iTemp26 [k49 lr45:47 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {7,1} near* fixed}[remat] = &[_RAMPbits [k46 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                      00243 ;;[ICODE] temp.c:62:    *(iTemp26 [k49 lr45:47 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00244 ;       .line   62; "temp.c"    MODSEL = 0;
+0029   3F??           00245         BCF     _RAMPbits,7
+                      00246 ;;[ICODE] temp.c:64:    iTemp28 [k52 lr48:50 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {7,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+                      00247 ;;[ICODE] temp.c:64:    *(iTemp28 [k52 lr48:50 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00248 ;       .line   64; "temp.c"    WDTEN = 0;
+002A   3F??           00249         BCF     _PCONbits,7
+                      00250 ;;[ICODE] temp.c:65:    iTemp30 [k56 lr51:53 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {0,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                      00251 ;;[ICODE] temp.c:65:    *(iTemp30 [k56 lr51:53 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00252 ;       .line   65; "temp.c"    T0IE = 0;
+002B   3C??           00253         BCF     _INTECONbits,0
+                      00254 ;;[ICODE] temp.c:67:    _INTECON [k57 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char
+                             sfr} := 0x0 {const-unsigned-char literal}
+                      00255 ;       .line   67; "temp.c"    INTECON = 0;
+002C   18??           00256         CLRF    _INTECON
+                      00257 ;;[ICODE] temp.c:69:    _PORTB [k58 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} := 0x0 {const-unsigned-char literal}
+                      00258 ;       .line   69; "temp.c"    PORTB = 0;  // 0 disenable output, 1 enable output
+002D   18??           00259         CLRF    _PORTB
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00260 ;;[ICODE] temp.c:70:    _TRISB [k59 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} := 0xff {const-unsigned-char literal}
+                      00261 ;       .line   70; "temp.c"    TRISB = 0xff;    //1：input  0:output
+002E   04FF           00262         MOVLW   0xff
+002F   19??           00263         MOVWF   _TRISB
+                      00264 ;;[ICODE] temp.c:73:    _PDCON [k60 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} := 0xff {const-unsigned-char literal}
+                      00265 ;       .line   73; "temp.c"    PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
+0030   04FF           00266         MOVLW   0xff
+0031   19??           00267         MOVWF   _PDCON
+                      00268 ;;[ICODE] temp.c:74:    _PDCON1 [k61 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
+                            sfr} := 0xff {const-unsigned-char literal}
+                      00269 ;       .line   74; "temp.c"    PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+0032   04FF           00270         MOVLW   0xff
+0033   19??           00271         MOVWF   _PDCON1
+                      00272 ;;[ICODE] temp.c:77:    _PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} := 0xff {const-unsigned-char literal}
+                      00273 ;       .line   77; "temp.c"    PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
+0034   04FF           00274         MOVLW   0xff
+0035   19??           00275         MOVWF   _PHCON
+                      00276 ;;[ICODE] temp.c:79:    _PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} = _PHCON [k62 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfb {const-
+                            unsigned-char literal}
+                      00277 ;       .line   79; "temp.c"    PHCON &= DEF_CLR_BIT2;
+0036   3D??           00278         BCF     _PHCON,2
+                      00279 ;;[ICODE] temp.c:80:    _PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} = _PHCON [k62 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xef {const-
+                            unsigned-char literal}
+                      00280 ;       .line   80; "temp.c"    PHCON &= DEF_CLR_BIT4;
+0037   3E??           00281         BCF     _PHCON,4
+                      00282 ;;[ICODE] temp.c:82:    _IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} := 0x0 {const-unsigned-char literal}
+                      00283 ;       .line   82; "temp.c"    IOCB = 0X00; // 0 disenable weak up     ,1 enable weak up
+0038   18??           00284         CLRF    _IOCB
+                      00285 ;;[ICODE] temp.c:83:    _IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _IOCB [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {const-uns
+                            igned-char literal}
+                      00286 ;       .line   83; "temp.c"    IOCB |= DEF_SET_BIT2;
+0039   39??           00287         BSF     _IOCB,2
+                      00288 ;;[ICODE] temp.c:84:    _IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _IOCB [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-un
+                            signed-char literal}
+                      00289 ;       .line   84; "temp.c"    IOCB |= DEF_SET_BIT4;
+003A   3A??           00290         BSF     _IOCB,4
+                      00291 ;;[ICODE] temp.c:90: inline
+003B   1106           00292         movf    PORTB,W
+                      00293         
+                      00294 ;;[ICODE] temp.c:92:    iTemp36 [k70 lr70:72 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {1,1} near* fixed}[remat] = &[_INTFLAGbits [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+                      00295 ;;[ICODE] temp.c:92:    *(iTemp36 [k70 lr70:72 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00296 ;       .line   92; "temp.c"    PBIF = 0;
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+003C   3C??           00297         BCF     _INTFLAGbits,1
+                      00298 ;;[ICODE] temp.c:93:    iTemp38 [k73 lr73:75 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {1,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                      00299 ;;[ICODE] temp.c:93:    *(iTemp38 [k73 lr73:75 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00300 ;       .line   93; "temp.c"    PBIE = 1;// 0   disenable Port level change interrupt , 1 enable Port le
+                            vel change interrupt
+003D   38??           00301         BSF     _INTECONbits,1
+                      00302 ;;[ICODE] temp.c:94:    iTemp40 [k76 lr76:78 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {7,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                      00303 ;;[ICODE] temp.c:94:    *(iTemp40 [k76 lr76:78 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00304 ;       .line   94; "temp.c"    GIE = 0;
+003E   3F??           00305         BCF     _INTECONbits,7
+                      00306 ;;[ICODE] temp.c:102: inline
+003F   0003           00307         SLEEP
+0040   0000           00308         nop
+0041   0000           00309         nop
+0042   0000           00310         nop
+0043   0000           00311         nop
+                      00312         
+                      00313 ;;[ICODE] temp.c:106: inline
+0044   1106           00314         movf    PORTB,W
+                      00315         
+                      00316 ;;[ICODE] temp.c:108:   iTemp42 [k79 lr81:83 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {1,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                      00317 ;;[ICODE] temp.c:108:   *(iTemp42 [k79 lr81:83 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00318 ;       .line   108; "temp.c"   PBIE = 0;
+0045   3C??           00319         BCF     _INTECONbits,1
+                      00320 ;;[ICODE] temp.c:109:   _IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} := 0x0 {const-unsigned-char literal}
+                      00321 ;       .line   109; "temp.c"   IOCB = 0;
+0046   18??           00322         CLRF    _IOCB
+                      00323 ;;[ICODE] temp.c:110:   iTemp44 [k82 lr85:87 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {4,1} near* fixed}[remat] = &[_CMPCRbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
+                            -struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
+                      00324 ;;[ICODE] temp.c:110:   *(iTemp44 [k82 lr85:87 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {4,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00325 ;       .line   110; "temp.c"   LVDM = 1;
+0047   3A??           00326         BSF     _CMPCRbits,4
+                      00327 ;;[ICODE] temp.c:111: inline
+0048   0004           00328         clrwdt
+                      00329 ;;[ICODE] temp.c:112:   iTemp46 [k85 lr89:91 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {7,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
+                            struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+                      00330 ;;[ICODE] temp.c:112:   *(iTemp46 [k85 lr89:91 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00331 ;       .line   112; "temp.c"   WDTEN = 1;
+0049   3B??           00332         BSF     _PCONbits,7
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE  9
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00333 ;;[ICODE] temp.c:113:   iTemp48 [k88 lr92:94 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {7,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                      00334 ;;[ICODE] temp.c:113:   *(iTemp48 [k88 lr92:94 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00335 ;       .line   113; "temp.c"   GIE = 1;
+004A   3B??           00336         BSF     _INTECONbits,7
+                      00337 ;;[ICODE] temp.c:114:   iTemp50 [k91 lr95:97 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {0,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
+                            le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                      00338 ;;[ICODE] temp.c:114:   *(iTemp50 [k91 lr95:97 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00339 ;       .line   114; "temp.c"   T0IE = 1;
+004B   38??           00340         BSF     _INTECONbits,0
+                      00341 ;;[ICODE] temp.c:116:   iTemp51 [k93 lr98:98 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _I
+                            nitPort [k92 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                      00342 ;       .line   116; "temp.c"   InitPort();
+004C   2???           00343         CALL    _InitPort
+                      00344 ;;[ICODE] temp.c:136:   iTemp53 [k96 lr99:101 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bi
+                            tfield {7,1} near* fixed}[remat] = &[_RAMPbits [k46 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
+                            -struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                      00345 ;;[ICODE] temp.c:136:   *(iTemp53 [k96 lr99:101 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-
+                            bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                      00346 ;       .line   136; "temp.c"   MODSEL = 1;
+004D   3B??           00347         BSF     _RAMPbits,7
+                      00348 ;;[ICODE] temp.c:137:   _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
+                             := 0x0 {unsigned-int literal}
+                      00349 ;       .line   137; "temp.c"   SleepCount = 0;
+004E   18??           00350         CLRF    _SleepCount
+004F   18??           00351         CLRF    (_SleepCount + 1)
+                      00352 ;;[ICODE] temp.c:137:  _return($6) :
+                      00353 ;;[ICODE] temp.c:137:   eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function 
                             ( ) fixed}
-003B                  00301 _00119_DS_:
-003B   0002           00302         RETURN  
-                      00303 ; exit point of _CheckSleep
-                      00304 
-                      00305 ;***
-                      00306 ;  pBlock Stats: dbName = C
-                      00307 ;***
-                      00308 ;has an exit
-                      00309 ;functions called:
-                      00310 ;   _DelayMs
-                      00311 ;   _DelayMs
-                      00312 ;; Starting pCode block
-                      00313 ;;[ICODE] temp.c:7:  _entry($7) :
-                      00314 ;;[ICODE] temp.c:7:     proc _CheckTemp [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
+0050                  00354 _00119_DS_:
+0050   0002           00355         RETURN  
+                      00356 ; exit point of _CheckSleep
+                      00357 
+                      00358 ;***
+                      00359 ;  pBlock Stats: dbName = C
+                      00360 ;***
+                      00361 ;has an exit
+                      00362 ;functions called:
+                      00363 ;   _DelayMs
+                      00364 ;   _DelayMs
+                      00365 ;; Starting pCode block
+                      00366 ;;[ICODE] temp.c:7:  _entry($7) :
+                      00367 ;;[ICODE] temp.c:7:     proc _CheckTemp [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
                             ) fixed}
-                      00315 S_temp__CheckTemp       code
-0000                  00316 _CheckTemp:
-                      00317 ; 2 exit points
-                      00318 ;;[ICODE] temp.c:9:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
+                      00368 S_temp__CheckTemp       code
+0000                  00369 _CheckTemp:
+                      00370 ; 2 exit points
+                      00371 ;;[ICODE] temp.c:9:     iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfiel
                             d {6,1} near* fixed}[remat] = &[_CHARGE1bits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-st
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 10
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
                             ruct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
-                      00319 ;;[ICODE] temp.c:9:     *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                      00372 ;;[ICODE] temp.c:9:     *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfi
                             eld {6,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00320 ;       .line   9; "temp.c"     TEMPEN = 1;
-0000   3B??           00321         BSF     _CHARGE1bits,6
-                      00322 ;;[ICODE] temp.c:10:    iTemp2 [k7 lr6:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _Delay
+                      00373 ;       .line   9; "temp.c"     TEMPEN = 1;
+0000   3B??           00374         BSF     _CHARGE1bits,6
+                      00375 ;;[ICODE] temp.c:10:    iTemp2 [k7 lr6:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _Delay
                             Ms [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                      00323 ;       .line   10; "temp.c"    DelayMs();
-0001   2???           00324         CALL    _DelayMs
-                      00325 ;;[ICODE] temp.c:11:    iTemp4 [k11 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfie
+                      00376 ;       .line   10; "temp.c"    DelayMs();
+0001   2???           00377         CALL    _DelayMs
+                      00378 ;;[ICODE] temp.c:11:    iTemp4 [k11 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfie
                             ld {4,1} near* fixed}[remat] = &[_INTFLAGbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-s
                             truct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                      00326 ;;[ICODE] temp.c:11:    iTemp5 [k12 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfi
+                      00379 ;;[ICODE] temp.c:11:    iTemp5 [k12 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfi
                             eld {4,1} fixed}[r0x1047 ] = @[iTemp4 [k11 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned
                             -bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                      00327 ;       .line   11; "temp.c"    if(TMPF == 0)
-0002   36??           00328         BTFSC   _INTFLAGbits,4
-0003   2???           00329         GOTO    _00106_DS_
-                      00330 ;;[ICODE] temp.c:11:    if iTemp5 [k12 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bi
+                      00380 ;       .line   11; "temp.c"    if(TMPF == 0)
+0002   36??           00381         BTFSC   _INTFLAGbits,4
+0003   2???           00382         GOTO    _00106_DS_
+                      00383 ;;[ICODE] temp.c:11:    if iTemp5 [k12 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bi
                             tfield {4,1} fixed}[r0x1047 ] != 0 goto __iffalse_0($2)
-                      00331 ;;[ICODE] temp.c:13:    _TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
+                      00384 ;;[ICODE] temp.c:13:    _TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
                              := 0x0 {const-unsigned-char literal}
-                      00332 ;       .line   13; "temp.c"    TempCount = 0;
-0004   18??           00333         CLRF    _TempCount
-                      00334 ;;[ICODE] temp.c:14:    _TempFlag [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
+                      00385 ;       .line   13; "temp.c"    TempCount = 0;
+0004   18??           00386         CLRF    _TempCount
+                      00387 ;;[ICODE] temp.c:14:    _TempFlag [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
                             := 0x0 {const-unsigned-char literal}
-                      00335 ;       .line   14; "temp.c"    TempFlag = 0;
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE  9
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-0005   18??           00336         CLRF    _TempFlag
-                      00337 ;;[ICODE] temp.c:14:     goto __ifend_0($3)
-0006   2???           00338         GOTO    _00107_DS_
-                      00339 ;;[ICODE] temp.c:14:  __iffalse_0($2) :
-                      00340 ;;[ICODE] temp.c:18:    _TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
+                      00388 ;       .line   14; "temp.c"    TempFlag = 0;
+0005   18??           00389         CLRF    _TempFlag
+                      00390 ;;[ICODE] temp.c:14:     goto __ifend_0($3)
+0006   2???           00391         GOTO    _00107_DS_
+                      00392 ;;[ICODE] temp.c:14:  __iffalse_0($2) :
+                      00393 ;;[ICODE] temp.c:18:    _TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
                              = _TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigne
                             d-char literal}
-0007                  00341 _00106_DS_:
-                      00342 ;       .line   18; "temp.c"    TempCount++;
-0007   13??           00343         INCF    _TempCount,F
-                      00344 ;;[ICODE] temp.c:18:  __ifend_0($3) :
-                      00345 ;;[ICODE] temp.c:21:    iTemp11 [k20 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x5 {co
+0007                  00394 _00106_DS_:
+                      00395 ;       .line   18; "temp.c"    TempCount++;
+0007   13??           00396         INCF    _TempCount,F
+                      00397 ;;[ICODE] temp.c:18:  __ifend_0($3) :
+                      00398 ;;[ICODE] temp.c:21:    iTemp11 [k20 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x5 {co
                             nst-unsigned-char literal} == _TempCount [k13 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char 
                             fixed}
-0008                  00346 _00107_DS_:
-                      00347 ;       .line   21; "temp.c"    if(5 == TempCount)
-0008   11??           00348         MOVF    _TempCount,W
-0009   0D05           00349         XORLW   0x05
-000A   3103           00350         BTFSS   STATUS,2
-000B   2???           00351         GOTO    _00109_DS_
-                      00352 ;;[ICODE] temp.c:21:    if iTemp11 [k20 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
+0008                  00399 _00107_DS_:
+                      00400 ;       .line   21; "temp.c"    if(5 == TempCount)
+0008   11??           00401         MOVF    _TempCount,W
+0009   0D05           00402         XORLW   0x05
+000A   3103           00403         BTFSS   STATUS,2
+000B   2???           00404         GOTO    _00109_DS_
+                      00405 ;;[ICODE] temp.c:21:    if iTemp11 [k20 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 g
                             oto __iffalse_1($5)
-                      00353 ;;[ICODE] temp.c:23:    _TempFlag [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
+                      00406 ;;[ICODE] temp.c:23:    _TempFlag [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} 
                             := 0x1 {const-unsigned-char literal}
-                      00354 ;       .line   23; "temp.c"    TempFlag = 1;
-000C   0401           00355         MOVLW   0x01
-000D   19??           00356         MOVWF   _TempFlag
-                      00357 ;;[ICODE] temp.c:23:  __iffalse_1($5) :
-                      00358 ;;[ICODE] temp.c:26:    iTemp14 [k24 lr22:24 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {6,1} near* fixed}[remat] = &[_CHARGE1bits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatil
-                            e-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
-                      00359 ;;[ICODE] temp.c:26:    *(iTemp14 [k24 lr22:24 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-000E                  00360 _00109_DS_:
-                      00361 ;       .line   26; "temp.c"    TEMPEN = 0;
-000E   3F??           00362         BCF     _CHARGE1bits,6
-                      00363 ;;[ICODE] temp.c:27:    iTemp16 [k27 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
-                            field {4,1} near* fixed}[remat] = &[_INTFLAGbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatil
-                            e-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                      00364 ;;[ICODE] temp.c:27:    *(iTemp16 [k27 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
-                            itfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00365 ;       .line   27; "temp.c"    TMPF = 0;
-000F   3E??           00366         BCF     _INTFLAGbits,4
-                      00367 ;;[ICODE] temp.c:27:  _return($6) :
-                      00368 ;;[ICODE] temp.c:27:    eproc _CheckTemp [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
-                             ) fixed}
-0010   0002           00369         RETURN  
-                      00370 ; exit point of _CheckTemp
-                      00371 
-                      00372 
-                      00373 ;       code size estimation:
-                      00374 ;          69+    0 =    69 instructions (  138 byte)
-                      00375 
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 10
+                      00407 ;       .line   23; "temp.c"    TempFlag = 1;
+000C   0401           00408         MOVLW   0x01
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00376         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 11
+000D   19??           00409         MOVWF   _TempFlag
+                      00410 ;;[ICODE] temp.c:23:  __iffalse_1($5) :
+                      00411 ;;[ICODE] temp.c:26:    iTemp14 [k24 lr22:24 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {6,1} near* fixed}[remat] = &[_CHARGE1bits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatil
+                            e-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
+                      00412 ;;[ICODE] temp.c:26:    *(iTemp14 [k24 lr22:24 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+000E                  00413 _00109_DS_:
+                      00414 ;       .line   26; "temp.c"    TEMPEN = 0;
+000E   3F??           00415         BCF     _CHARGE1bits,6
+                      00416 ;;[ICODE] temp.c:27:    iTemp16 [k27 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                            field {4,1} near* fixed}[remat] = &[_INTFLAGbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatil
+                            e-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+                      00417 ;;[ICODE] temp.c:27:    *(iTemp16 [k27 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                            itfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                      00418 ;       .line   27; "temp.c"    TMPF = 0;
+000F   3E??           00419         BCF     _INTFLAGbits,4
+                      00420 ;;[ICODE] temp.c:27:  _return($6) :
+                      00421 ;;[ICODE] temp.c:27:    eproc _CheckTemp [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
+                             ) fixed}
+0010   0002           00422         RETURN  
+                      00423 ; exit point of _CheckTemp
+                      00424 
+                      00425 
+                      00426 ;       code size estimation:
+                      00427 ;          90+    0 =    90 instructions (  180 byte)
+                      00428 
+                      00429         end
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 12
 
 
 SYMBOL TABLE
@@ -595,7 +681,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 13
 
 
 SYMBOL TABLE
@@ -654,7 +740,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 14
 
 
 SYMBOL TABLE
@@ -713,7 +799,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 15
 
 
 SYMBOL TABLE
@@ -753,7 +839,7 @@ _00109_DS_                        ADDRESS       0000000E             14
 _00114_DS_                        ADDRESS       00000010             16
 _00115_DS_                        ADDRESS       00000012             18
 _00118_DS_                        ADDRESS       0000001E             30
-_00119_DS_                        ADDRESS       0000003B             59
+_00119_DS_                        ADDRESS       00000050             80
 _00128_DS_                        ADDRESS       00000018             24
 _AUXR                             EXTERNAL      00000000              0
 _AUXRbits                         EXTERNAL      00000000              0
@@ -772,7 +858,7 @@ _CheckSleep                       GLOBAL        00000000              0
 _CheckTemp                        GLOBAL        00000000              0
 _ControlFlash                     EXTERNAL      00000000              0
 _ControlLevel                     EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 16
 
 
 SYMBOL TABLE
@@ -831,7 +917,7 @@ _PWMCON                           EXTERNAL      00000000              0
 _PWMCONbits                       EXTERNAL      00000000              0
 _RAMP                             EXTERNAL      00000000              0
 _RAMPbits                         EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 16
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 17
 
 
 SYMBOL TABLE
@@ -890,16 +976,16 @@ __PAGE_SIZE                       CONSTANT      00000000              0
 __VECTOR_INT                      CONSTANT      00000008              8
 __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
-gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  16:04:55          PAGE 17
+gpasm-1.5.0 #1284 (Oct 14 2022)      temp.asm   05/13/25  18:38:30          PAGE 18
 
 
 SYMBOL TABLE
   LABEL                              TYPE        VALUE         VALUE          VALUE
                                                  (hex)         (dec)          (text)
 
+_delay_ms                         EXTERNAL      00000000              0
 _g_ucTimer10msCount               EXTERNAL      00000000              0
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
-_lowPower_IO_Init                 EXTERNAL      00000000              0
 r0x1005                           STATIC        00000000              0
 r0x1006                           STATIC        00000001              1
 

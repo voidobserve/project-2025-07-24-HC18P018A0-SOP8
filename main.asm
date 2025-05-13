@@ -15,7 +15,6 @@
 	extern	_InitSystem
 	extern	_InitPwm
 	extern	_InitRam
-	extern	_lowPower_IO_Init
 	extern	_CheckLvd
 	extern	_ConfigureLvd
 	extern	_Work
@@ -248,51 +247,51 @@ _main:
 ;;[ICODE] main.c:41: 	*(iTemp6 [k14 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
 ;	.line	41; "main.c"	GIE = 1;		//使能所有中断   
 	BSF	_INTECONbits,7
-;;[ICODE] main.c:42: inline
+;;[ICODE] main.c:59: inline
 	clrwdt
-;;[ICODE] main.c:43: 	send 0x1f4 {const-int literal}{argreg = 1}
-;;[ICODE] main.c:43: 	iTemp7 [k17 lr14:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _delay_ms [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-int fixed) fixed}
-;	.line	43; "main.c"	delay_ms(500);
+;;[ICODE] main.c:60: 	send 0x1f4 {const-int literal}{argreg = 1}
+;;[ICODE] main.c:60: 	iTemp7 [k17 lr14:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _delay_ms [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-int fixed) fixed}
+;	.line	60; "main.c"	delay_ms(500);
 	MOVLW	0xf4
 	MOVWF	STK00
 	MOVLW	0x01
 	CALL	_delay_ms
-;;[ICODE] main.c:44:  _whilebody_2($4) :
-;;[ICODE] main.c:46: inline
+;;[ICODE] main.c:61:  _whilebody_2($4) :
+;;[ICODE] main.c:63: inline
 _00123_DS_:
 	clrwdt
-;;[ICODE] main.c:48: 	iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] main.c:48: 	iTemp9 [k21 lr19:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
-;;[ICODE] main.c:48: 	iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] = @[iTemp9 [k21 lr19:20 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-;	.line	48; "main.c"	if (BIT_TIMER_10MS)
+;;[ICODE] main.c:65: 	iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] main.c:65: 	iTemp9 [k21 lr19:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
+;;[ICODE] main.c:65: 	iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] = @[iTemp9 [k21 lr19:20 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;	.line	65; "main.c"	if (BIT_TIMER_10MS)
 	BTFSS	_BITS_DATA0,0
 	GOTO	_00121_DS_
-;;[ICODE] main.c:48: 	if iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] == 0 goto __iffalse_0($2)
-;;[ICODE] main.c:50: 	iTemp12 [k25 lr22:23 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
-;;[ICODE] main.c:50: 	*(iTemp12 [k25 lr22:23 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	50; "main.c"	BIT_TIMER_10MS = 0;
+;;[ICODE] main.c:65: 	if iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] == 0 goto __iffalse_0($2)
+;;[ICODE] main.c:67: 	iTemp12 [k25 lr22:23 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
+;;[ICODE] main.c:67: 	*(iTemp12 [k25 lr22:23 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	67; "main.c"	BIT_TIMER_10MS = 0;
 	BCF	_BITS_DATA0,0
-;;[ICODE] main.c:52: 	iTemp13 [k27 lr24:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _ScanKey [k26 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	52; "main.c"	ScanKey();                       //按键检测	
+;;[ICODE] main.c:69: 	iTemp13 [k27 lr24:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _ScanKey [k26 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	69; "main.c"	ScanKey();                       //按键检测	
 	CALL	_ScanKey
-;;[ICODE] main.c:53: 	iTemp14 [k29 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CountdownDisplay [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	53; "main.c"	CountdownDisplay();			 //倒计时
+;;[ICODE] main.c:70: 	iTemp14 [k29 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CountdownDisplay [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	70; "main.c"	CountdownDisplay();			 //倒计时
 	CALL	_CountdownDisplay
-;;[ICODE] main.c:54: 	iTemp15 [k31 lr26:26 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CheckSleep [k30 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	54; "main.c"	CheckSleep();						 //休眠--低功耗
+;;[ICODE] main.c:71: 	iTemp15 [k31 lr26:26 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CheckSleep [k30 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	71; "main.c"	CheckSleep();						 //休眠--低功耗
 	CALL	_CheckSleep
-;;[ICODE] main.c:54:  __iffalse_0($2) :
-;;[ICODE] main.c:57: 	iTemp16 [k33 lr28:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedDisplay [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] main.c:71:  __iffalse_0($2) :
+;;[ICODE] main.c:74: 	iTemp16 [k33 lr28:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedDisplay [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 _00121_DS_:
-;	.line	57; "main.c"	LedDisplay();					 //LED指示灯
+;	.line	74; "main.c"	LedDisplay();					 //LED指示灯
 	CALL	_LedDisplay
-;;[ICODE] main.c:58: 	iTemp17 [k35 lr29:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoDisplay [k34 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	58; "main.c"	MotoDisplay();					 //电机控制
+;;[ICODE] main.c:75: 	iTemp17 [k35 lr29:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoDisplay [k34 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	75; "main.c"	MotoDisplay();					 //电机控制
 	CALL	_MotoDisplay
-;;[ICODE] main.c:58: 	 goto _whilebody_2($4)
+;;[ICODE] main.c:75: 	 goto _whilebody_2($4)
 	GOTO	_00123_DS_
-;;[ICODE] main.c:58:  _return($6) :
-;;[ICODE] main.c:58: 	eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] main.c:75:  _return($6) :
+;;[ICODE] main.c:75: 	eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 	RETURN	
 ; exit point of _main
 
@@ -325,14 +324,14 @@ _00112_DS_:
 	IORWF	r0x1001,W
 	BTFSC	STATUS,2
 	GOTO	_00115_DS_
-;;[ICODE] main.c:23: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] := 0x149 {const-unsigned-int literal}
+;;[ICODE] main.c:23: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] := 0x149 {const-unsigned-int literal}
 ;	.line	23; "main.c"	while (i)
 	MOVLW	0x49
 	MOVWF	r0x1003
 	MOVLW	0x01
 	MOVWF	r0x1004
 ;;[ICODE] main.c:23:  _whilecontinue_1($1) :
-;;[ICODE] main.c:23: 	if iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] == 0 goto _whilebreak_1($3)
+;;[ICODE] main.c:23: 	if iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] == 0 goto _whilebreak_1($3)
 _00109_DS_:
 	MOVF	r0x1003,W
 	IORWF	r0x1004,W
@@ -340,7 +339,7 @@ _00109_DS_:
 	GOTO	_00111_DS_
 ;;[ICODE] main.c:26: inline
 	nop
-;;[ICODE] main.c:27: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] = iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] - 0x1 {const-unsigned-char literal}
+;;[ICODE] main.c:27: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] = iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] - 0x1 {const-unsigned-char literal}
 ;	.line	27; "main.c"	i--;
 	MOVLW	0xff
 	ADDWF	r0x1003,F

@@ -30,6 +30,6 @@ void InitPort(void);
 void InitSystem(void);
 void InitPwm(void);
 void InitRam(void);
-void lowPower_IO_Init(void);
+
 
 #endif //__INIT_H__

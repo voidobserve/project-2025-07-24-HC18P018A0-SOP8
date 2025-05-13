@@ -1,6 +1,6 @@
 gplink-1.5.0 #1284 (Oct 14 2022)
 Copyright (c) 1998-2016 gputils project
-Listing File Generated: 05/13/25  16:04:55
+Listing File Generated: 05/13/25  18:38:31
 
 
 Address  Value    Disassembly              Source
@@ -142,22 +142,22 @@ Address  Value    Disassembly              Source
                                            ; 2 exit points
                                            ;;[ICODE] delay.c:11: 	iTemp2 [k5 lr3:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _DelayMs_byTimer_1_1}[r0x1045 ] := 0xfa {const-unsigned-char literal}
                                            ;	.line	11; "delay.c"	while(byTimer--)   //1ms
-000269   04fa     movlw   0xfa             	MOVLW	0xfa
-00026a   19a4     movwf   0x24             	MOVWF	r0x1000
+000271   04fa     movlw   0xfa             	MOVLW	0xfa
+000272   19a4     movwf   0x24             	MOVWF	r0x1000
                                            ;;[ICODE] delay.c:11:  _whilecontinue_0($1) :
                                            ;;[ICODE] delay.c:11: 	iTemp1 [k4 lr6:8 so:0]{ ia0 a2p0 re0 rm0 nos1 ru0 dp0}{unsigned-char fixed}[r0x1046 ] := iTemp2 [k5 lr3:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _DelayMs_byTimer_1_1}[r0x1045 ]
                                            _00105_DS_:
-00026b   1124     movf    0x24, 0x0        	MOVF	r0x1000,W
-00026c   19a5     movwf   0x25             	MOVWF	r0x1001
+000273   1124     movf    0x24, 0x0        	MOVF	r0x1000,W
+000274   19a5     movwf   0x25             	MOVWF	r0x1001
                                            ;;[ICODE] delay.c:11: 	iTemp2 [k5 lr3:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _DelayMs_byTimer_1_1}[r0x1045 ] = iTemp2 [k5 lr3:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _DelayMs_byTimer_1_1}[r0x1045 ] - 0x1 {const-unsigned-char literal}
-00026d   1aa4     decf    0x24, 0x1        	DECF	r0x1000,F
+000275   1aa4     decf    0x24, 0x1        	DECF	r0x1000,F
                                            ;;[ICODE] delay.c:11: 	if iTemp1 [k4 lr6:8 so:0]{ ia0 a2p0 re0 rm0 nos1 ru0 dp0}{unsigned-char fixed}[r0x1046 ] != 0 goto _whilecontinue_0($1)
-00026e   1125     movf    0x25, 0x0        	MOVF	r0x1001,W
-00026f   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000270   226b     goto    0x026b           	GOTO	_00105_DS_
+000276   1125     movf    0x25, 0x0        	MOVF	r0x1001,W
+000277   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000278   2273     goto    0x0273           	GOTO	_00105_DS_
                                            ;;[ICODE] delay.c:11:  _return($4) :
                                            ;;[ICODE] delay.c:11: 	eproc _DelayMs [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000271   0002     return                   	RETURN	
+000279   0002     return                   	RETURN	
                                            ; exit point of _DelayMs
 
 
@@ -315,7 +315,7 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] function.c:171:  _return($1) :
                                            ;;[ICODE] function.c:171: 	eproc _ControlSos [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	171; "function.c"	}
-0002a1   0002     return                   	RETURN	
+0002a9   0002     return                   	RETURN	
                                            ; exit point of _ControlSos
 
                                            ;***
@@ -331,7 +331,7 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] function.c:101:  _return($1) :
                                            ;;[ICODE] function.c:101: 	eproc _ControlFlash [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	101; "function.c"	}
-0002a2   0002     return                   	RETURN	
+0002aa   0002     return                   	RETURN	
                                            ; exit point of _ControlFlash
 
                                            ;***
@@ -352,48 +352,48 @@ Address  Value    Disassembly              Source
                                            ; 2 exit points
                                            ;;[ICODE] function.c:26: iTemp0 [k2 lr3:17 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _ControlLevel_lightnum1_1_11}[r0x1047 ] = recv _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
                                            ;	.line	26; "function.c"	void ControlLevel(BYTE lightnum1, BYTE lightnum2, BYTE lightnum3)
-0001d1   19ee     movwf   0x6e             	MOVWF	r0x1002
+0001e6   19ee     movwf   0x6e             	MOVWF	r0x1002
                                            ;;[ICODE] function.c:26: iTemp1 [k4 lr4:18 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _ControlLevel_lightnum2_1_11}[r0x1048 ] = recv _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-0001d2   111f     movf    0x1f, 0x0        	MOVF	STK00,W
-0001d3   19ef     movwf   0x6f             	MOVWF	r0x1003
+0001e7   111f     movf    0x1f, 0x0        	MOVF	STK00,W
+0001e8   19ef     movwf   0x6f             	MOVWF	r0x1003
                                            ;;[ICODE] function.c:26: iTemp2 [k6 lr5:19 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _ControlLevel_lightnum3_1_11}[r0x1049 ] = recv _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-0001d4   111e     movf    0x1e, 0x0        	MOVF	STK01,W
-0001d5   19f0     movwf   0x70             	MOVWF	r0x1004
+0001e9   111e     movf    0x1e, 0x0        	MOVF	STK01,W
+0001ea   19f0     movwf   0x70             	MOVWF	r0x1004
                                            ;;[ICODE] function.c:28: 	iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {2,1} near* fixed}[remat] = &[_BITS_DATA0 [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:28: 	*(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {2,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	28; "function.c"	g_ucPWM_KeyChange = 0;
-0001d6   3d33     bcf     0x33, 0x2        	BCF	_BITS_DATA0,2
+0001eb   3d33     bcf     0x33, 0x2        	BCF	_BITS_DATA0,2
                                            ;;[ICODE] function.c:29: 	_PWMCON [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x63 {const-unsigned-char literal}
                                            ;	.line	29; "function.c"	PWMCON = 0x63;  //01100011
-0001d7   0463     movlw   0x63             	MOVLW	0x63
-0001d8   19c8     movwf   0x48             	MOVWF	_PWMCON
+0001ec   0463     movlw   0x63             	MOVLW	0x63
+0001ed   19c8     movwf   0x48             	MOVWF	_PWMCON
                                            ;;[ICODE] function.c:30: 	iTemp6 [k16 lr10:12 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_T1CONbits [k13 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:30: 	*(iTemp6 [k16 lr10:12 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	30; "function.c"	PWM0E = 1;
-0001d9   3b4c     bsf     0x4c, 0x6        	BSF	_T1CONbits,6
+0001ee   3b4c     bsf     0x4c, 0x6        	BSF	_T1CONbits,6
                                            ;;[ICODE] function.c:31: 	iTemp8 [k19 lr13:15 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_T1CONbits [k13 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:31: 	*(iTemp8 [k19 lr13:15 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	31; "function.c"	T1EN = 1;      //∆Ù∂Ø T1
-0001da   3bcc     bsf     0x4c, 0x7        	BSF	_T1CONbits,7
+0001ef   3bcc     bsf     0x4c, 0x7        	BSF	_T1CONbits,7
                                            ;;[ICODE] function.c:32: 	_RAMP [k20 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xc5 {const-unsigned-char literal}
                                            ;	.line	32; "function.c"	RAMP = 0xC5;  //11000101 //Ω˚÷πƒ⁄÷√œﬁ¡˜µÁ◊Ë°£
-0001db   04c5     movlw   0xc5             	MOVLW	0xc5
-0001dc   19d5     movwf   0x55             	MOVWF	_RAMP
+0001f0   04c5     movlw   0xc5             	MOVLW	0xc5
+0001f1   19d5     movwf   0x55             	MOVWF	_RAMP
                                            ;;[ICODE] function.c:34: 	_PWM2P [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp0 [k2 lr3:17 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _ControlLevel_lightnum1_1_11}[r0x1047 ]
                                            ;	.line	34; "function.c"	PWM_LED0 = lightnum1;
-0001dd   116e     movf    0x6e, 0x0        	MOVF	r0x1002,W
-0001de   19ca     movwf   0x4a             	MOVWF	_PWM2P
+0001f2   116e     movf    0x6e, 0x0        	MOVF	r0x1002,W
+0001f3   19ca     movwf   0x4a             	MOVWF	_PWM2P
                                            ;;[ICODE] function.c:35: 	_PWM1P [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp1 [k4 lr4:18 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _ControlLevel_lightnum2_1_11}[r0x1048 ]
                                            ;	.line	35; "function.c"	PWM_LED1 = lightnum2;
-0001df   116f     movf    0x6f, 0x0        	MOVF	r0x1003,W
-0001e0   19c9     movwf   0x49             	MOVWF	_PWM1P
+0001f4   116f     movf    0x6f, 0x0        	MOVF	r0x1003,W
+0001f5   19c9     movwf   0x49             	MOVWF	_PWM1P
                                            ;;[ICODE] function.c:36: 	_PWM0P [k23 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp2 [k6 lr5:19 so:0]{ ia0 a2p0 re1 rm0 nos0 ru0 dp0}{unsigned-char fixed}{ sir@ _ControlLevel_lightnum3_1_11}[r0x1049 ]
                                            ;	.line	36; "function.c"	PWM_LED2 = lightnum3;
-0001e1   1170     movf    0x70, 0x0        	MOVF	r0x1004,W
-0001e2   19cf     movwf   0x4f             	MOVWF	_PWM0P
+0001f6   1170     movf    0x70, 0x0        	MOVF	r0x1004,W
+0001f7   19cf     movwf   0x4f             	MOVWF	_PWM0P
                                            ;;[ICODE] function.c:36:  _return($1) :
                                            ;;[ICODE] function.c:36: 	eproc _ControlLevel [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
-0001e3   0002     return                   	RETURN	
+0001f8   0002     return                   	RETURN	
                                            ; exit point of _ControlLevel
 
                                            ;***
@@ -415,21 +415,21 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] function.c:22: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {2,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:22: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {2,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	22; "function.c"	g_ucPWM_KeyChange = 0;
-000272   3d33     bcf     0x33, 0x2        	BCF	_BITS_DATA0,2
+00027a   3d33     bcf     0x33, 0x2        	BCF	_BITS_DATA0,2
                                            ;;[ICODE] function.c:23: 	send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}{argreg = 1}
                                            ;;[ICODE] function.c:23: 	send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}{argreg = 1}
                                            ;;[ICODE] function.c:23: 	send _MaxLight [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}{argreg = 1}
                                            ;;[ICODE] function.c:23: 	iTemp2 [k11 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _ControlLevel [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed, unsigned-char fixed, unsigned-char fixed) fixed}
                                            ;	.line	23; "function.c"	ControlLevel(MaxLight,MaxLight,MaxLight);		
-000273   1139     movf    0x39, 0x0        	MOVF	_MaxLight,W
-000274   199e     movwf   0x1e             	MOVWF	STK01
-000275   1139     movf    0x39, 0x0        	MOVF	_MaxLight,W
-000276   199f     movwf   0x1f             	MOVWF	STK00
-000277   1139     movf    0x39, 0x0        	MOVF	_MaxLight,W
-000278   29d1     call    0x01d1           	CALL	_ControlLevel
+00027b   1139     movf    0x39, 0x0        	MOVF	_MaxLight,W
+00027c   199e     movwf   0x1e             	MOVWF	STK01
+00027d   1139     movf    0x39, 0x0        	MOVF	_MaxLight,W
+00027e   199f     movwf   0x1f             	MOVWF	STK00
+00027f   1139     movf    0x39, 0x0        	MOVF	_MaxLight,W
+000280   29e6     call    0x01e6           	CALL	_ControlLevel
                                            ;;[ICODE] function.c:23:  _return($1) :
                                            ;;[ICODE] function.c:23: 	eproc _ControlLevelHigh [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000279   0002     return                   	RETURN	
+000281   0002     return                   	RETURN	
                                            ; exit point of _ControlLevelHigh
 
                                            ;***
@@ -445,45 +445,45 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] function.c:7: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {2,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:7: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {2,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	7; "function.c"	g_ucPWM_KeyChange = 0;
-000211   3d33     bcf     0x33, 0x2        	BCF	_BITS_DATA0,2
+000226   3d33     bcf     0x33, 0x2        	BCF	_BITS_DATA0,2
                                            ;;[ICODE] function.c:8: 	_PWM0P [k8 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
                                            ;	.line	8; "function.c"	PWM_LED0 =  PWM_LED1 = PWM_LED2 = 0;    //”√”⁄…Ë÷√ PWM0 µƒ∏ﬂµÁ∆Ω ±º‰
-000212   18cf     clrf    0x4f             	CLRF	_PWM0P
+000227   18cf     clrf    0x4f             	CLRF	_PWM0P
                                            ;;[ICODE] function.c:8: 	_PWM1P [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-000213   18c9     clrf    0x49             	CLRF	_PWM1P
+000228   18c9     clrf    0x49             	CLRF	_PWM1P
                                            ;;[ICODE] function.c:8: 	_PWM2P [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-000214   18ca     clrf    0x4a             	CLRF	_PWM2P
+000229   18ca     clrf    0x4a             	CLRF	_PWM2P
                                            ;;[ICODE] function.c:10: 	_PWMCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x80 {const-unsigned-char literal}
                                            ;	.line	10; "function.c"	PWMCON = 0x80;     //Ω˚÷π PWM0/BUZ  ‰≥ˆ£¨PORTB5 ∂Àø⁄◊˜Œ™ I/O ø⁄
-000215   0480     movlw   0x80             	MOVLW	0x80
-000216   19c8     movwf   0x48             	MOVWF	_PWMCON
+00022a   0480     movlw   0x80             	MOVLW	0x80
+00022b   19c8     movwf   0x48             	MOVWF	_PWMCON
                                            ;;[ICODE] function.c:11: 	iTemp3 [k13 lr10:12 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_T1CONbits [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:11: 	*(iTemp3 [k13 lr10:12 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	11; "function.c"	PWM0E = 0;         //Ω˚÷π PWM0  ‰≥ˆ£¨PORTB5 ∂Àø⁄◊˜Œ™ I/O ø⁄    T1CON
-000217   3f4c     bcf     0x4c, 0x6        	BCF	_T1CONbits,6
+00022c   3f4c     bcf     0x4c, 0x6        	BCF	_T1CONbits,6
                                            ;;[ICODE] function.c:12: 	iTemp5 [k16 lr13:15 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_T1CONbits [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000043 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:12: 	*(iTemp5 [k16 lr13:15 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	12; "function.c"	T1EN = 0;
-000218   3fcc     bcf     0x4c, 0x7        	BCF	_T1CONbits,7
+00022d   3fcc     bcf     0x4c, 0x7        	BCF	_T1CONbits,7
                                            ;;[ICODE] function.c:13: 	iTemp7 [k20 lr16:18 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:13: 	*(iTemp7 [k20 lr16:18 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	13; "function.c"	MODSEL = 1;			// πƒ‹ƒ⁄÷√œﬁ¡˜µÁ◊Ë
-000219   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
+00022e   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
                                            ;;[ICODE] function.c:15: 	iTemp9 [k24 lr19:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:15: 	*(iTemp9 [k24 lr19:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	15; "function.c"	PORT_LED1 = 1;
-00021a   3886     bsf     0x06, 0x1        	BSF	_PORTBbits,1
+00022f   3886     bsf     0x06, 0x1        	BSF	_PORTBbits,1
                                            ;;[ICODE] function.c:16: 	iTemp11 [k27 lr22:24 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:16: 	*(iTemp11 [k27 lr22:24 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	16; "function.c"	PORT_LED2 = 1;
-00021b   3806     bsf     0x06, 0x0        	BSF	_PORTBbits,0
+000230   3806     bsf     0x06, 0x0        	BSF	_PORTBbits,0
                                            ;;[ICODE] function.c:17: 	iTemp13 [k30 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat] = &[_PORTBbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] function.c:17: 	*(iTemp13 [k30 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	17; "function.c"	PORT_LED3 = 1;		
-00021c   3986     bsf     0x06, 0x3        	BSF	_PORTBbits,3
+000231   3986     bsf     0x06, 0x3        	BSF	_PORTBbits,3
                                            ;;[ICODE] function.c:17:  _return($1) :
                                            ;;[ICODE] function.c:17: 	eproc _ControlLevelLow [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00021d   0002     return                   	RETURN	
+000232   0002     return                   	RETURN	
                                            ; exit point of _ControlLevelLow
 
 
@@ -600,7 +600,6 @@ Address  Value    Disassembly              Source
                                            	global	_InitRam
                                            	global	_InitPwm
                                            	global	_InitSystem
-                                           	global	_lowPower_IO_Init
                                            	global	_InitPort
 
                                            ;--------------------------------------------------------
@@ -628,29 +627,29 @@ Address  Value    Disassembly              Source
                                            ;***
                                            ;has an exit
                                            ;; Starting pCode block
-                                           ;;[ICODE] init.c:117:  _entry($2) :
-                                           ;;[ICODE] init.c:117: 	proc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;;[ICODE] init.c:96:  _entry($2) :
+                                           ;;[ICODE] init.c:96: 	proc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            S_init__InitRam	code
                                            _InitRam:
                                            ; 2 exit points
-                                           ;;[ICODE] init.c:119: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] init.c:119: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	119; "init.c"	BIT_TIMER_10MS = 0;
+                                           ;;[ICODE] init.c:98: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] init.c:98: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	98; "init.c"	BIT_TIMER_10MS = 0;
 000002   3c33     bcf     0x33, 0x0        	BCF	_BITS_DATA0,0
-                                           ;;[ICODE] init.c:120: 	iTemp3 [k8 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] init.c:120: 	*(iTemp3 [k8 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	120; "init.c"	IsLight = 0;
+                                           ;;[ICODE] init.c:99: 	iTemp3 [k8 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] init.c:99: 	*(iTemp3 [k8 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	99; "init.c"	IsLight = 0;
 000003   3eb3     bcf     0x33, 0x5        	BCF	_BITS_DATA0,5
-                                           ;;[ICODE] init.c:121: 	iTemp5 [k11 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] init.c:121: 	*(iTemp5 [k11 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	121; "init.c"	IsMotor = 0;
+                                           ;;[ICODE] init.c:100: 	iTemp5 [k11 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] init.c:100: 	*(iTemp5 [k11 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	100; "init.c"	IsMotor = 0;
 000004   3f33     bcf     0x33, 0x6        	BCF	_BITS_DATA0,6
-                                           ;;[ICODE] init.c:124: 	_SleepCount [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
-                                           ;	.line	124; "init.c"	SleepCount = 0;
+                                           ;;[ICODE] init.c:103: 	_SleepCount [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+                                           ;	.line	103; "init.c"	SleepCount = 0;
 000005   18ae     clrf    0x2e             	CLRF	_SleepCount
 000006   18af     clrf    0x2f             	CLRF	(_SleepCount + 1)
-                                           ;;[ICODE] init.c:124:  _return($1) :
-                                           ;;[ICODE] init.c:124: 	eproc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;;[ICODE] init.c:103:  _return($1) :
+                                           ;;[ICODE] init.c:103: 	eproc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 000007   0002     return                   	RETURN	
                                            ; exit point of _InitRam
 
@@ -659,25 +658,25 @@ Address  Value    Disassembly              Source
                                            ;***
                                            ;has an exit
                                            ;; Starting pCode block
-                                           ;;[ICODE] init.c:110:  _entry($2) :
-                                           ;;[ICODE] init.c:110: 	proc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;;[ICODE] init.c:89:  _entry($2) :
+                                           ;;[ICODE] init.c:89: 	proc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            S_init__InitPwm	code
                                            _InitPwm:
                                            ; 2 exit points
-                                           ;;[ICODE] init.c:112: 	_AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-                                           ;	.line	112; "init.c"	AUXR = 0;
-00027a   18d9     clrf    0x59             	CLRF	_AUXR
-                                           ;;[ICODE] init.c:113: 	_T1 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xfe {const-unsigned-char literal}
-                                           ;	.line	113; "init.c"	T1 = 0XFE;     //TIº∆ ˝∆˜
-00027b   04fe     movlw   0xfe             	MOVLW	0xfe
-00027c   19cd     movwf   0x4d             	MOVWF	_T1
-                                           ;;[ICODE] init.c:114: 	_T1LOAD [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xfe {const-unsigned-char literal}
-                                           ;	.line	114; "init.c"	T1LOAD = 0XFE;
-00027d   04fe     movlw   0xfe             	MOVLW	0xfe
-00027e   19ce     movwf   0x4e             	MOVWF	_T1LOAD
-                                           ;;[ICODE] init.c:114:  _return($1) :
-                                           ;;[ICODE] init.c:114: 	eproc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00027f   0002     return                   	RETURN	
+                                           ;;[ICODE] init.c:91: 	_AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	91; "init.c"	AUXR = 0;
+000282   18d9     clrf    0x59             	CLRF	_AUXR
+                                           ;;[ICODE] init.c:92: 	_T1 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xfe {const-unsigned-char literal}
+                                           ;	.line	92; "init.c"	T1 = 0XFE;     //TIº∆ ˝∆˜
+000283   04fe     movlw   0xfe             	MOVLW	0xfe
+000284   19cd     movwf   0x4d             	MOVWF	_T1
+                                           ;;[ICODE] init.c:93: 	_T1LOAD [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xfe {const-unsigned-char literal}
+                                           ;	.line	93; "init.c"	T1LOAD = 0XFE;
+000285   04fe     movlw   0xfe             	MOVLW	0xfe
+000286   19ce     movwf   0x4e             	MOVWF	_T1LOAD
+                                           ;;[ICODE] init.c:93:  _return($1) :
+                                           ;;[ICODE] init.c:93: 	eproc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+000287   0002     return                   	RETURN	
                                            ; exit point of _InitPwm
 
                                            ;***
@@ -685,81 +684,38 @@ Address  Value    Disassembly              Source
                                            ;***
                                            ;has an exit
                                            ;; Starting pCode block
-                                           ;;[ICODE] init.c:96:  _entry($2) :
-                                           ;;[ICODE] init.c:96: 	proc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;;[ICODE] init.c:75:  _entry($2) :
+                                           ;;[ICODE] init.c:75: 	proc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            S_init__InitSystem	code
                                            _InitSystem:
                                            ; 2 exit points
-                                           ;;[ICODE] init.c:98: 	_OSCCON [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-                                           ;	.line	98; "init.c"	OSCCON = 0;     //∏ﬂ∆µ	
-000241   18d0     clrf    0x50             	CLRF	_OSCCON
-                                           ;;[ICODE] init.c:99: 	_T0 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xce {const-unsigned-char literal}
-                                           ;	.line	99; "init.c"	T0 =   0xCE;
-000242   04ce     movlw   0xce             	MOVLW	0xce
-000243   1981     movwf   0x01             	MOVWF	_T0
-                                           ;;[ICODE] init.c:101: 	_OPTION [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-                                           ;	.line	101; "init.c"	OPTION = 0x00;	//œ¬Ωµ—ÿ÷–∂œ Fcpu …œ…˝—ÿº∆ ˝ TMR0 1/2‘§∑÷∆µ
-000244   18c1     clrf    0x41             	CLRF	_OPTION
-                                           ;;[ICODE] init.c:102: 	_PCON [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PCON [k5 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x90 {const-unsigned-char literal}
-                                           ;	.line	102; "init.c"	PCON |= 0x90; 	// πƒ‹WDT
-000245   0490     movlw   0x90             	MOVLW	0x90
-000246   1d88     iorwf   0x08, 0x1        	IORWF	_PCON,F
-                                           ;;[ICODE] init.c:104: 	_CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-                                           ;	.line	104; "init.c"	CMPCR = 0x00;  //πÿ±’±»Ωœ∆˜
-000247   18d1     clrf    0x51             	CLRF	_CMPCR
-                                           ;;[ICODE] init.c:105: 	_INTFLAG [k8 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _INTFLAG [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfe {const-unsigned-char literal}
-                                           ;	.line	105; "init.c"	INTFLAG &= 0xFE;
-000248   3c0f     bcf     0x0f, 0x0        	BCF	_INTFLAG,0
-                                           ;;[ICODE] init.c:106: 	_CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _CMPCR [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-unsigned-char literal}
-                                           ;	.line	106; "init.c"	CMPCR |= 0X10;
-000249   3a51     bsf     0x51, 0x4        	BSF	_CMPCR,4
-                                           ;;[ICODE] init.c:106:  _return($1) :
-                                           ;;[ICODE] init.c:106: 	eproc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00024a   0002     return                   	RETURN	
+                                           ;;[ICODE] init.c:77: 	_OSCCON [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	77; "init.c"	OSCCON = 0;     //∏ﬂ∆µ	
+000249   18d0     clrf    0x50             	CLRF	_OSCCON
+                                           ;;[ICODE] init.c:78: 	_T0 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xce {const-unsigned-char literal}
+                                           ;	.line	78; "init.c"	T0 =   0xCE;
+00024a   04ce     movlw   0xce             	MOVLW	0xce
+00024b   1981     movwf   0x01             	MOVWF	_T0
+                                           ;;[ICODE] init.c:80: 	_OPTION [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	80; "init.c"	OPTION = 0x00;	//œ¬Ωµ—ÿ÷–∂œ Fcpu …œ…˝—ÿº∆ ˝ TMR0 1/2‘§∑÷∆µ
+00024c   18c1     clrf    0x41             	CLRF	_OPTION
+                                           ;;[ICODE] init.c:81: 	_PCON [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PCON [k5 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x90 {const-unsigned-char literal}
+                                           ;	.line	81; "init.c"	PCON |= 0x90; 	// πƒ‹WDT
+00024d   0490     movlw   0x90             	MOVLW	0x90
+00024e   1d88     iorwf   0x08, 0x1        	IORWF	_PCON,F
+                                           ;;[ICODE] init.c:83: 	_CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	83; "init.c"	CMPCR = 0x00;  //πÿ±’±»Ωœ∆˜
+00024f   18d1     clrf    0x51             	CLRF	_CMPCR
+                                           ;;[ICODE] init.c:84: 	_INTFLAG [k8 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _INTFLAG [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfe {const-unsigned-char literal}
+                                           ;	.line	84; "init.c"	INTFLAG &= 0xFE;
+000250   3c0f     bcf     0x0f, 0x0        	BCF	_INTFLAG,0
+                                           ;;[ICODE] init.c:85: 	_CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _CMPCR [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-unsigned-char literal}
+                                           ;	.line	85; "init.c"	CMPCR |= 0X10;
+000251   3a51     bsf     0x51, 0x4        	BSF	_CMPCR,4
+                                           ;;[ICODE] init.c:85:  _return($1) :
+                                           ;;[ICODE] init.c:85: 	eproc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+000252   0002     return                   	RETURN	
                                            ; exit point of _InitSystem
-
-                                           ;***
-                                           ;  pBlock Stats: dbName = C
-                                           ;***
-                                           ;has an exit
-                                           ;; Starting pCode block
-                                           ;;[ICODE] init.c:73:  _entry($2) :
-                                           ;;[ICODE] init.c:73: 	proc _lowPower_IO_Init [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           S_init__lowPower_IO_Init	code
-                                           _lowPower_IO_Init:
-                                           ; 2 exit points
-                                           ;;[ICODE] init.c:76: 	_AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-                                           ;	.line	76; "init.c"	AUXR = 0;
-00021e   18d9     clrf    0x59             	CLRF	_AUXR
-                                           ;;[ICODE] init.c:77: 	_PORTB [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-                                           ;	.line	77; "init.c"	PORTB = 0;  // 0 disenable output, 1 enable output
-00021f   1886     clrf    0x06             	CLRF	_PORTB
-                                           ;;[ICODE] init.c:78: 	_TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
-                                           ;	.line	78; "init.c"	TRISB = 0xff;    //1£∫input  0:output
-000220   04ff     movlw   0xff             	MOVLW	0xff
-000221   19c6     movwf   0x46             	MOVWF	_TRISB
-                                           ;;[ICODE] init.c:81: 	_PDCON [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
-                                           ;	.line	81; "init.c"	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
-000222   04ff     movlw   0xff             	MOVLW	0xff
-000223   198b     movwf   0x0b             	MOVWF	_PDCON
-                                           ;;[ICODE] init.c:82: 	_PDCON1 [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
-                                           ;	.line	82; "init.c"	PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
-000224   04ff     movlw   0xff             	MOVLW	0xff
-000225   19d2     movwf   0x52             	MOVWF	_PDCON1
-                                           ;;[ICODE] init.c:85: 	_PHCON [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
-                                           ;	.line	85; "init.c"	PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
-000226   04ff     movlw   0xff             	MOVLW	0xff
-000227   198d     movwf   0x0d             	MOVWF	_PHCON
-                                           ;;[ICODE] init.c:87: 	_PHCON [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfb {const-unsigned-char literal}
-                                           ;	.line	87; "init.c"	PHCON &= DEF_CLR_BIT2;
-000228   3d0d     bcf     0x0d, 0x2        	BCF	_PHCON,2
-                                           ;;[ICODE] init.c:88: 	_PHCON [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xef {const-unsigned-char literal}
-                                           ;	.line	88; "init.c"	PHCON &= DEF_CLR_BIT4;
-000229   3e0d     bcf     0x0d, 0x4        	BCF	_PHCON,4
-                                           ;;[ICODE] init.c:88:  _return($1) :
-                                           ;;[ICODE] init.c:88: 	eproc _lowPower_IO_Init [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00022a   0002     return                   	RETURN	
-                                           ; exit point of _lowPower_IO_Init
 
                                            ;***
                                            ;  pBlock Stats: dbName = C
@@ -773,98 +729,98 @@ Address  Value    Disassembly              Source
                                            ; 2 exit points
                                            ;;[ICODE] init.c:11: 	_AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
                                            ;	.line	11; "init.c"	AUXR = 0;
-000182   18d9     clrf    0x59             	CLRF	_AUXR
+000197   18d9     clrf    0x59             	CLRF	_AUXR
                                            ;;[ICODE] init.c:13: 	_PORTB [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
                                            ;	.line	13; "init.c"	PORTB = 0;  // 0 disenable output, 1 enable output
-000183   1886     clrf    0x06             	CLRF	_PORTB
+000198   1886     clrf    0x06             	CLRF	_PORTB
                                            ;;[ICODE] init.c:21: 	_TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
                                            ;	.line	21; "init.c"	TRISB = 0;    //1£∫input  0:output
-000184   18c6     clrf    0x46             	CLRF	_TRISB
+000199   18c6     clrf    0x46             	CLRF	_TRISB
                                            ;;[ICODE] init.c:22: 	_TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {const-unsigned-char literal}
                                            ;	.line	22; "init.c"	TRISB |= DEF_SET_BIT2;    //input
-000185   3946     bsf     0x46, 0x2        	BSF	_TRISB,2
+00019a   3946     bsf     0x46, 0x2        	BSF	_TRISB,2
                                            ;;[ICODE] init.c:23: 	_TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-unsigned-char literal}
                                            ;	.line	23; "init.c"	TRISB |= DEF_SET_BIT4;  //input
-000186   3a46     bsf     0x46, 0x4        	BSF	_TRISB,4
+00019b   3a46     bsf     0x46, 0x4        	BSF	_TRISB,4
                                            ;;[ICODE] init.c:24: 	_TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x20 {const-unsigned-char literal}
                                            ;	.line	24; "init.c"	TRISB |= DEF_SET_BIT5;  //input
-000187   3ac6     bsf     0x46, 0x5        	BSF	_TRISB,5
+00019c   3ac6     bsf     0x46, 0x5        	BSF	_TRISB,5
                                            ;;[ICODE] init.c:25: 	_TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x8 {const-unsigned-char literal}
                                            ;	.line	25; "init.c"	TRISB |= DEF_SET_BIT3;  //input
-000188   39c6     bsf     0x46, 0x3        	BSF	_TRISB,3
+00019d   39c6     bsf     0x46, 0x3        	BSF	_TRISB,3
                                            ;;[ICODE] init.c:32: 	_PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
                                            ;	.line	32; "init.c"	PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
-000189   04ff     movlw   0xff             	MOVLW	0xff
-00018a   198d     movwf   0x0d             	MOVWF	_PHCON
+00019e   04ff     movlw   0xff             	MOVLW	0xff
+00019f   198d     movwf   0x0d             	MOVWF	_PHCON
                                            ;;[ICODE] init.c:34: 	_PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfe {const-unsigned-char literal}
                                            ;	.line	34; "init.c"	PHCON &= DEF_CLR_BIT0;
-00018b   3c0d     bcf     0x0d, 0x0        	BCF	_PHCON,0
+0001a0   3c0d     bcf     0x0d, 0x0        	BCF	_PHCON,0
                                            ;;[ICODE] init.c:35: 	_PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfd {const-unsigned-char literal}
                                            ;	.line	35; "init.c"	PHCON &= DEF_CLR_BIT1;
-00018c   3c8d     bcf     0x0d, 0x1        	BCF	_PHCON,1
+0001a1   3c8d     bcf     0x0d, 0x1        	BCF	_PHCON,1
                                            ;;[ICODE] init.c:37: 	_PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfb {const-unsigned-char literal}
                                            ;	.line	37; "init.c"	PHCON &= DEF_CLR_BIT2;
-00018d   3d0d     bcf     0x0d, 0x2        	BCF	_PHCON,2
+0001a2   3d0d     bcf     0x0d, 0x2        	BCF	_PHCON,2
                                            ;;[ICODE] init.c:38: 	_PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xef {const-unsigned-char literal}
                                            ;	.line	38; "init.c"	PHCON &= DEF_CLR_BIT4;
-00018e   3e0d     bcf     0x0d, 0x4        	BCF	_PHCON,4
+0001a3   3e0d     bcf     0x0d, 0x4        	BCF	_PHCON,4
                                            ;;[ICODE] init.c:44: 	_PDCON [k14 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
                                            ;	.line	44; "init.c"	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
-00018f   04ff     movlw   0xff             	MOVLW	0xff
-000190   198b     movwf   0x0b             	MOVWF	_PDCON
+0001a4   04ff     movlw   0xff             	MOVLW	0xff
+0001a5   198b     movwf   0x0b             	MOVWF	_PDCON
                                            ;;[ICODE] init.c:45: 	_PDCON1 [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
                                            ;	.line	45; "init.c"	PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
-000191   04ff     movlw   0xff             	MOVLW	0xff
-000192   19d2     movwf   0x52             	MOVWF	_PDCON1
+0001a6   04ff     movlw   0xff             	MOVLW	0xff
+0001a7   19d2     movwf   0x52             	MOVWF	_PDCON1
                                            ;;[ICODE] init.c:49: 	_IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
                                            ;	.line	49; "init.c"	IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
-000193   1889     clrf    0x09             	CLRF	_IOCB
+0001a8   1889     clrf    0x09             	CLRF	_IOCB
                                            ;;[ICODE] init.c:50: 	_IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _IOCB [k16 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {const-unsigned-char literal}
                                            ;	.line	50; "init.c"	IOCB |= DEF_SET_BIT2;
-000194   3909     bsf     0x09, 0x2        	BSF	_IOCB,2
+0001a9   3909     bsf     0x09, 0x2        	BSF	_IOCB,2
                                            ;;[ICODE] init.c:51: 	_IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _IOCB [k16 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-unsigned-char literal}
                                            ;	.line	51; "init.c"	IOCB |= DEF_SET_BIT4;
-000195   3a09     bsf     0x09, 0x4        	BSF	_IOCB,4
+0001aa   3a09     bsf     0x09, 0x4        	BSF	_IOCB,4
                                            ;;[ICODE] init.c:52: 	_IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _IOCB [k16 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x20 {const-unsigned-char literal}
                                            ;	.line	52; "init.c"	IOCB |= DEF_SET_BIT5;
-000196   3a89     bsf     0x09, 0x5        	BSF	_IOCB,5
+0001ab   3a89     bsf     0x09, 0x5        	BSF	_IOCB,5
                                            ;;[ICODE] init.c:53: 	iTemp12 [k23 lr32:34 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k20 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] init.c:53: 	*(iTemp12 [k23 lr32:34 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	53; "init.c"	PBIE = 0; // 0	disenable Port level change interrupt , 1 enable Port level change interrupt
-000197   3c8e     bcf     0x0e, 0x1        	BCF	_INTECONbits,1
+0001ac   3c8e     bcf     0x0e, 0x1        	BCF	_INTECONbits,1
                                            ;;[ICODE] init.c:59: 	_ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
                                            ;	.line	59; "init.c"	ODCON = 0;
-000198   188c     clrf    0x0c             	CLRF	_ODCON
+0001ad   188c     clrf    0x0c             	CLRF	_ODCON
                                            ;;[ICODE] init.c:60: 	_ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _ODCON [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x1 {const-unsigned-char literal}
                                            ;	.line	60; "init.c"	ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open drain output
-000199   380c     bsf     0x0c, 0x0        	BSF	_ODCON,0
+0001ae   380c     bsf     0x0c, 0x0        	BSF	_ODCON,0
                                            ;;[ICODE] init.c:61: 	_ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _ODCON [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x2 {const-unsigned-char literal}
                                            ;	.line	61; "init.c"	ODCON |= DEF_SET_BIT1;
-00019a   388c     bsf     0x0c, 0x1        	BSF	_ODCON,1
+0001af   388c     bsf     0x0c, 0x1        	BSF	_ODCON,1
                                            ;;[ICODE] init.c:67: 	iTemp16 [k30 lr40:42 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] init.c:67: 	*(iTemp16 [k30 lr40:42 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	67; "init.c"	MODSEL = 1;   // 1£∫ πƒ‹ƒ⁄÷√œﬁ¡˜µÁ◊Ë
-00019b   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
+0001b0   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
                                            ;;[ICODE] init.c:68: 	iTemp18 [k34 lr43:45 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] init.c:68: 	*(iTemp18 [k34 lr43:45 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	68; "init.c"	PORT_LED1 = 1;  //µ∆π‚  1£∫√  0£∫¡¡
-00019c   3886     bsf     0x06, 0x1        	BSF	_PORTBbits,1
+0001b1   3886     bsf     0x06, 0x1        	BSF	_PORTBbits,1
                                            ;;[ICODE] init.c:69: 	iTemp20 [k37 lr46:48 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PORTBbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] init.c:69: 	*(iTemp20 [k37 lr46:48 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	69; "init.c"	PORT_LED2 = 1;  //µÁª˙ 1£∫√  0£∫¡¡
-00019d   3806     bsf     0x06, 0x0        	BSF	_PORTBbits,0
+0001b2   3806     bsf     0x06, 0x0        	BSF	_PORTBbits,0
                                            ;;[ICODE] init.c:70: 	iTemp22 [k40 lr49:51 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat] = &[_PORTBbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] init.c:70: 	*(iTemp22 [k40 lr49:51 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	70; "init.c"	PORT_LED3 = 0; //pow
-00019e   3d86     bcf     0x06, 0x3        	BCF	_PORTBbits,3
+0001b3   3d86     bcf     0x06, 0x3        	BCF	_PORTBbits,3
                                            ;;[ICODE] init.c:70:  _return($1) :
                                            ;;[ICODE] init.c:70: 	eproc _InitPort [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00019f   0002     return                   	RETURN	
+0001b4   0002     return                   	RETURN	
                                            ; exit point of _InitPort
 
 
                                            ;	code size estimation:
-                                           ;	   65+    0 =    65 instructions (  130 byte)
+                                           ;	   52+    0 =    52 instructions (  104 byte)
 
                                            	end
                                            ;--------------------------------------------------------
@@ -1252,14 +1208,14 @@ Address  Value    Disassembly              Source
                                            ;has an exit
                                            ;functions called:
                                            ;   _PowOn
-                                           ;   _LedSwitch
                                            ;   _MotoSwitch
+                                           ;   _LedSwitch
                                            ;   _PowOn
                                            ;   _PowOff
                                            ;   _PowOff
                                            ;   _PowOn
-                                           ;   _LedSwitch
                                            ;   _MotoSwitch
+                                           ;   _LedSwitch
                                            ;   _PowOn
                                            ;   _PowOff
                                            ;   _PowOff
@@ -1426,7 +1382,7 @@ Address  Value    Disassembly              Source
                                            ;	.line	53; "key.c"	PowOn();
 000073   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
 000074   13b5     incf    0x35, 0x1        	INCF	_g_ucTimerWorkCount,F
-000075   2a88     call    0x0288           	CALL	_PowOn
+000075   2a90     call    0x0290           	CALL	_PowOn
 000076   20aa     goto    0x00aa           	GOTO	_00146_DS_
                                            ;;[ICODE] key.c:53:  __iffalse_15($38) :
                                            ;;[ICODE] key.c:61: 	_longpress_cnt [k17 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
@@ -1444,12 +1400,12 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] key.c:65: 	_clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
                                            ;	.line	65; "key.c"	clink_event = 0;
 00007d   18b0     clrf    0x30             	CLRF	_clink_event
-                                           ;;[ICODE] key.c:66: 	iTemp47 [k64 lr70:70 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k63 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	66; "key.c"	LedSwitch();
-00007e   2a03     call    0x0203           	CALL	_LedSwitch
-                                           ;;[ICODE] key.c:66: 	 goto __ifend_10($26)
+                                           ;;[ICODE] key.c:68: 	iTemp47 [k64 lr70:70 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k63 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;	.line	68; "key.c"	MotoSwitch();
+00007e   2a0a     call    0x020a           	CALL	_MotoSwitch
+                                           ;;[ICODE] key.c:68: 	 goto __ifend_10($26)
 00007f   2090     goto    0x0090           	GOTO	_00130_DS_
-                                           ;;[ICODE] key.c:66:  __iffalse_10($25) :
+                                           ;;[ICODE] key.c:68:  __iffalse_10($25) :
                                            ;;[ICODE] key.c:69: 	iTemp48 [k65 lr73:74 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x2 {const-unsigned-char literal}
                                            _00129_DS_:
                                            ;	.line	69; "key.c"	} else if(clink_event == 2){
@@ -1461,12 +1417,12 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] key.c:70: 	_clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
                                            ;	.line	70; "key.c"	clink_event = 0;
 000084   18b0     clrf    0x30             	CLRF	_clink_event
-                                           ;;[ICODE] key.c:72: 	iTemp50 [k68 lr76:76 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoSwitch [k67 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	72; "key.c"	MotoSwitch();
-000085   29f5     call    0x01f5           	CALL	_MotoSwitch
-                                           ;;[ICODE] key.c:72: 	 goto __ifend_10($26)
+                                           ;;[ICODE] key.c:73: 	iTemp50 [k68 lr76:76 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedSwitch [k67 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;	.line	73; "key.c"	LedSwitch();
+000085   2a18     call    0x0218           	CALL	_LedSwitch
+                                           ;;[ICODE] key.c:73: 	 goto __ifend_10($26)
 000086   2090     goto    0x0090           	GOTO	_00130_DS_
-                                           ;;[ICODE] key.c:72:  __iffalse_9($22) :
+                                           ;;[ICODE] key.c:73:  __iffalse_9($22) :
                                            ;;[ICODE] key.c:75: 	iTemp51 [k69 lr79:80 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _clink_event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x3 {const-unsigned-char literal}
                                            _00126_DS_:
                                            ;	.line	75; "key.c"	} else if(clink_event == 3){
@@ -1480,7 +1436,7 @@ Address  Value    Disassembly              Source
 00008b   18b0     clrf    0x30             	CLRF	_clink_event
                                            ;;[ICODE] key.c:79: 	iTemp53 [k71 lr82:82 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOn [k58 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	79; "key.c"	PowOn();
-00008c   2a88     call    0x0288           	CALL	_PowOn
+00008c   2a90     call    0x0290           	CALL	_PowOn
                                            ;;[ICODE] key.c:80: 	_g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _g_ucTimerWorkCount [k53 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
                                            ;	.line	80; "key.c"	g_ucTimerWorkCount++;  //10ms
 00008d   13b5     incf    0x35, 0x1        	INCF	_g_ucTimerWorkCount,F
@@ -1520,7 +1476,7 @@ Address  Value    Disassembly              Source
 00009b   18b5     clrf    0x35             	CLRF	_g_ucTimerWorkCount
                                            ;;[ICODE] key.c:94: 	iTemp64 [k84 lr96:96 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k83 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	94; "key.c"	PowOff();
-00009c   2a8c     call    0x028c           	CALL	_PowOff
+00009c   2a94     call    0x0294           	CALL	_PowOff
                                            ;;[ICODE] key.c:94:  __iffalse_12($31) :
                                            ;;[ICODE] key.c:102: 	if _long_f [k51 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0 goto _return($42)
                                            _00135_DS_:
@@ -1553,7 +1509,7 @@ Address  Value    Disassembly              Source
 0000a8   18b5     clrf    0x35             	CLRF	_g_ucTimerWorkCount
                                            ;;[ICODE] key.c:112: 	iTemp71 [k91 lr107:107 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _PowOff [k83 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	112; "key.c"	PowOff();
-0000a9   2a8c     call    0x028c           	CALL	_PowOff
+0000a9   2a94     call    0x0294           	CALL	_PowOff
                                            ;;[ICODE] key.c:112:  _return($42) :
                                            ;;[ICODE] key.c:112: 	eproc _ScanKey [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00146_DS_:
@@ -1592,7 +1548,6 @@ Address  Value    Disassembly              Source
                                            	extern	_InitSystem
                                            	extern	_InitPwm
                                            	extern	_InitRam
-                                           	extern	_lowPower_IO_Init
                                            	extern	_STATUSbits
                                            	extern	_PORTBbits
                                            	extern	_PCONbits
@@ -1744,128 +1699,128 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:114: 	iTemp1 [k5 lr4:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] := iTemp0 [k3 lr3:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]
                                            ;;[ICODE] led.c:114: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1050 ] = @[iTemp1 [k5 lr4:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                                            ;	.line	114; "led.c"	if(IsLight == 1) {
-0000fb   18e4     clrf    0x64             	CLRF	r0x1009
-0000fc   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
-0000fd   13e4     incf    0x64, 0x1        	INCF	r0x1009,F
+00014c   18e4     clrf    0x64             	CLRF	r0x1009
+00014d   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
+00014e   13e4     incf    0x64, 0x1        	INCF	r0x1009,F
                                            ;;[ICODE] led.c:114: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x1051 ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1050 ]
-0000fe   1164     movf    0x64, 0x0        	MOVF	r0x1009,W
-0000ff   19e5     movwf   0x65             	MOVWF	r0x100A
-000100   0d01     xorlw   0x01             	XORLW	0x01
-000101   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000102   211c     goto    0x011c           	GOTO	_00156_DS_
+00014f   1164     movf    0x64, 0x0        	MOVF	r0x1009,W
+000150   19e5     movwf   0x65             	MOVWF	r0x100A
+000151   0d01     xorlw   0x01             	XORLW	0x01
+000152   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000153   216d     goto    0x016d           	GOTO	_00156_DS_
                                            ;;[ICODE] led.c:114: 	if iTemp4 [k8 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_3($4)
                                            ;;[ICODE] led.c:116: 	_lampTiming [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} = _lampTiming [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} + 0x1 {const-unsigned-char literal}
                                            ;	.line	116; "led.c"	lampTiming++;
-000103   13e6     incf    0x66, 0x1        	INCF	_lampTiming,F
-000104   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-000105   13e7     incf    0x67, 0x1        	INCF	(_lampTiming + 1),F
-000106   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-000107   13e8     incf    0x68, 0x1        	INCF	(_lampTiming + 2),F
-000108   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-000109   13e9     incf    0x69, 0x1        	INCF	(_lampTiming + 3),F
+000154   13e6     incf    0x66, 0x1        	INCF	_lampTiming,F
+000155   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+000156   13e7     incf    0x67, 0x1        	INCF	(_lampTiming + 1),F
+000157   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+000158   13e8     incf    0x68, 0x1        	INCF	(_lampTiming + 2),F
+000159   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+00015a   13e9     incf    0x69, 0x1        	INCF	(_lampTiming + 3),F
                                            ;;[ICODE] led.c:118: 	iTemp8 [k13 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _lampTiming [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} > 0x1e460 {unsigned-long-int literal}
                                            ;;swapping arguments (AOP_TYPEs 1/3)
                                            ;;unsigned compare: left >= lit(0x1E461=124001), size=4
                                            ;	.line	118; "led.c"	if(lampTiming > 124000) {    //20ÂàÜÈíü
-00010a   0400     movlw   0x00             	MOVLW	0x00
-00010b   1b69     subwf   0x69, 0x0        	SUBWF	(_lampTiming + 3),W
-00010c   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-00010d   2118     goto    0x0118           	GOTO	_00177_DS_
-00010e   0401     movlw   0x01             	MOVLW	0x01
-00010f   1b68     subwf   0x68, 0x0        	SUBWF	(_lampTiming + 2),W
-000110   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000111   2118     goto    0x0118           	GOTO	_00177_DS_
-000112   04e4     movlw   0xe4             	MOVLW	0xe4
-000113   1b67     subwf   0x67, 0x0        	SUBWF	(_lampTiming + 1),W
-000114   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000115   2118     goto    0x0118           	GOTO	_00177_DS_
-000116   0461     movlw   0x61             	MOVLW	0x61
-000117   1b66     subwf   0x66, 0x0        	SUBWF	_lampTiming,W
+00015b   0400     movlw   0x00             	MOVLW	0x00
+00015c   1b69     subwf   0x69, 0x0        	SUBWF	(_lampTiming + 3),W
+00015d   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+00015e   2169     goto    0x0169           	GOTO	_00177_DS_
+00015f   0401     movlw   0x01             	MOVLW	0x01
+000160   1b68     subwf   0x68, 0x0        	SUBWF	(_lampTiming + 2),W
+000161   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000162   2169     goto    0x0169           	GOTO	_00177_DS_
+000163   04e4     movlw   0xe4             	MOVLW	0xe4
+000164   1b67     subwf   0x67, 0x0        	SUBWF	(_lampTiming + 1),W
+000165   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000166   2169     goto    0x0169           	GOTO	_00177_DS_
+000167   0461     movlw   0x61             	MOVLW	0x61
+000168   1b66     subwf   0x66, 0x0        	SUBWF	_lampTiming,W
                                            _00177_DS_:
-000118   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
-000119   2120     goto    0x0120           	GOTO	_00157_DS_
+000169   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
+00016a   2171     goto    0x0171           	GOTO	_00157_DS_
                                            ;;genSkipc:3257: created from rifx:0x782c44
                                            ;;[ICODE] led.c:118: 	if iTemp8 [k13 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __ifend_3($5)
                                            ;;[ICODE] led.c:119: 	iTemp10 [k16 lr13:14 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] := iTemp0 [k3 lr3:13 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]
                                            ;;[ICODE] led.c:119: 	*(iTemp10 [k16 lr13:14 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	119; "led.c"	IsLight = 0;
-00011a   3eb3     bcf     0x33, 0x5        	BCF	_BITS_DATA0,5
+00016b   3eb3     bcf     0x33, 0x5        	BCF	_BITS_DATA0,5
                                            ;;[ICODE] led.c:119: 	 goto __ifend_3($5)
-00011b   2120     goto    0x0120           	GOTO	_00157_DS_
+00016c   2171     goto    0x0171           	GOTO	_00157_DS_
                                            ;;[ICODE] led.c:119:  __iffalse_3($4) :
                                            ;;[ICODE] led.c:130: 	_lampTiming [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} := 0x0 {unsigned-long-int literal}
                                            _00156_DS_:
                                            ;	.line	130; "led.c"	lampTiming = 0;
-00011c   18e6     clrf    0x66             	CLRF	_lampTiming
-00011d   18e7     clrf    0x67             	CLRF	(_lampTiming + 1)
-00011e   18e8     clrf    0x68             	CLRF	(_lampTiming + 2)
-00011f   18e9     clrf    0x69             	CLRF	(_lampTiming + 3)
+00016d   18e6     clrf    0x66             	CLRF	_lampTiming
+00016e   18e7     clrf    0x67             	CLRF	(_lampTiming + 1)
+00016f   18e8     clrf    0x68             	CLRF	(_lampTiming + 2)
+000170   18e9     clrf    0x69             	CLRF	(_lampTiming + 3)
                                            ;;[ICODE] led.c:130:  __ifend_3($5) :
                                            ;;[ICODE] led.c:135: 	iTemp12 [k18 lr19:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:135: 	iTemp13 [k20 lr20:21 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] := iTemp12 [k18 lr19:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]
                                            ;;[ICODE] led.c:135: 	iTemp14 [k21 lr21:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1050 ] = @[iTemp13 [k20 lr20:21 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                                            _00157_DS_:
                                            ;	.line	135; "led.c"	if(IsMotor == 1){
-000120   18e4     clrf    0x64             	CLRF	r0x1009
-000121   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
-000122   13e4     incf    0x64, 0x1        	INCF	r0x1009,F
+000171   18e4     clrf    0x64             	CLRF	r0x1009
+000172   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
+000173   13e4     incf    0x64, 0x1        	INCF	r0x1009,F
                                            ;;[ICODE] led.c:135: 	iTemp15 [k22 lr22:23 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x1051 ] = (char register)iTemp14 [k21 lr21:22 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1050 ]
-000123   1164     movf    0x64, 0x0        	MOVF	r0x1009,W
-000124   19e5     movwf   0x65             	MOVWF	r0x100A
-000125   0d01     xorlw   0x01             	XORLW	0x01
-000126   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000127   2141     goto    0x0141           	GOTO	_00161_DS_
+000174   1164     movf    0x64, 0x0        	MOVF	r0x1009,W
+000175   19e5     movwf   0x65             	MOVWF	r0x100A
+000176   0d01     xorlw   0x01             	XORLW	0x01
+000177   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000178   2192     goto    0x0192           	GOTO	_00161_DS_
                                            ;;[ICODE] led.c:135: 	if iTemp16 [k23 lr23:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_5($9)
                                            ;;[ICODE] led.c:136: 	_motoTiming [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} = _motoTiming [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} + 0x1 {const-unsigned-char literal}
                                            ;	.line	136; "led.c"	motoTiming++;
-000128   13ea     incf    0x6a, 0x1        	INCF	_motoTiming,F
-000129   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-00012a   13eb     incf    0x6b, 0x1        	INCF	(_motoTiming + 1),F
-00012b   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-00012c   13ec     incf    0x6c, 0x1        	INCF	(_motoTiming + 2),F
-00012d   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-00012e   13ed     incf    0x6d, 0x1        	INCF	(_motoTiming + 3),F
+000179   13ea     incf    0x6a, 0x1        	INCF	_motoTiming,F
+00017a   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+00017b   13eb     incf    0x6b, 0x1        	INCF	(_motoTiming + 1),F
+00017c   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+00017d   13ec     incf    0x6c, 0x1        	INCF	(_motoTiming + 2),F
+00017e   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+00017f   13ed     incf    0x6d, 0x1        	INCF	(_motoTiming + 3),F
                                            ;;[ICODE] led.c:138: 	iTemp20 [k28 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _motoTiming [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} > 0x1e460 {unsigned-long-int literal}
                                            ;;swapping arguments (AOP_TYPEs 1/3)
                                            ;;unsigned compare: left >= lit(0x1E461=124001), size=4
                                            ;	.line	138; "led.c"	if(motoTiming > 124000) {    //20ÂàÜÈíü
-00012f   0400     movlw   0x00             	MOVLW	0x00
-000130   1b6d     subwf   0x6d, 0x0        	SUBWF	(_motoTiming + 3),W
-000131   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000132   213d     goto    0x013d           	GOTO	_00178_DS_
-000133   0401     movlw   0x01             	MOVLW	0x01
-000134   1b6c     subwf   0x6c, 0x0        	SUBWF	(_motoTiming + 2),W
-000135   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000136   213d     goto    0x013d           	GOTO	_00178_DS_
-000137   04e4     movlw   0xe4             	MOVLW	0xe4
-000138   1b6b     subwf   0x6b, 0x0        	SUBWF	(_motoTiming + 1),W
-000139   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-00013a   213d     goto    0x013d           	GOTO	_00178_DS_
-00013b   0461     movlw   0x61             	MOVLW	0x61
-00013c   1b6a     subwf   0x6a, 0x0        	SUBWF	_motoTiming,W
+000180   0400     movlw   0x00             	MOVLW	0x00
+000181   1b6d     subwf   0x6d, 0x0        	SUBWF	(_motoTiming + 3),W
+000182   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000183   218e     goto    0x018e           	GOTO	_00178_DS_
+000184   0401     movlw   0x01             	MOVLW	0x01
+000185   1b6c     subwf   0x6c, 0x0        	SUBWF	(_motoTiming + 2),W
+000186   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000187   218e     goto    0x018e           	GOTO	_00178_DS_
+000188   04e4     movlw   0xe4             	MOVLW	0xe4
+000189   1b6b     subwf   0x6b, 0x0        	SUBWF	(_motoTiming + 1),W
+00018a   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+00018b   218e     goto    0x018e           	GOTO	_00178_DS_
+00018c   0461     movlw   0x61             	MOVLW	0x61
+00018d   1b6a     subwf   0x6a, 0x0        	SUBWF	_motoTiming,W
                                            _00178_DS_:
-00013d   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
-00013e   2145     goto    0x0145           	GOTO	_00163_DS_
+00018e   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
+00018f   2196     goto    0x0196           	GOTO	_00163_DS_
                                            ;;genSkipc:3257: created from rifx:0x782c44
                                            ;;[ICODE] led.c:138: 	if iTemp20 [k28 lr27:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto _return($11)
                                            ;;[ICODE] led.c:139: 	iTemp22 [k31 lr29:30 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] := iTemp12 [k18 lr19:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]
                                            ;;[ICODE] led.c:139: 	*(iTemp22 [k31 lr29:30 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	139; "led.c"	IsMotor = 0;
-00013f   3f33     bcf     0x33, 0x6        	BCF	_BITS_DATA0,6
+000190   3f33     bcf     0x33, 0x6        	BCF	_BITS_DATA0,6
                                            ;;[ICODE] led.c:139: 	 goto _return($11)
-000140   2145     goto    0x0145           	GOTO	_00163_DS_
+000191   2196     goto    0x0196           	GOTO	_00163_DS_
                                            ;;[ICODE] led.c:139:  __iffalse_5($9) :
                                            ;;[ICODE] led.c:150: 	_motoTiming [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-long-int fixed} := 0x0 {unsigned-long-int literal}
                                            _00161_DS_:
                                            ;	.line	150; "led.c"	motoTiming = 0;
-000141   18ea     clrf    0x6a             	CLRF	_motoTiming
-000142   18eb     clrf    0x6b             	CLRF	(_motoTiming + 1)
-000143   18ec     clrf    0x6c             	CLRF	(_motoTiming + 2)
-000144   18ed     clrf    0x6d             	CLRF	(_motoTiming + 3)
+000192   18ea     clrf    0x6a             	CLRF	_motoTiming
+000193   18eb     clrf    0x6b             	CLRF	(_motoTiming + 1)
+000194   18ec     clrf    0x6c             	CLRF	(_motoTiming + 2)
+000195   18ed     clrf    0x6d             	CLRF	(_motoTiming + 3)
                                            ;;[ICODE] led.c:150:  _return($11) :
                                            ;;[ICODE] led.c:150: 	eproc _CountdownDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00163_DS_:
-000145   0002     return                   	RETURN	
+000196   0002     return                   	RETURN	
                                            ; exit point of _CountdownDisplay
 
                                            ;***
@@ -1880,13 +1835,13 @@ Address  Value    Disassembly              Source
                                            ; 2 exit points
                                            ;;[ICODE] led.c:89: 	_TRISB [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _TRISB [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x8 {const-unsigned-char literal}
                                            ;	.line	89; "led.c"	TRISB |= DEF_SET_BIT3;  //input
-00028c   39c6     bsf     0x46, 0x3        	BSF	_TRISB,3
+000294   39c6     bsf     0x46, 0x3        	BSF	_TRISB,3
                                            ;;[ICODE] led.c:90: 	_ODCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _ODCON [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xf7 {const-unsigned-char literal}
                                            ;	.line	90; "led.c"	ODCON &= DEF_CLR_BIT3;  //ÂÖ≥ÂºÄÊºè
-00028d   3d8c     bcf     0x0c, 0x3        	BCF	_ODCON,3
+000295   3d8c     bcf     0x0c, 0x3        	BCF	_ODCON,3
                                            ;;[ICODE] led.c:90:  _return($1) :
                                            ;;[ICODE] led.c:90: 	eproc _PowOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00028e   0002     return                   	RETURN	
+000296   0002     return                   	RETURN	
                                            ; exit point of _PowOff
 
                                            ;***
@@ -1901,17 +1856,17 @@ Address  Value    Disassembly              Source
                                            ; 2 exit points
                                            ;;[ICODE] led.c:77: 	_TRISB [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _TRISB [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xf7 {const-unsigned-char literal}
                                            ;	.line	77; "led.c"	TRISB &= DEF_CLR_BIT3;  //ouput
-000288   3dc6     bcf     0x46, 0x3        	BCF	_TRISB,3
+000290   3dc6     bcf     0x46, 0x3        	BCF	_TRISB,3
                                            ;;[ICODE] led.c:78: 	_ODCON [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _ODCON [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x8 {const-unsigned-char literal}
                                            ;	.line	78; "led.c"	ODCON |= DEF_SET_BIT3;  //ÂºÄÊºè
-000289   398c     bsf     0x0c, 0x3        	BSF	_ODCON,3
+000291   398c     bsf     0x0c, 0x3        	BSF	_ODCON,3
                                            ;;[ICODE] led.c:79: 	iTemp3 [k9 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat] = &[_PORTBbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:79: 	*(iTemp3 [k9 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {3,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	79; "led.c"	PORT_LED3 = 0;
-00028a   3d86     bcf     0x06, 0x3        	BCF	_PORTBbits,3
+000292   3d86     bcf     0x06, 0x3        	BCF	_PORTBbits,3
                                            ;;[ICODE] led.c:79:  _return($1) :
                                            ;;[ICODE] led.c:79: 	eproc _PowOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00028b   0002     return                   	RETURN	
+000293   0002     return                   	RETURN	
                                            ; exit point of _PowOn
 
                                            ;***
@@ -1935,30 +1890,30 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:63: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:63: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104C ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                                            ;	.line	63; "led.c"	if(IsMotor == 1)
-00022b   18e3     clrf    0x63             	CLRF	r0x100B
-00022c   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
-00022d   13e3     incf    0x63, 0x1        	INCF	r0x100B,F
+000233   18e3     clrf    0x63             	CLRF	r0x100B
+000234   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
+000235   13e3     incf    0x63, 0x1        	INCF	r0x100B,F
                                            ;;[ICODE] led.c:63: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104D ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104C ]
-00022e   1163     movf    0x63, 0x0        	MOVF	r0x100B,W
+000236   1163     movf    0x63, 0x0        	MOVF	r0x100B,W
                                            ;;1	MOVWF	r0x100C
-00022f   0d01     xorlw   0x01             	XORLW	0x01
-000230   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000231   2234     goto    0x0234           	GOTO	_00138_DS_
+000237   0d01     xorlw   0x01             	XORLW	0x01
+000238   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000239   223c     goto    0x023c           	GOTO	_00138_DS_
                                            ;;[ICODE] led.c:63: 	if iTemp4 [k8 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_1($2)
                                            ;;[ICODE] led.c:65: 	iTemp5 [k10 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoOn [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	65; "led.c"	MotoOn();
-000232   2a92     call    0x0292           	CALL	_MotoOn
+00023a   2a9a     call    0x029a           	CALL	_MotoOn
                                            ;;[ICODE] led.c:65: 	 goto _return($4)
-000233   2235     goto    0x0235           	GOTO	_00140_DS_
+00023b   223d     goto    0x023d           	GOTO	_00140_DS_
                                            ;;[ICODE] led.c:65:  __iffalse_1($2) :
                                            ;;[ICODE] led.c:69: 	iTemp6 [k12 lr12:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoOff [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00138_DS_:
                                            ;	.line	69; "led.c"	MotoOff();
-000234   2a8f     call    0x028f           	CALL	_MotoOff
+00023c   2a97     call    0x0297           	CALL	_MotoOff
                                            ;;[ICODE] led.c:69:  _return($4) :
                                            ;;[ICODE] led.c:69: 	eproc _MotoDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00140_DS_:
-000235   0002     return                   	RETURN	
+00023d   0002     return                   	RETURN	
                                            ; exit point of _MotoDisplay
 
                                            ;***
@@ -1974,14 +1929,14 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:57: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:57: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	57; "led.c"	PORT_LED2 = 1;
-00028f   3806     bsf     0x06, 0x0        	BSF	_PORTBbits,0
+000297   3806     bsf     0x06, 0x0        	BSF	_PORTBbits,0
                                            ;;[ICODE] led.c:58: 	iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:58: 	*(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	58; "led.c"	MODSEL = 1;
-000290   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
+000298   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
                                            ;;[ICODE] led.c:58:  _return($1) :
                                            ;;[ICODE] led.c:58: 	eproc _MotoOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000291   0002     return                   	RETURN	
+000299   0002     return                   	RETURN	
                                            ; exit point of _MotoOff
 
                                            ;***
@@ -1997,14 +1952,14 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:51: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:51: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	51; "led.c"	PORT_LED2 = 0;
-000292   3c06     bcf     0x06, 0x0        	BCF	_PORTBbits,0
+00029a   3c06     bcf     0x06, 0x0        	BCF	_PORTBbits,0
                                            ;;[ICODE] led.c:52: 	iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:52: 	*(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	52; "led.c"	MODSEL = 1;	
-000293   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
+00029b   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
                                            ;;[ICODE] led.c:52:  _return($1) :
                                            ;;[ICODE] led.c:52: 	eproc _MotoOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000294   0002     return                   	RETURN	
+00029c   0002     return                   	RETURN	
                                            ; exit point of _MotoOn
 
                                            ;***
@@ -2025,25 +1980,25 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:43: 	iTemp3 [k8 lr5:6 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]
                                            ;;[ICODE] led.c:43: 	iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104A ] = @[iTemp3 [k8 lr5:6 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                                            ;	.line	43; "led.c"	IsMotor =!IsMotor;
-0001f5   18e2     clrf    0x62             	CLRF	r0x100D
-0001f6   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
-0001f7   13e2     incf    0x62, 0x1        	INCF	r0x100D,F
+00020a   18e2     clrf    0x62             	CLRF	r0x100D
+00020b   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
+00020c   13e2     incf    0x62, 0x1        	INCF	r0x100D,F
                                            ;;[ICODE] led.c:43: 	iTemp5 [k10 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed}[r0x104B ] = not iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104A ]
-0001f8   1162     movf    0x62, 0x0        	MOVF	r0x100D,W
-0001f9   0400     movlw   0x00             	MOVLW	0x00
-0001fa   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-0001fb   0401     movlw   0x01             	MOVLW	0x01
+00020d   1162     movf    0x62, 0x0        	MOVF	r0x100D,W
+00020e   0400     movlw   0x00             	MOVLW	0x00
+00020f   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+000210   0401     movlw   0x01             	MOVLW	0x01
                                            ;;1	MOVWF	r0x100E
-0001fc   19e2     movwf   0x62             	MOVWF	r0x100D
+000211   19e2     movwf   0x62             	MOVWF	r0x100D
                                            ;;[ICODE] led.c:43: 	*(iTemp1 [k5 lr4:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1} near* fixed}[remat]) := iTemp6 [k11 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x104A ]
-0001fd   1562     rrf     0x62, 0x0        	RRF	r0x100D,W
-0001fe   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
-0001ff   3f33     bcf     0x33, 0x6        	BCF	_BITS_DATA0,6
-000200   3403     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-000201   3b33     bsf     0x33, 0x6        	BSF	_BITS_DATA0,6
+000212   1562     rrf     0x62, 0x0        	RRF	r0x100D,W
+000213   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
+000214   3f33     bcf     0x33, 0x6        	BCF	_BITS_DATA0,6
+000215   3403     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+000216   3b33     bsf     0x33, 0x6        	BSF	_BITS_DATA0,6
                                            ;;[ICODE] led.c:43:  _return($1) :
                                            ;;[ICODE] led.c:43: 	eproc _MotoSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000202   0002     return                   	RETURN	
+000217   0002     return                   	RETURN	
                                            ; exit point of _MotoSwitch
 
                                            ;***
@@ -2059,14 +2014,14 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:37: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:37: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	37; "led.c"	PORT_LED1 = 1;
-000295   3886     bsf     0x06, 0x1        	BSF	_PORTBbits,1
+00029d   3886     bsf     0x06, 0x1        	BSF	_PORTBbits,1
                                            ;;[ICODE] led.c:38: 	iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:38: 	*(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	38; "led.c"	MODSEL = 1;
-000296   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
+00029e   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
                                            ;;[ICODE] led.c:38:  _return($1) :
                                            ;;[ICODE] led.c:38: 	eproc _LedOff [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000297   0002     return                   	RETURN	
+00029f   0002     return                   	RETURN	
                                            ; exit point of _LedOff
 
                                            ;***
@@ -2082,14 +2037,14 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:31: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:31: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	31; "led.c"	PORT_LED1 = 0;
-000298   3c86     bcf     0x06, 0x1        	BCF	_PORTBbits,1
+0002a0   3c86     bcf     0x06, 0x1        	BCF	_PORTBbits,1
                                            ;;[ICODE] led.c:32: 	iTemp3 [k9 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:32: 	*(iTemp3 [k9 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	32; "led.c"	MODSEL = 1;	   //‰ΩøËÉΩÂÜÖÁΩÆÈôêÊµÅÁîµÈòª
-000299   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
+0002a1   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
                                            ;;[ICODE] led.c:32:  _return($1) :
                                            ;;[ICODE] led.c:32: 	eproc _LedOn [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00029a   0002     return                   	RETURN	
+0002a2   0002     return                   	RETURN	
                                            ; exit point of _LedOn
 
                                            ;***
@@ -2113,30 +2068,30 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:17: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] led.c:17: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1048 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                                            ;	.line	17; "led.c"	if(IsLight == 1 )
-000236   18e1     clrf    0x61             	CLRF	r0x100F
-000237   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
-000238   13e1     incf    0x61, 0x1        	INCF	r0x100F,F
+00023e   18e1     clrf    0x61             	CLRF	r0x100F
+00023f   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
+000240   13e1     incf    0x61, 0x1        	INCF	r0x100F,F
                                            ;;[ICODE] led.c:17: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x1049 ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1048 ]
-000239   1161     movf    0x61, 0x0        	MOVF	r0x100F,W
+000241   1161     movf    0x61, 0x0        	MOVF	r0x100F,W
                                            ;;1	MOVWF	r0x1010
-00023a   0d01     xorlw   0x01             	XORLW	0x01
-00023b   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-00023c   223f     goto    0x023f           	GOTO	_00110_DS_
+000242   0d01     xorlw   0x01             	XORLW	0x01
+000243   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000244   2247     goto    0x0247           	GOTO	_00110_DS_
                                            ;;[ICODE] led.c:17: 	if iTemp4 [k8 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_0($2)
                                            ;;[ICODE] led.c:19: 	iTemp5 [k10 lr9:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedOn [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	19; "led.c"	LedOn();
-00023d   2a98     call    0x0298           	CALL	_LedOn
+000245   2aa0     call    0x02a0           	CALL	_LedOn
                                            ;;[ICODE] led.c:19: 	 goto _return($4)
-00023e   2240     goto    0x0240           	GOTO	_00112_DS_
+000246   2248     goto    0x0248           	GOTO	_00112_DS_
                                            ;;[ICODE] led.c:19:  __iffalse_0($2) :
                                            ;;[ICODE] led.c:23: 	iTemp6 [k12 lr12:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedOff [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00110_DS_:
                                            ;	.line	23; "led.c"	LedOff();
-00023f   2a95     call    0x0295           	CALL	_LedOff
+000247   2a9d     call    0x029d           	CALL	_LedOff
                                            ;;[ICODE] led.c:23:  _return($4) :
                                            ;;[ICODE] led.c:23: 	eproc _LedDisplay [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00112_DS_:
-000240   0002     return                   	RETURN	
+000248   0002     return                   	RETURN	
                                            ; exit point of _LedDisplay
 
                                            ;***
@@ -2157,25 +2112,25 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] led.c:9: 	iTemp3 [k8 lr5:6 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] := iTemp0 [k3 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]
                                            ;;[ICODE] led.c:9: 	iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1045 ] = @[iTemp3 [k8 lr5:6 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                                            ;	.line	9; "led.c"	IsLight = !IsLight;
-000203   18e0     clrf    0x60             	CLRF	r0x1011
-000204   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
-000205   13e0     incf    0x60, 0x1        	INCF	r0x1011,F
+000218   18e0     clrf    0x60             	CLRF	r0x1011
+000219   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
+00021a   13e0     incf    0x60, 0x1        	INCF	r0x1011,F
                                            ;;[ICODE] led.c:9: 	iTemp5 [k10 lr7:8 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed}[r0x1046 ] = not iTemp4 [k9 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1045 ]
-000206   1160     movf    0x60, 0x0        	MOVF	r0x1011,W
-000207   0400     movlw   0x00             	MOVLW	0x00
-000208   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-000209   0401     movlw   0x01             	MOVLW	0x01
+00021b   1160     movf    0x60, 0x0        	MOVF	r0x1011,W
+00021c   0400     movlw   0x00             	MOVLW	0x00
+00021d   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+00021e   0401     movlw   0x01             	MOVLW	0x01
                                            ;;1	MOVWF	r0x1012
-00020a   19e0     movwf   0x60             	MOVWF	r0x1011
+00021f   19e0     movwf   0x60             	MOVWF	r0x1011
                                            ;;[ICODE] led.c:9: 	*(iTemp1 [k5 lr4:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat]) := iTemp6 [k11 lr8:9 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1045 ]
-00020b   1560     rrf     0x60, 0x0        	RRF	r0x1011,W
-00020c   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
-00020d   3eb3     bcf     0x33, 0x5        	BCF	_BITS_DATA0,5
-00020e   3403     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-00020f   3ab3     bsf     0x33, 0x5        	BSF	_BITS_DATA0,5
+000220   1560     rrf     0x60, 0x0        	RRF	r0x1011,W
+000221   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
+000222   3eb3     bcf     0x33, 0x5        	BCF	_BITS_DATA0,5
+000223   3403     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+000224   3ab3     bsf     0x33, 0x5        	BSF	_BITS_DATA0,5
                                            ;;[ICODE] led.c:9:  _return($1) :
                                            ;;[ICODE] led.c:9: 	eproc _LedSwitch [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-000210   0002     return                   	RETURN	
+000225   0002     return                   	RETURN	
                                            ; exit point of _LedSwitch
 
 
@@ -2333,7 +2288,7 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] lvd.c:164:  _return($1) :
                                            ;;[ICODE] lvd.c:164: 	eproc _ControlLvdCfg [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
                                            ;	.line	164; "lvd.c"	if(num == 1){}
-0002a6   0002     return                   	RETURN	
+0002ae   0002     return                   	RETURN	
                                            ; exit point of _ControlLvdCfg
 
                                            ;***
@@ -2349,7 +2304,7 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] lvd.c:159:  _return($1) :
                                            ;;[ICODE] lvd.c:159: 	eproc _ConfigureLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	159; "lvd.c"	}
-0002a7   0002     return                   	RETURN	
+0002af   0002     return                   	RETURN	
                                            ; exit point of _ConfigureLvd
 
                                            ;***
@@ -2365,7 +2320,7 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] lvd.c:39:  _return($1) :
                                            ;;[ICODE] lvd.c:39: 	eproc _CheckLvdElectric [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-char fixed) fixed}
                                            ;	.line	39; "lvd.c"	if(num == 1){}
-0002a8   0002     return                   	RETURN	
+0002b0   0002     return                   	RETURN	
                                            ; exit point of _CheckLvdElectric
 
                                            ;***
@@ -2381,7 +2336,7 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] lvd.c:31:  _return($1) :
                                            ;;[ICODE] lvd.c:31: 	eproc _CheckLvd [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	31; "lvd.c"	}
-0002a9   0002     return                   	RETURN	
+0002b1   0002     return                   	RETURN	
                                            ; exit point of _CheckLvd
 
 
@@ -2416,7 +2371,6 @@ Address  Value    Disassembly              Source
                                            	extern	_InitSystem
                                            	extern	_InitPwm
                                            	extern	_InitRam
-                                           	extern	_lowPower_IO_Init
                                            	extern	_CheckLvd
                                            	extern	_ConfigureLvd
                                            	extern	_Work
@@ -2563,30 +2517,30 @@ Address  Value    Disassembly              Source
 
                                            ID_main_0	code
                                            _VERSION
-00024b   0100     retlw   0x00             	retlw 0x00
-00024c   0100     retlw   0x00             	retlw 0x00
-00024d   0100     retlw   0x00             	retlw 0x00
-00024e   0100     retlw   0x00             	retlw 0x00
-00024f   0100     retlw   0x00             	retlw 0x00
-000250   0100     retlw   0x00             	retlw 0x00
-000251   0100     retlw   0x00             	retlw 0x00
-000252   0100     retlw   0x00             	retlw 0x00
 000253   0100     retlw   0x00             	retlw 0x00
 000254   0100     retlw   0x00             	retlw 0x00
+000255   0100     retlw   0x00             	retlw 0x00
+000256   0100     retlw   0x00             	retlw 0x00
+000257   0100     retlw   0x00             	retlw 0x00
+000258   0100     retlw   0x00             	retlw 0x00
+000259   0100     retlw   0x00             	retlw 0x00
+00025a   0100     retlw   0x00             	retlw 0x00
+00025b   0100     retlw   0x00             	retlw 0x00
+00025c   0100     retlw   0x00             	retlw 0x00
 
 
                                            ID_main_1	code
                                            ___str_0
-000255   0148     retlw   0x48             	retlw 0x48 ; 'H'
-000256   0143     retlw   0x43             	retlw 0x43 ; 'C'
-000257   012d     retlw   0x2d             	retlw 0x2d ; '-'
-000258   0156     retlw   0x56             	retlw 0x56 ; 'V'
-000259   0153     retlw   0x53             	retlw 0x53 ; 'S'
-00025a   0120     retlw   0x20             	retlw 0x20 ; ' '
-00025b   0156     retlw   0x56             	retlw 0x56 ; 'V'
-00025c   0130     retlw   0x30             	retlw 0x30 ; '0'
-00025d   0131     retlw   0x31             	retlw 0x31 ; '1'
-00025e   0100     retlw   0x00             	retlw 0x00 ; '.'
+00025d   0148     retlw   0x48             	retlw 0x48 ; 'H'
+00025e   0143     retlw   0x43             	retlw 0x43 ; 'C'
+00025f   012d     retlw   0x2d             	retlw 0x2d ; '-'
+000260   0156     retlw   0x56             	retlw 0x56 ; 'V'
+000261   0153     retlw   0x53             	retlw 0x53 ; 'S'
+000262   0120     retlw   0x20             	retlw 0x20 ; ' '
+000263   0156     retlw   0x56             	retlw 0x56 ; 'V'
+000264   0130     retlw   0x30             	retlw 0x30 ; '0'
+000265   0131     retlw   0x31             	retlw 0x31 ; '1'
+000266   0100     retlw   0x00             	retlw 0x00 ; '.'
                                            ;--------------------------------------------------------
                                            ; overlayable items in internal ram 
                                            ;--------------------------------------------------------
@@ -2596,7 +2550,7 @@ Address  Value    Disassembly              Source
                                            ;--------------------------------------------------------
                                            STARTUP	code 0x0000
 000000   0000     nop                      	nop
-000001   229d     goto    0x029d           	goto	__sdcc_gsinit_startup
+000001   22a5     goto    0x02a5           	goto	__sdcc_gsinit_startup
                                            ;--------------------------------------------------------
                                            ; code
                                            ;--------------------------------------------------------
@@ -2634,67 +2588,67 @@ Address  Value    Disassembly              Source
                                            ; 2 exit points
                                            ;;[ICODE] main.c:37: 	iTemp0 [k3 lr3:3 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	37; "main.c"	InitPort();
-0001bc   2982     call    0x0182           	CALL	_InitPort
+0001d1   2997     call    0x0197           	CALL	_InitPort
                                            ;;[ICODE] main.c:38: 	iTemp1 [k5 lr4:4 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitSystem [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	38; "main.c"	InitSystem();
-0001bd   2a41     call    0x0241           	CALL	_InitSystem
+0001d2   2a49     call    0x0249           	CALL	_InitSystem
                                            ;;[ICODE] main.c:39: 	iTemp2 [k7 lr5:5 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitRam [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	39; "main.c"	InitRam();
-0001be   2802     call    0x0002           	CALL	_InitRam
+0001d3   2802     call    0x0002           	CALL	_InitRam
                                            ;;[ICODE] main.c:40: 	iTemp4 [k11 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] main.c:40: 	*(iTemp4 [k11 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	40; "main.c"	T0IE = 1;		// πƒ‹TMR0“Á≥ˆ÷–∂œ
-0001bf   380e     bsf     0x0e, 0x0        	BSF	_INTECONbits,0
+0001d4   380e     bsf     0x0e, 0x0        	BSF	_INTECONbits,0
                                            ;;[ICODE] main.c:41: 	iTemp6 [k14 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] main.c:41: 	*(iTemp6 [k14 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	41; "main.c"	GIE = 1;		// πƒ‹À˘”–÷–∂œ   
-0001c0   3b8e     bsf     0x0e, 0x7        	BSF	_INTECONbits,7
-                                           ;;[ICODE] main.c:42: inline
-0001c1   0004     clrwdt                   	clrwdt
-                                           ;;[ICODE] main.c:43: 	send 0x1f4 {const-int literal}{argreg = 1}
-                                           ;;[ICODE] main.c:43: 	iTemp7 [k17 lr14:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _delay_ms [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-int fixed) fixed}
-                                           ;	.line	43; "main.c"	delay_ms(500);
-0001c2   04f4     movlw   0xf4             	MOVLW	0xf4
-0001c3   199f     movwf   0x1f             	MOVWF	STK00
-0001c4   0401     movlw   0x01             	MOVLW	0x01
-0001c5   29a0     call    0x01a0           	CALL	_delay_ms
-                                           ;;[ICODE] main.c:44:  _whilebody_2($4) :
-                                           ;;[ICODE] main.c:46: inline
+0001d5   3b8e     bsf     0x0e, 0x7        	BSF	_INTECONbits,7
+                                           ;;[ICODE] main.c:59: inline
+0001d6   0004     clrwdt                   	clrwdt
+                                           ;;[ICODE] main.c:60: 	send 0x1f4 {const-int literal}{argreg = 1}
+                                           ;;[ICODE] main.c:60: 	iTemp7 [k17 lr14:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _delay_ms [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-int fixed) fixed}
+                                           ;	.line	60; "main.c"	delay_ms(500);
+0001d7   04f4     movlw   0xf4             	MOVLW	0xf4
+0001d8   199f     movwf   0x1f             	MOVWF	STK00
+0001d9   0401     movlw   0x01             	MOVLW	0x01
+0001da   29b5     call    0x01b5           	CALL	_delay_ms
+                                           ;;[ICODE] main.c:61:  _whilebody_2($4) :
+                                           ;;[ICODE] main.c:63: inline
                                            _00123_DS_:
-0001c6   0004     clrwdt                   	clrwdt
-                                           ;;[ICODE] main.c:48: 	iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] main.c:48: 	iTemp9 [k21 lr19:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
-                                           ;;[ICODE] main.c:48: 	iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] = @[iTemp9 [k21 lr19:20 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                                           ;	.line	48; "main.c"	if (BIT_TIMER_10MS)
-0001c7   3033     btfss   0x33, 0x0        	BTFSS	_BITS_DATA0,0
-0001c8   21cd     goto    0x01cd           	GOTO	_00121_DS_
-                                           ;;[ICODE] main.c:48: 	if iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] == 0 goto __iffalse_0($2)
-                                           ;;[ICODE] main.c:50: 	iTemp12 [k25 lr22:23 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
-                                           ;;[ICODE] main.c:50: 	*(iTemp12 [k25 lr22:23 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	50; "main.c"	BIT_TIMER_10MS = 0;
-0001c9   3c33     bcf     0x33, 0x0        	BCF	_BITS_DATA0,0
-                                           ;;[ICODE] main.c:52: 	iTemp13 [k27 lr24:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _ScanKey [k26 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	52; "main.c"	ScanKey();                       //∞¥º¸ºÏ≤‚	
-0001ca   2829     call    0x0029           	CALL	_ScanKey
-                                           ;;[ICODE] main.c:53: 	iTemp14 [k29 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CountdownDisplay [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	53; "main.c"	CountdownDisplay();			 //µπº∆ ±
-0001cb   28fb     call    0x00fb           	CALL	_CountdownDisplay
-                                           ;;[ICODE] main.c:54: 	iTemp15 [k31 lr26:26 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CheckSleep [k30 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	54; "main.c"	CheckSleep();						 //–›√ﬂ--µÕπ¶∫ƒ
-0001cc   2946     call    0x0146           	CALL	_CheckSleep
-                                           ;;[ICODE] main.c:54:  __iffalse_0($2) :
-                                           ;;[ICODE] main.c:57: 	iTemp16 [k33 lr28:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedDisplay [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+0001db   0004     clrwdt                   	clrwdt
+                                           ;;[ICODE] main.c:65: 	iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] = &[_BITS_DATA0 [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] main.c:65: 	iTemp9 [k21 lr19:20 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
+                                           ;;[ICODE] main.c:65: 	iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] = @[iTemp9 [k21 lr19:20 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                                           ;	.line	65; "main.c"	if (BIT_TIMER_10MS)
+0001dc   3033     btfss   0x33, 0x0        	BTFSS	_BITS_DATA0,0
+0001dd   21e2     goto    0x01e2           	GOTO	_00121_DS_
+                                           ;;[ICODE] main.c:65: 	if iTemp10 [k22 lr20:21 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {0,1} fixed}[r0x1049 ] == 0 goto __iffalse_0($2)
+                                           ;;[ICODE] main.c:67: 	iTemp12 [k25 lr22:23 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat] := iTemp8 [k19 lr18:22 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]
+                                           ;;[ICODE] main.c:67: 	*(iTemp12 [k25 lr22:23 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	67; "main.c"	BIT_TIMER_10MS = 0;
+0001de   3c33     bcf     0x33, 0x0        	BCF	_BITS_DATA0,0
+                                           ;;[ICODE] main.c:69: 	iTemp13 [k27 lr24:24 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _ScanKey [k26 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;	.line	69; "main.c"	ScanKey();                       //∞¥º¸ºÏ≤‚	
+0001df   2829     call    0x0029           	CALL	_ScanKey
+                                           ;;[ICODE] main.c:70: 	iTemp14 [k29 lr25:25 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CountdownDisplay [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;	.line	70; "main.c"	CountdownDisplay();			 //µπº∆ ±
+0001e0   294c     call    0x014c           	CALL	_CountdownDisplay
+                                           ;;[ICODE] main.c:71: 	iTemp15 [k31 lr26:26 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _CheckSleep [k30 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;	.line	71; "main.c"	CheckSleep();						 //–›√ﬂ--µÕπ¶∫ƒ
+0001e1   28ab     call    0x00ab           	CALL	_CheckSleep
+                                           ;;[ICODE] main.c:71:  __iffalse_0($2) :
+                                           ;;[ICODE] main.c:74: 	iTemp16 [k33 lr28:28 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _LedDisplay [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00121_DS_:
-                                           ;	.line	57; "main.c"	LedDisplay();					 //LED÷∏ æµ∆
-0001cd   2a36     call    0x0236           	CALL	_LedDisplay
-                                           ;;[ICODE] main.c:58: 	iTemp17 [k35 lr29:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoDisplay [k34 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	58; "main.c"	MotoDisplay();					 //µÁª˙øÿ÷∆
-0001ce   2a2b     call    0x022b           	CALL	_MotoDisplay
-                                           ;;[ICODE] main.c:58: 	 goto _whilebody_2($4)
-0001cf   21c6     goto    0x01c6           	GOTO	_00123_DS_
-                                           ;;[ICODE] main.c:58:  _return($6) :
-                                           ;;[ICODE] main.c:58: 	eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-0001d0   0002     return                   	RETURN	
+                                           ;	.line	74; "main.c"	LedDisplay();					 //LED÷∏ æµ∆
+0001e2   2a3e     call    0x023e           	CALL	_LedDisplay
+                                           ;;[ICODE] main.c:75: 	iTemp17 [k35 lr29:29 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _MotoDisplay [k34 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;	.line	75; "main.c"	MotoDisplay();					 //µÁª˙øÿ÷∆
+0001e3   2a33     call    0x0233           	CALL	_MotoDisplay
+                                           ;;[ICODE] main.c:75: 	 goto _whilebody_2($4)
+0001e4   21db     goto    0x01db           	GOTO	_00123_DS_
+                                           ;;[ICODE] main.c:75:  _return($6) :
+                                           ;;[ICODE] main.c:75: 	eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+0001e5   0002     return                   	RETURN	
                                            ; exit point of _main
 
                                            ;***
@@ -2715,56 +2669,56 @@ Address  Value    Disassembly              Source
                                            ; 2 exit points
                                            ;;[ICODE] main.c:17: iTemp5 [k9 lr3:18 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}[r0x1045 r0x1046 ] = recv _delay_ms [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-int fixed) fixed}
                                            ;	.line	17; "main.c"	void delay_ms(WORD xms)
-0001a0   19a1     movwf   0x21             	MOVWF	r0x1001
-0001a1   111f     movf    0x1f, 0x0        	MOVF	STK00,W
-0001a2   19a0     movwf   0x20             	MOVWF	r0x1002
+0001b5   19a1     movwf   0x21             	MOVWF	r0x1001
+0001b6   111f     movf    0x1f, 0x0        	MOVF	STK00,W
+0001b7   19a0     movwf   0x20             	MOVWF	r0x1002
                                            ;;[ICODE] main.c:19:  _whilecontinue_0($4) :
                                            ;;[ICODE] main.c:19: 	if iTemp5 [k9 lr3:18 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}[r0x1045 r0x1046 ] == 0 goto _return($7)
                                            _00112_DS_:
                                            ;	.line	19; "main.c"	while (xms)
-0001a3   1120     movf    0x20, 0x0        	MOVF	r0x1002,W
-0001a4   1d21     iorwf   0x21, 0x0        	IORWF	r0x1001,W
-0001a5   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-0001a6   21bb     goto    0x01bb           	GOTO	_00115_DS_
-                                           ;;[ICODE] main.c:23: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] := 0x149 {const-unsigned-int literal}
+0001b8   1120     movf    0x20, 0x0        	MOVF	r0x1002,W
+0001b9   1d21     iorwf   0x21, 0x0        	IORWF	r0x1001,W
+0001ba   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+0001bb   21d0     goto    0x01d0           	GOTO	_00115_DS_
+                                           ;;[ICODE] main.c:23: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] := 0x149 {const-unsigned-int literal}
                                            ;	.line	23; "main.c"	while (i)
-0001a7   0449     movlw   0x49             	MOVLW	0x49
-0001a8   19a2     movwf   0x22             	MOVWF	r0x1003
-0001a9   0401     movlw   0x01             	MOVLW	0x01
-0001aa   19a3     movwf   0x23             	MOVWF	r0x1004
+0001bc   0449     movlw   0x49             	MOVLW	0x49
+0001bd   19a2     movwf   0x22             	MOVWF	r0x1003
+0001be   0401     movlw   0x01             	MOVLW	0x01
+0001bf   19a3     movwf   0x23             	MOVWF	r0x1004
                                            ;;[ICODE] main.c:23:  _whilecontinue_1($1) :
-                                           ;;[ICODE] main.c:23: 	if iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] == 0 goto _whilebreak_1($3)
+                                           ;;[ICODE] main.c:23: 	if iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] == 0 goto _whilebreak_1($3)
                                            _00109_DS_:
-0001ab   1122     movf    0x22, 0x0        	MOVF	r0x1003,W
-0001ac   1d23     iorwf   0x23, 0x0        	IORWF	r0x1004,W
-0001ad   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-0001ae   21b5     goto    0x01b5           	GOTO	_00111_DS_
+0001c0   1122     movf    0x22, 0x0        	MOVF	r0x1003,W
+0001c1   1d23     iorwf   0x23, 0x0        	IORWF	r0x1004,W
+0001c2   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+0001c3   21ca     goto    0x01ca           	GOTO	_00111_DS_
                                            ;;[ICODE] main.c:26: inline
-0001af   0000     nop                      	nop
-                                           ;;[ICODE] main.c:27: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] = iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] - 0x1 {const-unsigned-char literal}
+0001c4   0000     nop                      	nop
+                                           ;;[ICODE] main.c:27: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] = iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] - 0x1 {const-unsigned-char literal}
                                            ;	.line	27; "main.c"	i--;
-0001b0   04ff     movlw   0xff             	MOVLW	0xff
-0001b1   1ea2     addwf   0x22, 0x1        	ADDWF	r0x1003,F
-0001b2   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
-0001b3   1aa3     decf    0x23, 0x1        	DECF	r0x1004,F
+0001c5   04ff     movlw   0xff             	MOVLW	0xff
+0001c6   1ea2     addwf   0x22, 0x1        	ADDWF	r0x1003,F
+0001c7   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
+0001c8   1aa3     decf    0x23, 0x1        	DECF	r0x1004,F
                                            ;;[ICODE] main.c:27: 	 goto _whilecontinue_1($1)
-0001b4   21ab     goto    0x01ab           	GOTO	_00109_DS_
+0001c9   21c0     goto    0x01c0           	GOTO	_00109_DS_
                                            ;;[ICODE] main.c:27:  _whilebreak_1($3) :
                                            ;;[ICODE] main.c:30: inline
                                            _00111_DS_:
-0001b5   0004     clrwdt                   	clrwdt
+0001ca   0004     clrwdt                   	clrwdt
                                            ;;[ICODE] main.c:31: 	iTemp5 [k9 lr3:18 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}[r0x1045 r0x1046 ] = iTemp5 [k9 lr3:18 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}[r0x1045 r0x1046 ] - 0x1 {const-unsigned-char literal}
                                            ;	.line	31; "main.c"	xms--;
-0001b6   04ff     movlw   0xff             	MOVLW	0xff
-0001b7   1ea0     addwf   0x20, 0x1        	ADDWF	r0x1002,F
-0001b8   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
-0001b9   1aa1     decf    0x21, 0x1        	DECF	r0x1001,F
+0001cb   04ff     movlw   0xff             	MOVLW	0xff
+0001cc   1ea0     addwf   0x20, 0x1        	ADDWF	r0x1002,F
+0001cd   3003     btfss   0x03, 0x0        	BTFSS	STATUS,0
+0001ce   1aa1     decf    0x21, 0x1        	DECF	r0x1001,F
                                            ;;[ICODE] main.c:31: 	 goto _whilecontinue_0($4)
-0001ba   21a3     goto    0x01a3           	GOTO	_00112_DS_
+0001cf   21b8     goto    0x01b8           	GOTO	_00112_DS_
                                            ;;[ICODE] main.c:31:  _return($7) :
                                            ;;[ICODE] main.c:31: 	eproc _delay_ms [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( unsigned-int fixed) fixed}
                                            _00115_DS_:
-0001bb   0002     return                   	RETURN	
+0001d0   0002     return                   	RETURN	
                                            ; exit point of _delay_ms
 
                                            ;***
@@ -2780,10 +2734,10 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] main.c:14: inline
                                            	pagesel	_main 
                                            ;;[ICODE] main.c:14: inline
-00029d   21bc     goto    0x01bc           	goto	_main 
+0002a5   21d1     goto    0x01d1           	goto	_main 
                                            ;;[ICODE] main.c:14:  _return($1) :
                                            ;;[ICODE] main.c:14: 	eproc __sdcc_gsinit_startup [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-00029e   0002     return                   	RETURN	
+0002a6   0002     return                   	RETURN	
                                            ; exit point of __sdcc_gsinit_startup
 
 
@@ -2824,7 +2778,7 @@ Address  Value    Disassembly              Source
                                            	extern	_InitSystem
                                            	extern	_InitPwm
                                            	extern	_InitRam
-                                           	extern	_lowPower_IO_Init
+                                           	extern	_delay_ms
                                            	extern	_STATUSbits
                                            	extern	_PORTBbits
                                            	extern	_PCONbits
@@ -2939,170 +2893,223 @@ Address  Value    Disassembly              Source
                                            ;***
                                            ;has an exit
                                            ;functions called:
-                                           ;   _DelayMs
-                                           ;   _lowPower_IO_Init
                                            ;   _InitPort
-                                           ;   _DelayMs
-                                           ;   _lowPower_IO_Init
                                            ;   _InitPort
                                            ;2 compiler assigned registers:
                                            ;   r0x1005
                                            ;   r0x1006
                                            ;; Starting pCode block
-                                           ;;[ICODE] temp.c:30:  _entry($7) :
-                                           ;;[ICODE] temp.c:30: 	proc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;;[ICODE] temp.c:33:  _entry($7) :
+                                           ;;[ICODE] temp.c:33: 	proc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            S_temp__CheckSleep	code
                                            _CheckSleep:
                                            ; 2 exit points
-                                           ;;[ICODE] temp.c:32: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:32: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-                                           ;	.line	32; "temp.c"	if(1 == IsLight || 1 == IsMotor)
-000146   18aa     clrf    0x2a             	CLRF	r0x1005
-000147   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
-000148   13aa     incf    0x2a, 0x1        	INCF	r0x1005,F
-                                           ;;[ICODE] temp.c:32: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ]
-000149   112a     movf    0x2a, 0x0        	MOVF	r0x1005,W
-00014a   19ab     movwf   0x2b             	MOVWF	r0x1006
-00014b   0d01     xorlw   0x01             	XORLW	0x01
-00014c   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-00014d   2156     goto    0x0156           	GOTO	_00114_DS_
-00014e   18aa     clrf    0x2a             	CLRF	r0x1005
-00014f   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
-000150   13aa     incf    0x2a, 0x1        	INCF	r0x1005,F
-                                           ;;[ICODE] temp.c:32: 	iTemp8 [k13 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp7 [k12 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1049 ]
-000151   112a     movf    0x2a, 0x0        	MOVF	r0x1005,W
-000152   19ab     movwf   0x2b             	MOVWF	r0x1006
-000153   0d01     xorlw   0x01             	XORLW	0x01
-000154   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-000155   2158     goto    0x0158           	GOTO	_00115_DS_
-                                           ;;[ICODE] temp.c:32: 	if iTemp9 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_2($2)
-                                           ;;[ICODE] temp.c:32:  __iftrue_2($1) :
-                                           ;;[ICODE] temp.c:34: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+                                           ;;[ICODE] temp.c:35: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:35: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+                                           ;	.line	35; "temp.c"	if(1 == IsLight || 1 == IsMotor)
+0000ab   18aa     clrf    0x2a             	CLRF	r0x1005
+0000ac   36b3     btfsc   0x33, 0x5        	BTFSC	_BITS_DATA0,5
+0000ad   13aa     incf    0x2a, 0x1        	INCF	r0x1005,F
+                                           ;;[ICODE] temp.c:35: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ]
+0000ae   112a     movf    0x2a, 0x0        	MOVF	r0x1005,W
+0000af   19ab     movwf   0x2b             	MOVWF	r0x1006
+0000b0   0d01     xorlw   0x01             	XORLW	0x01
+0000b1   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+0000b2   20bb     goto    0x00bb           	GOTO	_00114_DS_
+0000b3   18aa     clrf    0x2a             	CLRF	r0x1005
+0000b4   3733     btfsc   0x33, 0x6        	BTFSC	_BITS_DATA0,6
+0000b5   13aa     incf    0x2a, 0x1        	INCF	r0x1005,F
+                                           ;;[ICODE] temp.c:35: 	iTemp8 [k13 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp7 [k12 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1049 ]
+0000b6   112a     movf    0x2a, 0x0        	MOVF	r0x1005,W
+0000b7   19ab     movwf   0x2b             	MOVWF	r0x1006
+0000b8   0d01     xorlw   0x01             	XORLW	0x01
+0000b9   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+0000ba   20bd     goto    0x00bd           	GOTO	_00115_DS_
+                                           ;;[ICODE] temp.c:35: 	if iTemp9 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_2($2)
+                                           ;;[ICODE] temp.c:35:  __iftrue_2($1) :
+                                           ;;[ICODE] temp.c:37: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
                                            _00114_DS_:
-                                           ;	.line	34; "temp.c"	SleepCount = 0;
-000156   18ae     clrf    0x2e             	CLRF	_SleepCount
-000157   18af     clrf    0x2f             	CLRF	(_SleepCount + 1)
-                                           ;;[ICODE] temp.c:34:  __iffalse_2($2) :
-                                           ;;[ICODE] temp.c:40: 	iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepCount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x3e8 {unsigned-int literal}
-                                           ;;unsigned compare: left < lit(0x3E8=1000), size=2
+                                           ;	.line	37; "temp.c"	SleepCount = 0;
+0000bb   18ae     clrf    0x2e             	CLRF	_SleepCount
+0000bc   18af     clrf    0x2f             	CLRF	(_SleepCount + 1)
+                                           ;;[ICODE] temp.c:37:  __iffalse_2($2) :
+                                           ;;[ICODE] temp.c:42: 	iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepCount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x1770 {unsigned-int literal}
+                                           ;;unsigned compare: left < lit(0x1770=6000), size=2
                                            _00115_DS_:
-                                           ;	.line	40; "temp.c"	if(SleepCount < 1000)
-000158   0403     movlw   0x03             	MOVLW	0x03
-000159   1b2f     subwf   0x2f, 0x0        	SUBWF	(_SleepCount + 1),W
-00015a   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-00015b   215e     goto    0x015e           	GOTO	_00128_DS_
-00015c   04e8     movlw   0xe8             	MOVLW	0xe8
-00015d   1b2e     subwf   0x2e, 0x0        	SUBWF	_SleepCount,W
+                                           ;	.line	42; "temp.c"	if(SleepCount < 6000)
+0000bd   0417     movlw   0x17             	MOVLW	0x17
+0000be   1b2f     subwf   0x2f, 0x0        	SUBWF	(_SleepCount + 1),W
+0000bf   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+0000c0   20c3     goto    0x00c3           	GOTO	_00128_DS_
+0000c1   0470     movlw   0x70             	MOVLW	0x70
+0000c2   1b2e     subwf   0x2e, 0x0        	SUBWF	_SleepCount,W
                                            _00128_DS_:
-00015e   3403     btfsc   0x03, 0x0        	BTFSC	STATUS,0
-00015f   2164     goto    0x0164           	GOTO	_00118_DS_
+0000c3   3403     btfsc   0x03, 0x0        	BTFSC	STATUS,0
+0000c4   20c9     goto    0x00c9           	GOTO	_00118_DS_
                                            ;;genSkipc:3257: created from rifx:0x782c44
-                                           ;;[ICODE] temp.c:40: 	if iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_3($5)
-                                           ;;[ICODE] temp.c:42: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} = _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-unsigned-char literal}
-                                           ;	.line	42; "temp.c"	SleepCount++;
-000160   13ae     incf    0x2e, 0x1        	INCF	_SleepCount,F
-000161   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
-000162   13af     incf    0x2f, 0x1        	INCF	(_SleepCount + 1),F
-                                           ;;[ICODE] temp.c:43: 	ret
-                                           ;	.line	43; "temp.c"	return;
-000163   2181     goto    0x0181           	GOTO	_00119_DS_
-                                           ;;[ICODE] temp.c:43:  __iffalse_3($5) :
-                                           ;;[ICODE] temp.c:48: 	iTemp16 [k24 lr24:26 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:48: 	*(iTemp16 [k24 lr24:26 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;;[ICODE] temp.c:42: 	if iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_3($5)
+                                           ;;[ICODE] temp.c:45: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} = _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-unsigned-char literal}
+                                           ;	.line	45; "temp.c"	SleepCount++;
+0000c5   13ae     incf    0x2e, 0x1        	INCF	_SleepCount,F
+0000c6   3503     btfsc   0x03, 0x2        	BTFSC	STATUS,2
+0000c7   13af     incf    0x2f, 0x1        	INCF	(_SleepCount + 1),F
+                                           ;;[ICODE] temp.c:46: 	ret
+                                           ;	.line	46; "temp.c"	return;
+0000c8   20fb     goto    0x00fb           	GOTO	_00119_DS_
+                                           ;;[ICODE] temp.c:46:  __iffalse_3($5) :
+                                           ;;[ICODE] temp.c:49: 	_RAMP [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
                                            _00118_DS_:
-                                           ;	.line	48; "temp.c"	LVDM = 0;		
-000164   3e51     bcf     0x51, 0x4        	BCF	_CMPCRbits,4
-                                           ;;[ICODE] temp.c:49: 	iTemp18 [k28 lr27:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:49: 	*(iTemp18 [k28 lr27:29 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	49; "temp.c"	CMPEN = 0;
-000165   3c08     bcf     0x08, 0x0        	BCF	_PCONbits,0
-                                           ;;[ICODE] temp.c:50: 	iTemp20 [k31 lr30:32 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:50: 	*(iTemp20 [k31 lr30:32 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	50; "temp.c"	CMPOF = 0;
-000166   3e88     bcf     0x08, 0x5        	BCF	_PCONbits,5
-                                           ;;[ICODE] temp.c:51: 	iTemp22 [k35 lr33:35 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_CHARGE1bits [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:51: 	*(iTemp22 [k35 lr33:35 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	51; "temp.c"	TEMPEN = 0;
-000167   3f54     bcf     0x54, 0x6        	BCF	_CHARGE1bits,6
-                                           ;;[ICODE] temp.c:52: 	iTemp24 [k39 lr36:38 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_INTFLAGbits [k36 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:52: 	*(iTemp24 [k39 lr36:38 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	52; "temp.c"	TMPF = 0;
-000168   3e0f     bcf     0x0f, 0x4        	BCF	_INTFLAGbits,4
-                                           ;;[ICODE] temp.c:53: 	iTemp26 [k43 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:53: 	*(iTemp26 [k43 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	53; "temp.c"	MODSEL = 0;
-000169   3fd5     bcf     0x55, 0x7        	BCF	_RAMPbits,7
-                                           ;;[ICODE] temp.c:54: 	iTemp27 [k45 lr42:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _DelayMs [k44 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	54; "temp.c"	DelayMs();
-00016a   2a69     call    0x0269           	CALL	_DelayMs
-                                           ;;[ICODE] temp.c:55: 	iTemp29 [k48 lr43:45 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:55: 	*(iTemp29 [k48 lr43:45 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	55; "temp.c"	WDTEN = 0;
-00016b   3f88     bcf     0x08, 0x7        	BCF	_PCONbits,7
-                                           ;;[ICODE] temp.c:57: 	iTemp30 [k50 lr46:46 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _lowPower_IO_Init [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	57; "temp.c"	lowPower_IO_Init();
-00016c   2a1e     call    0x021e           	CALL	_lowPower_IO_Init
-                                           ;;[ICODE] temp.c:63: inline
-00016d   1106     movf    0x06, 0x0        	movf	PORTB,W
+                                           ;	.line	49; "temp.c"	RAMP = 0;
+0000c9   18d5     clrf    0x55             	CLRF	_RAMP
+                                           ;;[ICODE] temp.c:50: 	_T1CON [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	50; "temp.c"	T1CON = 0;
+0000ca   18cc     clrf    0x4c             	CLRF	_T1CON
+                                           ;;[ICODE] temp.c:51: 	_CHARGE1 [k23 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	51; "temp.c"	CHARGE1 = 0;
+0000cb   18d4     clrf    0x54             	CLRF	_CHARGE1
+                                           ;;[ICODE] temp.c:52: 	_CHARGE0 [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	52; "temp.c"	CHARGE0 = 0;
+0000cc   18d3     clrf    0x53             	CLRF	_CHARGE0
+                                           ;;[ICODE] temp.c:53: 	_PCON [k25 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	53; "temp.c"	PCON = 0;
+0000cd   1888     clrf    0x08             	CLRF	_PCON
+                                           ;;[ICODE] temp.c:54: 	_CMPCR [k26 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	54; "temp.c"	CMPCR = 0;
+0000ce   18d1     clrf    0x51             	CLRF	_CMPCR
+                                           ;;[ICODE] temp.c:57: 	iTemp16 [k30 lr30:32 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:57: 	*(iTemp16 [k30 lr30:32 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	57; "temp.c"	LVDM = 0;		
+0000cf   3e51     bcf     0x51, 0x4        	BCF	_CMPCRbits,4
+                                           ;;[ICODE] temp.c:58: 	iTemp18 [k34 lr33:35 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:58: 	*(iTemp18 [k34 lr33:35 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	58; "temp.c"	CMPEN = 0;
+0000d0   3c08     bcf     0x08, 0x0        	BCF	_PCONbits,0
+                                           ;;[ICODE] temp.c:59: 	iTemp20 [k37 lr36:38 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:59: 	*(iTemp20 [k37 lr36:38 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	59; "temp.c"	CMPOF = 0;
+0000d1   3e88     bcf     0x08, 0x5        	BCF	_PCONbits,5
+                                           ;;[ICODE] temp.c:60: 	iTemp22 [k41 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_CHARGE1bits [k38 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:60: 	*(iTemp22 [k41 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	60; "temp.c"	TEMPEN = 0;
+0000d2   3f54     bcf     0x54, 0x6        	BCF	_CHARGE1bits,6
+                                           ;;[ICODE] temp.c:61: 	iTemp24 [k45 lr42:44 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_INTFLAGbits [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:61: 	*(iTemp24 [k45 lr42:44 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	61; "temp.c"	TMPF = 0;
+0000d3   3e0f     bcf     0x0f, 0x4        	BCF	_INTFLAGbits,4
+                                           ;;[ICODE] temp.c:62: 	iTemp26 [k49 lr45:47 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k46 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:62: 	*(iTemp26 [k49 lr45:47 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	62; "temp.c"	MODSEL = 0;
+0000d4   3fd5     bcf     0x55, 0x7        	BCF	_RAMPbits,7
+                                           ;;[ICODE] temp.c:64: 	iTemp28 [k52 lr48:50 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:64: 	*(iTemp28 [k52 lr48:50 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	64; "temp.c"	WDTEN = 0;
+0000d5   3f88     bcf     0x08, 0x7        	BCF	_PCONbits,7
+                                           ;;[ICODE] temp.c:65: 	iTemp30 [k56 lr51:53 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:65: 	*(iTemp30 [k56 lr51:53 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	65; "temp.c"	T0IE = 0;
+0000d6   3c0e     bcf     0x0e, 0x0        	BCF	_INTECONbits,0
+                                           ;;[ICODE] temp.c:67: 	_INTECON [k57 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	67; "temp.c"	INTECON = 0;
+0000d7   188e     clrf    0x0e             	CLRF	_INTECON
+                                           ;;[ICODE] temp.c:69: 	_PORTB [k58 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	69; "temp.c"	PORTB = 0;  // 0 disenable output, 1 enable output
+0000d8   1886     clrf    0x06             	CLRF	_PORTB
+                                           ;;[ICODE] temp.c:70: 	_TRISB [k59 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+                                           ;	.line	70; "temp.c"	TRISB = 0xff;    //1Ôºöinput  0:output
+0000d9   04ff     movlw   0xff             	MOVLW	0xff
+0000da   19c6     movwf   0x46             	MOVWF	_TRISB
+                                           ;;[ICODE] temp.c:73: 	_PDCON [k60 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+                                           ;	.line	73; "temp.c"	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
+0000db   04ff     movlw   0xff             	MOVLW	0xff
+0000dc   198b     movwf   0x0b             	MOVWF	_PDCON
+                                           ;;[ICODE] temp.c:74: 	_PDCON1 [k61 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+                                           ;	.line	74; "temp.c"	PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+0000dd   04ff     movlw   0xff             	MOVLW	0xff
+0000de   19d2     movwf   0x52             	MOVWF	_PDCON1
+                                           ;;[ICODE] temp.c:77: 	_PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+                                           ;	.line	77; "temp.c"	PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
+0000df   04ff     movlw   0xff             	MOVLW	0xff
+0000e0   198d     movwf   0x0d             	MOVWF	_PHCON
+                                           ;;[ICODE] temp.c:79: 	_PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k62 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfb {const-unsigned-char literal}
+                                           ;	.line	79; "temp.c"	PHCON &= DEF_CLR_BIT2;
+0000e1   3d0d     bcf     0x0d, 0x2        	BCF	_PHCON,2
+                                           ;;[ICODE] temp.c:80: 	_PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k62 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xef {const-unsigned-char literal}
+                                           ;	.line	80; "temp.c"	PHCON &= DEF_CLR_BIT4;
+0000e2   3e0d     bcf     0x0d, 0x4        	BCF	_PHCON,4
+                                           ;;[ICODE] temp.c:82: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	82; "temp.c"	IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
+0000e3   1889     clrf    0x09             	CLRF	_IOCB
+                                           ;;[ICODE] temp.c:83: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _IOCB [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {const-unsigned-char literal}
+                                           ;	.line	83; "temp.c"	IOCB |= DEF_SET_BIT2;
+0000e4   3909     bsf     0x09, 0x2        	BSF	_IOCB,2
+                                           ;;[ICODE] temp.c:84: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _IOCB [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-unsigned-char literal}
+                                           ;	.line	84; "temp.c"	IOCB |= DEF_SET_BIT4;
+0000e5   3a09     bsf     0x09, 0x4        	BSF	_IOCB,4
+                                           ;;[ICODE] temp.c:90: inline
+0000e6   1106     movf    0x06, 0x0        	movf	PORTB,W
                                            	
-                                           ;;[ICODE] temp.c:65: 	iTemp32 [k53 lr48:50 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTFLAGbits [k36 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:65: 	*(iTemp32 [k53 lr48:50 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	65; "temp.c"	PBIF = 0;
-00016e   3c8f     bcf     0x0f, 0x1        	BCF	_INTFLAGbits,1
-                                           ;;[ICODE] temp.c:66: 	iTemp34 [k57 lr51:53 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:66: 	*(iTemp34 [k57 lr51:53 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                                           ;	.line	66; "temp.c"	PBIE = 1;
-00016f   388e     bsf     0x0e, 0x1        	BSF	_INTECONbits,1
-                                           ;;[ICODE] temp.c:67: 	iTemp36 [k60 lr54:56 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:67: 	*(iTemp36 [k60 lr54:56 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	67; "temp.c"	GIE = 0;
-000170   3f8e     bcf     0x0e, 0x7        	BCF	_INTECONbits,7
-                                           ;;[ICODE] temp.c:75: inline
-000171   0003     sleep                    	SLEEP
-000172   0000     nop                      	nop
-000173   0000     nop                      	nop
-000174   0000     nop                      	nop
-000175   0000     nop                      	nop
+                                           ;;[ICODE] temp.c:92: 	iTemp36 [k70 lr70:72 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTFLAGbits [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:92: 	*(iTemp36 [k70 lr70:72 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	92; "temp.c"	PBIF = 0;
+0000e7   3c8f     bcf     0x0f, 0x1        	BCF	_INTFLAGbits,1
+                                           ;;[ICODE] temp.c:93: 	iTemp38 [k73 lr73:75 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:93: 	*(iTemp38 [k73 lr73:75 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                                           ;	.line	93; "temp.c"	PBIE = 1;// 0	disenable Port level change interrupt , 1 enable Port level change interrupt
+0000e8   388e     bsf     0x0e, 0x1        	BSF	_INTECONbits,1
+                                           ;;[ICODE] temp.c:94: 	iTemp40 [k76 lr76:78 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:94: 	*(iTemp40 [k76 lr76:78 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	94; "temp.c"	GIE = 0;
+0000e9   3f8e     bcf     0x0e, 0x7        	BCF	_INTECONbits,7
+                                           ;;[ICODE] temp.c:102: inline
+0000ea   0003     sleep                    	SLEEP
+0000eb   0000     nop                      	nop
+0000ec   0000     nop                      	nop
+0000ed   0000     nop                      	nop
+0000ee   0000     nop                      	nop
                                            	
-                                           ;;[ICODE] temp.c:79: inline
-000176   1106     movf    0x06, 0x0        	movf	PORTB,W
+                                           ;;[ICODE] temp.c:106: inline
+0000ef   1106     movf    0x06, 0x0        	movf	PORTB,W
                                            	
-                                           ;;[ICODE] temp.c:81: 	iTemp38 [k63 lr59:61 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:81: 	*(iTemp38 [k63 lr59:61 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                                           ;	.line	81; "temp.c"	PBIE = 0;
-000177   3c8e     bcf     0x0e, 0x1        	BCF	_INTECONbits,1
-                                           ;;[ICODE] temp.c:82: 	_IOCB [k64 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-                                           ;	.line	82; "temp.c"	IOCB = 0;
-000178   1889     clrf    0x09             	CLRF	_IOCB
-                                           ;;[ICODE] temp.c:83: 	iTemp40 [k67 lr63:65 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:83: 	*(iTemp40 [k67 lr63:65 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                                           ;	.line	83; "temp.c"	LVDM = 1;
-000179   3a51     bsf     0x51, 0x4        	BSF	_CMPCRbits,4
-                                           ;;[ICODE] temp.c:84: inline
-00017a   0004     clrwdt                   	clrwdt
-                                           ;;[ICODE] temp.c:85: 	iTemp42 [k70 lr67:69 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:85: 	*(iTemp42 [k70 lr67:69 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                                           ;	.line	85; "temp.c"	WDTEN = 1;
-00017b   3b88     bsf     0x08, 0x7        	BSF	_PCONbits,7
-                                           ;;[ICODE] temp.c:86: 	iTemp44 [k73 lr70:72 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:86: 	*(iTemp44 [k73 lr70:72 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                                           ;	.line	86; "temp.c"	GIE = 1;
-00017c   3b8e     bsf     0x0e, 0x7        	BSF	_INTECONbits,7
-                                           ;;[ICODE] temp.c:89: 	iTemp45 [k75 lr73:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k74 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-                                           ;	.line	89; "temp.c"	InitPort();
-00017d   2982     call    0x0182           	CALL	_InitPort
-                                           ;;[ICODE] temp.c:92: 	iTemp47 [k78 lr74:76 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-                                           ;;[ICODE] temp.c:92: 	*(iTemp47 [k78 lr74:76 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                                           ;	.line	92; "temp.c"	MODSEL = 1;
-00017e   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
-                                           ;;[ICODE] temp.c:93: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
-                                           ;	.line	93; "temp.c"	SleepCount = 0;
-00017f   18ae     clrf    0x2e             	CLRF	_SleepCount
-000180   18af     clrf    0x2f             	CLRF	(_SleepCount + 1)
-                                           ;;[ICODE] temp.c:93:  _return($6) :
-                                           ;;[ICODE] temp.c:93: 	eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;;[ICODE] temp.c:108: 	iTemp42 [k79 lr81:83 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:108: 	*(iTemp42 [k79 lr81:83 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+                                           ;	.line	108; "temp.c"	PBIE = 0;
+0000f0   3c8e     bcf     0x0e, 0x1        	BCF	_INTECONbits,1
+                                           ;;[ICODE] temp.c:109: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+                                           ;	.line	109; "temp.c"	IOCB = 0;
+0000f1   1889     clrf    0x09             	CLRF	_IOCB
+                                           ;;[ICODE] temp.c:110: 	iTemp44 [k82 lr85:87 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:110: 	*(iTemp44 [k82 lr85:87 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                                           ;	.line	110; "temp.c"	LVDM = 1;
+0000f2   3a51     bsf     0x51, 0x4        	BSF	_CMPCRbits,4
+                                           ;;[ICODE] temp.c:111: inline
+0000f3   0004     clrwdt                   	clrwdt
+                                           ;;[ICODE] temp.c:112: 	iTemp46 [k85 lr89:91 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:112: 	*(iTemp46 [k85 lr89:91 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                                           ;	.line	112; "temp.c"	WDTEN = 1;
+0000f4   3b88     bsf     0x08, 0x7        	BSF	_PCONbits,7
+                                           ;;[ICODE] temp.c:113: 	iTemp48 [k88 lr92:94 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:113: 	*(iTemp48 [k88 lr92:94 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                                           ;	.line	113; "temp.c"	GIE = 1;
+0000f5   3b8e     bsf     0x0e, 0x7        	BSF	_INTECONbits,7
+                                           ;;[ICODE] temp.c:114: 	iTemp50 [k91 lr95:97 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:114: 	*(iTemp50 [k91 lr95:97 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                                           ;	.line	114; "temp.c"	T0IE = 1;
+0000f6   380e     bsf     0x0e, 0x0        	BSF	_INTECONbits,0
+                                           ;;[ICODE] temp.c:116: 	iTemp51 [k93 lr98:98 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k92 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+                                           ;	.line	116; "temp.c"	InitPort();
+0000f7   2997     call    0x0197           	CALL	_InitPort
+                                           ;;[ICODE] temp.c:136: 	iTemp53 [k96 lr99:101 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k46 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+                                           ;;[ICODE] temp.c:136: 	*(iTemp53 [k96 lr99:101 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+                                           ;	.line	136; "temp.c"	MODSEL = 1;
+0000f8   3bd5     bsf     0x55, 0x7        	BSF	_RAMPbits,7
+                                           ;;[ICODE] temp.c:137: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+                                           ;	.line	137; "temp.c"	SleepCount = 0;
+0000f9   18ae     clrf    0x2e             	CLRF	_SleepCount
+0000fa   18af     clrf    0x2f             	CLRF	(_SleepCount + 1)
+                                           ;;[ICODE] temp.c:137:  _return($6) :
+                                           ;;[ICODE] temp.c:137: 	eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            _00119_DS_:
-000181   0002     return                   	RETURN	
+0000fb   0002     return                   	RETURN	
                                            ; exit point of _CheckSleep
 
                                            ;***
@@ -3121,60 +3128,60 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] temp.c:9: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_CHARGE1bits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] temp.c:9: 	*(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
                                            ;	.line	9; "temp.c"	TEMPEN = 1;
-0001e4   3b54     bsf     0x54, 0x6        	BSF	_CHARGE1bits,6
+0001f9   3b54     bsf     0x54, 0x6        	BSF	_CHARGE1bits,6
                                            ;;[ICODE] temp.c:10: 	iTemp2 [k7 lr6:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _DelayMs [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	10; "temp.c"	DelayMs();
-0001e5   2a69     call    0x0269           	CALL	_DelayMs
+0001fa   2a71     call    0x0271           	CALL	_DelayMs
                                            ;;[ICODE] temp.c:11: 	iTemp4 [k11 lr7:9 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_INTFLAGbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] temp.c:11: 	iTemp5 [k12 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x1047 ] = @[iTemp4 [k11 lr7:9 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
                                            ;	.line	11; "temp.c"	if(TMPF == 0)
-0001e6   360f     btfsc   0x0f, 0x4        	BTFSC	_INTFLAGbits,4
-0001e7   21eb     goto    0x01eb           	GOTO	_00106_DS_
+0001fb   360f     btfsc   0x0f, 0x4        	BTFSC	_INTFLAGbits,4
+0001fc   2200     goto    0x0200           	GOTO	_00106_DS_
                                            ;;[ICODE] temp.c:11: 	if iTemp5 [k12 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} fixed}[r0x1047 ] != 0 goto __iffalse_0($2)
                                            ;;[ICODE] temp.c:13: 	_TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
                                            ;	.line	13; "temp.c"	TempCount = 0;
-0001e8   18b6     clrf    0x36             	CLRF	_TempCount
+0001fd   18b6     clrf    0x36             	CLRF	_TempCount
                                            ;;[ICODE] temp.c:14: 	_TempFlag [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x0 {const-unsigned-char literal}
                                            ;	.line	14; "temp.c"	TempFlag = 0;
-0001e9   18b7     clrf    0x37             	CLRF	_TempFlag
+0001fe   18b7     clrf    0x37             	CLRF	_TempFlag
                                            ;;[ICODE] temp.c:14: 	 goto __ifend_0($3)
-0001ea   21ec     goto    0x01ec           	GOTO	_00107_DS_
+0001ff   2201     goto    0x0201           	GOTO	_00107_DS_
                                            ;;[ICODE] temp.c:14:  __iffalse_0($2) :
                                            ;;[ICODE] temp.c:18: 	_TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} = _TempCount [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} + 0x1 {const-unsigned-char literal}
                                            _00106_DS_:
                                            ;	.line	18; "temp.c"	TempCount++;
-0001eb   13b6     incf    0x36, 0x1        	INCF	_TempCount,F
+000200   13b6     incf    0x36, 0x1        	INCF	_TempCount,F
                                            ;;[ICODE] temp.c:18:  __ifend_0($3) :
                                            ;;[ICODE] temp.c:21: 	iTemp11 [k20 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = 0x5 {const-unsigned-char literal} == _TempCount [k13 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed}
                                            _00107_DS_:
                                            ;	.line	21; "temp.c"	if(5 == TempCount)
-0001ec   1136     movf    0x36, 0x0        	MOVF	_TempCount,W
-0001ed   0d05     xorlw   0x05             	XORLW	0x05
-0001ee   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
-0001ef   21f2     goto    0x01f2           	GOTO	_00109_DS_
+000201   1136     movf    0x36, 0x0        	MOVF	_TempCount,W
+000202   0d05     xorlw   0x05             	XORLW	0x05
+000203   3103     btfss   0x03, 0x2        	BTFSS	STATUS,2
+000204   2207     goto    0x0207           	GOTO	_00109_DS_
                                            ;;[ICODE] temp.c:21: 	if iTemp11 [k20 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_1($5)
                                            ;;[ICODE] temp.c:23: 	_TempFlag [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} := 0x1 {const-unsigned-char literal}
                                            ;	.line	23; "temp.c"	TempFlag = 1;
-0001f0   0401     movlw   0x01             	MOVLW	0x01
-0001f1   19b7     movwf   0x37             	MOVWF	_TempFlag
+000205   0401     movlw   0x01             	MOVLW	0x01
+000206   19b7     movwf   0x37             	MOVWF	_TempFlag
                                            ;;[ICODE] temp.c:23:  __iffalse_1($5) :
                                            ;;[ICODE] temp.c:26: 	iTemp14 [k24 lr22:24 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_CHARGE1bits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] temp.c:26: 	*(iTemp14 [k24 lr22:24 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            _00109_DS_:
                                            ;	.line	26; "temp.c"	TEMPEN = 0;
-0001f2   3f54     bcf     0x54, 0x6        	BCF	_CHARGE1bits,6
+000207   3f54     bcf     0x54, 0x6        	BCF	_CHARGE1bits,6
                                            ;;[ICODE] temp.c:27: 	iTemp16 [k27 lr25:27 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_INTFLAGbits [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
                                            ;;[ICODE] temp.c:27: 	*(iTemp16 [k27 lr25:27 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
                                            ;	.line	27; "temp.c"	TMPF = 0;
-0001f3   3e0f     bcf     0x0f, 0x4        	BCF	_INTFLAGbits,4
+000208   3e0f     bcf     0x0f, 0x4        	BCF	_INTFLAGbits,4
                                            ;;[ICODE] temp.c:27:  _return($6) :
                                            ;;[ICODE] temp.c:27: 	eproc _CheckTemp [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-0001f4   0002     return                   	RETURN	
+000209   0002     return                   	RETURN	
                                            ; exit point of _CheckTemp
 
 
                                            ;	code size estimation:
-                                           ;	   69+    0 =    69 instructions (  138 byte)
+                                           ;	   90+    0 =    90 instructions (  180 byte)
 
                                            	end
                                            ;--------------------------------------------------------
@@ -3341,16 +3348,16 @@ Address  Value    Disassembly              Source
 
                                            ID_variable_7	code
                                            _g_cucTIMER_COUNT_STATE
-00025f   0101     retlw   0x01             	retlw 0x01
-000260   0101     retlw   0x01             	retlw 0x01
-000261   0101     retlw   0x01             	retlw 0x01
-000262   0101     retlw   0x01             	retlw 0x01
-000263   0104     retlw   0x04             	retlw 0x04
-000264   0104     retlw   0x04             	retlw 0x04
-000265   0101     retlw   0x01             	retlw 0x01
-000266   0104     retlw   0x04             	retlw 0x04
 000267   0101     retlw   0x01             	retlw 0x01
 000268   0101     retlw   0x01             	retlw 0x01
+000269   0101     retlw   0x01             	retlw 0x01
+00026a   0101     retlw   0x01             	retlw 0x01
+00026b   0104     retlw   0x04             	retlw 0x04
+00026c   0104     retlw   0x04             	retlw 0x04
+00026d   0101     retlw   0x01             	retlw 0x01
+00026e   0104     retlw   0x04             	retlw 0x04
+00026f   0101     retlw   0x01             	retlw 0x01
+000270   0101     retlw   0x01             	retlw 0x01
 
                                            ;--------------------------------------------------------
                                            ; overlayable items in internal ram 
@@ -3511,7 +3518,7 @@ Address  Value    Disassembly              Source
                                            ;;[ICODE] work.c:21:  _return($1) :
                                            ;;[ICODE] work.c:21: 	eproc _Work [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
                                            ;	.line	21; "work.c"	}
-0002b0   0002     return                   	RETURN	
+0002b8   0002     return                   	RETURN	
                                            ; exit point of _Work
 
 

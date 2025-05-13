@@ -11,7 +11,7 @@ DECLARE_BITS16(BITS_DATA1)
 #define BIT_KEY_OPEN			BITS(BITS_DATA0, 3)
 #define BIT_TIMER_WORK			BITS(BITS_DATA0, 4)
 #define IsLight					BITS(BITS_DATA0, 5)
-#define IsMotor			       BITS(BITS_DATA0, 6)
+#define IsMotor			        BITS(BITS_DATA0, 6)
 #define BIT_LED2_Flag			BITS(BITS_DATA0, 7)
 
 #define IsFull					BITS(BITS_DATA1, 0)

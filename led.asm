@@ -15,7 +15,6 @@
 	extern	_InitSystem
 	extern	_InitPwm
 	extern	_InitRam
-	extern	_lowPower_IO_Init
 	extern	_STATUSbits
 	extern	_PORTBbits
 	extern	_PCONbits

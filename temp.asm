@@ -21,7 +21,7 @@
 	extern	_InitSystem
 	extern	_InitPwm
 	extern	_InitRam
-	extern	_lowPower_IO_Init
+	extern	_delay_ms
 	extern	_STATUSbits
 	extern	_PORTBbits
 	extern	_PCONbits
@@ -136,28 +136,24 @@ code_temp	code
 ;***
 ;has an exit
 ;functions called:
-;   _DelayMs
-;   _lowPower_IO_Init
 ;   _InitPort
-;   _DelayMs
-;   _lowPower_IO_Init
 ;   _InitPort
 ;2 compiler assigned registers:
 ;   r0x1005
 ;   r0x1006
 ;; Starting pCode block
-;;[ICODE] temp.c:30:  _entry($7) :
-;;[ICODE] temp.c:30: 	proc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] temp.c:33:  _entry($7) :
+;;[ICODE] temp.c:33: 	proc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 S_temp__CheckSleep	code
 _CheckSleep:
 ; 2 exit points
-;;[ICODE] temp.c:32: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:32: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
-;	.line	32; "temp.c"	if(1 == IsLight || 1 == IsMotor)
+;;[ICODE] temp.c:35: 	iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:35: 	iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ] = @[iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} near* fixed}[remat] + 0x0 {const-unsigned-char literal}]
+;	.line	35; "temp.c"	if(1 == IsLight || 1 == IsMotor)
 	CLRF	r0x1005
 	BTFSC	_BITS_DATA0,5
 	INCF	r0x1005,F
-;;[ICODE] temp.c:32: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ]
+;;[ICODE] temp.c:35: 	iTemp3 [k7 lr6:7 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp2 [k6 lr5:6 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {5,1} fixed}[r0x1049 ]
 	MOVF	r0x1005,W
 	MOVWF	r0x1006
 	XORLW	0x01
@@ -166,138 +162,195 @@ _CheckSleep:
 	CLRF	r0x1005
 	BTFSC	_BITS_DATA0,6
 	INCF	r0x1005,F
-;;[ICODE] temp.c:32: 	iTemp8 [k13 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp7 [k12 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1049 ]
+;;[ICODE] temp.c:35: 	iTemp8 [k13 lr12:13 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed}[r0x104A ] = (char register)iTemp7 [k12 lr11:12 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-bitfield {6,1} fixed}[r0x1049 ]
 	MOVF	r0x1005,W
 	MOVWF	r0x1006
 	XORLW	0x01
 	BTFSS	STATUS,2
 	GOTO	_00115_DS_
-;;[ICODE] temp.c:32: 	if iTemp9 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_2($2)
-;;[ICODE] temp.c:32:  __iftrue_2($1) :
-;;[ICODE] temp.c:34: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+;;[ICODE] temp.c:35: 	if iTemp9 [k14 lr13:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_2($2)
+;;[ICODE] temp.c:35:  __iftrue_2($1) :
+;;[ICODE] temp.c:37: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
 _00114_DS_:
-;	.line	34; "temp.c"	SleepCount = 0;
+;	.line	37; "temp.c"	SleepCount = 0;
 	CLRF	_SleepCount
 	CLRF	(_SleepCount + 1)
-;;[ICODE] temp.c:34:  __iffalse_2($2) :
-;;[ICODE] temp.c:40: 	iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepCount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x3e8 {unsigned-int literal}
-;;unsigned compare: left < lit(0x3E8=1000), size=2
+;;[ICODE] temp.c:37:  __iffalse_2($2) :
+;;[ICODE] temp.c:42: 	iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepCount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x1770 {unsigned-int literal}
+;;unsigned compare: left < lit(0x1770=6000), size=2
 _00115_DS_:
-;	.line	40; "temp.c"	if(SleepCount < 1000)
-	MOVLW	0x03
+;	.line	42; "temp.c"	if(SleepCount < 6000)
+	MOVLW	0x17
 	SUBWF	(_SleepCount + 1),W
 	BTFSS	STATUS,2
 	GOTO	_00128_DS_
-	MOVLW	0xe8
+	MOVLW	0x70
 	SUBWF	_SleepCount,W
 _00128_DS_:
 	BTFSC	STATUS,0
 	GOTO	_00118_DS_
 ;;genSkipc:3257: created from rifx:0x782c44
-;;[ICODE] temp.c:40: 	if iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_3($5)
-;;[ICODE] temp.c:42: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} = _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-unsigned-char literal}
-;	.line	42; "temp.c"	SleepCount++;
+;;[ICODE] temp.c:42: 	if iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} == 0 goto __iffalse_3($5)
+;;[ICODE] temp.c:45: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} = _SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} + 0x1 {const-unsigned-char literal}
+;	.line	45; "temp.c"	SleepCount++;
 	INCF	_SleepCount,F
 	BTFSC	STATUS,2
 	INCF	(_SleepCount + 1),F
-;;[ICODE] temp.c:43: 	ret
-;	.line	43; "temp.c"	return;
+;;[ICODE] temp.c:46: 	ret
+;	.line	46; "temp.c"	return;
 	GOTO	_00119_DS_
-;;[ICODE] temp.c:43:  __iffalse_3($5) :
-;;[ICODE] temp.c:48: 	iTemp16 [k24 lr24:26 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:48: 	*(iTemp16 [k24 lr24:26 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;;[ICODE] temp.c:46:  __iffalse_3($5) :
+;;[ICODE] temp.c:49: 	_RAMP [k21 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
 _00118_DS_:
-;	.line	48; "temp.c"	LVDM = 0;		
+;	.line	49; "temp.c"	RAMP = 0;
+	CLRF	_RAMP
+;;[ICODE] temp.c:50: 	_T1CON [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	50; "temp.c"	T1CON = 0;
+	CLRF	_T1CON
+;;[ICODE] temp.c:51: 	_CHARGE1 [k23 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	51; "temp.c"	CHARGE1 = 0;
+	CLRF	_CHARGE1
+;;[ICODE] temp.c:52: 	_CHARGE0 [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	52; "temp.c"	CHARGE0 = 0;
+	CLRF	_CHARGE0
+;;[ICODE] temp.c:53: 	_PCON [k25 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	53; "temp.c"	PCON = 0;
+	CLRF	_PCON
+;;[ICODE] temp.c:54: 	_CMPCR [k26 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	54; "temp.c"	CMPCR = 0;
+	CLRF	_CMPCR
+;;[ICODE] temp.c:57: 	iTemp16 [k30 lr30:32 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:57: 	*(iTemp16 [k30 lr30:32 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	57; "temp.c"	LVDM = 0;		
 	BCF	_CMPCRbits,4
-;;[ICODE] temp.c:49: 	iTemp18 [k28 lr27:29 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:49: 	*(iTemp18 [k28 lr27:29 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	49; "temp.c"	CMPEN = 0;
+;;[ICODE] temp.c:58: 	iTemp18 [k34 lr33:35 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:58: 	*(iTemp18 [k34 lr33:35 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	58; "temp.c"	CMPEN = 0;
 	BCF	_PCONbits,0
-;;[ICODE] temp.c:50: 	iTemp20 [k31 lr30:32 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:50: 	*(iTemp20 [k31 lr30:32 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	50; "temp.c"	CMPOF = 0;
+;;[ICODE] temp.c:59: 	iTemp20 [k37 lr36:38 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:59: 	*(iTemp20 [k37 lr36:38 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {5,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	59; "temp.c"	CMPOF = 0;
 	BCF	_PCONbits,5
-;;[ICODE] temp.c:51: 	iTemp22 [k35 lr33:35 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_CHARGE1bits [k32 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:51: 	*(iTemp22 [k35 lr33:35 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	51; "temp.c"	TEMPEN = 0;
+;;[ICODE] temp.c:60: 	iTemp22 [k41 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat] = &[_CHARGE1bits [k38 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000065 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:60: 	*(iTemp22 [k41 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {6,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	60; "temp.c"	TEMPEN = 0;
 	BCF	_CHARGE1bits,6
-;;[ICODE] temp.c:52: 	iTemp24 [k39 lr36:38 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_INTFLAGbits [k36 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:52: 	*(iTemp24 [k39 lr36:38 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	52; "temp.c"	TMPF = 0;
+;;[ICODE] temp.c:61: 	iTemp24 [k45 lr42:44 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_INTFLAGbits [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:61: 	*(iTemp24 [k45 lr42:44 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	61; "temp.c"	TMPF = 0;
 	BCF	_INTFLAGbits,4
-;;[ICODE] temp.c:53: 	iTemp26 [k43 lr39:41 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:53: 	*(iTemp26 [k43 lr39:41 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	53; "temp.c"	MODSEL = 0;
+;;[ICODE] temp.c:62: 	iTemp26 [k49 lr45:47 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k46 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:62: 	*(iTemp26 [k49 lr45:47 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	62; "temp.c"	MODSEL = 0;
 	BCF	_RAMPbits,7
-;;[ICODE] temp.c:54: 	iTemp27 [k45 lr42:42 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _DelayMs [k44 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	54; "temp.c"	DelayMs();
-	CALL	_DelayMs
-;;[ICODE] temp.c:55: 	iTemp29 [k48 lr43:45 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:55: 	*(iTemp29 [k48 lr43:45 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	55; "temp.c"	WDTEN = 0;
+;;[ICODE] temp.c:64: 	iTemp28 [k52 lr48:50 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:64: 	*(iTemp28 [k52 lr48:50 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	64; "temp.c"	WDTEN = 0;
 	BCF	_PCONbits,7
-;;[ICODE] temp.c:57: 	iTemp30 [k50 lr46:46 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _lowPower_IO_Init [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	57; "temp.c"	lowPower_IO_Init();
-	CALL	_lowPower_IO_Init
-;;[ICODE] temp.c:63: inline
+;;[ICODE] temp.c:65: 	iTemp30 [k56 lr51:53 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:65: 	*(iTemp30 [k56 lr51:53 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	65; "temp.c"	T0IE = 0;
+	BCF	_INTECONbits,0
+;;[ICODE] temp.c:67: 	_INTECON [k57 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	67; "temp.c"	INTECON = 0;
+	CLRF	_INTECON
+;;[ICODE] temp.c:69: 	_PORTB [k58 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	69; "temp.c"	PORTB = 0;  // 0 disenable output, 1 enable output
+	CLRF	_PORTB
+;;[ICODE] temp.c:70: 	_TRISB [k59 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+;	.line	70; "temp.c"	TRISB = 0xff;    //1：input  0:output
+	MOVLW	0xff
+	MOVWF	_TRISB
+;;[ICODE] temp.c:73: 	_PDCON [k60 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+;	.line	73; "temp.c"	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
+	MOVLW	0xff
+	MOVWF	_PDCON
+;;[ICODE] temp.c:74: 	_PDCON1 [k61 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+;	.line	74; "temp.c"	PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+	MOVLW	0xff
+	MOVWF	_PDCON1
+;;[ICODE] temp.c:77: 	_PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0xff {const-unsigned-char literal}
+;	.line	77; "temp.c"	PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
+	MOVLW	0xff
+	MOVWF	_PHCON
+;;[ICODE] temp.c:79: 	_PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k62 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfb {const-unsigned-char literal}
+;	.line	79; "temp.c"	PHCON &= DEF_CLR_BIT2;
+	BCF	_PHCON,2
+;;[ICODE] temp.c:80: 	_PHCON [k62 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _PHCON [k62 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xef {const-unsigned-char literal}
+;	.line	80; "temp.c"	PHCON &= DEF_CLR_BIT4;
+	BCF	_PHCON,4
+;;[ICODE] temp.c:82: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	82; "temp.c"	IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
+	CLRF	_IOCB
+;;[ICODE] temp.c:83: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _IOCB [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {const-unsigned-char literal}
+;	.line	83; "temp.c"	IOCB |= DEF_SET_BIT2;
+	BSF	_IOCB,2
+;;[ICODE] temp.c:84: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} = _IOCB [k65 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-unsigned-char literal}
+;	.line	84; "temp.c"	IOCB |= DEF_SET_BIT4;
+	BSF	_IOCB,4
+;;[ICODE] temp.c:90: inline
 	movf	PORTB,W
 	
-;;[ICODE] temp.c:65: 	iTemp32 [k53 lr48:50 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTFLAGbits [k36 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:65: 	*(iTemp32 [k53 lr48:50 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	65; "temp.c"	PBIF = 0;
+;;[ICODE] temp.c:92: 	iTemp36 [k70 lr70:72 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTFLAGbits [k42 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000027 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:92: 	*(iTemp36 [k70 lr70:72 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	92; "temp.c"	PBIF = 0;
 	BCF	_INTFLAGbits,1
-;;[ICODE] temp.c:66: 	iTemp34 [k57 lr51:53 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:66: 	*(iTemp34 [k57 lr51:53 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-;	.line	66; "temp.c"	PBIE = 1;
+;;[ICODE] temp.c:93: 	iTemp38 [k73 lr73:75 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:93: 	*(iTemp38 [k73 lr73:75 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	93; "temp.c"	PBIE = 1;// 0	disenable Port level change interrupt , 1 enable Port level change interrupt
 	BSF	_INTECONbits,1
-;;[ICODE] temp.c:67: 	iTemp36 [k60 lr54:56 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:67: 	*(iTemp36 [k60 lr54:56 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	67; "temp.c"	GIE = 0;
+;;[ICODE] temp.c:94: 	iTemp40 [k76 lr76:78 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:94: 	*(iTemp40 [k76 lr76:78 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	94; "temp.c"	GIE = 0;
 	BCF	_INTECONbits,7
-;;[ICODE] temp.c:75: inline
+;;[ICODE] temp.c:102: inline
 	SLEEP
 	nop
 	nop
 	nop
 	nop
 	
-;;[ICODE] temp.c:79: inline
+;;[ICODE] temp.c:106: inline
 	movf	PORTB,W
 	
-;;[ICODE] temp.c:81: 	iTemp38 [k63 lr59:61 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:81: 	*(iTemp38 [k63 lr59:61 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-;	.line	81; "temp.c"	PBIE = 0;
+;;[ICODE] temp.c:108: 	iTemp42 [k79 lr81:83 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:108: 	*(iTemp42 [k79 lr81:83 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
+;	.line	108; "temp.c"	PBIE = 0;
 	BCF	_INTECONbits,1
-;;[ICODE] temp.c:82: 	_IOCB [k64 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
-;	.line	82; "temp.c"	IOCB = 0;
+;;[ICODE] temp.c:109: 	_IOCB [k65 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := 0x0 {const-unsigned-char literal}
+;	.line	109; "temp.c"	IOCB = 0;
 	CLRF	_IOCB
-;;[ICODE] temp.c:83: 	iTemp40 [k67 lr63:65 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k21 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:83: 	*(iTemp40 [k67 lr63:65 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-;	.line	83; "temp.c"	LVDM = 1;
+;;[ICODE] temp.c:110: 	iTemp44 [k82 lr85:87 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat] = &[_CMPCRbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000056 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:110: 	*(iTemp44 [k82 lr85:87 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {4,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	110; "temp.c"	LVDM = 1;
 	BSF	_CMPCRbits,4
-;;[ICODE] temp.c:84: inline
+;;[ICODE] temp.c:111: inline
 	clrwdt
-;;[ICODE] temp.c:85: 	iTemp42 [k70 lr67:69 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k25 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:85: 	*(iTemp42 [k70 lr67:69 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-;	.line	85; "temp.c"	WDTEN = 1;
+;;[ICODE] temp.c:112: 	iTemp46 [k85 lr89:91 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_PCONbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000006 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:112: 	*(iTemp46 [k85 lr89:91 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	112; "temp.c"	WDTEN = 1;
 	BSF	_PCONbits,7
-;;[ICODE] temp.c:86: 	iTemp44 [k73 lr70:72 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k54 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:86: 	*(iTemp44 [k73 lr70:72 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-;	.line	86; "temp.c"	GIE = 1;
+;;[ICODE] temp.c:113: 	iTemp48 [k88 lr92:94 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:113: 	*(iTemp48 [k88 lr92:94 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	113; "temp.c"	GIE = 1;
 	BSF	_INTECONbits,7
-;;[ICODE] temp.c:89: 	iTemp45 [k75 lr73:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k74 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	89; "temp.c"	InitPort();
+;;[ICODE] temp.c:114: 	iTemp50 [k91 lr95:97 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat] = &[_INTECONbits [k53 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:114: 	*(iTemp50 [k91 lr95:97 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	114; "temp.c"	T0IE = 1;
+	BSF	_INTECONbits,0
+;;[ICODE] temp.c:116: 	iTemp51 [k93 lr98:98 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k92 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	116; "temp.c"	InitPort();
 	CALL	_InitPort
-;;[ICODE] temp.c:92: 	iTemp47 [k78 lr74:76 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:92: 	*(iTemp47 [k78 lr74:76 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-;	.line	92; "temp.c"	MODSEL = 1;
+;;[ICODE] temp.c:136: 	iTemp53 [k96 lr99:101 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k46 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:136: 	*(iTemp53 [k96 lr99:101 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;	.line	136; "temp.c"	MODSEL = 1;
 	BSF	_RAMPbits,7
-;;[ICODE] temp.c:93: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
-;	.line	93; "temp.c"	SleepCount = 0;
+;;[ICODE] temp.c:137: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}
+;	.line	137; "temp.c"	SleepCount = 0;
 	CLRF	_SleepCount
 	CLRF	(_SleepCount + 1)
-;;[ICODE] temp.c:93:  _return($6) :
-;;[ICODE] temp.c:93: 	eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] temp.c:137:  _return($6) :
+;;[ICODE] temp.c:137: 	eproc _CheckSleep [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 _00119_DS_:
 	RETURN	
 ; exit point of _CheckSleep
@@ -371,6 +424,6 @@ _00109_DS_:
 
 
 ;	code size estimation:
-;	   69+    0 =    69 instructions (  138 byte)
+;	   90+    0 =    90 instructions (  180 byte)
 
 	end

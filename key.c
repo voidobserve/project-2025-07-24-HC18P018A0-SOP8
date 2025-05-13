@@ -63,14 +63,14 @@ void ScanKey(void)
 		if(clink_event == 1){
 
 			clink_event = 0;
-			LedSwitch();
-
 			
+
+			MotoSwitch();
 		} else if(clink_event == 2){
 			clink_event = 0;
 			
-			MotoSwitch();
-
+			
+			LedSwitch();
 			
 		} else if(clink_event == 3){
 
