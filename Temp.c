@@ -54,7 +54,7 @@ void CheckSleep()
 	DelayMs();
 	WDTEN = 0;
 
-	InitPort();
+	lowPower_IO_Init();
 
 
 

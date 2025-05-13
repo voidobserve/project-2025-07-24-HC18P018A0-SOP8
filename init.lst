@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _TempFlag
   0000                00041         extern  _SleepCount
   0000                00042         extern  _SleepFlag
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern STK00
                       00094 ;--------------------------------------------------------
                       00095 ; global declarations
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -126,342 +126,404 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00097         global  _InitRam
   0000                00098         global  _InitPwm
   0000                00099         global  _InitSystem
-  0000                00100         global  _InitPort
-                      00101 
-                      00102 ;--------------------------------------------------------
-                      00103 ; global definitions
-                      00104 ;--------------------------------------------------------
+  0000                00100         global  _lowPower_IO_Init
+  0000                00101         global  _InitPort
+                      00102 
+                      00103 ;--------------------------------------------------------
+                      00104 ; global definitions
                       00105 ;--------------------------------------------------------
-                      00106 ; absolute symbol definitions
-                      00107 ;--------------------------------------------------------
+                      00106 ;--------------------------------------------------------
+                      00107 ; absolute symbol definitions
                       00108 ;--------------------------------------------------------
-                      00109 ; compiler-defined variables
-                      00110 ;--------------------------------------------------------
+                      00109 ;--------------------------------------------------------
+                      00110 ; compiler-defined variables
                       00111 ;--------------------------------------------------------
-                      00112 ; initialized data
-                      00113 ;--------------------------------------------------------
+                      00112 ;--------------------------------------------------------
+                      00113 ; initialized data
                       00114 ;--------------------------------------------------------
-                      00115 ; overlayable items in internal ram 
-                      00116 ;--------------------------------------------------------
-                      00117 ;       udata_ovr
-                      00118 ;--------------------------------------------------------
-                      00119 ; code
-                      00120 ;--------------------------------------------------------
-                      00121 code_init       code
-                      00122 ;***
-                      00123 ;  pBlock Stats: dbName = C
-                      00124 ;***
-                      00125 ;has an exit
-                      00126 ;; Starting pCode block
-                      00127 ;;[ICODE] init.c:97:  _entry($2) :
-                      00128 ;;[ICODE] init.c:97:    proc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
+                      00115 ;--------------------------------------------------------
+                      00116 ; overlayable items in internal ram 
+                      00117 ;--------------------------------------------------------
+                      00118 ;       udata_ovr
+                      00119 ;--------------------------------------------------------
+                      00120 ; code
+                      00121 ;--------------------------------------------------------
+                      00122 code_init       code
+                      00123 ;***
+                      00124 ;  pBlock Stats: dbName = C
+                      00125 ;***
+                      00126 ;has an exit
+                      00127 ;; Starting pCode block
+                      00128 ;;[ICODE] init.c:117:  _entry($2) :
+                      00129 ;;[ICODE] init.c:117:   proc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
                             fixed}
-                      00129 S_init__InitRam code
-0000                  00130 _InitRam:
-                      00131 ; 2 exit points
-                      00132 ;;[ICODE] init.c:99:    iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} n
+                      00130 S_init__InitRam code
+0000                  00131 _InitRam:
+                      00132 ; 2 exit points
+                      00133 ;;[ICODE] init.c:119:   iTemp1 [k5 lr3:5 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1} n
                             ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
                             d} , 0x0 {const-unsigned-char literal}]
-                      00133 ;;[ICODE] init.c:99:    *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1}
+                      00134 ;;[ICODE] init.c:119:   *(iTemp1 [k5 lr3:5 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {0,1}
                              near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00134 ;       .line   99; "init.c"    BIT_TIMER_10MS = 0;
-0000   3C??           00135         BCF     _BITS_DATA0,0
-                      00136 ;;[ICODE] init.c:100:   iTemp3 [k8 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
+                      00135 ;       .line   119; "init.c"   BIT_TIMER_10MS = 0;
+0000   3C??           00136         BCF     _BITS_DATA0,0
+                      00137 ;;[ICODE] init.c:120:   iTemp3 [k8 lr6:8 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1} n
                             ear* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fixe
                             d} , 0x0 {const-unsigned-char literal}]
-                      00137 ;;[ICODE] init.c:100:   *(iTemp3 [k8 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1}
+                      00138 ;;[ICODE] init.c:120:   *(iTemp3 [k8 lr6:8 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {5,1}
                              near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00138 ;       .line   100; "init.c"   IsLight = 0;
-0001   3E??           00139         BCF     _BITS_DATA0,5
-                      00140 ;;[ICODE] init.c:101:   iTemp5 [k11 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1}
+                      00139 ;       .line   120; "init.c"   IsLight = 0;
+0001   3E??           00140         BCF     _BITS_DATA0,5
+                      00141 ;;[ICODE] init.c:121:   iTemp5 [k11 lr9:11 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,1}
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
                              near* fixed}[remat] = &[_BITS_DATA0 [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct __bits8_t fi
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  4
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
                             xed} , 0x0 {const-unsigned-char literal}]
-                      00141 ;;[ICODE] init.c:101:   *(iTemp5 [k11 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,
+                      00142 ;;[ICODE] init.c:121:   *(iTemp5 [k11 lr9:11 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{unsigned-bitfield {6,
                             1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00142 ;       .line   101; "init.c"   IsMotor = 0;
-0002   3F??           00143         BCF     _BITS_DATA0,6
-                      00144 ;;[ICODE] init.c:104:   _SleepCount [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
+                      00143 ;       .line   121; "init.c"   IsMotor = 0;
+0002   3F??           00144         BCF     _BITS_DATA0,6
+                      00145 ;;[ICODE] init.c:124:   _SleepCount [k12 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
                              := 0x0 {unsigned-int literal}
-                      00145 ;       .line   104; "init.c"   SleepCount = 0;
-0003   18??           00146         CLRF    _SleepCount
-0004   18??           00147         CLRF    (_SleepCount + 1)
-                      00148 ;;[ICODE] init.c:104:  _return($1) :
-                      00149 ;;[ICODE] init.c:104:   eproc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
+                      00146 ;       .line   124; "init.c"   SleepCount = 0;
+0003   18??           00147         CLRF    _SleepCount
+0004   18??           00148         CLRF    (_SleepCount + 1)
+                      00149 ;;[ICODE] init.c:124:  _return($1) :
+                      00150 ;;[ICODE] init.c:124:   eproc _InitRam [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
                              fixed}
-0005   0002           00150         RETURN  
-                      00151 ; exit point of _InitRam
-                      00152 
-                      00153 ;***
-                      00154 ;  pBlock Stats: dbName = C
-                      00155 ;***
-                      00156 ;has an exit
-                      00157 ;; Starting pCode block
-                      00158 ;;[ICODE] init.c:90:  _entry($2) :
-                      00159 ;;[ICODE] init.c:90:    proc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
+0005   0002           00151         RETURN  
+                      00152 ; exit point of _InitRam
+                      00153 
+                      00154 ;***
+                      00155 ;  pBlock Stats: dbName = C
+                      00156 ;***
+                      00157 ;has an exit
+                      00158 ;; Starting pCode block
+                      00159 ;;[ICODE] init.c:110:  _entry($2) :
+                      00160 ;;[ICODE] init.c:110:   proc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) 
                             fixed}
-                      00160 S_init__InitPwm code
-0000                  00161 _InitPwm:
-                      00162 ; 2 exit points
-                      00163 ;;[ICODE] init.c:92:    _AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
+                      00161 S_init__InitPwm code
+0000                  00162 _InitPwm:
+                      00163 ; 2 exit points
+                      00164 ;;[ICODE] init.c:112:   _AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
                             } := 0x0 {const-unsigned-char literal}
-                      00164 ;       .line   92; "init.c"    AUXR = 0;
-0000   18??           00165         CLRF    _AUXR
-                      00166 ;;[ICODE] init.c:93:    _T1 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} 
+                      00165 ;       .line   112; "init.c"   AUXR = 0;
+0000   18??           00166         CLRF    _AUXR
+                      00167 ;;[ICODE] init.c:113:   _T1 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} 
                             := 0xfe {const-unsigned-char literal}
-                      00167 ;       .line   93; "init.c"    T1 = 0XFE;     //TI计数器
-0001   04FE           00168         MOVLW   0xfe
-0002   19??           00169         MOVWF   _T1
-                      00170 ;;[ICODE] init.c:94:    _T1LOAD [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                      00168 ;       .line   113; "init.c"   T1 = 0XFE;     //TI计数器
+0001   04FE           00169         MOVLW   0xfe
+0002   19??           00170         MOVWF   _T1
+                      00171 ;;[ICODE] init.c:114:   _T1LOAD [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
                             fr} := 0xfe {const-unsigned-char literal}
-                      00171 ;       .line   94; "init.c"    T1LOAD = 0XFE;
-0003   04FE           00172         MOVLW   0xfe
-0004   19??           00173         MOVWF   _T1LOAD
-                      00174 ;;[ICODE] init.c:94:  _return($1) :
-                      00175 ;;[ICODE] init.c:94:    eproc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
+                      00172 ;       .line   114; "init.c"   T1LOAD = 0XFE;
+0003   04FE           00173         MOVLW   0xfe
+0004   19??           00174         MOVWF   _T1LOAD
+                      00175 ;;[ICODE] init.c:114:  _return($1) :
+                      00176 ;;[ICODE] init.c:114:   eproc _InitPwm [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
                              fixed}
-0005   0002           00176         RETURN  
-                      00177 ; exit point of _InitPwm
-                      00178 
-                      00179 ;***
-                      00180 ;  pBlock Stats: dbName = C
-                      00181 ;***
-                      00182 ;has an exit
-                      00183 ;; Starting pCode block
-                      00184 ;;[ICODE] init.c:76:  _entry($2) :
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  5
+0005   0002           00177         RETURN  
+                      00178 ; exit point of _InitPwm
+                      00179 
+                      00180 ;***
+                      00181 ;  pBlock Stats: dbName = C
+                      00182 ;***
+                      00183 ;has an exit
+                      00184 ;; Starting pCode block
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00185 ;;[ICODE] init.c:76:    proc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
+                      00185 ;;[ICODE] init.c:96:  _entry($2) :
+                      00186 ;;[ICODE] init.c:96:    proc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function (
                              ) fixed}
-                      00186 S_init__InitSystem      code
-0000                  00187 _InitSystem:
-                      00188 ; 2 exit points
-                      00189 ;;[ICODE] init.c:78:    _OSCCON [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                      00187 S_init__InitSystem      code
+0000                  00188 _InitSystem:
+                      00189 ; 2 exit points
+                      00190 ;;[ICODE] init.c:98:    _OSCCON [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
                             fr} := 0x0 {const-unsigned-char literal}
-                      00190 ;       .line   78; "init.c"    OSCCON = 0;     //高频  
-0000   18??           00191         CLRF    _OSCCON
-                      00192 ;;[ICODE] init.c:79:    _T0 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} 
+                      00191 ;       .line   98; "init.c"    OSCCON = 0;     //高频  
+0000   18??           00192         CLRF    _OSCCON
+                      00193 ;;[ICODE] init.c:99:    _T0 [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} 
                             := 0xce {const-unsigned-char literal}
-                      00193 ;       .line   79; "init.c"    T0 =   0xCE;
-0001   04CE           00194         MOVLW   0xce
-0002   19??           00195         MOVWF   _T0
-                      00196 ;;[ICODE] init.c:81:    _OPTION [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                      00194 ;       .line   99; "init.c"    T0 =   0xCE;
+0001   04CE           00195         MOVLW   0xce
+0002   19??           00196         MOVWF   _T0
+                      00197 ;;[ICODE] init.c:101:   _OPTION [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
                             fr} := 0x0 {const-unsigned-char literal}
-                      00197 ;       .line   81; "init.c"    OPTION = 0x00;  //下降沿中断 Fcpu 上升沿计数 TMR0 1/2预分频
-0003   18??           00198         CLRF    _OPTION
-                      00199 ;;[ICODE] init.c:82:    _PCON [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
+                      00198 ;       .line   101; "init.c"   OPTION = 0x00;  //下降沿中断 Fcpu 上升沿计数 TMR0 1/2预分频
+0003   18??           00199         CLRF    _OPTION
+                      00200 ;;[ICODE] init.c:102:   _PCON [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
                             } = _PCON [k5 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x90 {const-unsi
                             gned-char literal}
-                      00200 ;       .line   82; "init.c"    PCON |= 0x90;   //使能WDT
-0004   0490           00201         MOVLW   0x90
-0005   1D??           00202         IORWF   _PCON,F
-                      00203 ;;[ICODE] init.c:84:    _CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00201 ;       .line   102; "init.c"   PCON |= 0x90;   //使能WDT
+0004   0490           00202         MOVLW   0x90
+0005   1D??           00203         IORWF   _PCON,F
+                      00204 ;;[ICODE] init.c:104:   _CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} := 0x0 {const-unsigned-char literal}
-                      00204 ;       .line   84; "init.c"    CMPCR = 0x00;  //关闭比较器
-0006   18??           00205         CLRF    _CMPCR
-                      00206 ;;[ICODE] init.c:85:    _INTFLAG [k8 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
+                      00205 ;       .line   104; "init.c"   CMPCR = 0x00;  //关闭比较器
+0006   18??           00206         CLRF    _CMPCR
+                      00207 ;;[ICODE] init.c:105:   _INTFLAG [k8 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
                             sfr} = _INTFLAG [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfe {cons
                             t-unsigned-char literal}
-                      00207 ;       .line   85; "init.c"    INTFLAG &= 0xFE;
-0007   3C??           00208         BCF     _INTFLAG,0
-                      00209 ;;[ICODE] init.c:86:    _CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00208 ;       .line   105; "init.c"   INTFLAG &= 0xFE;
+0007   3C??           00209         BCF     _INTFLAG,0
+                      00210 ;;[ICODE] init.c:106:   _CMPCR [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _CMPCR [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-un
                             signed-char literal}
-                      00210 ;       .line   86; "init.c"    CMPCR |= 0X10;
-0008   3A??           00211         BSF     _CMPCR,4
-                      00212 ;;[ICODE] init.c:86:  _return($1) :
-                      00213 ;;[ICODE] init.c:86:    eproc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function 
+                      00211 ;       .line   106; "init.c"   CMPCR |= 0X10;
+0008   3A??           00212         BSF     _CMPCR,4
+                      00213 ;;[ICODE] init.c:106:  _return($1) :
+                      00214 ;;[ICODE] init.c:106:   eproc _InitSystem [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function 
                             ( ) fixed}
-0009   0002           00214         RETURN  
-                      00215 ; exit point of _InitSystem
-                      00216 
-                      00217 ;***
-                      00218 ;  pBlock Stats: dbName = C
-                      00219 ;***
-                      00220 ;has an exit
-                      00221 ;; Starting pCode block
-                      00222 ;;[ICODE] init.c:9:  _entry($2) :
-                      00223 ;;[ICODE] init.c:9:     proc _InitPort [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
-                             fixed}
-                      00224 S_init__InitPort        code
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  6
+0009   0002           00215         RETURN  
+                      00216 ; exit point of _InitSystem
+                      00217 
+                      00218 ;***
+                      00219 ;  pBlock Stats: dbName = C
+                      00220 ;***
+                      00221 ;has an exit
+                      00222 ;; Starting pCode block
+                      00223 ;;[ICODE] init.c:73:  _entry($2) :
+                      00224 ;;[ICODE] init.c:73:    proc _lowPower_IO_Init [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void func
+                            tion ( ) fixed}
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-0000                  00225 _InitPort:
-                      00226 ; 2 exit points
-                      00227 ;;[ICODE] init.c:12:    _AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
+                      00225 S_init__lowPower_IO_Init        code
+0000                  00226 _lowPower_IO_Init:
+                      00227 ; 2 exit points
+                      00228 ;;[ICODE] init.c:76:    _AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
                             } := 0x0 {const-unsigned-char literal}
-                      00228 ;       .line   12; "init.c"    AUXR = 0;
-0000   18??           00229         CLRF    _AUXR
-                      00230 ;;[ICODE] init.c:14:    _PORTB [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00229 ;       .line   76; "init.c"    AUXR = 0;
+0000   18??           00230         CLRF    _AUXR
+                      00231 ;;[ICODE] init.c:77:    _PORTB [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} := 0x0 {const-unsigned-char literal}
-                      00231 ;       .line   14; "init.c"    PORTB = 0;  // 0 disenable output, 1 enable output
-0001   18??           00232         CLRF    _PORTB
-                      00233 ;;[ICODE] init.c:22:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00232 ;       .line   77; "init.c"    PORTB = 0;  // 0 disenable output, 1 enable output
+0001   18??           00233         CLRF    _PORTB
+                      00234 ;;[ICODE] init.c:78:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} := 0xff {const-unsigned-char literal}
+                      00235 ;       .line   78; "init.c"    TRISB = 0xff;    //1：input  0:output
+0002   04FF           00236         MOVLW   0xff
+0003   19??           00237         MOVWF   _TRISB
+                      00238 ;;[ICODE] init.c:81:    _PDCON [k5 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} := 0xff {const-unsigned-char literal}
+                      00239 ;       .line   81; "init.c"    PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
+0004   04FF           00240         MOVLW   0xff
+0005   19??           00241         MOVWF   _PDCON
+                      00242 ;;[ICODE] init.c:82:    _PDCON1 [k6 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                            fr} := 0xff {const-unsigned-char literal}
+                      00243 ;       .line   82; "init.c"    PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+0006   04FF           00244         MOVLW   0xff
+0007   19??           00245         MOVWF   _PDCON1
+                      00246 ;;[ICODE] init.c:85:    _PHCON [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} := 0xff {const-unsigned-char literal}
+                      00247 ;       .line   85; "init.c"    PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
+0008   04FF           00248         MOVLW   0xff
+0009   19??           00249         MOVWF   _PHCON
+                      00250 ;;[ICODE] init.c:87:    _PHCON [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _PHCON [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfb {const-un
+                            signed-char literal}
+                      00251 ;       .line   87; "init.c"    PHCON &= DEF_CLR_BIT2;
+000A   3D??           00252         BCF     _PHCON,2
+                      00253 ;;[ICODE] init.c:88:    _PHCON [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} = _PHCON [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xef {const-un
+                            signed-char literal}
+                      00254 ;       .line   88; "init.c"    PHCON &= DEF_CLR_BIT4;
+000B   3E??           00255         BCF     _PHCON,4
+                      00256 ;;[ICODE] init.c:88:  _return($1) :
+                      00257 ;;[ICODE] init.c:88:    eproc _lowPower_IO_Init [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fun
+                            ction ( ) fixed}
+000C   0002           00258         RETURN  
+                      00259 ; exit point of _lowPower_IO_Init
+                      00260 
+                      00261 ;***
+                      00262 ;  pBlock Stats: dbName = C
+                      00263 ;***
+                      00264 ;has an exit
+                      00265 ;; Starting pCode block
+                      00266 ;;[ICODE] init.c:8:  _entry($2) :
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00267 ;;[ICODE] init.c:8:     proc _InitPort [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( )
+                             fixed}
+                      00268 S_init__InitPort        code
+0000                  00269 _InitPort:
+                      00270 ; 2 exit points
+                      00271 ;;[ICODE] init.c:11:    _AUXR [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr
+                            } := 0x0 {const-unsigned-char literal}
+                      00272 ;       .line   11; "init.c"    AUXR = 0;
+0000   18??           00273         CLRF    _AUXR
+                      00274 ;;[ICODE] init.c:13:    _PORTB [k3 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} := 0x0 {const-unsigned-char literal}
-                      00234 ;       .line   22; "init.c"    TRISB = 0;    //1：input  0:output
-0002   18??           00235         CLRF    _TRISB
-                      00236 ;;[ICODE] init.c:23:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00275 ;       .line   13; "init.c"    PORTB = 0;  // 0 disenable output, 1 enable output
+0001   18??           00276         CLRF    _PORTB
+                      00277 ;;[ICODE] init.c:21:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                            r} := 0x0 {const-unsigned-char literal}
+                      00278 ;       .line   21; "init.c"    TRISB = 0;    //1：input  0:output
+0002   18??           00279         CLRF    _TRISB
+                      00280 ;;[ICODE] init.c:22:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {const-uns
                             igned-char literal}
-                      00237 ;       .line   23; "init.c"    TRISB |= DEF_SET_BIT2;    //input
-0003   39??           00238         BSF     _TRISB,2
-                      00239 ;;[ICODE] init.c:24:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00281 ;       .line   22; "init.c"    TRISB |= DEF_SET_BIT2;    //input
+0003   39??           00282         BSF     _TRISB,2
+                      00283 ;;[ICODE] init.c:23:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-un
                             signed-char literal}
-                      00240 ;       .line   24; "init.c"    TRISB |= DEF_SET_BIT4;  //input
-0004   3A??           00241         BSF     _TRISB,4
-                      00242 ;;[ICODE] init.c:25:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00284 ;       .line   23; "init.c"    TRISB |= DEF_SET_BIT4;  //input
+0004   3A??           00285         BSF     _TRISB,4
+                      00286 ;;[ICODE] init.c:24:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x20 {const-un
                             signed-char literal}
-                      00243 ;       .line   25; "init.c"    TRISB |= DEF_SET_BIT5;  //input
-0005   3A??           00244         BSF     _TRISB,5
-                      00245 ;;[ICODE] init.c:26:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00287 ;       .line   24; "init.c"    TRISB |= DEF_SET_BIT5;  //input
+0005   3A??           00288         BSF     _TRISB,5
+                      00289 ;;[ICODE] init.c:25:    _TRISB [k4 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _TRISB [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x8 {const-uns
                             igned-char literal}
-                      00246 ;       .line   26; "init.c"    TRISB |= DEF_SET_BIT3;  //input
-0006   39??           00247         BSF     _TRISB,3
-                      00248 ;;[ICODE] init.c:33:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00290 ;       .line   25; "init.c"    TRISB |= DEF_SET_BIT3;  //input
+0006   39??           00291         BSF     _TRISB,3
+                      00292 ;;[ICODE] init.c:32:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} := 0xff {const-unsigned-char literal}
-                      00249 ;       .line   33; "init.c"    PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
-0007   04FF           00250         MOVLW   0xff
-0008   19??           00251         MOVWF   _PHCON
-                      00252 ;;[ICODE] init.c:35:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00293 ;       .line   32; "init.c"    PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
+0007   04FF           00294         MOVLW   0xff
+0008   19??           00295         MOVWF   _PHCON
+                      00296 ;;[ICODE] init.c:34:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfe {const-un
                             signed-char literal}
-                      00253 ;       .line   35; "init.c"    PHCON &= DEF_CLR_BIT0;
-0009   3C??           00254         BCF     _PHCON,0
-                      00255 ;;[ICODE] init.c:36:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00297 ;       .line   34; "init.c"    PHCON &= DEF_CLR_BIT0;
+0009   3C??           00298         BCF     _PHCON,0
+                      00299 ;;[ICODE] init.c:35:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfd {const-un
                             signed-char literal}
-                      00256 ;       .line   36; "init.c"    PHCON &= DEF_CLR_BIT1;
-000A   3C??           00257         BCF     _PHCON,1
-                      00258 ;;[ICODE] init.c:38:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00300 ;       .line   35; "init.c"    PHCON &= DEF_CLR_BIT1;
+000A   3C??           00301         BCF     _PHCON,1
+                      00302 ;;[ICODE] init.c:37:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
                             r} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xfb {const-un
                             signed-char literal}
-                      00259 ;       .line   38; "init.c"    PHCON &= DEF_CLR_BIT2;
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  7
-
-
-LOC    OBJECT CODE    LINE  SOURCE TEXT
-  VALUE
-
-000B   3D??           00260         BCF     _PHCON,2
-                      00261 ;;[ICODE] init.c:39:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00303 ;       .line   37; "init.c"    PHCON &= DEF_CLR_BIT2;
+000B   3D??           00304         BCF     _PHCON,2
+                      00305 ;;[ICODE] init.c:38:    _PHCON [k9 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _PHCON [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} & 0xef {const-un
                             signed-char literal}
-                      00262 ;       .line   39; "init.c"    PHCON &= DEF_CLR_BIT4;
-000C   3E??           00263         BCF     _PHCON,4
-                      00264 ;;[ICODE] init.c:45:    _PDCON [k14 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                      00306 ;       .line   38; "init.c"    PHCON &= DEF_CLR_BIT4;
+000C   3E??           00307         BCF     _PHCON,4
+                      00308 ;;[ICODE] init.c:44:    _PDCON [k14 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
                             fr} := 0xff {const-unsigned-char literal}
-                      00265 ;       .line   45; "init.c"    PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
-000D   04FF           00266         MOVLW   0xff
-000E   19??           00267         MOVWF   _PDCON
-                      00268 ;;[ICODE] init.c:46:    _PDCON1 [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
+                      00309 ;       .line   44; "init.c"    PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
+000D   04FF           00310         MOVLW   0xff
+000E   19??           00311         MOVWF   _PDCON
+                      00312 ;;[ICODE] init.c:45:    _PDCON1 [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char 
                             sfr} := 0xff {const-unsigned-char literal}
-                      00269 ;       .line   46; "init.c"    PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
-000F   04FF           00270         MOVLW   0xff
-0010   19??           00271         MOVWF   _PDCON1
-                      00272 ;;[ICODE] init.c:50:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00313 ;       .line   45; "init.c"    PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+000F   04FF           00314         MOVLW   0xff
+0010   19??           00315         MOVWF   _PDCON1
+                      00316 ;;[ICODE] init.c:49:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} := 0x0 {const-unsigned-char literal}
-                      00273 ;       .line   50; "init.c"    IOCB = 0X00; // 0 disenable weak up     ,1 enable weak up
-0011   18??           00274         CLRF    _IOCB
-                      00275 ;;[ICODE] init.c:51:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00317 ;       .line   49; "init.c"    IOCB = 0X00; // 0 disenable weak up     ,1 enable weak up
+0011   18??           00318         CLRF    _IOCB
+                      00319 ;;[ICODE] init.c:50:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _IOCB [k16 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {const-uns
                             igned-char literal}
-                      00276 ;       .line   51; "init.c"    IOCB |= DEF_SET_BIT2;
-0012   39??           00277         BSF     _IOCB,2
-                      00278 ;;[ICODE] init.c:52:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00320 ;       .line   50; "init.c"    IOCB |= DEF_SET_BIT2;
+0012   39??           00321         BSF     _IOCB,2
+                      00322 ;;[ICODE] init.c:51:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _IOCB [k16 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x10 {const-un
                             signed-char literal}
-                      00279 ;       .line   52; "init.c"    IOCB |= DEF_SET_BIT4;
-0013   3A??           00280         BSF     _IOCB,4
-                      00281 ;;[ICODE] init.c:53:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
+                      00323 ;       .line   51; "init.c"    IOCB |= DEF_SET_BIT4;
+0013   3A??           00324         BSF     _IOCB,4
+                      00325 ;;[ICODE] init.c:52:    _IOCB [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sf
                             r} = _IOCB [k16 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x20 {const-un
                             signed-char literal}
-                      00282 ;       .line   53; "init.c"    IOCB |= DEF_SET_BIT5;
-0014   3A??           00283         BSF     _IOCB,5
-                      00284 ;;[ICODE] init.c:54:    iTemp12 [k23 lr32:34 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00326 ;       .line   52; "init.c"    IOCB |= DEF_SET_BIT5;
+0014   3A??           00327         BSF     _IOCB,5
+                      00328 ;;[ICODE] init.c:53:    iTemp12 [k23 lr32:34 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {1,1} near* fixed}[remat] = &[_INTECONbits [k20 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volati
                             le-struct __00000024 fixed} , 0x0 {const-unsigned-char literal}]
-                      00285 ;;[ICODE] init.c:54:    *(iTemp12 [k23 lr32:34 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                      00329 ;;[ICODE] init.c:53:    *(iTemp12 [k23 lr32:34 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
                             itfield {1,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00286 ;       .line   54; "init.c"    PBIE = 0; // 0  disenable Port level change interrupt , 1 enable Port le
+                      00330 ;       .line   53; "init.c"    PBIE = 0; // 0  disenable Port level change interrupt , 1 enable Port le
                             vel change interrupt
-0015   3C??           00287         BCF     _INTECONbits,1
-                      00288 ;;[ICODE] init.c:60:    _ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+0015   3C??           00331         BCF     _INTECONbits,1
+                      00332 ;;[ICODE] init.c:59:    _ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
                             fr} := 0x0 {const-unsigned-char literal}
-                      00289 ;       .line   60; "init.c"    ODCON = 0;
-0016   18??           00290         CLRF    _ODCON
-                      00291 ;;[ICODE] init.c:61:    _ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                      00333 ;       .line   59; "init.c"    ODCON = 0;
+0016   18??           00334         CLRF    _ODCON
+                      00335 ;;[ICODE] init.c:60:    _ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
                             fr} = _ODCON [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x1 {const-u
                             nsigned-char literal}
-                      00292 ;       .line   61; "init.c"    ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open d
-                            rain output
-0017   38??           00293         BSF     _ODCON,0
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
   VALUE
 
-                      00294 ;;[ICODE] init.c:62:    _ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
+                      00336 ;       .line   60; "init.c"    ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open d
+                            rain output
+0017   38??           00337         BSF     _ODCON,0
+                      00338 ;;[ICODE] init.c:61:    _ODCON [k24 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char s
                             fr} = _ODCON [k24 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x2 {const-u
                             nsigned-char literal}
-                      00295 ;       .line   62; "init.c"    ODCON |= DEF_SET_BIT1;
-0018   38??           00296         BSF     _ODCON,1
-                      00297 ;;[ICODE] init.c:68:    iTemp16 [k30 lr40:42 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00339 ;       .line   61; "init.c"    ODCON |= DEF_SET_BIT1;
+0018   38??           00340         BSF     _ODCON,1
+                      00341 ;;[ICODE] init.c:67:    iTemp16 [k30 lr40:42 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {7,1} near* fixed}[remat] = &[_RAMPbits [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-
                             struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-                      00298 ;;[ICODE] init.c:68:    *(iTemp16 [k30 lr40:42 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                      00342 ;;[ICODE] init.c:67:    *(iTemp16 [k30 lr40:42 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
                             itfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00299 ;       .line   68; "init.c"    MODSEL = 1;   // 1：使能内置限流电阻
-0019   3B??           00300         BSF     _RAMPbits,7
-                      00301 ;;[ICODE] init.c:69:    iTemp18 [k34 lr43:45 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00343 ;       .line   67; "init.c"    MODSEL = 1;   // 1：使能内置限流电阻
+0019   3B??           00344         BSF     _RAMPbits,7
+                      00345 ;;[ICODE] init.c:68:    iTemp18 [k34 lr43:45 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {1,1} near* fixed}[remat] = &[_PORTBbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
                             -struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00302 ;;[ICODE] init.c:69:    *(iTemp18 [k34 lr43:45 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                      00346 ;;[ICODE] init.c:68:    *(iTemp18 [k34 lr43:45 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
                             itfield {1,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00303 ;       .line   69; "init.c"    PORT_LED1 = 1;  //灯光  1：灭  0：亮
-001A   38??           00304         BSF     _PORTBbits,1
-                      00305 ;;[ICODE] init.c:70:    iTemp20 [k37 lr46:48 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00347 ;       .line   68; "init.c"    PORT_LED1 = 1;  //灯光  1：灭  0：亮
+001A   38??           00348         BSF     _PORTBbits,1
+                      00349 ;;[ICODE] init.c:69:    iTemp20 [k37 lr46:48 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {0,1} near* fixed}[remat] = &[_PORTBbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
                             -struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00306 ;;[ICODE] init.c:70:    *(iTemp20 [k37 lr46:48 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                      00350 ;;[ICODE] init.c:69:    *(iTemp20 [k37 lr46:48 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
                             itfield {0,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
-                      00307 ;       .line   70; "init.c"    PORT_LED2 = 1;  //电机 1：灭  0：亮
-001B   38??           00308         BSF     _PORTBbits,0
-                      00309 ;;[ICODE] init.c:71:    iTemp22 [k40 lr49:51 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
+                      00351 ;       .line   69; "init.c"    PORT_LED2 = 1;  //电机 1：灭  0：亮
+001B   38??           00352         BSF     _PORTBbits,0
+                      00353 ;;[ICODE] init.c:70:    iTemp22 [k40 lr49:51 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bit
                             field {3,1} near* fixed}[remat] = &[_PORTBbits [k31 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile
                             -struct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
-                      00310 ;;[ICODE] init.c:71:    *(iTemp22 [k40 lr49:51 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
+                      00354 ;;[ICODE] init.c:70:    *(iTemp22 [k40 lr49:51 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-b
                             itfield {3,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
-                      00311 ;       .line   71; "init.c"    PORT_LED3 = 0; //pow
-001C   3D??           00312         BCF     _PORTBbits,3
-                      00313 ;;[ICODE] init.c:71:  _return($1) :
-                      00314 ;;[ICODE] init.c:71:    eproc _InitPort [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
+                      00355 ;       .line   70; "init.c"    PORT_LED3 = 0; //pow
+001C   3D??           00356         BCF     _PORTBbits,3
+                      00357 ;;[ICODE] init.c:70:  _return($1) :
+                      00358 ;;[ICODE] init.c:70:    eproc _InitPort [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( 
                             ) fixed}
-001D   0002           00315         RETURN  
-                      00316 ; exit point of _InitPort
-                      00317 
-                      00318 
-                      00319 ;       code size estimation:
-                      00320 ;          52+    0 =    52 instructions (  104 byte)
-                      00321 
-                      00322         end
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE  9
+001D   0002           00359         RETURN  
+                      00360 ; exit point of _InitPort
+                      00361 
+                      00362 
+                      00363 ;       code size estimation:
+                      00364 ;          65+    0 =    65 instructions (  130 byte)
+                      00365 
+                      00366         end
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE 10
 
 
 SYMBOL TABLE
@@ -520,7 +582,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE 11
 
 
 SYMBOL TABLE
@@ -579,7 +641,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE 12
 
 
 SYMBOL TABLE
@@ -638,7 +700,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE 13
 
 
 SYMBOL TABLE
@@ -697,7 +759,7 @@ _INDF                             EXTERNAL      00000000              0
 _INTECON                          EXTERNAL      00000000              0
 _INTECONbits                      EXTERNAL      00000000              0
 _INTFLAG                          EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE 14
 
 
 SYMBOL TABLE
@@ -756,7 +818,7 @@ _TRISBbits                        EXTERNAL      00000000              0
 _TempCount                        EXTERNAL      00000000              0
 _TempFlag                         EXTERNAL      00000000              0
 _WDTE_OFF                         CONSTANT      00003FFB          16379
-gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/05/25  10:34:45          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)      init.asm   05/13/25  16:04:53          PAGE 15
 
 
 SYMBOL TABLE
@@ -801,6 +863,7 @@ __VECTOR_RESET                    CONSTANT      00000000              0
 __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
 _g_ucTimer10msCount               EXTERNAL      00000000              0
 _g_ucTimerWorkCount               EXTERNAL      00000000              0
+_lowPower_IO_Init                 GLOBAL        00000000              0
 
 Errors   :     0
 Warnings :     0 reported,     0 suppressed

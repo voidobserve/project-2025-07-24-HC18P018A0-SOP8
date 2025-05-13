@@ -3,7 +3,6 @@
 
 
 
-
 //控蓝牙，上电是开漏，不开上下拉
 //按下按键是开上拉，输出，松手时输出低，关上拉
 void InitPort(void)
@@ -70,6 +69,27 @@ void InitPort(void)
 	PORT_LED2 = 1;  //电机 1：灭  0：亮
 	PORT_LED3 = 0; //pow
 }
+
+void lowPower_IO_Init(void)
+{
+
+	AUXR = 0;
+	PORTB = 0;  // 0 disenable output, 1 enable output
+	TRISB = 0xff;    //1：input  0:output
+	 
+	//下拉
+	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
+    PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+
+	//上拉
+	PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
+
+	PHCON &= DEF_CLR_BIT2;
+	PHCON &= DEF_CLR_BIT4;
+
+}
+
+
 
 
 

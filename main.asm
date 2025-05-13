@@ -15,6 +15,7 @@
 	extern	_InitSystem
 	extern	_InitPwm
 	extern	_InitRam
+	extern	_lowPower_IO_Init
 	extern	_CheckLvd
 	extern	_ConfigureLvd
 	extern	_Work
@@ -324,14 +325,14 @@ _00112_DS_:
 	IORWF	r0x1001,W
 	BTFSC	STATUS,2
 	GOTO	_00115_DS_
-;;[ICODE] main.c:23: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] := 0x149 {const-unsigned-int literal}
+;;[ICODE] main.c:23: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] := 0x149 {const-unsigned-int literal}
 ;	.line	23; "main.c"	while (i)
 	MOVLW	0x49
 	MOVWF	r0x1003
 	MOVLW	0x01
 	MOVWF	r0x1004
 ;;[ICODE] main.c:23:  _whilecontinue_1($1) :
-;;[ICODE] main.c:23: 	if iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] == 0 goto _whilebreak_1($3)
+;;[ICODE] main.c:23: 	if iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] == 0 goto _whilebreak_1($3)
 _00109_DS_:
 	MOVF	r0x1003,W
 	IORWF	r0x1004,W
@@ -339,7 +340,7 @@ _00109_DS_:
 	GOTO	_00111_DS_
 ;;[ICODE] main.c:26: inline
 	nop
-;;[ICODE] main.c:27: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] = iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_29}[r0x1047 r0x1048 ] - 0x1 {const-unsigned-char literal}
+;;[ICODE] main.c:27: 	iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] = iTemp3 [k7 lr8:14 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}{ sir@ _delay_ms_i_2_30}[r0x1047 r0x1048 ] - 0x1 {const-unsigned-char literal}
 ;	.line	27; "main.c"	i--;
 	MOVLW	0xff
 	ADDWF	r0x1003,F

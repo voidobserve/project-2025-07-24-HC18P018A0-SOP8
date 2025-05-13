@@ -21,6 +21,7 @@
 	extern	_InitSystem
 	extern	_InitPwm
 	extern	_InitRam
+	extern	_lowPower_IO_Init
 	extern	_STATUSbits
 	extern	_PORTBbits
 	extern	_PCONbits
@@ -136,10 +137,10 @@ code_temp	code
 ;has an exit
 ;functions called:
 ;   _DelayMs
-;   _InitPort
+;   _lowPower_IO_Init
 ;   _InitPort
 ;   _DelayMs
-;   _InitPort
+;   _lowPower_IO_Init
 ;   _InitPort
 ;2 compiler assigned registers:
 ;   r0x1005
@@ -235,9 +236,9 @@ _00118_DS_:
 ;;[ICODE] temp.c:55: 	*(iTemp29 [k48 lr43:45 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x0 {const-unsigned-char literal}
 ;	.line	55; "temp.c"	WDTEN = 0;
 	BCF	_PCONbits,7
-;;[ICODE] temp.c:57: 	iTemp30 [k50 lr46:46 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
-;	.line	57; "temp.c"	InitPort();
-	CALL	_InitPort
+;;[ICODE] temp.c:57: 	iTemp30 [k50 lr46:46 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _lowPower_IO_Init [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;	.line	57; "temp.c"	lowPower_IO_Init();
+	CALL	_lowPower_IO_Init
 ;;[ICODE] temp.c:63: inline
 	movf	PORTB,W
 	
@@ -284,11 +285,11 @@ _00118_DS_:
 ;;[ICODE] temp.c:86: 	*(iTemp44 [k73 lr70:72 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
 ;	.line	86; "temp.c"	GIE = 1;
 	BSF	_INTECONbits,7
-;;[ICODE] temp.c:89: 	iTemp45 [k74 lr73:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k49 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+;;[ICODE] temp.c:89: 	iTemp45 [k75 lr73:73 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _InitPort [k74 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
 ;	.line	89; "temp.c"	InitPort();
 	CALL	_InitPort
-;;[ICODE] temp.c:92: 	iTemp47 [k77 lr74:76 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
-;;[ICODE] temp.c:92: 	*(iTemp47 [k77 lr74:76 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
+;;[ICODE] temp.c:92: 	iTemp47 [k78 lr74:76 so:0]{ ia0 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat] = &[_RAMPbits [k40 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-struct __00000070 fixed} , 0x0 {const-unsigned-char literal}]
+;;[ICODE] temp.c:92: 	*(iTemp47 [k78 lr74:76 so:0]{ ia1 a2p0 re0 rm1 nos0 ru0 dp0}{volatile-unsigned-bitfield {7,1} near* fixed}[remat]) := 0x1 {const-unsigned-char literal}
 ;	.line	92; "temp.c"	MODSEL = 1;
 	BSF	_RAMPbits,7
 ;;[ICODE] temp.c:93: 	_SleepCount [k15 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} := 0x0 {unsigned-int literal}

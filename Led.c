@@ -73,9 +73,10 @@ void PowOn(void)
 {
 	// 
 	
-	PHCON &= DEF_CLR_BIT3;  //open high pull
-
-	// ODCON |= DEF_SET_BIT3;  //开漏
+	// PHCON &= DEF_CLR_BIT3;  //open high pull
+	TRISB &= DEF_CLR_BIT3;  //ouput
+	ODCON |= DEF_SET_BIT3;  //开漏
+	PORT_LED3 = 0;
 	// PHCON &= DEF_CLR_BIT3;  //open high pull
 	// PORT_LED3 = 1;
 	// MODSEL = 1;	
@@ -85,8 +86,9 @@ void PowOn(void)
 void PowOff(void)
 {
 
-
- PHCON |= DEF_SET_BIT3;   //close high pull
+	TRISB |= DEF_SET_BIT3;  //input
+	ODCON &= DEF_CLR_BIT3;  //关开漏
+//  PHCON |= DEF_SET_BIT3;   //close high pull
 
 	// TRISB |= 
 	// PHCON |= DEF_SET_BIT3;   //close high pull
