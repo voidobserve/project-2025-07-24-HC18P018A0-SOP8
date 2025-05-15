@@ -176,15 +176,15 @@ _00114_DS_:
 	CLRF	_SleepCount
 	CLRF	(_SleepCount + 1)
 ;;[ICODE] temp.c:37:  __iffalse_2($2) :
-;;[ICODE] temp.c:42: 	iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepCount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x1770 {unsigned-int literal}
-;;unsigned compare: left < lit(0x1770=6000), size=2
+;;[ICODE] temp.c:42: 	iTemp11 [k17 lr18:19 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char fixed} = _SleepCount [k15 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed} < 0x3e8 {unsigned-int literal}
+;;unsigned compare: left < lit(0x3E8=1000), size=2
 _00115_DS_:
-;	.line	42; "temp.c"	if(SleepCount < 6000)
-	MOVLW	0x17
+;	.line	42; "temp.c"	if(SleepCount < 1000)
+	MOVLW	0x03
 	SUBWF	(_SleepCount + 1),W
 	BTFSS	STATUS,2
 	GOTO	_00128_DS_
-	MOVLW	0x70
+	MOVLW	0xe8
 	SUBWF	_SleepCount,W
 _00128_DS_:
 	BTFSC	STATUS,0

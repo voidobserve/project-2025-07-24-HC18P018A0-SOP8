@@ -39,7 +39,7 @@ void CheckSleep()
 
 
 	//delay one minute
-	if(SleepCount < 6000)
+	if(SleepCount < 1000)
 	// if(SleepCount < 500)
 	{
 		SleepCount++;

@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  1
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Message[301]: MESSAGE: "Processor-header file mismatch.  Verify selected process
   0000                00040         extern  _T0CRbits
   0000                00041         extern  _T1CONbits
   0000                00042         extern  _OSCCONbits
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  2
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00093         extern SSAVE
   0000                00094         extern WSAVE
   0000                00095         extern STK12
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  3
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00146 
                       00147 
                       00148 ID_key_3        idata
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  4
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             d {4,1} near* fixed}[remat] = &[_PORTBbits [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-stru
                             ct __00000005 fixed} , 0x0 {const-unsigned-char literal}]
                       00193 ;;[ICODE] key.c:14:     iTemp5 [k10 lr9:10 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-bitfi
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  5
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0016   13??           00229         INCF    (_longpress_cnt + 1),F
                       00230 ;;[ICODE] key.c:20:     _SleepCount [k22 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-int fixed}
                              := 0x0 {unsigned-int literal}
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  6
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0027   2???           00268         GOTO    _00110_DS_
                       00269 ;;[ICODE] key.c:30:     if iTemp23 [k34 lr35:36 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-
                             bitfield {4,1} fixed}[r0x104B ] != 0 goto __iffalse_2($6)
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  7
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00309 ;;genSkipc:3257: created from rifx:0x782c44
                       00310 ;;[ICODE] key.c:43:     if iTemp31 [k43 lr48:49 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{bit fixed} != 0 go
                             to _return($42)
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  8
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -470,7 +470,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             event [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixed} == 0x1 {const-unsigned-char 
                             literal}
                       00349 ;       .line   63; "key.c"     if(clink_event == 1){
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE  9
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -529,7 +529,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00389 ;;[ICODE] key.c:77:     _clink_event [k29 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char fixe
                             d} := 0x0 {const-unsigned-char literal}
                       00390 ;       .line   77; "key.c"     clink_event = 0;
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 10
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -588,7 +588,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                             ar fixed} := 0x0 {const-unsigned-char literal}
                       00430 ;       .line   93; "key.c"     g_ucTimerWorkCount = 0;
 0072   18??           00431         CLRF    _g_ucTimerWorkCount
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 11
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -647,7 +647,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0081   0002           00471         RETURN  
                       00472 ; exit point of _ScanKey
                       00473 
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 12
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 12
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -658,7 +658,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00476 ;         130+    0 =   130 instructions (  260 byte)
                       00477 
                       00478         end
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 13
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 13
 
 
 SYMBOL TABLE
@@ -717,7 +717,7 @@ ODB0                              CONSTANT      00000000              0
 ODB1                              CONSTANT      00000001              1
 ODB2                              CONSTANT      00000002              2
 ODB3                              CONSTANT      00000003              3
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 14
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 14
 
 
 SYMBOL TABLE
@@ -776,7 +776,7 @@ PWM0OE                            CONSTANT      00000007              7
 PWM0P                             CONSTANT      0000004F             79
 PWM1E                             CONSTANT      00000001              1
 PWM1OE                            CONSTANT      00000006              6
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 15
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 15
 
 
 SYMBOL TABLE
@@ -835,7 +835,7 @@ T0IF                              CONSTANT      00000000              0
 T0OSCEN                           CONSTANT      00000007              7
 T0SE                              CONSTANT      00000004              4
 T1                                CONSTANT      0000004D             77
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 16
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 16
 
 
 SYMBOL TABLE
@@ -894,7 +894,7 @@ _CHARGE0bits                      EXTERNAL      00000000              0
 _CHARGE1                          EXTERNAL      00000000              0
 _CHARGE1bits                      EXTERNAL      00000000              0
 _CMPCR                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 17
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 17
 
 
 SYMBOL TABLE
@@ -953,7 +953,7 @@ _PDCONbits                        EXTERNAL      00000000              0
 _PHCON                            EXTERNAL      00000000              0
 _PHCONbits                        EXTERNAL      00000000              0
 _PORTB                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 18
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 18
 
 
 SYMBOL TABLE
@@ -1012,7 +1012,7 @@ __GPUTILS_SVN_VERSION             CONSTANT      00000504           1284
 __GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
 __GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
 __GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
-gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/13/25  18:38:29          PAGE 19
+gpasm-1.5.0 #1284 (Oct 14 2022)       key.asm   05/15/25  15:35:47          PAGE 19
 
 
 SYMBOL TABLE

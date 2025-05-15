@@ -19,10 +19,11 @@ void InitPort(void)
 	//PB 01 3输出  2 4 5输入
 	
 	TRISB = 0;    //1：input  0:output
-	TRISB |= DEF_SET_BIT2;    //input
-	TRISB |= DEF_SET_BIT4;  //input
-	TRISB |= DEF_SET_BIT5;  //input
-	TRISB |= DEF_SET_BIT3;  //input
+	TRISB |= DEF_SET_BIT2;    //input  按键
+	TRISB |= DEF_SET_BIT4;  //input   按键
+	TRISB |= DEF_SET_BIT5;  //input   按键
+
+	TRISB |= DEF_SET_BIT3;  //input  pwo键
 
 
 	
@@ -31,8 +32,8 @@ void InitPort(void)
 	// 2 4需要拉上
     PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
 	// 0 1 3是开漏输出，靠内部上拉提供高低
-	PHCON &= DEF_CLR_BIT0;
-	PHCON &= DEF_CLR_BIT1;
+	PHCON &= DEF_CLR_BIT0;   //灯光
+	PHCON &= DEF_CLR_BIT1;  //电机
 	// PHCON &= DEF_CLR_BIT3;
 	PHCON &= DEF_CLR_BIT2;
 	PHCON &= DEF_CLR_BIT4;
@@ -47,19 +48,21 @@ void InitPort(void)
 
    //=====================================================================================
     IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
-	IOCB |= DEF_SET_BIT2;
-	IOCB |= DEF_SET_BIT4;
-	IOCB |= DEF_SET_BIT5;
+	IOCB |= DEF_SET_BIT2;  //按键
+	IOCB |= DEF_SET_BIT4;  //按键
+	IOCB |= DEF_SET_BIT5;  //按键
     PBIE = 0; // 0	disenable Port level change interrupt , 1 enable Port level change interrupt
 
 
    //=====================================================================================
 
-
+	//开漏配置
 	ODCON = 0;
 	ODCON |= DEF_SET_BIT0; // 0 disenable open drain output, 1 enable open drain output
 	ODCON |= DEF_SET_BIT1;
-	// ODCON |= DEF_SET_BIT3;
+
+
+	// ODCON |= DEF_SET_BIT3; //pow
 
 
 

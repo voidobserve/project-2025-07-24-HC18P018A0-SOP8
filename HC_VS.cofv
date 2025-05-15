@@ -1,7 +1,7 @@
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:28 2025
+Time Stamp           Thu May 15 15:35:46 2025
 Number of Sections   3
 Number of Symbols    84
 Characteristics      0
@@ -174,7 +174,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:28 2025
+Time Stamp           Thu May 15 15:35:46 2025
 Number of Sections   7
 Number of Symbols    102
 Characteristics      0
@@ -539,7 +539,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:29 2025
+Time Stamp           Thu May 15 15:35:46 2025
 Number of Sections   5
 Number of Symbols    95
 Characteristics      0
@@ -897,7 +897,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:29 2025
+Time Stamp           Thu May 15 15:35:47 2025
 Number of Sections   2
 Number of Symbols    95
 Characteristics      0
@@ -1131,7 +1131,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:29 2025
+Time Stamp           Thu May 15 15:35:47 2025
 Number of Sections   7
 Number of Symbols    130
 Characteristics      0
@@ -1740,7 +1740,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:30 2025
+Time Stamp           Thu May 15 15:35:47 2025
 Number of Sections   15
 Number of Symbols    134
 Characteristics      0
@@ -2018,58 +2018,49 @@ Section Header
 Name                    S_led__PowOff
 Physical address        0
 Virtual address         0
-Size of Section         6
-Number of Relocations   2
-Number of Line Numbers  3
+Size of Section         4
+Number of Relocations   1
+Number of Line Numbers  2
 Flags                   0x20
   Executable code.
 
 Data
 0000:  3980  bsf     0x00, 0x3
-0001:  3d80  bcf     0x00, 0x3
-0002:  0002  return
+0001:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              _TRISB
-0x0001      0x00000000            0  0x000a RELOC_F              _ODCON
+0x0000      0x00000000            0  0x000a RELOC_F              _PHCON
 
 Line Number Table
 Line      Address     Symbol
 305       0x0000      led.asm
 308       0x0001      led.asm
-311       0x0002      led.asm
 
 Section Header
 Name                    S_led__PowOn
 Physical address        0
 Virtual address         0
-Size of Section         8
-Number of Relocations   3
-Number of Line Numbers  4
+Size of Section         4
+Number of Relocations   1
+Number of Line Numbers  2
 Flags                   0x20
   Executable code.
 
 Data
 0000:  3d80  bcf     0x00, 0x3
-0001:  3980  bsf     0x00, 0x3
-0002:  3d80  bcf     0x00, 0x3
-0003:  0002  return
+0001:  0002  return
 
 Relocations Table
 Address     Offset      Offset       Type                        Symbol
             (hex)       (dec)
-0x0000      0x00000000            0  0x000a RELOC_F              _TRISB
-0x0001      0x00000000            0  0x000a RELOC_F              _ODCON
-0x0002      0x00000000            0  0x000a RELOC_F              _PORTBbits
+0x0000      0x00000000            0  0x000a RELOC_F              _PHCON
 
 Line Number Table
 Line      Address     Symbol
-326       0x0000      led.asm
-329       0x0001      led.asm
-333       0x0002      led.asm
-336       0x0003      led.asm
+323       0x0000      led.asm
+326       0x0001      led.asm
 
 Section Header
 Name                    S_led__MotoDisplay
@@ -2108,17 +2099,17 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-360       0x0000      led.asm
-361       0x0001      led.asm
-362       0x0002      led.asm
-364       0x0003      led.asm
-366       0x0004      led.asm
-367       0x0005      led.asm
-368       0x0006      led.asm
-372       0x0007      led.asm
-374       0x0008      led.asm
-379       0x0009      led.asm
-383       0x000a      led.asm
+350       0x0000      led.asm
+351       0x0001      led.asm
+352       0x0002      led.asm
+354       0x0003      led.asm
+356       0x0004      led.asm
+357       0x0005      led.asm
+358       0x0006      led.asm
+362       0x0007      led.asm
+364       0x0008      led.asm
+369       0x0009      led.asm
+373       0x000a      led.asm
 
 Section Header
 Name                    S_led__MotoOff
@@ -2143,9 +2134,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-399       0x0000      led.asm
-403       0x0001      led.asm
-406       0x0002      led.asm
+389       0x0000      led.asm
+393       0x0001      led.asm
+396       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoOn
@@ -2170,9 +2161,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-422       0x0000      led.asm
-426       0x0001      led.asm
-429       0x0002      led.asm
+412       0x0000      led.asm
+416       0x0001      led.asm
+419       0x0002      led.asm
 
 Section Header
 Name                    S_led__MotoSwitch
@@ -2214,20 +2205,20 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-450       0x0000      led.asm
-451       0x0001      led.asm
-452       0x0002      led.asm
-454       0x0003      led.asm
-455       0x0004      led.asm
-456       0x0005      led.asm
-457       0x0006      led.asm
-459       0x0007      led.asm
-461       0x0008      led.asm
-462       0x0009      led.asm
-463       0x000a      led.asm
-464       0x000b      led.asm
-465       0x000c      led.asm
-468       0x000d      led.asm
+440       0x0000      led.asm
+441       0x0001      led.asm
+442       0x0002      led.asm
+444       0x0003      led.asm
+445       0x0004      led.asm
+446       0x0005      led.asm
+447       0x0006      led.asm
+449       0x0007      led.asm
+451       0x0008      led.asm
+452       0x0009      led.asm
+453       0x000a      led.asm
+454       0x000b      led.asm
+455       0x000c      led.asm
+458       0x000d      led.asm
 
 Section Header
 Name                    S_led__LedOff
@@ -2252,9 +2243,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-484       0x0000      led.asm
-488       0x0001      led.asm
-491       0x0002      led.asm
+474       0x0000      led.asm
+478       0x0001      led.asm
+481       0x0002      led.asm
 
 Section Header
 Name                    S_led__LedOn
@@ -2279,9 +2270,9 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-507       0x0000      led.asm
-511       0x0001      led.asm
-514       0x0002      led.asm
+497       0x0000      led.asm
+501       0x0001      led.asm
+504       0x0002      led.asm
 
 Section Header
 Name                    S_led__LedDisplay
@@ -2320,17 +2311,17 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-538       0x0000      led.asm
-539       0x0001      led.asm
-540       0x0002      led.asm
-542       0x0003      led.asm
-544       0x0004      led.asm
-545       0x0005      led.asm
-546       0x0006      led.asm
-550       0x0007      led.asm
-552       0x0008      led.asm
-557       0x0009      led.asm
-561       0x000a      led.asm
+528       0x0000      led.asm
+529       0x0001      led.asm
+530       0x0002      led.asm
+532       0x0003      led.asm
+534       0x0004      led.asm
+535       0x0005      led.asm
+536       0x0006      led.asm
+540       0x0007      led.asm
+542       0x0008      led.asm
+547       0x0009      led.asm
+551       0x000a      led.asm
 
 Section Header
 Name                    S_led__LedSwitch
@@ -2372,20 +2363,20 @@ Address     Offset      Offset       Type                        Symbol
 
 Line Number Table
 Line      Address     Symbol
-582       0x0000      led.asm
-583       0x0001      led.asm
-584       0x0002      led.asm
-586       0x0003      led.asm
-587       0x0004      led.asm
-588       0x0005      led.asm
-589       0x0006      led.asm
-591       0x0007      led.asm
-593       0x0008      led.asm
-594       0x0009      led.asm
-595       0x000a      led.asm
-596       0x000b      led.asm
-597       0x000c      led.asm
-600       0x000d      led.asm
+572       0x0000      led.asm
+573       0x0001      led.asm
+574       0x0002      led.asm
+576       0x0003      led.asm
+577       0x0004      led.asm
+578       0x0005      led.asm
+579       0x0006      led.asm
+581       0x0007      led.asm
+583       0x0008      led.asm
+584       0x0009      led.asm
+585       0x000a      led.asm
+586       0x000b      led.asm
+587       0x000c      led.asm
+590       0x000d      led.asm
 
 Symbol Table
 Idx  Name                     Section          Value      Type     DT           Class     NumAux
@@ -2520,14 +2511,14 @@ Idx  Name                     Section          Value      Type     DT           
 0115 _00161_DS_               S_led__CountdownDisplay 0x00000046 T_NULL   DT_NON       C_LABEL   0
 0116 _00163_DS_               S_led__CountdownDisplay 0x0000004a T_NULL   DT_NON       C_LABEL   0
 0117 S_led__PowOff            S_led__PowOff    0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 6
-       number of relocations  = 2
-       number of line numbers = 3
+       length                 = 4
+       number of relocations  = 1
+       number of line numbers = 2
 0119 _PowOff                  S_led__PowOff    0x00000000 T_NULL   DT_NON       C_EXT     0
 0120 S_led__PowOn             S_led__PowOn     0x00000000 T_NULL   DT_NON       C_SECTION 1
-       length                 = 8
-       number of relocations  = 3
-       number of line numbers = 4
+       length                 = 4
+       number of relocations  = 1
+       number of line numbers = 2
 0122 _PowOn                   S_led__PowOn     0x00000000 T_NULL   DT_NON       C_EXT     0
 0123 S_led__MotoDisplay       S_led__MotoDisplay 0x00000000 T_NULL   DT_NON       C_SECTION 1
        length                 = 22
@@ -2578,7 +2569,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:30 2025
+Time Stamp           Thu May 15 15:35:47 2025
 Number of Sections   5
 Number of Symbols    101
 Characteristics      0
@@ -2789,7 +2780,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:30 2025
+Time Stamp           Thu May 15 15:35:48 2025
 Number of Sections   9
 Number of Symbols    134
 Characteristics      0
@@ -3287,7 +3278,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:30 2025
+Time Stamp           Thu May 15 15:35:48 2025
 Number of Sections   4
 Number of Symbols    113
 Characteristics      0
@@ -3341,11 +3332,11 @@ Data
 000f:  2000  goto    0x0000
 0010:  1880  clrf    0x00
 0011:  1880  clrf    0x00
-0012:  0417  movlw   0x17
+0012:  0403  movlw   0x03
 0013:  1b00  subwf   0x00, 0x0
 0014:  3103  btfss   0x03, 0x2
 0015:  2000  goto    0x0000
-0016:  0470  movlw   0x70
+0016:  04e8  movlw   0xe8
 0017:  1b00  subwf   0x00, 0x0
 0018:  3403  btfsc   0x03, 0x0
 0019:  2000  goto    0x0000
@@ -3755,7 +3746,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:31 2025
+Time Stamp           Thu May 15 15:35:48 2025
 Number of Sections   11
 Number of Symbols    98
 Characteristics      0
@@ -4060,7 +4051,7 @@ Idx  Name                     Section          Value      Type     DT           
 COFF File and Optional Headers
 COFF version         0x1240: MICROCHIP_MAGIC_v2
 Processor Type       18p018a0
-Time Stamp           Tue May 13 18:38:31 2025
+Time Stamp           Thu May 15 15:35:49 2025
 Number of Sections   2
 Number of Symbols    94
 Characteristics      0
