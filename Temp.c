@@ -68,7 +68,7 @@ void CheckSleep()
 
 	PORTB = 0;  // 【端口数据寄存器】0 disenable output, 1 enable output
 
-	TRISB = 0xff;    //1：input  0:output
+	TRISB = 0xff;    //1：input  0:output   PORTBx 端口全部配置为输入模式
 	// TRISB = ~(0x01 << 3); // PB3 保持输出模式
 	 
 	//下拉
@@ -79,11 +79,13 @@ void CheckSleep()
 	PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
 
 	PHCON &= DEF_CLR_BIT2; // 使能上拉 PB2 芯片2脚
-	PHCON &= DEF_CLR_BIT4; // 使能上拉 PB4 芯片4脚
+	PHCON &= DEF_CLR_BIT4; // 使能上拉 PB4 芯片3脚
+	// PHCON &= ~(0x01 << 5); // 使能 PB5 上拉，芯片4脚
 
     IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
 	IOCB |= DEF_SET_BIT2; // 唤醒中断使能 PB2 芯片2脚
-	IOCB |= DEF_SET_BIT4; // 唤醒中断使能 PB4 芯片4脚
+	IOCB |= DEF_SET_BIT4; // 唤醒中断使能 PB4 芯片3脚
+	IOCB |= (0x01 << 5); // 唤醒中断使能 PB5，芯片4脚
 	
 	// DelayMs();
 
@@ -108,7 +110,7 @@ void CheckSleep()
 	#endasm;
 	
 	PBIE = 0;
-	IOCB = 0;
+	IOCB = 0; // 唤醒后，屏蔽PORTBx 端口唤醒中断
 	LVDM = 1;
 	// asm(clrwdt)
 #asm;

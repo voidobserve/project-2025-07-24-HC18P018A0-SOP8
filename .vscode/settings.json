@@ -2,6 +2,7 @@
     "files.associations": {
         "interrupt.h": "c",
         "variable.h": "c",
-        "hc_define.h": "c"
+        "hc_define.h": "c",
+        "key.h": "c"
     }
 }

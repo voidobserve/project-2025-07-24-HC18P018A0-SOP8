@@ -395,20 +395,21 @@ DWORD motoTiming = 0;
 void CountdownDisplay(void)
 {
 
+
 if ((BITS_DATA0.bit5) == 1)
 {
 
 lampTiming++;
 
+if(lampTiming > 124000)
 
-if (lampTiming > 3000)
 {
 (BITS_DATA0.bit5) = 0;
 
 bt_off();
 }
 
-# 172
+# 173
 }
 else
 {
@@ -420,15 +421,15 @@ if ((BITS_DATA0.bit6) == 1)
 {
 motoTiming++;
 
+if(motoTiming > 124000)
 
-if (motoTiming > 3000)
 {
 (BITS_DATA0.bit6) = 0;
 
 bt_off();
 }
 
-# 196
+# 197
 }
 else
 {

@@ -44,9 +44,12 @@ void InitPort(void)
 	
 	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
     PDCON1 = 0xFF; // 1 disenable down pull ,0 enable down pull
+
+	PDCON1 &= ~(0x01 << 5); // 使能 PB5 下拉
     
 
    //=====================================================================================
+   // 唤醒、中断功能
     IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
 	IOCB |= DEF_SET_BIT2;  //按键
 	IOCB |= DEF_SET_BIT4;  //按键

@@ -308,6 +308,9 @@ PHCON &= (0xEF);
 PDCON = 0xFF;
 PDCON1 = 0xFF;
 
+PDCON1 &= ~(0x01 << 5);
+
+
 
 
 IOCB = 0X00;
@@ -316,12 +319,12 @@ IOCB |= (0x10);
 IOCB |= (0x20);
 PBIE = 0;
 
-# 60
+# 63
 ODCON = 0;
 ODCON |= (0x01);
 ODCON |= (0x02);
 
-# 70
+# 73
 MODSEL = 1;
 PORTB1 = 1;
 PORTB0 = 1;

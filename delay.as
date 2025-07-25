@@ -827,7 +827,7 @@ l2901:
 ;main.c: 85: if ((BITS_DATA0.bit0))
 	bcf	3,5	;RP0=0, select bank0
 	btfss	_BITS_DATA0,0
-	goto	l5055
+	goto	l5063
 
 ;main.c: 86: {
 ;main.c: 87: (BITS_DATA0.bit0) = 0;
@@ -841,7 +841,7 @@ l2901:
 
 ;main.c: 91: CheckSleep();
 	fcall	_CheckSleep
-l5055:	
+l5063:	
 
 ;main.c: 92: }
 ;main.c: 94: LedDisplay();
@@ -904,7 +904,7 @@ _ScanKey:
 	btfss	6,4	;volatile
 	goto	l1764
 	btfss	6,5	;volatile
-	goto	l4977
+	goto	l4985
 l1764:	
 
 ;key.c: 15: {
@@ -922,11 +922,11 @@ l1764:
 
 ;key.c: 20: if(longpress_cnt < 0xffff) {
 	incfsz	_longpress_cnt,w
-	goto	l4951
+	goto	l4959
 	incf	_longpress_cnt+1,w
 	btfsc	3,2
-	goto	l4955
-l4951:	
+	goto	l4963
+l4959:	
 
 ;key.c: 21: longpress_cnt++;
 	incf	_longpress_cnt,f
@@ -936,7 +936,7 @@ l4951:
 ;key.c: 23: SleepCount = 0;
 	clrf	_SleepCount
 	clrf	_SleepCount+1
-l4955:	
+l4963:	
 
 ;key.c: 24: }
 ;key.c: 26: if(longpress_cnt < 80){
@@ -1007,8 +1007,8 @@ l1766:
 
 ;key.c: 55: }
 ;key.c: 56: PowOn();
-	ljmp	l4695
-l4977:	
+	ljmp	l4701
+l4985:	
 
 ;key.c: 64: longpress_cnt = 0;
 	clrf	_longpress_cnt
@@ -1016,7 +1016,7 @@ l4977:
 
 ;key.c: 66: if(clink_event == 1){
 	decfsz	_clink_event,w
-	goto	l4985
+	goto	l4993
 
 ;key.c: 68: clink_event = 0;
 	clrf	_clink_event
@@ -1025,12 +1025,12 @@ l4977:
 	fcall	_MotoSwitch
 
 ;key.c: 72: } else if(clink_event == 2){
-	goto	l5001
-l4985:	
+	goto	l5009
+l4993:	
 	movlw	2
 	xorwf	_clink_event,w
 	btfss	3,2
-	goto	l4991
+	goto	l4999
 
 ;key.c: 73: clink_event = 0;
 	clrf	_clink_event
@@ -1039,12 +1039,12 @@ l4985:
 	fcall	_LedSwitch
 
 ;key.c: 78: } else if(clink_event == 3){
-	goto	l5001
-l4991:	
+	goto	l5009
+l4999:	
 	movlw	3
 	xorwf	_clink_event,w
 	btfss	3,2
-	goto	l5001
+	goto	l5009
 
 ;key.c: 80: clink_event = 0;
 	clrf	_clink_event
@@ -1058,26 +1058,26 @@ l4991:
 ;key.c: 84: holdOn_f = 1;
 	clrf	_holdOn_f
 	incf	_holdOn_f,f
-l5001:	
+l5009:	
 
 ;key.c: 87: }
 ;key.c: 90: if(holdOn_f) {
 	movf	_holdOn_f,w
 	btfsc	3,2
-	goto	l5011
+	goto	l5019
 
 ;key.c: 92: if(g_ucTimerWorkCount < 60) {
 	movlw	60
 	subwf	_g_ucTimerWorkCount,w
 	btfsc	3,0
-	goto	l5007
+	goto	l5015
 
 ;key.c: 93: g_ucTimerWorkCount++;
 	incf	_g_ucTimerWorkCount,f
 
 ;key.c: 94: } else {
-	goto	l5011
-l5007:	
+	goto	l5019
+l5015:	
 
 ;key.c: 95: holdOn_f = 0;
 	clrf	_holdOn_f
@@ -1087,7 +1087,7 @@ l5007:
 
 ;key.c: 97: PowOff();
 	fcall	_PowOff
-l5011:	
+l5019:	
 
 ;key.c: 98: }
 ;key.c: 101: }
@@ -1100,14 +1100,14 @@ l5011:
 	movlw	60
 	subwf	_g_ucTimerWorkCount,w
 	btfsc	3,0
-	goto	l5017
+	goto	l5025
 
 ;key.c: 109: g_ucTimerWorkCount++;
 	incf	_g_ucTimerWorkCount,f
 
 ;key.c: 111: } else {
 	return
-l5017:	
+l5025:	
 
 ;key.c: 113: long_f = 0;
 	clrf	_long_f
@@ -1116,7 +1116,7 @@ l5017:
 	clrf	_g_ucTimerWorkCount
 
 ;key.c: 115: PowOff();
-	ljmp	l4701
+	ljmp	l4707
 __end_of_ScanKey:	
 	opt stack 0
 
@@ -1159,7 +1159,7 @@ __ptext2:
 
 _PowOn:	
 	opt stack 2
-l4695:	
+l4701:	
 ;incstack = 0
 ; Regs used in _PowOn: []
 
@@ -1217,7 +1217,7 @@ __ptext3:
 
 _PowOff:	
 	opt stack 2
-l4701:	
+l4707:	
 ;incstack = 0
 ; Regs used in _PowOff: []
 
@@ -1390,19 +1390,19 @@ _MotoDisplay:
 ;incstack = 0
 ; Regs used in _MotoDisplay: [status,2+status,0+pclath+cstack]
 	btfss	_BITS_DATA0,6
-	goto	l4821
+	goto	l4827
 
 ;led.c: 56: {
 ;led.c: 57: MotoOn();
-	ljmp	l4707
-l4821:	
+	ljmp	l4713
+l4827:	
 ;led.c: 58: }
 
 
 ;led.c: 59: else
 ;led.c: 60: {
 ;led.c: 61: MotoOff();
-	ljmp	l4709
+	ljmp	l4715
 __end_of_MotoDisplay:	
 	opt stack 0
 
@@ -1444,7 +1444,7 @@ __ptext7:
 
 _MotoOn:	
 	opt stack 2
-l4707:	
+l4713:	
 ;incstack = 0
 ; Regs used in _MotoOn: []
 
@@ -1496,7 +1496,7 @@ __ptext8:
 
 _MotoOff:	
 	opt stack 2
-l4709:	
+l4715:	
 ;incstack = 0
 ; Regs used in _MotoOff: []
 
@@ -1555,19 +1555,19 @@ _LedDisplay:
 ;incstack = 0
 ; Regs used in _LedDisplay: [status,2+status,0+pclath+cstack]
 	btfss	_BITS_DATA0,5
-	goto	l4815
+	goto	l4821
 
 ;led.c: 15: {
 ;led.c: 16: LedOn();
-	ljmp	l4703
-l4815:	
+	ljmp	l4709
+l4821:	
 ;led.c: 17: }
 
 
 ;led.c: 18: else
 ;led.c: 19: {
 ;led.c: 20: LedOff();
-	ljmp	l4705
+	ljmp	l4711
 __end_of_LedDisplay:	
 	opt stack 0
 
@@ -1609,7 +1609,7 @@ __ptext10:
 
 _LedOn:	
 	opt stack 2
-l4703:	
+l4709:	
 ;incstack = 0
 ; Regs used in _LedOn: []
 
@@ -1661,7 +1661,7 @@ __ptext11:
 
 _LedOff:	
 	opt stack 2
-l4705:	
+l4711:	
 ;incstack = 0
 ; Regs used in _LedOff: []
 
@@ -1680,7 +1680,7 @@ __end_of_LedOff:
 __ptext12:	
 ;; *************** function _InitSystem *****************
 ;; Defined at:
-;;		line 78 in file "init.c"
+;;		line 81 in file "init.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1715,30 +1715,30 @@ __ptext12:
 _InitSystem:	
 	opt stack 3
 
-;init.c: 80: OSCCON = 0;
+;init.c: 83: OSCCON = 0;
 
 ;incstack = 0
 ; Regs used in _InitSystem: [wreg+status,2+status,0]
 	clrf	80	;volatile
 
-;init.c: 81: T0 = 0xCE;
+;init.c: 84: T0 = 0xCE;
 	movlw	206
 	movwf	1	;volatile
 
-;init.c: 83: OPTION = 0x00;
+;init.c: 86: OPTION = 0x00;
 	clrf	65	;volatile
 
-;init.c: 84: PCON |= 0x90;
+;init.c: 87: PCON |= 0x90;
 	movlw	144
 	iorwf	8,f	;volatile
 
-;init.c: 86: CMPCR = 0x00;
+;init.c: 89: CMPCR = 0x00;
 	clrf	81	;volatile
 
-;init.c: 87: INTFLAG &= 0xFE;
+;init.c: 90: INTFLAG &= 0xFE;
 	bcf	15,0	;volatile
 
-;init.c: 88: CMPCR |= 0X10;
+;init.c: 91: CMPCR |= 0X10;
 	bsf	81,4	;volatile
 	return
 __end_of_InitSystem:	
@@ -1748,7 +1748,7 @@ __end_of_InitSystem:
 __ptext13:	
 ;; *************** function _InitRam *****************
 ;; Defined at:
-;;		line 99 in file "init.c"
+;;		line 102 in file "init.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1783,19 +1783,19 @@ __ptext13:
 _InitRam:	
 	opt stack 3
 
-;init.c: 101: (BITS_DATA0.bit0) = 0;
+;init.c: 104: (BITS_DATA0.bit0) = 0;
 
 ;incstack = 0
 ; Regs used in _InitRam: [status,2]
 	bcf	_BITS_DATA0,0
 
-;init.c: 102: (BITS_DATA0.bit5) = 0;
+;init.c: 105: (BITS_DATA0.bit5) = 0;
 	bcf	_BITS_DATA0,5
 
-;init.c: 103: (BITS_DATA0.bit6) = 0;
+;init.c: 106: (BITS_DATA0.bit6) = 0;
 	bcf	_BITS_DATA0,6
 
-;init.c: 106: SleepCount = 0;
+;init.c: 109: SleepCount = 0;
 	clrf	_SleepCount
 	clrf	_SleepCount+1
 	return
@@ -1842,15 +1842,15 @@ __ptext14:
 _CountdownDisplay:	
 	opt stack 1
 
-;led.c: 154: if ((BITS_DATA0.bit5) == 1)
+;led.c: 155: if ((BITS_DATA0.bit5) == 1)
 
 ;incstack = 0
 ; Regs used in _CountdownDisplay: [wreg+status,2+status,0+pclath+cstack]
 	btfss	_BITS_DATA0,5
 	goto	l2175
 
-;led.c: 155: {
-;led.c: 157: lampTiming++;
+;led.c: 156: {
+;led.c: 158: lampTiming++;
 	incf	_lampTiming,f
 	btfsc	3,2
 	incf	_lampTiming+1,f
@@ -1859,49 +1859,50 @@ _CountdownDisplay:
 	btfsc	3,2
 	incf	_lampTiming+3,f
 
-;led.c: 160: if (lampTiming > 3000)
+;led.c: 160: if(lampTiming > 124000)
 	movf	_lampTiming+3,w
 	btfss	3,2
-	goto	l5027
-	movf	_lampTiming+2,w
+	goto	l5035
+	movlw	1
+	subwf	_lampTiming+2,w
 	btfss	3,2
-	goto	l5027
-	movlw	11
+	goto	u763
+	movlw	228
 	subwf	_lampTiming+1,w
 	btfss	3,2
 	goto	u763
-	movlw	185
+	movlw	97
 	subwf	_lampTiming,w
 u763:	
 	btfss	3,0
 	goto	l2177
-l5027:	
+l5035:	
 
-;led.c: 161: {
-;led.c: 162: (BITS_DATA0.bit5) = 0;
+;led.c: 162: {
+;led.c: 163: (BITS_DATA0.bit5) = 0;
 	bcf	_BITS_DATA0,5
 
-;led.c: 164: bt_off();
+;led.c: 165: bt_off();
 	fcall	_bt_off
 	goto	l2177
 l2175:	
 
-;led.c: 173: else
-;led.c: 174: {
-;led.c: 176: lampTiming = 0;
+;led.c: 174: else
+;led.c: 175: {
+;led.c: 177: lampTiming = 0;
 	clrf	_lampTiming
 	clrf	_lampTiming+1
 	clrf	_lampTiming+2
 	clrf	_lampTiming+3
 l2177:	
 
-;led.c: 177: }
-;led.c: 179: if ((BITS_DATA0.bit6) == 1)
+;led.c: 178: }
+;led.c: 180: if ((BITS_DATA0.bit6) == 1)
 	btfss	_BITS_DATA0,6
 	goto	l2178
 
-;led.c: 180: {
-;led.c: 181: motoTiming++;
+;led.c: 181: {
+;led.c: 182: motoTiming++;
 	incf	_motoTiming,f
 	btfsc	3,2
 	incf	_motoTiming+1,f
@@ -1910,35 +1911,36 @@ l2177:
 	btfsc	3,2
 	incf	_motoTiming+3,f
 
-;led.c: 184: if (motoTiming > 3000)
+;led.c: 184: if(motoTiming > 124000)
 	movf	_motoTiming+3,w
 	btfss	3,2
-	goto	l5035
-	movf	_motoTiming+2,w
+	goto	l5043
+	movlw	1
+	subwf	_motoTiming+2,w
 	btfss	3,2
-	goto	l5035
-	movlw	11
+	goto	u783
+	movlw	228
 	subwf	_motoTiming+1,w
 	btfss	3,2
 	goto	u783
-	movlw	185
+	movlw	97
 	subwf	_motoTiming,w
 u783:	
 	btfss	3,0
 	return
-l5035:	
+l5043:	
 
-;led.c: 185: {
-;led.c: 186: (BITS_DATA0.bit6) = 0;
+;led.c: 186: {
+;led.c: 187: (BITS_DATA0.bit6) = 0;
 	bcf	_BITS_DATA0,6
 
-;led.c: 188: bt_off();
-	ljmp	l4711
+;led.c: 189: bt_off();
+	ljmp	l4717
 l2178:	
 
-;led.c: 197: else
-;led.c: 198: {
-;led.c: 200: motoTiming = 0;
+;led.c: 198: else
+;led.c: 199: {
+;led.c: 201: motoTiming = 0;
 	clrf	_motoTiming
 	clrf	_motoTiming+1
 	clrf	_motoTiming+2
@@ -1985,7 +1987,7 @@ __ptext15:
 
 _bt_off:	
 	opt stack 1
-l4711:	
+l4717:	
 ;incstack = 0
 ; Regs used in _bt_off: [wreg+status,2+status,0+pclath+cstack]
 
@@ -2011,7 +2013,7 @@ l4711:
 	movwf	delay_ms@xms
 	movlw	1
 	movwf	delay_ms@xms+1
-	ljmp	l4645
+	ljmp	l4649
 __end_of_bt_off:	
 	opt stack 0
 
@@ -2055,7 +2057,7 @@ __ptext16:
 
 _delay_ms:	
 	opt stack 3
-l4645:	
+l4649:	
 ;main.c: 25: while (xms)
 
 ;incstack = 0
@@ -2072,7 +2074,7 @@ l4645:
 	movwf	delay_ms@i
 	movlw	1
 	movwf	delay_ms@i+1
-l4641:	
+l4645:	
 ;main.c: 29: while (i)
 
 	movf	delay_ms@i,w
@@ -2087,7 +2089,7 @@ l4641:
 	subwf	delay_ms@i,f
 	btfss	3,0
 	decf	delay_ms@i+1,f
-	goto	l4641
+	goto	l4645
 l2894:	
 	clrwdt	; ;# 
 
@@ -2099,7 +2101,7 @@ l2894:
 	btfss	3,0
 	decf	delay_ms@xms+1,f
 	subwf	delay_ms@xms+1,f
-	goto	l4645
+	goto	l4649
 __end_of_delay_ms:	
 	opt stack 0
 
@@ -2148,16 +2150,16 @@ _CheckSleep:
 ;incstack = 0
 ; Regs used in _CheckSleep: [wreg+status,2+status,0+pclath+cstack]
 	btfsc	_BITS_DATA0,5
-	goto	l4845
+	goto	l4851
 	btfss	_BITS_DATA0,6
-	goto	l4847
-l4845:	
+	goto	l4853
+l4851:	
 
 ;temp.c: 36: {
 ;temp.c: 37: SleepCount = 0;
 	clrf	_SleepCount
 	clrf	_SleepCount+1
-l4847:	
+l4853:	
 
 ;temp.c: 38: }
 ;temp.c: 42: if(SleepCount < 1000)
@@ -2167,7 +2169,7 @@ l4847:
 	btfsc	3,2
 	subwf	_SleepCount,w
 	btfsc	3,0
-	goto	l4853
+	goto	l4859
 
 ;temp.c: 44: {
 ;temp.c: 45: SleepCount++;
@@ -2175,7 +2177,7 @@ l4847:
 	btfsc	3,2
 	incf	_SleepCount+1,f
 	return
-l4853:	
+l4859:	
 
 ;temp.c: 47: }
 ;temp.c: 49: RAMP = 0;
@@ -2246,23 +2248,26 @@ l4853:
 ;temp.c: 82: PHCON &= (0xEF);
 	bcf	13,4	;volatile
 
-;temp.c: 84: IOCB = 0X00;
+;temp.c: 85: IOCB = 0X00;
 	clrf	9	;volatile
 
-;temp.c: 85: IOCB |= (0x04);
+;temp.c: 86: IOCB |= (0x04);
 	bsf	9,2	;volatile
 
-;temp.c: 86: IOCB |= (0x10);
+;temp.c: 87: IOCB |= (0x10);
 	bsf	9,4	;volatile
 
-;temp.c: 94: PBIF = 0;
+;temp.c: 88: IOCB |= (0x01 << 5);
+	bsf	9,5	;volatile
+
+;temp.c: 96: PBIF = 0;
 	bcf	3,5	;RP0=0, select bank0
 	bcf	15,1	;volatile
 
-;temp.c: 95: PBIE = 1;
+;temp.c: 97: PBIE = 1;
 	bsf	14,1	;volatile
 
-;temp.c: 96: GIE = 0;
+;temp.c: 98: GIE = 0;
 	bcf	14,7	;volatile
 	sleep	;# 
 	nop	;# 
@@ -2271,34 +2276,34 @@ l4853:
 	nop	;# 
 	movf	6,w	;# 
 
-;temp.c: 110: PBIE = 0;
+;temp.c: 112: PBIE = 0;
 	bcf	3,5	;RP0=0, select bank0
 	bcf	14,1	;volatile
 
-;temp.c: 111: IOCB = 0;
+;temp.c: 113: IOCB = 0;
 	clrf	9	;volatile
 
-;temp.c: 112: LVDM = 1;
+;temp.c: 114: LVDM = 1;
 	bsf	81,4	;volatile
 	clrwdt	; ;# 
 
-;temp.c: 117: WDTEN = 1;
+;temp.c: 119: WDTEN = 1;
 	bcf	3,5	;RP0=0, select bank0
 	bsf	8,7	;volatile
 
-;temp.c: 118: GIE = 1;
+;temp.c: 120: GIE = 1;
 	bsf	14,7	;volatile
 
-;temp.c: 119: T0IE = 1;
+;temp.c: 121: T0IE = 1;
 	bsf	14,0	;volatile
 
-;temp.c: 121: InitPort();
+;temp.c: 123: InitPort();
 	fcall	_InitPort
 
-;temp.c: 141: MODSEL = 1;
+;temp.c: 143: MODSEL = 1;
 	bsf	85,7	;volatile
 
-;temp.c: 142: SleepCount = 0;
+;temp.c: 144: SleepCount = 0;
 	clrf	_SleepCount
 	clrf	_SleepCount+1
 	return
@@ -2393,40 +2398,43 @@ _InitPort:
 ;init.c: 46: PDCON1 = 0xFF;
 	movwf	82	;volatile
 
-;init.c: 50: IOCB = 0X00;
+;init.c: 48: PDCON1 &= ~(0x01 << 5);
+	bcf	82,5	;volatile
+
+;init.c: 53: IOCB = 0X00;
 	clrf	9	;volatile
 
-;init.c: 51: IOCB |= (0x04);
+;init.c: 54: IOCB |= (0x04);
 	bsf	9,2	;volatile
 
-;init.c: 52: IOCB |= (0x10);
+;init.c: 55: IOCB |= (0x10);
 	bsf	9,4	;volatile
 
-;init.c: 53: IOCB |= (0x20);
+;init.c: 56: IOCB |= (0x20);
 	bsf	9,5	;volatile
 
-;init.c: 54: PBIE = 0;
+;init.c: 57: PBIE = 0;
 	bcf	14,1	;volatile
 
-;init.c: 60: ODCON = 0;
+;init.c: 63: ODCON = 0;
 	clrf	12	;volatile
 
-;init.c: 61: ODCON |= (0x01);
+;init.c: 64: ODCON |= (0x01);
 	bsf	12,0	;volatile
 
-;init.c: 62: ODCON |= (0x02);
+;init.c: 65: ODCON |= (0x02);
 	bsf	12,1	;volatile
 
-;init.c: 70: MODSEL = 1;
+;init.c: 73: MODSEL = 1;
 	bsf	85,7	;volatile
 
-;init.c: 71: PORTB1 = 1;
+;init.c: 74: PORTB1 = 1;
 	bsf	6,1	;volatile
 
-;init.c: 72: PORTB0 = 1;
+;init.c: 75: PORTB0 = 1;
 	bsf	6,0	;volatile
 
-;init.c: 73: PORTB3 = 0;
+;init.c: 76: PORTB3 = 0;
 	bcf	6,3	;volatile
 	return
 __end_of_InitPort:	
@@ -2481,7 +2489,7 @@ _interrupt_handle:
 ;interrupt.c: 15: }
 ;interrupt.c: 16: if (T0IF)
 	btfss	15,0	;volatile
-	goto	i1l4917
+	goto	i1l4925
 
 ;interrupt.c: 17: {
 ;interrupt.c: 18: T0IF = 0;
@@ -2490,7 +2498,7 @@ _interrupt_handle:
 ;interrupt.c: 19: T0 = 217;
 	movlw	217
 	movwf	1	;volatile
-i1l4917:	
+i1l4925:	
 	movlw	200
 
 ;interrupt.c: 21: }

@@ -607,121 +607,124 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;init.c: 46: PDCON1 = 0xFF;
 "46
 [e = _PDCON1 -> -> 255 `i `uc ]
-[; ;init.c: 50: IOCB = 0X00;
-"50
-[e = _IOCB -> -> 0 `i `uc ]
-[; ;init.c: 51: IOCB |= (0x04);
-"51
-[e =| _IOCB -> -> 4 `i `uc ]
-[; ;init.c: 52: IOCB |= (0x10);
-"52
-[e =| _IOCB -> -> 16 `i `uc ]
-[; ;init.c: 53: IOCB |= (0x20);
+[; ;init.c: 48: PDCON1 &= ~(0x01 << 5);
+"48
+[e =& _PDCON1 -> ~ << -> 1 `i -> 5 `i `uc ]
+[; ;init.c: 53: IOCB = 0X00;
 "53
-[e =| _IOCB -> -> 32 `i `uc ]
-[; ;init.c: 54: PBIE = 0;
+[e = _IOCB -> -> 0 `i `uc ]
+[; ;init.c: 54: IOCB |= (0x04);
 "54
+[e =| _IOCB -> -> 4 `i `uc ]
+[; ;init.c: 55: IOCB |= (0x10);
+"55
+[e =| _IOCB -> -> 16 `i `uc ]
+[; ;init.c: 56: IOCB |= (0x20);
+"56
+[e =| _IOCB -> -> 32 `i `uc ]
+[; ;init.c: 57: PBIE = 0;
+"57
 [e = _PBIE -> -> 0 `i `b ]
-[; ;init.c: 60: ODCON = 0;
-"60
+[; ;init.c: 63: ODCON = 0;
+"63
 [e = _ODCON -> -> 0 `i `uc ]
-[; ;init.c: 61: ODCON |= (0x01);
-"61
+[; ;init.c: 64: ODCON |= (0x01);
+"64
 [e =| _ODCON -> -> 1 `i `uc ]
-[; ;init.c: 62: ODCON |= (0x02);
-"62
+[; ;init.c: 65: ODCON |= (0x02);
+"65
 [e =| _ODCON -> -> 2 `i `uc ]
-[; ;init.c: 70: MODSEL = 1;
-"70
-[e = _MODSEL -> -> 1 `i `b ]
-[; ;init.c: 71: PORTB1 = 1;
-"71
-[e = _PORTB1 -> -> 1 `i `b ]
-[; ;init.c: 72: PORTB0 = 1;
-"72
-[e = _PORTB0 -> -> 1 `i `b ]
-[; ;init.c: 73: PORTB3 = 0;
+[; ;init.c: 73: MODSEL = 1;
 "73
-[e = _PORTB3 -> -> 0 `i `b ]
-[; ;init.c: 74: }
+[e = _MODSEL -> -> 1 `i `b ]
+[; ;init.c: 74: PORTB1 = 1;
 "74
+[e = _PORTB1 -> -> 1 `i `b ]
+[; ;init.c: 75: PORTB0 = 1;
+"75
+[e = _PORTB0 -> -> 1 `i `b ]
+[; ;init.c: 76: PORTB3 = 0;
+"76
+[e = _PORTB3 -> -> 0 `i `b ]
+[; ;init.c: 77: }
+"77
 [e :UE 3 ]
 }
-"78
+"81
 [v _InitSystem `(v ~T0 @X0 1 ef ]
-"79
+"82
 {
-[; ;init.c: 78: void InitSystem(void)
-[; ;init.c: 79: {
+[; ;init.c: 81: void InitSystem(void)
+[; ;init.c: 82: {
 [e :U _InitSystem ]
 [f ]
-[; ;init.c: 80: OSCCON = 0;
-"80
-[e = _OSCCON -> -> 0 `i `uc ]
-[; ;init.c: 81: T0 = 0xCE;
-"81
-[e = _T0 -> -> 206 `i `uc ]
-[; ;init.c: 83: OPTION = 0x00;
+[; ;init.c: 83: OSCCON = 0;
 "83
-[e = _OPTION -> -> 0 `i `uc ]
-[; ;init.c: 84: PCON |= 0x90;
+[e = _OSCCON -> -> 0 `i `uc ]
+[; ;init.c: 84: T0 = 0xCE;
 "84
-[e =| _PCON -> -> 144 `i `uc ]
-[; ;init.c: 86: CMPCR = 0x00;
+[e = _T0 -> -> 206 `i `uc ]
+[; ;init.c: 86: OPTION = 0x00;
 "86
-[e = _CMPCR -> -> 0 `i `uc ]
-[; ;init.c: 87: INTFLAG &= 0xFE;
+[e = _OPTION -> -> 0 `i `uc ]
+[; ;init.c: 87: PCON |= 0x90;
 "87
-[e =& _INTFLAG -> -> 254 `i `uc ]
-[; ;init.c: 88: CMPCR |= 0X10;
-"88
-[e =| _CMPCR -> -> 16 `i `uc ]
-[; ;init.c: 90: }
+[e =| _PCON -> -> 144 `i `uc ]
+[; ;init.c: 89: CMPCR = 0x00;
+"89
+[e = _CMPCR -> -> 0 `i `uc ]
+[; ;init.c: 90: INTFLAG &= 0xFE;
 "90
+[e =& _INTFLAG -> -> 254 `i `uc ]
+[; ;init.c: 91: CMPCR |= 0X10;
+"91
+[e =| _CMPCR -> -> 16 `i `uc ]
+[; ;init.c: 93: }
+"93
 [e :UE 4 ]
 }
-"92
+"95
 [v _InitPwm `(v ~T0 @X0 1 ef ]
-"93
+"96
 {
-[; ;init.c: 92: void InitPwm(void)
-[; ;init.c: 93: {
+[; ;init.c: 95: void InitPwm(void)
+[; ;init.c: 96: {
 [e :U _InitPwm ]
 [f ]
-[; ;init.c: 94: AUXR = 0;
-"94
-[e = _AUXR -> -> 0 `i `uc ]
-[; ;init.c: 95: T1 = 0XFE;
-"95
-[e = _T1 -> -> 254 `i `uc ]
-[; ;init.c: 96: T1LOAD = 0XFE;
-"96
-[e = _T1LOAD -> -> 254 `i `uc ]
-[; ;init.c: 97: }
+[; ;init.c: 97: AUXR = 0;
 "97
+[e = _AUXR -> -> 0 `i `uc ]
+[; ;init.c: 98: T1 = 0XFE;
+"98
+[e = _T1 -> -> 254 `i `uc ]
+[; ;init.c: 99: T1LOAD = 0XFE;
+"99
+[e = _T1LOAD -> -> 254 `i `uc ]
+[; ;init.c: 100: }
+"100
 [e :UE 5 ]
 }
-"99
+"102
 [v _InitRam `(v ~T0 @X0 1 ef ]
-"100
+"103
 {
-[; ;init.c: 99: void InitRam(void)
-[; ;init.c: 100: {
+[; ;init.c: 102: void InitRam(void)
+[; ;init.c: 103: {
 [e :U _InitRam ]
 [f ]
-[; ;init.c: 101: (BITS_DATA0.bit0) = 0;
-"101
+[; ;init.c: 104: (BITS_DATA0.bit0) = 0;
+"104
 [e = . _BITS_DATA0 0 -> -> 0 `i `uc ]
-[; ;init.c: 102: (BITS_DATA0.bit5) = 0;
-"102
+[; ;init.c: 105: (BITS_DATA0.bit5) = 0;
+"105
 [e = . _BITS_DATA0 5 -> -> 0 `i `uc ]
-[; ;init.c: 103: (BITS_DATA0.bit6) = 0;
-"103
-[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
-[; ;init.c: 106: SleepCount = 0;
+[; ;init.c: 106: (BITS_DATA0.bit6) = 0;
 "106
+[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
+[; ;init.c: 109: SleepCount = 0;
+"109
 [e = _SleepCount -> -> 0 `i `us ]
-[; ;init.c: 108: }
-"108
+[; ;init.c: 111: }
+"111
 [e :UE 6 ]
 }

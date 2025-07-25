@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408 
-                                                                                               Thu Jul 24 19:02:55 2025
+                                                                                               Fri Jul 25 18:04:20 2025
 
 
      1                           	processor	18p018a0
@@ -279,7 +279,7 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    265                           ;End of C runtime variable initialization code
    266                           
    267  0018  0183               	clrf	3
-   268  0019  293C               	ljmp	_main	;jump to C main() function
+   268  0019  2940               	ljmp	_main	;jump to C main() function
    269                           
    270                           	psect	bssBANK0_4
    271  0028                     __pbssBANK0_4:	
@@ -440,10 +440,10 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    426                           
    427                           
    428                           	psect	maintext
-   429  013C                     __pmaintext:	
+   429  0140                     __pmaintext:	
    430                           ; 1 bytes @ 0x0
    431                           
-   432  013C                     _main:	
+   432  0140                     _main:	
    433                           ; 1 bytes @ 0x0
    434 ;;
    435 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
@@ -490,60 +490,60 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    476                           ;main.c: 50: InitPort();
    477                           ;incstack = 0
    478                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-   479  013C  2103               	fcall	_InitPort
+   479  0140  2106               	fcall	_InitPort
    480                           
    481                           ;main.c: 51: InitSystem();
-   482  013D  217E               	fcall	_InitSystem
+   482  0141  2182               	fcall	_InitSystem
    483                           
    484                           ;main.c: 52: InitRam();
-   485  013E  2192               	fcall	_InitRam
+   485  0142  2196               	fcall	_InitRam
    486                           
    487                           ;main.c: 53: T0IE = 1;
-   488  013F  140E               	bsf	14,0	;volatile
+   488  0143  140E               	bsf	14,0	;volatile
    489                           
    490                           ;main.c: 54: GIE = 1;
-   491  0140  178E               	bsf	14,7	;volatile
-   492  0141  0064               	clrwdt	; ;# 
+   491  0144  178E               	bsf	14,7	;volatile
+   492  0145  0064               	clrwdt	; ;# 
    493                           
    494                           ;main.c: 76: delay_ms(500);
-   495  0142  30F4               	movlw	244
-   496  0143  1283               	bcf	3,5	;RP0=0, select bank0
-   497  0144  00A4               	movwf	delay_ms@xms
-   498  0145  3001               	movlw	1
-   499  0146  00A5               	movwf	delay_ms@xms+1
-   500  0147  2120               	fcall	_delay_ms
-   501  0148                     l2901:	
+   495  0146  30F4               	movlw	244
+   496  0147  1283               	bcf	3,5	;RP0=0, select bank0
+   497  0148  00A4               	movwf	delay_ms@xms
+   498  0149  3001               	movlw	1
+   499  014A  00A5               	movwf	delay_ms@xms+1
+   500  014B  2124               	fcall	_delay_ms
+   501  014C                     l2901:	
    502                           
    503                           ;main.c: 77: while (1)
-   504  0148  0064               	clrwdt	; ;# 
+   504  014C  0064               	clrwdt	; ;# 
    505                           
    506                           ;main.c: 85: if ((BITS_DATA0.bit0))
-   507  0149  1283               	bcf	3,5	;RP0=0, select bank0
-   508  014A  1C28               	btfss	_BITS_DATA0,0
-   509  014B  2950               	goto	l5055
+   507  014D  1283               	bcf	3,5	;RP0=0, select bank0
+   508  014E  1C28               	btfss	_BITS_DATA0,0
+   509  014F  2954               	goto	l5063
    510                           
    511                           ;main.c: 86: {
    512                           ;main.c: 87: (BITS_DATA0.bit0) = 0;
-   513  014C  1028               	bcf	_BITS_DATA0,0
+   513  0150  1028               	bcf	_BITS_DATA0,0
    514                           
    515                           ;main.c: 89: ScanKey();
-   516  014D  201A               	fcall	_ScanKey
+   516  0151  201A               	fcall	_ScanKey
    517                           
    518                           ;main.c: 90: CountdownDisplay();
-   519  014E  20C7               	fcall	_CountdownDisplay
+   519  0152  20C8               	fcall	_CountdownDisplay
    520                           
    521                           ;main.c: 91: CheckSleep();
-   522  014F  2083               	fcall	_CheckSleep
-   523  0150                     l5055:	
+   522  0153  2083               	fcall	_CheckSleep
+   523  0154                     l5063:	
    524                           
    525                           ;main.c: 92: }
    526                           ;main.c: 94: LedDisplay();
-   527  0150  21A1               	fcall	_LedDisplay
+   527  0154  21A5               	fcall	_LedDisplay
    528                           
    529                           ;main.c: 95: MotoDisplay();
-   530  0151  219D               	fcall	_MotoDisplay
-   531  0152  2948               	goto	l2901
-   532  0153                     __end_of_main:	
+   530  0155  21A1               	fcall	_MotoDisplay
+   531  0156  294C               	goto	l2901
+   532  0157                     __end_of_main:	
    533                           
    534                           	psect	text1
    535  001A                     __ptext1:	
@@ -590,7 +590,7 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    576  001B  1E06               	btfss	6,4	;volatile
    577  001C  281F               	goto	l1764
    578  001D  1E86               	btfss	6,5	;volatile
-   579  001E  2854               	goto	l4977
+   579  001E  2854               	goto	l4985
    580  001F                     l1764:	
    581                           
    582                           ;key.c: 15: {
@@ -608,11 +608,11 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    594                           
    595                           ;key.c: 20: if(longpress_cnt < 0xffff) {
    596  0027  0F19               	incfsz	_longpress_cnt,w
-   597  0028  282C               	goto	l4951
+   597  0028  282C               	goto	l4959
    598  0029  0A1A               	incf	_longpress_cnt+1,w
    599  002A  1903               	btfsc	3,2
-   600  002B  2831               	goto	l4955
-   601  002C                     l4951:	
+   600  002B  2831               	goto	l4963
+   601  002C                     l4959:	
    602                           
    603                           ;key.c: 21: longpress_cnt++;
    604  002C  0A99               	incf	_longpress_cnt,f
@@ -622,7 +622,7 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    608                           ;key.c: 23: SleepCount = 0;
    609  002F  019B               	clrf	_SleepCount
    610  0030  019C               	clrf	_SleepCount+1
-   611  0031                     l4955:	
+   611  0031                     l4963:	
    612                           
    613                           ;key.c: 24: }
    614                           ;key.c: 26: if(longpress_cnt < 80){
@@ -693,8 +693,8 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    679                           
    680                           ;key.c: 55: }
    681                           ;key.c: 56: PowOn();
-   682  0053  2998               	ljmp	l4695
-   683  0054                     l4977:	
+   682  0053  299C               	ljmp	l4701
+   683  0054                     l4985:	
    684                           
    685                           ;key.c: 64: longpress_cnt = 0;
    686  0054  0199               	clrf	_longpress_cnt
@@ -702,41 +702,41 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    688                           
    689                           ;key.c: 66: if(clink_event == 1){
    690  0056  0B1F               	decfsz	_clink_event,w
-   691  0057  285B               	goto	l4985
+   691  0057  285B               	goto	l4993
    692                           
    693                           ;key.c: 68: clink_event = 0;
    694  0058  019F               	clrf	_clink_event
    695                           
    696                           ;key.c: 71: MotoSwitch();
-   697  0059  216A               	fcall	_MotoSwitch
+   697  0059  216E               	fcall	_MotoSwitch
    698                           
    699                           ;key.c: 72: } else if(clink_event == 2){
-   700  005A  286B               	goto	l5001
-   701  005B                     l4985:	
+   700  005A  286B               	goto	l5009
+   701  005B                     l4993:	
    702  005B  3002               	movlw	2
    703  005C  061F               	xorwf	_clink_event,w
    704  005D  1D03               	btfss	3,2
-   705  005E  2862               	goto	l4991
+   705  005E  2862               	goto	l4999
    706                           
    707                           ;key.c: 73: clink_event = 0;
    708  005F  019F               	clrf	_clink_event
    709                           
    710                           ;key.c: 76: LedSwitch();
-   711  0060  2174               	fcall	_LedSwitch
+   711  0060  2178               	fcall	_LedSwitch
    712                           
    713                           ;key.c: 78: } else if(clink_event == 3){
-   714  0061  286B               	goto	l5001
-   715  0062                     l4991:	
+   714  0061  286B               	goto	l5009
+   715  0062                     l4999:	
    716  0062  3003               	movlw	3
    717  0063  061F               	xorwf	_clink_event,w
    718  0064  1D03               	btfss	3,2
-   719  0065  286B               	goto	l5001
+   719  0065  286B               	goto	l5009
    720                           
    721                           ;key.c: 80: clink_event = 0;
    722  0066  019F               	clrf	_clink_event
    723                           
    724                           ;key.c: 82: PowOn();
-   725  0067  2198               	fcall	_PowOn
+   725  0067  219C               	fcall	_PowOn
    726                           
    727                           ;key.c: 83: g_ucTimerWorkCount++;
    728  0068  0AA0               	incf	_g_ucTimerWorkCount,f
@@ -744,26 +744,26 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    730                           ;key.c: 84: holdOn_f = 1;
    731  0069  019D               	clrf	_holdOn_f
    732  006A  0A9D               	incf	_holdOn_f,f
-   733  006B                     l5001:	
+   733  006B                     l5009:	
    734                           
    735                           ;key.c: 87: }
    736                           ;key.c: 90: if(holdOn_f) {
    737  006B  081D               	movf	_holdOn_f,w
    738  006C  1903               	btfsc	3,2
-   739  006D  2877               	goto	l5011
+   739  006D  2877               	goto	l5019
    740                           
    741                           ;key.c: 92: if(g_ucTimerWorkCount < 60) {
    742  006E  303C               	movlw	60
    743  006F  0220               	subwf	_g_ucTimerWorkCount,w
    744  0070  1803               	btfsc	3,0
-   745  0071  2874               	goto	l5007
+   745  0071  2874               	goto	l5015
    746                           
    747                           ;key.c: 93: g_ucTimerWorkCount++;
    748  0072  0AA0               	incf	_g_ucTimerWorkCount,f
    749                           
    750                           ;key.c: 94: } else {
-   751  0073  2877               	goto	l5011
-   752  0074                     l5007:	
+   751  0073  2877               	goto	l5019
+   752  0074                     l5015:	
    753                           
    754                           ;key.c: 95: holdOn_f = 0;
    755  0074  019D               	clrf	_holdOn_f
@@ -772,8 +772,8 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    758  0075  01A0               	clrf	_g_ucTimerWorkCount
    759                           
    760                           ;key.c: 97: PowOff();
-   761  0076  21A5               	fcall	_PowOff
-   762  0077                     l5011:	
+   761  0076  21A9               	fcall	_PowOff
+   762  0077                     l5019:	
    763                           
    764                           ;key.c: 98: }
    765                           ;key.c: 101: }
@@ -786,14 +786,14 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    772  007A  303C               	movlw	60
    773  007B  0220               	subwf	_g_ucTimerWorkCount,w
    774  007C  1803               	btfsc	3,0
-   775  007D  2880               	goto	l5017
+   775  007D  2880               	goto	l5025
    776                           
    777                           ;key.c: 109: g_ucTimerWorkCount++;
    778  007E  0AA0               	incf	_g_ucTimerWorkCount,f
    779                           
    780                           ;key.c: 111: } else {
    781  007F  0008               	return
-   782  0080                     l5017:	
+   782  0080                     l5025:	
    783                           
    784                           ;key.c: 113: long_f = 0;
    785  0080  019E               	clrf	_long_f
@@ -802,12 +802,12 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    788  0081  01A0               	clrf	_g_ucTimerWorkCount
    789                           
    790                           ;key.c: 115: PowOff();
-   791  0082  29A5               	ljmp	l4701
+   791  0082  29A9               	ljmp	l4707
    792  0083                     __end_of_ScanKey:	
    793                           
    794                           	psect	text2
-   795  0198                     __ptext2:	
-   796  0198                     _PowOn:	
+   795  019C                     __ptext2:	
+   796  019C                     _PowOn:	
    797 ;; *************** function _PowOn *****************
    798 ;; Defined at:
    799 ;;		line 64 in file "led.c"
@@ -839,27 +839,27 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    825 ;;
    826                           ;psect for function _PowOn
    827                           
-   828  0198                     l4695:	
+   828  019C                     l4701:	
    829                           
    830                           ;incstack = 0
    831                           ; Regs used in _PowOn: []
    832                           ;led.c: 88: ODCON &= ~(0x01 << 3);
-   833  0198  118C               	bcf	12,3	;volatile
+   833  019C  118C               	bcf	12,3	;volatile
    834                           
    835                           ;led.c: 90: TRISB |= (0x08);
-   836  0199  15C6               	bsf	70,3	;volatile
+   836  019D  15C6               	bsf	70,3	;volatile
    837                           
    838                           ;led.c: 92: PDCON1 |= (0x01 << 3);
-   839  019A  15D2               	bsf	82,3	;volatile
+   839  019E  15D2               	bsf	82,3	;volatile
    840                           
    841                           ;led.c: 93: PHCON &= ~(0x01 << 3);
-   842  019B  118D               	bcf	13,3	;volatile
-   843  019C  0008               	return
-   844  019D                     __end_of_PowOn:	
+   842  019F  118D               	bcf	13,3	;volatile
+   843  01A0  0008               	return
+   844  01A1                     __end_of_PowOn:	
    845                           
    846                           	psect	text3
-   847  01A5                     __ptext3:	
-   848  01A5                     _PowOff:	
+   847  01A9                     __ptext3:	
+   848  01A9                     _PowOff:	
    849 ;; *************** function _PowOff *****************
    850 ;; Defined at:
    851 ;;		line 109 in file "led.c"
@@ -891,21 +891,21 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    877 ;;
    878                           ;psect for function _PowOff
    879                           
-   880  01A5                     l4701:	
+   880  01A9                     l4707:	
    881                           
    882                           ;incstack = 0
    883                           ; Regs used in _PowOff: []
    884                           ;led.c: 129: TRISB |= (0x08);
-   885  01A5  15C6               	bsf	70,3	;volatile
+   885  01A9  15C6               	bsf	70,3	;volatile
    886                           
    887                           ;led.c: 130: PHCON |= (0x08);
-   888  01A6  158D               	bsf	13,3	;volatile
-   889  01A7  0008               	return
-   890  01A8                     __end_of_PowOff:	
+   888  01AA  158D               	bsf	13,3	;volatile
+   889  01AB  0008               	return
+   890  01AC                     __end_of_PowOff:	
    891                           
    892                           	psect	text4
-   893  016A                     __ptext4:	
-   894  016A                     _MotoSwitch:	
+   893  016E                     __ptext4:	
+   894  016E                     _MotoSwitch:	
    895 ;; *************** function _MotoSwitch *****************
    896 ;; Defined at:
    897 ;;		line 36 in file "led.c"
@@ -941,22 +941,22 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    927                           ;led.c: 38: (BITS_DATA0.bit6) = !(BITS_DATA0.bit6);
    928                           ;incstack = 0
    929                           ; Regs used in _MotoSwitch: [status,0]
-   930  016A  1003               	bcf	3,0
-   931  016B  1F28               	btfss	_BITS_DATA0,6
-   932  016C  1403               	bsf	3,0
-   933  016D  1283               	bcf	3,5	;RP0=0, select bank0
-   934  016E  1C03               	btfss	3,0
-   935  016F  2972               	goto	L2
-   936  0170  1728               	bsf	_BITS_DATA0,6
-   937  0171  0008               	return
-   938  0172                     L2:	
-   939  0172  1328               	bcf	_BITS_DATA0,6
-   940  0173  0008               	return
-   941  0174                     __end_of_MotoSwitch:	
+   930  016E  1003               	bcf	3,0
+   931  016F  1F28               	btfss	_BITS_DATA0,6
+   932  0170  1403               	bsf	3,0
+   933  0171  1283               	bcf	3,5	;RP0=0, select bank0
+   934  0172  1C03               	btfss	3,0
+   935  0173  2976               	goto	L2
+   936  0174  1728               	bsf	_BITS_DATA0,6
+   937  0175  0008               	return
+   938  0176                     L2:	
+   939  0176  1328               	bcf	_BITS_DATA0,6
+   940  0177  0008               	return
+   941  0178                     __end_of_MotoSwitch:	
    942                           
    943                           	psect	text5
-   944  0174                     __ptext5:	
-   945  0174                     _LedSwitch:	
+   944  0178                     __ptext5:	
+   945  0178                     _LedSwitch:	
    946 ;; *************** function _LedSwitch *****************
    947 ;; Defined at:
    948 ;;		line 6 in file "led.c"
@@ -992,22 +992,22 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
    978                           ;led.c: 9: (BITS_DATA0.bit5) = !(BITS_DATA0.bit5);
    979                           ;incstack = 0
    980                           ; Regs used in _LedSwitch: [status,0]
-   981  0174  1003               	bcf	3,0
-   982  0175  1EA8               	btfss	_BITS_DATA0,5
-   983  0176  1403               	bsf	3,0
-   984  0177  1283               	bcf	3,5	;RP0=0, select bank0
-   985  0178  1C03               	btfss	3,0
-   986  0179  297C               	goto	L3
-   987  017A  16A8               	bsf	_BITS_DATA0,5
-   988  017B  0008               	return
-   989  017C                     L3:	
-   990  017C  12A8               	bcf	_BITS_DATA0,5
-   991  017D  0008               	return
-   992  017E                     __end_of_LedSwitch:	
+   981  0178  1003               	bcf	3,0
+   982  0179  1EA8               	btfss	_BITS_DATA0,5
+   983  017A  1403               	bsf	3,0
+   984  017B  1283               	bcf	3,5	;RP0=0, select bank0
+   985  017C  1C03               	btfss	3,0
+   986  017D  2980               	goto	L3
+   987  017E  16A8               	bsf	_BITS_DATA0,5
+   988  017F  0008               	return
+   989  0180                     L3:	
+   990  0180  12A8               	bcf	_BITS_DATA0,5
+   991  0181  0008               	return
+   992  0182                     __end_of_LedSwitch:	
    993                           
    994                           	psect	text6
-   995  019D                     __ptext6:	
-   996  019D                     _MotoDisplay:	
+   995  01A1                     __ptext6:	
+   996  01A1                     _MotoDisplay:	
    997 ;; *************** function _MotoDisplay *****************
    998 ;; Defined at:
    999 ;;		line 53 in file "led.c"
@@ -1044,24 +1044,24 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1030                           ;led.c: 55: if ((BITS_DATA0.bit6) == 1)
   1031                           ;incstack = 0
   1032                           ; Regs used in _MotoDisplay: [status,2+status,0+pclath+cstack]
-  1033  019D  1F28               	btfss	_BITS_DATA0,6
-  1034  019E  29A0               	goto	l4821
+  1033  01A1  1F28               	btfss	_BITS_DATA0,6
+  1034  01A2  29A4               	goto	l4827
   1035                           
   1036                           ;led.c: 56: {
   1037                           ;led.c: 57: MotoOn();
-  1038  019F  29A8               	ljmp	l4707
-  1039  01A0                     l4821:	
+  1038  01A3  29AC               	ljmp	l4713
+  1039  01A4                     l4827:	
   1040                           
   1041                           ;led.c: 58: }
   1042                           ;led.c: 59: else
   1043                           ;led.c: 60: {
   1044                           ;led.c: 61: MotoOff();
-  1045  01A0  29AB               	ljmp	l4709
-  1046  01A1                     __end_of_MotoDisplay:	
+  1045  01A4  29AF               	ljmp	l4715
+  1046  01A5                     __end_of_MotoDisplay:	
   1047                           
   1048                           	psect	text7
-  1049  01A8                     __ptext7:	
-  1050  01A8                     _MotoOn:	
+  1049  01AC                     __ptext7:	
+  1050  01AC                     _MotoOn:	
   1051 ;; *************** function _MotoOn *****************
   1052 ;; Defined at:
   1053 ;;		line 41 in file "led.c"
@@ -1093,21 +1093,21 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1079 ;;
   1080                           ;psect for function _MotoOn
   1081                           
-  1082  01A8                     l4707:	
+  1082  01AC                     l4713:	
   1083                           
   1084                           ;incstack = 0
   1085                           ; Regs used in _MotoOn: []
   1086                           ;led.c: 43: PORTB0 = 0;
-  1087  01A8  1006               	bcf	6,0	;volatile
+  1087  01AC  1006               	bcf	6,0	;volatile
   1088                           
   1089                           ;led.c: 44: MODSEL = 1;
-  1090  01A9  17D5               	bsf	85,7	;volatile
-  1091  01AA  0008               	return
-  1092  01AB                     __end_of_MotoOn:	
+  1090  01AD  17D5               	bsf	85,7	;volatile
+  1091  01AE  0008               	return
+  1092  01AF                     __end_of_MotoOn:	
   1093                           
   1094                           	psect	text8
-  1095  01AB                     __ptext8:	
-  1096  01AB                     _MotoOff:	
+  1095  01AF                     __ptext8:	
+  1096  01AF                     _MotoOff:	
   1097 ;; *************** function _MotoOff *****************
   1098 ;; Defined at:
   1099 ;;		line 47 in file "led.c"
@@ -1139,21 +1139,21 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1125 ;;
   1126                           ;psect for function _MotoOff
   1127                           
-  1128  01AB                     l4709:	
+  1128  01AF                     l4715:	
   1129                           
   1130                           ;incstack = 0
   1131                           ; Regs used in _MotoOff: []
   1132                           ;led.c: 49: PORTB0 = 1;
-  1133  01AB  1406               	bsf	6,0	;volatile
+  1133  01AF  1406               	bsf	6,0	;volatile
   1134                           
   1135                           ;led.c: 50: MODSEL = 1;
-  1136  01AC  17D5               	bsf	85,7	;volatile
-  1137  01AD  0008               	return
-  1138  01AE                     __end_of_MotoOff:	
+  1136  01B0  17D5               	bsf	85,7	;volatile
+  1137  01B1  0008               	return
+  1138  01B2                     __end_of_MotoOff:	
   1139                           
   1140                           	psect	text9
-  1141  01A1                     __ptext9:	
-  1142  01A1                     _LedDisplay:	
+  1141  01A5                     __ptext9:	
+  1142  01A5                     _LedDisplay:	
   1143 ;; *************** function _LedDisplay *****************
   1144 ;; Defined at:
   1145 ;;		line 12 in file "led.c"
@@ -1190,24 +1190,24 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1176                           ;led.c: 14: if ((BITS_DATA0.bit5) == 1)
   1177                           ;incstack = 0
   1178                           ; Regs used in _LedDisplay: [status,2+status,0+pclath+cstack]
-  1179  01A1  1EA8               	btfss	_BITS_DATA0,5
-  1180  01A2  29A4               	goto	l4815
+  1179  01A5  1EA8               	btfss	_BITS_DATA0,5
+  1180  01A6  29A8               	goto	l4821
   1181                           
   1182                           ;led.c: 15: {
   1183                           ;led.c: 16: LedOn();
-  1184  01A3  29AE               	ljmp	l4703
-  1185  01A4                     l4815:	
+  1184  01A7  29B2               	ljmp	l4709
+  1185  01A8                     l4821:	
   1186                           
   1187                           ;led.c: 17: }
   1188                           ;led.c: 18: else
   1189                           ;led.c: 19: {
   1190                           ;led.c: 20: LedOff();
-  1191  01A4  29B1               	ljmp	l4705
-  1192  01A5                     __end_of_LedDisplay:	
+  1191  01A8  29B5               	ljmp	l4711
+  1192  01A9                     __end_of_LedDisplay:	
   1193                           
   1194                           	psect	text10
-  1195  01AE                     __ptext10:	
-  1196  01AE                     _LedOn:	
+  1195  01B2                     __ptext10:	
+  1196  01B2                     _LedOn:	
   1197 ;; *************** function _LedOn *****************
   1198 ;; Defined at:
   1199 ;;		line 24 in file "led.c"
@@ -1239,21 +1239,21 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1225 ;;
   1226                           ;psect for function _LedOn
   1227                           
-  1228  01AE                     l4703:	
+  1228  01B2                     l4709:	
   1229                           
   1230                           ;incstack = 0
   1231                           ; Regs used in _LedOn: []
   1232                           ;led.c: 26: PORTB1 = 0;
-  1233  01AE  1086               	bcf	6,1	;volatile
+  1233  01B2  1086               	bcf	6,1	;volatile
   1234                           
   1235                           ;led.c: 27: MODSEL = 1;
-  1236  01AF  17D5               	bsf	85,7	;volatile
-  1237  01B0  0008               	return
-  1238  01B1                     __end_of_LedOn:	
+  1236  01B3  17D5               	bsf	85,7	;volatile
+  1237  01B4  0008               	return
+  1238  01B5                     __end_of_LedOn:	
   1239                           
   1240                           	psect	text11
-  1241  01B1                     __ptext11:	
-  1242  01B1                     _LedOff:	
+  1241  01B5                     __ptext11:	
+  1242  01B5                     _LedOff:	
   1243 ;; *************** function _LedOff *****************
   1244 ;; Defined at:
   1245 ;;		line 30 in file "led.c"
@@ -1285,24 +1285,24 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1271 ;;
   1272                           ;psect for function _LedOff
   1273                           
-  1274  01B1                     l4705:	
+  1274  01B5                     l4711:	
   1275                           
   1276                           ;incstack = 0
   1277                           ; Regs used in _LedOff: []
   1278                           ;led.c: 32: PORTB1 = 1;
-  1279  01B1  1486               	bsf	6,1	;volatile
+  1279  01B5  1486               	bsf	6,1	;volatile
   1280                           
   1281                           ;led.c: 33: MODSEL = 1;
-  1282  01B2  17D5               	bsf	85,7	;volatile
-  1283  01B3  0008               	return
-  1284  01B4                     __end_of_LedOff:	
+  1282  01B6  17D5               	bsf	85,7	;volatile
+  1283  01B7  0008               	return
+  1284  01B8                     __end_of_LedOff:	
   1285                           
   1286                           	psect	text12
-  1287  017E                     __ptext12:	
-  1288  017E                     _InitSystem:	
+  1287  0182                     __ptext12:	
+  1288  0182                     _InitSystem:	
   1289 ;; *************** function _InitSystem *****************
   1290 ;; Defined at:
-  1291 ;;		line 78 in file "init.c"
+  1291 ;;		line 81 in file "init.c"
   1292 ;; Parameters:    Size  Location     Type
   1293 ;;		None
   1294 ;; Auto vars:     Size  Location     Type
@@ -1332,39 +1332,39 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1318                           ;psect for function _InitSystem
   1319                           
   1320                           
-  1321                           ;init.c: 80: OSCCON = 0;
+  1321                           ;init.c: 83: OSCCON = 0;
   1322                           ;incstack = 0
   1323                           ; Regs used in _InitSystem: [wreg+status,2+status,0]
-  1324  017E  01D0               	clrf	80	;volatile
+  1324  0182  01D0               	clrf	80	;volatile
   1325                           
-  1326                           ;init.c: 81: T0 = 0xCE;
-  1327  017F  30CE               	movlw	206
-  1328  0180  0081               	movwf	1	;volatile
+  1326                           ;init.c: 84: T0 = 0xCE;
+  1327  0183  30CE               	movlw	206
+  1328  0184  0081               	movwf	1	;volatile
   1329                           
-  1330                           ;init.c: 83: OPTION = 0x00;
-  1331  0181  01C1               	clrf	65	;volatile
+  1330                           ;init.c: 86: OPTION = 0x00;
+  1331  0185  01C1               	clrf	65	;volatile
   1332                           
-  1333                           ;init.c: 84: PCON |= 0x90;
-  1334  0182  3090               	movlw	144
-  1335  0183  0488               	iorwf	8,f	;volatile
+  1333                           ;init.c: 87: PCON |= 0x90;
+  1334  0186  3090               	movlw	144
+  1335  0187  0488               	iorwf	8,f	;volatile
   1336                           
-  1337                           ;init.c: 86: CMPCR = 0x00;
-  1338  0184  01D1               	clrf	81	;volatile
+  1337                           ;init.c: 89: CMPCR = 0x00;
+  1338  0188  01D1               	clrf	81	;volatile
   1339                           
-  1340                           ;init.c: 87: INTFLAG &= 0xFE;
-  1341  0185  100F               	bcf	15,0	;volatile
+  1340                           ;init.c: 90: INTFLAG &= 0xFE;
+  1341  0189  100F               	bcf	15,0	;volatile
   1342                           
-  1343                           ;init.c: 88: CMPCR |= 0X10;
-  1344  0186  1651               	bsf	81,4	;volatile
-  1345  0187  0008               	return
-  1346  0188                     __end_of_InitSystem:	
+  1343                           ;init.c: 91: CMPCR |= 0X10;
+  1344  018A  1651               	bsf	81,4	;volatile
+  1345  018B  0008               	return
+  1346  018C                     __end_of_InitSystem:	
   1347                           
   1348                           	psect	text13
-  1349  0192                     __ptext13:	
-  1350  0192                     _InitRam:	
+  1349  0196                     __ptext13:	
+  1350  0196                     _InitRam:	
   1351 ;; *************** function _InitRam *****************
   1352 ;; Defined at:
-  1353 ;;		line 99 in file "init.c"
+  1353 ;;		line 102 in file "init.c"
   1354 ;; Parameters:    Size  Location     Type
   1355 ;;		None
   1356 ;; Auto vars:     Size  Location     Type
@@ -1394,26 +1394,26 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1380                           ;psect for function _InitRam
   1381                           
   1382                           
-  1383                           ;init.c: 101: (BITS_DATA0.bit0) = 0;
+  1383                           ;init.c: 104: (BITS_DATA0.bit0) = 0;
   1384                           ;incstack = 0
   1385                           ; Regs used in _InitRam: [status,2]
-  1386  0192  1028               	bcf	_BITS_DATA0,0
+  1386  0196  1028               	bcf	_BITS_DATA0,0
   1387                           
-  1388                           ;init.c: 102: (BITS_DATA0.bit5) = 0;
-  1389  0193  12A8               	bcf	_BITS_DATA0,5
+  1388                           ;init.c: 105: (BITS_DATA0.bit5) = 0;
+  1389  0197  12A8               	bcf	_BITS_DATA0,5
   1390                           
-  1391                           ;init.c: 103: (BITS_DATA0.bit6) = 0;
-  1392  0194  1328               	bcf	_BITS_DATA0,6
+  1391                           ;init.c: 106: (BITS_DATA0.bit6) = 0;
+  1392  0198  1328               	bcf	_BITS_DATA0,6
   1393                           
-  1394                           ;init.c: 106: SleepCount = 0;
-  1395  0195  019B               	clrf	_SleepCount
-  1396  0196  019C               	clrf	_SleepCount+1
-  1397  0197  0008               	return
-  1398  0198                     __end_of_InitRam:	
+  1394                           ;init.c: 109: SleepCount = 0;
+  1395  0199  019B               	clrf	_SleepCount
+  1396  019A  019C               	clrf	_SleepCount+1
+  1397  019B  0008               	return
+  1398  019C                     __end_of_InitRam:	
   1399                           
   1400                           	psect	text14
-  1401  00C7                     __ptext14:	
-  1402  00C7                     _CountdownDisplay:	
+  1401  00C8                     __ptext14:	
+  1402  00C8                     _CountdownDisplay:	
   1403 ;; *************** function _CountdownDisplay *****************
   1404 ;; Defined at:
   1405 ;;		line 151 in file "led.c"
@@ -1446,676 +1446,684 @@ Microchip Technology PIC PRO Macro Assembler V1.45 build -152302408
   1432                           ;psect for function _CountdownDisplay
   1433                           
   1434                           
-  1435                           ;led.c: 154: if ((BITS_DATA0.bit5) == 1)
+  1435                           ;led.c: 155: if ((BITS_DATA0.bit5) == 1)
   1436                           ;incstack = 0
   1437                           ; Regs used in _CountdownDisplay: [wreg+status,2+status,0+pclath+cstack]
-  1438  00C7  1EA8               	btfss	_BITS_DATA0,5
-  1439  00C8  28E1               	goto	l2175
+  1438  00C8  1EA8               	btfss	_BITS_DATA0,5
+  1439  00C9  28E3               	goto	l2175
   1440                           
-  1441                           ;led.c: 155: {
-  1442                           ;led.c: 157: lampTiming++;
-  1443  00C9  0A95               	incf	_lampTiming,f
-  1444  00CA  1903               	btfsc	3,2
-  1445  00CB  0A96               	incf	_lampTiming+1,f
-  1446  00CC  1903               	btfsc	3,2
-  1447  00CD  0A97               	incf	_lampTiming+2,f
-  1448  00CE  1903               	btfsc	3,2
-  1449  00CF  0A98               	incf	_lampTiming+3,f
+  1441                           ;led.c: 156: {
+  1442                           ;led.c: 158: lampTiming++;
+  1443  00CA  0A95               	incf	_lampTiming,f
+  1444  00CB  1903               	btfsc	3,2
+  1445  00CC  0A96               	incf	_lampTiming+1,f
+  1446  00CD  1903               	btfsc	3,2
+  1447  00CE  0A97               	incf	_lampTiming+2,f
+  1448  00CF  1903               	btfsc	3,2
+  1449  00D0  0A98               	incf	_lampTiming+3,f
   1450                           
-  1451                           ;led.c: 160: if (lampTiming > 3000)
-  1452  00D0  0818               	movf	_lampTiming+3,w
-  1453  00D1  1D03               	btfss	3,2
-  1454  00D2  28DE               	goto	l5027
-  1455  00D3  0817               	movf	_lampTiming+2,w
-  1456  00D4  1D03               	btfss	3,2
-  1457  00D5  28DE               	goto	l5027
-  1458  00D6  300B               	movlw	11
-  1459  00D7  0216               	subwf	_lampTiming+1,w
-  1460  00D8  1D03               	btfss	3,2
-  1461  00D9  28DC               	goto	u763
-  1462  00DA  30B9               	movlw	185
-  1463  00DB  0215               	subwf	_lampTiming,w
-  1464  00DC                     u763:	
-  1465  00DC  1C03               	btfss	3,0
-  1466  00DD  28E5               	goto	l2177
-  1467  00DE                     l5027:	
-  1468                           
-  1469                           ;led.c: 161: {
-  1470                           ;led.c: 162: (BITS_DATA0.bit5) = 0;
-  1471  00DE  12A8               	bcf	_BITS_DATA0,5
-  1472                           
-  1473                           ;led.c: 164: bt_off();
-  1474  00DF  2188               	fcall	_bt_off
-  1475  00E0  28E5               	goto	l2177
-  1476  00E1                     l2175:	
-  1477                           
-  1478                           ;led.c: 173: else
-  1479                           ;led.c: 174: {
-  1480                           ;led.c: 176: lampTiming = 0;
-  1481  00E1  0195               	clrf	_lampTiming
-  1482  00E2  0196               	clrf	_lampTiming+1
-  1483  00E3  0197               	clrf	_lampTiming+2
-  1484  00E4  0198               	clrf	_lampTiming+3
-  1485  00E5                     l2177:	
-  1486                           
-  1487                           ;led.c: 177: }
-  1488                           ;led.c: 179: if ((BITS_DATA0.bit6) == 1)
-  1489  00E5  1F28               	btfss	_BITS_DATA0,6
-  1490  00E6  28FE               	goto	l2178
-  1491                           
-  1492                           ;led.c: 180: {
-  1493                           ;led.c: 181: motoTiming++;
-  1494  00E7  0A91               	incf	_motoTiming,f
-  1495  00E8  1903               	btfsc	3,2
-  1496  00E9  0A92               	incf	_motoTiming+1,f
-  1497  00EA  1903               	btfsc	3,2
-  1498  00EB  0A93               	incf	_motoTiming+2,f
-  1499  00EC  1903               	btfsc	3,2
-  1500  00ED  0A94               	incf	_motoTiming+3,f
-  1501                           
-  1502                           ;led.c: 184: if (motoTiming > 3000)
-  1503  00EE  0814               	movf	_motoTiming+3,w
-  1504  00EF  1D03               	btfss	3,2
-  1505  00F0  28FC               	goto	l5035
-  1506  00F1  0813               	movf	_motoTiming+2,w
-  1507  00F2  1D03               	btfss	3,2
-  1508  00F3  28FC               	goto	l5035
-  1509  00F4  300B               	movlw	11
-  1510  00F5  0212               	subwf	_motoTiming+1,w
-  1511  00F6  1D03               	btfss	3,2
-  1512  00F7  28FA               	goto	u783
-  1513  00F8  30B9               	movlw	185
-  1514  00F9  0211               	subwf	_motoTiming,w
-  1515  00FA                     u783:	
-  1516  00FA  1C03               	btfss	3,0
-  1517  00FB  0008               	return
-  1518  00FC                     l5035:	
-  1519                           
-  1520                           ;led.c: 185: {
-  1521                           ;led.c: 186: (BITS_DATA0.bit6) = 0;
-  1522  00FC  1328               	bcf	_BITS_DATA0,6
-  1523                           
-  1524                           ;led.c: 188: bt_off();
-  1525  00FD  2988               	ljmp	l4711
-  1526  00FE                     l2178:	
-  1527                           
-  1528                           ;led.c: 197: else
-  1529                           ;led.c: 198: {
-  1530                           ;led.c: 200: motoTiming = 0;
-  1531  00FE  0191               	clrf	_motoTiming
-  1532  00FF  0192               	clrf	_motoTiming+1
-  1533  0100  0193               	clrf	_motoTiming+2
-  1534  0101  0194               	clrf	_motoTiming+3
-  1535  0102  0008               	return
-  1536  0103                     __end_of_CountdownDisplay:	
-  1537                           
-  1538                           	psect	text15
-  1539  0188                     __ptext15:	
-  1540  0188                     _bt_off:	
-  1541 ;; *************** function _bt_off *****************
-  1542 ;; Defined at:
-  1543 ;;		line 96 in file "led.c"
-  1544 ;; Parameters:    Size  Location     Type
-  1545 ;;		None
-  1546 ;; Auto vars:     Size  Location     Type
+  1451                           ;led.c: 160: if(lampTiming > 124000)
+  1452  00D1  0818               	movf	_lampTiming+3,w
+  1453  00D2  1D03               	btfss	3,2
+  1454  00D3  28E0               	goto	l5035
+  1455  00D4  3001               	movlw	1
+  1456  00D5  0217               	subwf	_lampTiming+2,w
+  1457  00D6  1D03               	btfss	3,2
+  1458  00D7  28DE               	goto	u763
+  1459  00D8  30E4               	movlw	228
+  1460  00D9  0216               	subwf	_lampTiming+1,w
+  1461  00DA  1D03               	btfss	3,2
+  1462  00DB  28DE               	goto	u763
+  1463  00DC  3061               	movlw	97
+  1464  00DD  0215               	subwf	_lampTiming,w
+  1465  00DE                     u763:	
+  1466  00DE  1C03               	btfss	3,0
+  1467  00DF  28E7               	goto	l2177
+  1468  00E0                     l5035:	
+  1469                           
+  1470                           ;led.c: 162: {
+  1471                           ;led.c: 163: (BITS_DATA0.bit5) = 0;
+  1472  00E0  12A8               	bcf	_BITS_DATA0,5
+  1473                           
+  1474                           ;led.c: 165: bt_off();
+  1475  00E1  218C               	fcall	_bt_off
+  1476  00E2  28E7               	goto	l2177
+  1477  00E3                     l2175:	
+  1478                           
+  1479                           ;led.c: 174: else
+  1480                           ;led.c: 175: {
+  1481                           ;led.c: 177: lampTiming = 0;
+  1482  00E3  0195               	clrf	_lampTiming
+  1483  00E4  0196               	clrf	_lampTiming+1
+  1484  00E5  0197               	clrf	_lampTiming+2
+  1485  00E6  0198               	clrf	_lampTiming+3
+  1486  00E7                     l2177:	
+  1487                           
+  1488                           ;led.c: 178: }
+  1489                           ;led.c: 180: if ((BITS_DATA0.bit6) == 1)
+  1490  00E7  1F28               	btfss	_BITS_DATA0,6
+  1491  00E8  2901               	goto	l2178
+  1492                           
+  1493                           ;led.c: 181: {
+  1494                           ;led.c: 182: motoTiming++;
+  1495  00E9  0A91               	incf	_motoTiming,f
+  1496  00EA  1903               	btfsc	3,2
+  1497  00EB  0A92               	incf	_motoTiming+1,f
+  1498  00EC  1903               	btfsc	3,2
+  1499  00ED  0A93               	incf	_motoTiming+2,f
+  1500  00EE  1903               	btfsc	3,2
+  1501  00EF  0A94               	incf	_motoTiming+3,f
+  1502                           
+  1503                           ;led.c: 184: if(motoTiming > 124000)
+  1504  00F0  0814               	movf	_motoTiming+3,w
+  1505  00F1  1D03               	btfss	3,2
+  1506  00F2  28FF               	goto	l5043
+  1507  00F3  3001               	movlw	1
+  1508  00F4  0213               	subwf	_motoTiming+2,w
+  1509  00F5  1D03               	btfss	3,2
+  1510  00F6  28FD               	goto	u783
+  1511  00F7  30E4               	movlw	228
+  1512  00F8  0212               	subwf	_motoTiming+1,w
+  1513  00F9  1D03               	btfss	3,2
+  1514  00FA  28FD               	goto	u783
+  1515  00FB  3061               	movlw	97
+  1516  00FC  0211               	subwf	_motoTiming,w
+  1517  00FD                     u783:	
+  1518  00FD  1C03               	btfss	3,0
+  1519  00FE  0008               	return
+  1520  00FF                     l5043:	
+  1521                           
+  1522                           ;led.c: 186: {
+  1523                           ;led.c: 187: (BITS_DATA0.bit6) = 0;
+  1524  00FF  1328               	bcf	_BITS_DATA0,6
+  1525                           
+  1526                           ;led.c: 189: bt_off();
+  1527  0100  298C               	ljmp	l4717
+  1528  0101                     l2178:	
+  1529                           
+  1530                           ;led.c: 198: else
+  1531                           ;led.c: 199: {
+  1532                           ;led.c: 201: motoTiming = 0;
+  1533  0101  0191               	clrf	_motoTiming
+  1534  0102  0192               	clrf	_motoTiming+1
+  1535  0103  0193               	clrf	_motoTiming+2
+  1536  0104  0194               	clrf	_motoTiming+3
+  1537  0105  0008               	return
+  1538  0106                     __end_of_CountdownDisplay:	
+  1539                           
+  1540                           	psect	text15
+  1541  018C                     __ptext15:	
+  1542  018C                     _bt_off:	
+  1543 ;; *************** function _bt_off *****************
+  1544 ;; Defined at:
+  1545 ;;		line 96 in file "led.c"
+  1546 ;; Parameters:    Size  Location     Type
   1547 ;;		None
-  1548 ;; Return value:  Size  Location     Type
-  1549 ;;                  1    wreg      void 
-  1550 ;; Registers used:
-  1551 ;;		wreg, status,2, status,0, pclath, cstack
-  1552 ;; Tracked objects:
-  1553 ;;		On entry : 100/0
-  1554 ;;		On exit  : 100/0
-  1555 ;;		Unchanged: 0/0
-  1556 ;; Data sizes:     COMMON BANK0_4   BANK0
-  1557 ;;      Params:         0       0       0
-  1558 ;;      Locals:         0       0       0
-  1559 ;;      Temps:          0       0       0
-  1560 ;;      Totals:         0       0       0
-  1561 ;;Total ram usage:        0 bytes
-  1562 ;; Hardware stack levels used:    1
-  1563 ;; Hardware stack levels required when called:    2
-  1564 ;; This function calls:
-  1565 ;;		_delay_ms
-  1566 ;; This function is called by:
-  1567 ;;		_CountdownDisplay
-  1568 ;; This function uses a non-reentrant model
-  1569 ;;
-  1570                           ;psect for function _bt_off
-  1571                           
-  1572  0188                     l4711:	
+  1548 ;; Auto vars:     Size  Location     Type
+  1549 ;;		None
+  1550 ;; Return value:  Size  Location     Type
+  1551 ;;                  1    wreg      void 
+  1552 ;; Registers used:
+  1553 ;;		wreg, status,2, status,0, pclath, cstack
+  1554 ;; Tracked objects:
+  1555 ;;		On entry : 100/0
+  1556 ;;		On exit  : 100/0
+  1557 ;;		Unchanged: 0/0
+  1558 ;; Data sizes:     COMMON BANK0_4   BANK0
+  1559 ;;      Params:         0       0       0
+  1560 ;;      Locals:         0       0       0
+  1561 ;;      Temps:          0       0       0
+  1562 ;;      Totals:         0       0       0
+  1563 ;;Total ram usage:        0 bytes
+  1564 ;; Hardware stack levels used:    1
+  1565 ;; Hardware stack levels required when called:    2
+  1566 ;; This function calls:
+  1567 ;;		_delay_ms
+  1568 ;; This function is called by:
+  1569 ;;		_CountdownDisplay
+  1570 ;; This function uses a non-reentrant model
+  1571 ;;
+  1572                           ;psect for function _bt_off
   1573                           
-  1574                           ;incstack = 0
-  1575                           ; Regs used in _bt_off: [wreg+status,2+status,0+pclath+cstack]
-  1576                           ;led.c: 98: PHCON |= (0x08);
-  1577  0188  158D               	bsf	13,3	;volatile
-  1578                           
-  1579                           ;led.c: 99: PDCON1 |= (0x01 << 3);
-  1580  0189  15D2               	bsf	82,3	;volatile
-  1581                           
-  1582                           ;led.c: 101: TRISB &= (0xF7);
-  1583  018A  11C6               	bcf	70,3	;volatile
-  1584                           
-  1585                           ;led.c: 102: ODCON |= (0x08);
-  1586  018B  158C               	bsf	12,3	;volatile
-  1587                           
-  1588                           ;led.c: 103: PORTB3 = 0;
-  1589  018C  1186               	bcf	6,3	;volatile
-  1590                           
-  1591                           ;led.c: 105: extern void delay_ms(WORD xms);
-  1592                           ;led.c: 106: delay_ms((WORD)500);
-  1593  018D  30F4               	movlw	244
-  1594  018E  00A4               	movwf	delay_ms@xms
-  1595  018F  3001               	movlw	1
-  1596  0190  00A5               	movwf	delay_ms@xms+1
-  1597  0191  2920               	ljmp	l4645
-  1598  0192                     __end_of_bt_off:	
-  1599                           
-  1600                           	psect	text16
-  1601  0120                     __ptext16:	
-  1602  0120                     _delay_ms:	
-  1603 ;; *************** function _delay_ms *****************
-  1604 ;; Defined at:
-  1605 ;;		line 23 in file "main.c"
-  1606 ;; Parameters:    Size  Location     Type
-  1607 ;;  xms             2    2[BANK0_] unsigned short 
-  1608 ;; Auto vars:     Size  Location     Type
-  1609 ;;  i               2    4[BANK0_] unsigned short 
-  1610 ;; Return value:  Size  Location     Type
-  1611 ;;                  1    wreg      void 
-  1612 ;; Registers used:
-  1613 ;;		wreg, status,2, status,0
-  1614 ;; Tracked objects:
-  1615 ;;		On entry : 100/0
-  1616 ;;		On exit  : 100/0
-  1617 ;;		Unchanged: 0/0
-  1618 ;; Data sizes:     COMMON BANK0_4   BANK0
-  1619 ;;      Params:         0       2       0
-  1620 ;;      Locals:         0       2       0
-  1621 ;;      Temps:          0       0       0
-  1622 ;;      Totals:         0       4       0
-  1623 ;;Total ram usage:        4 bytes
-  1624 ;; Hardware stack levels used:    1
-  1625 ;; Hardware stack levels required when called:    1
-  1626 ;; This function calls:
-  1627 ;;		Nothing
-  1628 ;; This function is called by:
-  1629 ;;		_bt_off
-  1630 ;;		_main
-  1631 ;; This function uses a non-reentrant model
-  1632 ;;
-  1633                           ;psect for function _delay_ms
-  1634                           
-  1635  0120                     l4645:	
+  1574  018C                     l4717:	
+  1575                           
+  1576                           ;incstack = 0
+  1577                           ; Regs used in _bt_off: [wreg+status,2+status,0+pclath+cstack]
+  1578                           ;led.c: 98: PHCON |= (0x08);
+  1579  018C  158D               	bsf	13,3	;volatile
+  1580                           
+  1581                           ;led.c: 99: PDCON1 |= (0x01 << 3);
+  1582  018D  15D2               	bsf	82,3	;volatile
+  1583                           
+  1584                           ;led.c: 101: TRISB &= (0xF7);
+  1585  018E  11C6               	bcf	70,3	;volatile
+  1586                           
+  1587                           ;led.c: 102: ODCON |= (0x08);
+  1588  018F  158C               	bsf	12,3	;volatile
+  1589                           
+  1590                           ;led.c: 103: PORTB3 = 0;
+  1591  0190  1186               	bcf	6,3	;volatile
+  1592                           
+  1593                           ;led.c: 105: extern void delay_ms(WORD xms);
+  1594                           ;led.c: 106: delay_ms((WORD)500);
+  1595  0191  30F4               	movlw	244
+  1596  0192  00A4               	movwf	delay_ms@xms
+  1597  0193  3001               	movlw	1
+  1598  0194  00A5               	movwf	delay_ms@xms+1
+  1599  0195  2924               	ljmp	l4649
+  1600  0196                     __end_of_bt_off:	
+  1601                           
+  1602                           	psect	text16
+  1603  0124                     __ptext16:	
+  1604  0124                     _delay_ms:	
+  1605 ;; *************** function _delay_ms *****************
+  1606 ;; Defined at:
+  1607 ;;		line 23 in file "main.c"
+  1608 ;; Parameters:    Size  Location     Type
+  1609 ;;  xms             2    2[BANK0_] unsigned short 
+  1610 ;; Auto vars:     Size  Location     Type
+  1611 ;;  i               2    4[BANK0_] unsigned short 
+  1612 ;; Return value:  Size  Location     Type
+  1613 ;;                  1    wreg      void 
+  1614 ;; Registers used:
+  1615 ;;		wreg, status,2, status,0
+  1616 ;; Tracked objects:
+  1617 ;;		On entry : 100/0
+  1618 ;;		On exit  : 100/0
+  1619 ;;		Unchanged: 0/0
+  1620 ;; Data sizes:     COMMON BANK0_4   BANK0
+  1621 ;;      Params:         0       2       0
+  1622 ;;      Locals:         0       2       0
+  1623 ;;      Temps:          0       0       0
+  1624 ;;      Totals:         0       4       0
+  1625 ;;Total ram usage:        4 bytes
+  1626 ;; Hardware stack levels used:    1
+  1627 ;; Hardware stack levels required when called:    1
+  1628 ;; This function calls:
+  1629 ;;		Nothing
+  1630 ;; This function is called by:
+  1631 ;;		_bt_off
+  1632 ;;		_main
+  1633 ;; This function uses a non-reentrant model
+  1634 ;;
+  1635                           ;psect for function _delay_ms
   1636                           
-  1637                           ;main.c: 25: while (xms)
-  1638                           ;incstack = 0
-  1639                           ; Regs used in _delay_ms: [wreg+status,2+status,0]
-  1640  0120  0824               	movf	delay_ms@xms,w
-  1641  0121  0425               	iorwf	delay_ms@xms+1,w
-  1642  0122  1903               	btfsc	3,2
-  1643  0123  0008               	return
-  1644                           
-  1645                           ;main.c: 26: {
-  1646                           ;main.c: 27: WORD i = 329;
-  1647  0124  3049               	movlw	73
-  1648  0125  00A6               	movwf	delay_ms@i
-  1649  0126  3001               	movlw	1
-  1650  0127  00A7               	movwf	delay_ms@i+1
-  1651  0128                     l4641:	
-  1652                           
-  1653                           ;main.c: 29: while (i)
-  1654  0128  0826               	movf	delay_ms@i,w
-  1655  0129  0427               	iorwf	delay_ms@i+1,w
-  1656  012A  1903               	btfsc	3,2
-  1657  012B  2933               	goto	l2894
-  1658  012C  0000               	nop	; ;# 
-  1659                           
-  1660                           ;main.c: 37: i--;
-  1661  012D  3001               	movlw	1
-  1662  012E  1283               	bcf	3,5	;RP0=0, select bank0
-  1663  012F  02A6               	subwf	delay_ms@i,f
-  1664  0130  1C03               	btfss	3,0
-  1665  0131  03A7               	decf	delay_ms@i+1,f
-  1666  0132  2928               	goto	l4641
-  1667  0133                     l2894:	
-  1668  0133  0064               	clrwdt	; ;# 
-  1669                           
-  1670                           ;main.c: 44: xms--;
-  1671  0134  3001               	movlw	1
-  1672  0135  1283               	bcf	3,5	;RP0=0, select bank0
-  1673  0136  02A4               	subwf	delay_ms@xms,f
-  1674  0137  3000               	movlw	0
-  1675  0138  1C03               	btfss	3,0
-  1676  0139  03A5               	decf	delay_ms@xms+1,f
-  1677  013A  02A5               	subwf	delay_ms@xms+1,f
-  1678  013B  2920               	goto	l4645
-  1679  013C                     __end_of_delay_ms:	
-  1680                           
-  1681                           	psect	text17
-  1682  0083                     __ptext17:	
-  1683  0083                     _CheckSleep:	
-  1684 ;; *************** function _CheckSleep *****************
-  1685 ;; Defined at:
-  1686 ;;		line 33 in file "temp.c"
-  1687 ;; Parameters:    Size  Location     Type
-  1688 ;;		None
-  1689 ;; Auto vars:     Size  Location     Type
+  1637  0124                     l4649:	
+  1638                           
+  1639                           ;main.c: 25: while (xms)
+  1640                           ;incstack = 0
+  1641                           ; Regs used in _delay_ms: [wreg+status,2+status,0]
+  1642  0124  0824               	movf	delay_ms@xms,w
+  1643  0125  0425               	iorwf	delay_ms@xms+1,w
+  1644  0126  1903               	btfsc	3,2
+  1645  0127  0008               	return
+  1646                           
+  1647                           ;main.c: 26: {
+  1648                           ;main.c: 27: WORD i = 329;
+  1649  0128  3049               	movlw	73
+  1650  0129  00A6               	movwf	delay_ms@i
+  1651  012A  3001               	movlw	1
+  1652  012B  00A7               	movwf	delay_ms@i+1
+  1653  012C                     l4645:	
+  1654                           
+  1655                           ;main.c: 29: while (i)
+  1656  012C  0826               	movf	delay_ms@i,w
+  1657  012D  0427               	iorwf	delay_ms@i+1,w
+  1658  012E  1903               	btfsc	3,2
+  1659  012F  2937               	goto	l2894
+  1660  0130  0000               	nop	; ;# 
+  1661                           
+  1662                           ;main.c: 37: i--;
+  1663  0131  3001               	movlw	1
+  1664  0132  1283               	bcf	3,5	;RP0=0, select bank0
+  1665  0133  02A6               	subwf	delay_ms@i,f
+  1666  0134  1C03               	btfss	3,0
+  1667  0135  03A7               	decf	delay_ms@i+1,f
+  1668  0136  292C               	goto	l4645
+  1669  0137                     l2894:	
+  1670  0137  0064               	clrwdt	; ;# 
+  1671                           
+  1672                           ;main.c: 44: xms--;
+  1673  0138  3001               	movlw	1
+  1674  0139  1283               	bcf	3,5	;RP0=0, select bank0
+  1675  013A  02A4               	subwf	delay_ms@xms,f
+  1676  013B  3000               	movlw	0
+  1677  013C  1C03               	btfss	3,0
+  1678  013D  03A5               	decf	delay_ms@xms+1,f
+  1679  013E  02A5               	subwf	delay_ms@xms+1,f
+  1680  013F  2924               	goto	l4649
+  1681  0140                     __end_of_delay_ms:	
+  1682                           
+  1683                           	psect	text17
+  1684  0083                     __ptext17:	
+  1685  0083                     _CheckSleep:	
+  1686 ;; *************** function _CheckSleep *****************
+  1687 ;; Defined at:
+  1688 ;;		line 33 in file "temp.c"
+  1689 ;; Parameters:    Size  Location     Type
   1690 ;;		None
-  1691 ;; Return value:  Size  Location     Type
-  1692 ;;                  1    wreg      void 
-  1693 ;; Registers used:
-  1694 ;;		wreg, status,2, status,0, pclath, cstack
-  1695 ;; Tracked objects:
-  1696 ;;		On entry : 100/0
-  1697 ;;		On exit  : 100/0
-  1698 ;;		Unchanged: 0/0
-  1699 ;; Data sizes:     COMMON BANK0_4   BANK0
-  1700 ;;      Params:         0       0       0
-  1701 ;;      Locals:         0       0       0
-  1702 ;;      Temps:          0       0       0
-  1703 ;;      Totals:         0       0       0
-  1704 ;;Total ram usage:        0 bytes
-  1705 ;; Hardware stack levels used:    1
-  1706 ;; Hardware stack levels required when called:    2
-  1707 ;; This function calls:
-  1708 ;;		_InitPort
-  1709 ;; This function is called by:
-  1710 ;;		_main
-  1711 ;; This function uses a non-reentrant model
-  1712 ;;
-  1713                           ;psect for function _CheckSleep
-  1714                           
-  1715                           
-  1716                           ;temp.c: 35: if(1 == (BITS_DATA0.bit5) || 1 == (BITS_DATA0.bit6))
-  1717                           ;incstack = 0
-  1718                           ; Regs used in _CheckSleep: [wreg+status,2+status,0+pclath+cstack]
-  1719  0083  1AA8               	btfsc	_BITS_DATA0,5
-  1720  0084  2887               	goto	l4845
-  1721  0085  1F28               	btfss	_BITS_DATA0,6
-  1722  0086  2889               	goto	l4847
-  1723  0087                     l4845:	
-  1724                           
-  1725                           ;temp.c: 36: {
-  1726                           ;temp.c: 37: SleepCount = 0;
-  1727  0087  019B               	clrf	_SleepCount
-  1728  0088  019C               	clrf	_SleepCount+1
-  1729  0089                     l4847:	
-  1730                           
-  1731                           ;temp.c: 38: }
-  1732                           ;temp.c: 42: if(SleepCount < 1000)
-  1733  0089  3003               	movlw	3
-  1734  008A  021C               	subwf	_SleepCount+1,w
-  1735  008B  30E8               	movlw	232
-  1736  008C  1903               	btfsc	3,2
-  1737  008D  021B               	subwf	_SleepCount,w
-  1738  008E  1803               	btfsc	3,0
-  1739  008F  2894               	goto	l4853
-  1740                           
-  1741                           ;temp.c: 44: {
-  1742                           ;temp.c: 45: SleepCount++;
-  1743  0090  0A9B               	incf	_SleepCount,f
-  1744  0091  1903               	btfsc	3,2
-  1745  0092  0A9C               	incf	_SleepCount+1,f
-  1746  0093  0008               	return
-  1747  0094                     l4853:	
-  1748                           
-  1749                           ;temp.c: 47: }
-  1750                           ;temp.c: 49: RAMP = 0;
-  1751  0094  01D5               	clrf	85	;volatile
-  1752                           
-  1753                           ;temp.c: 50: T1CON = 0;
-  1754  0095  01CC               	clrf	76	;volatile
-  1755                           
-  1756                           ;temp.c: 51: CHARGE1 = 0;
-  1757  0096  01D4               	clrf	84	;volatile
-  1758                           
-  1759                           ;temp.c: 52: CHARGE0 = 0;
-  1760  0097  01D3               	clrf	83	;volatile
-  1761                           
-  1762                           ;temp.c: 53: PCON = 0;
-  1763  0098  0188               	clrf	8	;volatile
-  1764                           
-  1765                           ;temp.c: 54: CMPCR = 0;
-  1766  0099  01D1               	clrf	81	;volatile
-  1767                           
-  1768                           ;temp.c: 57: LVDM = 0;
-  1769  009A  1251               	bcf	81,4	;volatile
-  1770                           
-  1771                           ;temp.c: 58: CMPEN = 0;
-  1772  009B  1008               	bcf	8,0	;volatile
-  1773                           
-  1774                           ;temp.c: 59: CMPOF = 0;
-  1775  009C  1288               	bcf	8,5	;volatile
-  1776                           
-  1777                           ;temp.c: 60: TEMPEN = 0;
-  1778  009D  1354               	bcf	84,6	;volatile
-  1779                           
-  1780                           ;temp.c: 61: TMPF = 0;
-  1781  009E  120F               	bcf	15,4	;volatile
-  1782                           
-  1783                           ;temp.c: 62: MODSEL = 0;
-  1784  009F  13D5               	bcf	85,7	;volatile
-  1785                           
-  1786                           ;temp.c: 64: WDTEN = 0;
-  1787  00A0  1388               	bcf	8,7	;volatile
-  1788                           
-  1789                           ;temp.c: 65: T0IE = 0;
-  1790  00A1  100E               	bcf	14,0	;volatile
-  1791                           
-  1792                           ;temp.c: 67: INTECON = 0;
-  1793  00A2  018E               	clrf	14	;volatile
-  1794                           
-  1795                           ;temp.c: 69: PORTB = 0;
-  1796  00A3  0186               	clrf	6	;volatile
-  1797                           
-  1798                           ;temp.c: 71: TRISB = 0xff;
-  1799  00A4  30FF               	movlw	255
-  1800  00A5  00C6               	movwf	70	;volatile
-  1801  00A6  0084               	movwf	4
-  1802                           
-  1803                           ;temp.c: 75: PDCON = 0xFF;
-  1804  00A7  008B               	movwf	11	;volatile
-  1805                           
-  1806                           ;temp.c: 76: PDCON1 = 0xFF;
-  1807  00A8  00D2               	movwf	82	;volatile
-  1808                           
-  1809                           ;temp.c: 79: PHCON = 0XFF;
-  1810  00A9  008D               	movwf	13	;volatile
-  1811                           
-  1812                           ;temp.c: 81: PHCON &= (0xFB);
-  1813  00AA  110D               	bcf	13,2	;volatile
-  1814                           
-  1815                           ;temp.c: 82: PHCON &= (0xEF);
-  1816  00AB  120D               	bcf	13,4	;volatile
-  1817                           
-  1818                           ;temp.c: 84: IOCB = 0X00;
-  1819  00AC  0189               	clrf	9	;volatile
-  1820                           
-  1821                           ;temp.c: 85: IOCB |= (0x04);
-  1822  00AD  1509               	bsf	9,2	;volatile
-  1823                           
-  1824                           ;temp.c: 86: IOCB |= (0x10);
-  1825  00AE  1609               	bsf	9,4	;volatile
-  1826                           
-  1827                           ;temp.c: 94: PBIF = 0;
-  1828  00AF  1283               	bcf	3,5	;RP0=0, select bank0
-  1829  00B0  108F               	bcf	15,1	;volatile
-  1830                           
-  1831                           ;temp.c: 95: PBIE = 1;
-  1832  00B1  148E               	bsf	14,1	;volatile
-  1833                           
-  1834                           ;temp.c: 96: GIE = 0;
-  1835  00B2  138E               	bcf	14,7	;volatile
-  1836  00B3  0063               	sleep	;# 
-  1837  00B4  0000               	nop	;# 
-  1838  00B5  0000               	nop	;# 
-  1839  00B6  0000               	nop	;# 
-  1840  00B7  0000               	nop	;# 
-  1841  00B8  0806               	movf	6,w	;# 
-  1842                           
-  1843                           ;temp.c: 110: PBIE = 0;
-  1844  00B9  1283               	bcf	3,5	;RP0=0, select bank0
-  1845  00BA  108E               	bcf	14,1	;volatile
-  1846                           
-  1847                           ;temp.c: 111: IOCB = 0;
-  1848  00BB  0189               	clrf	9	;volatile
-  1849                           
-  1850                           ;temp.c: 112: LVDM = 1;
-  1851  00BC  1651               	bsf	81,4	;volatile
-  1852  00BD  0064               	clrwdt	; ;# 
-  1853                           
-  1854                           ;temp.c: 117: WDTEN = 1;
-  1855  00BE  1283               	bcf	3,5	;RP0=0, select bank0
-  1856  00BF  1788               	bsf	8,7	;volatile
-  1857                           
-  1858                           ;temp.c: 118: GIE = 1;
-  1859  00C0  178E               	bsf	14,7	;volatile
-  1860                           
-  1861                           ;temp.c: 119: T0IE = 1;
-  1862  00C1  140E               	bsf	14,0	;volatile
-  1863                           
-  1864                           ;temp.c: 121: InitPort();
-  1865  00C2  2103               	fcall	_InitPort
-  1866                           
-  1867                           ;temp.c: 141: MODSEL = 1;
-  1868  00C3  17D5               	bsf	85,7	;volatile
-  1869                           
-  1870                           ;temp.c: 142: SleepCount = 0;
-  1871  00C4  019B               	clrf	_SleepCount
-  1872  00C5  019C               	clrf	_SleepCount+1
-  1873  00C6  0008               	return
-  1874  00C7                     __end_of_CheckSleep:	
-  1875                           
-  1876                           	psect	text18
-  1877  0103                     __ptext18:	
-  1878  0103                     _InitPort:	
-  1879 ;; *************** function _InitPort *****************
-  1880 ;; Defined at:
-  1881 ;;		line 8 in file "init.c"
-  1882 ;; Parameters:    Size  Location     Type
-  1883 ;;		None
-  1884 ;; Auto vars:     Size  Location     Type
-  1885 ;;		None
-  1886 ;; Return value:  Size  Location     Type
-  1887 ;;                  1    wreg      void 
-  1888 ;; Registers used:
-  1889 ;;		wreg, status,2
-  1890 ;; Tracked objects:
-  1891 ;;		On entry : 100/0
-  1892 ;;		On exit  : 100/0
-  1893 ;;		Unchanged: 0/0
-  1894 ;; Data sizes:     COMMON BANK0_4   BANK0
-  1895 ;;      Params:         0       0       0
-  1896 ;;      Locals:         0       0       0
-  1897 ;;      Temps:          0       0       0
-  1898 ;;      Totals:         0       0       0
-  1899 ;;Total ram usage:        0 bytes
-  1900 ;; Hardware stack levels used:    1
-  1901 ;; Hardware stack levels required when called:    1
-  1902 ;; This function calls:
-  1903 ;;		Nothing
-  1904 ;; This function is called by:
-  1905 ;;		_main
-  1906 ;;		_CheckSleep
-  1907 ;; This function uses a non-reentrant model
-  1908 ;;
-  1909                           ;psect for function _InitPort
-  1910                           
-  1911                           
-  1912                           ;init.c: 11: AUXR = 0;
-  1913                           ;incstack = 0
-  1914                           ; Regs used in _InitPort: [wreg+status,2]
-  1915  0103  01D9               	clrf	89	;volatile
+  1691 ;; Auto vars:     Size  Location     Type
+  1692 ;;		None
+  1693 ;; Return value:  Size  Location     Type
+  1694 ;;                  1    wreg      void 
+  1695 ;; Registers used:
+  1696 ;;		wreg, status,2, status,0, pclath, cstack
+  1697 ;; Tracked objects:
+  1698 ;;		On entry : 100/0
+  1699 ;;		On exit  : 100/0
+  1700 ;;		Unchanged: 0/0
+  1701 ;; Data sizes:     COMMON BANK0_4   BANK0
+  1702 ;;      Params:         0       0       0
+  1703 ;;      Locals:         0       0       0
+  1704 ;;      Temps:          0       0       0
+  1705 ;;      Totals:         0       0       0
+  1706 ;;Total ram usage:        0 bytes
+  1707 ;; Hardware stack levels used:    1
+  1708 ;; Hardware stack levels required when called:    2
+  1709 ;; This function calls:
+  1710 ;;		_InitPort
+  1711 ;; This function is called by:
+  1712 ;;		_main
+  1713 ;; This function uses a non-reentrant model
+  1714 ;;
+  1715                           ;psect for function _CheckSleep
+  1716                           
+  1717                           
+  1718                           ;temp.c: 35: if(1 == (BITS_DATA0.bit5) || 1 == (BITS_DATA0.bit6))
+  1719                           ;incstack = 0
+  1720                           ; Regs used in _CheckSleep: [wreg+status,2+status,0+pclath+cstack]
+  1721  0083  1AA8               	btfsc	_BITS_DATA0,5
+  1722  0084  2887               	goto	l4851
+  1723  0085  1F28               	btfss	_BITS_DATA0,6
+  1724  0086  2889               	goto	l4853
+  1725  0087                     l4851:	
+  1726                           
+  1727                           ;temp.c: 36: {
+  1728                           ;temp.c: 37: SleepCount = 0;
+  1729  0087  019B               	clrf	_SleepCount
+  1730  0088  019C               	clrf	_SleepCount+1
+  1731  0089                     l4853:	
+  1732                           
+  1733                           ;temp.c: 38: }
+  1734                           ;temp.c: 42: if(SleepCount < 1000)
+  1735  0089  3003               	movlw	3
+  1736  008A  021C               	subwf	_SleepCount+1,w
+  1737  008B  30E8               	movlw	232
+  1738  008C  1903               	btfsc	3,2
+  1739  008D  021B               	subwf	_SleepCount,w
+  1740  008E  1803               	btfsc	3,0
+  1741  008F  2894               	goto	l4859
+  1742                           
+  1743                           ;temp.c: 44: {
+  1744                           ;temp.c: 45: SleepCount++;
+  1745  0090  0A9B               	incf	_SleepCount,f
+  1746  0091  1903               	btfsc	3,2
+  1747  0092  0A9C               	incf	_SleepCount+1,f
+  1748  0093  0008               	return
+  1749  0094                     l4859:	
+  1750                           
+  1751                           ;temp.c: 47: }
+  1752                           ;temp.c: 49: RAMP = 0;
+  1753  0094  01D5               	clrf	85	;volatile
+  1754                           
+  1755                           ;temp.c: 50: T1CON = 0;
+  1756  0095  01CC               	clrf	76	;volatile
+  1757                           
+  1758                           ;temp.c: 51: CHARGE1 = 0;
+  1759  0096  01D4               	clrf	84	;volatile
+  1760                           
+  1761                           ;temp.c: 52: CHARGE0 = 0;
+  1762  0097  01D3               	clrf	83	;volatile
+  1763                           
+  1764                           ;temp.c: 53: PCON = 0;
+  1765  0098  0188               	clrf	8	;volatile
+  1766                           
+  1767                           ;temp.c: 54: CMPCR = 0;
+  1768  0099  01D1               	clrf	81	;volatile
+  1769                           
+  1770                           ;temp.c: 57: LVDM = 0;
+  1771  009A  1251               	bcf	81,4	;volatile
+  1772                           
+  1773                           ;temp.c: 58: CMPEN = 0;
+  1774  009B  1008               	bcf	8,0	;volatile
+  1775                           
+  1776                           ;temp.c: 59: CMPOF = 0;
+  1777  009C  1288               	bcf	8,5	;volatile
+  1778                           
+  1779                           ;temp.c: 60: TEMPEN = 0;
+  1780  009D  1354               	bcf	84,6	;volatile
+  1781                           
+  1782                           ;temp.c: 61: TMPF = 0;
+  1783  009E  120F               	bcf	15,4	;volatile
+  1784                           
+  1785                           ;temp.c: 62: MODSEL = 0;
+  1786  009F  13D5               	bcf	85,7	;volatile
+  1787                           
+  1788                           ;temp.c: 64: WDTEN = 0;
+  1789  00A0  1388               	bcf	8,7	;volatile
+  1790                           
+  1791                           ;temp.c: 65: T0IE = 0;
+  1792  00A1  100E               	bcf	14,0	;volatile
+  1793                           
+  1794                           ;temp.c: 67: INTECON = 0;
+  1795  00A2  018E               	clrf	14	;volatile
+  1796                           
+  1797                           ;temp.c: 69: PORTB = 0;
+  1798  00A3  0186               	clrf	6	;volatile
+  1799                           
+  1800                           ;temp.c: 71: TRISB = 0xff;
+  1801  00A4  30FF               	movlw	255
+  1802  00A5  00C6               	movwf	70	;volatile
+  1803  00A6  0084               	movwf	4
+  1804                           
+  1805                           ;temp.c: 75: PDCON = 0xFF;
+  1806  00A7  008B               	movwf	11	;volatile
+  1807                           
+  1808                           ;temp.c: 76: PDCON1 = 0xFF;
+  1809  00A8  00D2               	movwf	82	;volatile
+  1810                           
+  1811                           ;temp.c: 79: PHCON = 0XFF;
+  1812  00A9  008D               	movwf	13	;volatile
+  1813                           
+  1814                           ;temp.c: 81: PHCON &= (0xFB);
+  1815  00AA  110D               	bcf	13,2	;volatile
+  1816                           
+  1817                           ;temp.c: 82: PHCON &= (0xEF);
+  1818  00AB  120D               	bcf	13,4	;volatile
+  1819                           
+  1820                           ;temp.c: 85: IOCB = 0X00;
+  1821  00AC  0189               	clrf	9	;volatile
+  1822                           
+  1823                           ;temp.c: 86: IOCB |= (0x04);
+  1824  00AD  1509               	bsf	9,2	;volatile
+  1825                           
+  1826                           ;temp.c: 87: IOCB |= (0x10);
+  1827  00AE  1609               	bsf	9,4	;volatile
+  1828                           
+  1829                           ;temp.c: 88: IOCB |= (0x01 << 5);
+  1830  00AF  1689               	bsf	9,5	;volatile
+  1831                           
+  1832                           ;temp.c: 96: PBIF = 0;
+  1833  00B0  1283               	bcf	3,5	;RP0=0, select bank0
+  1834  00B1  108F               	bcf	15,1	;volatile
+  1835                           
+  1836                           ;temp.c: 97: PBIE = 1;
+  1837  00B2  148E               	bsf	14,1	;volatile
+  1838                           
+  1839                           ;temp.c: 98: GIE = 0;
+  1840  00B3  138E               	bcf	14,7	;volatile
+  1841  00B4  0063               	sleep	;# 
+  1842  00B5  0000               	nop	;# 
+  1843  00B6  0000               	nop	;# 
+  1844  00B7  0000               	nop	;# 
+  1845  00B8  0000               	nop	;# 
+  1846  00B9  0806               	movf	6,w	;# 
+  1847                           
+  1848                           ;temp.c: 112: PBIE = 0;
+  1849  00BA  1283               	bcf	3,5	;RP0=0, select bank0
+  1850  00BB  108E               	bcf	14,1	;volatile
+  1851                           
+  1852                           ;temp.c: 113: IOCB = 0;
+  1853  00BC  0189               	clrf	9	;volatile
+  1854                           
+  1855                           ;temp.c: 114: LVDM = 1;
+  1856  00BD  1651               	bsf	81,4	;volatile
+  1857  00BE  0064               	clrwdt	; ;# 
+  1858                           
+  1859                           ;temp.c: 119: WDTEN = 1;
+  1860  00BF  1283               	bcf	3,5	;RP0=0, select bank0
+  1861  00C0  1788               	bsf	8,7	;volatile
+  1862                           
+  1863                           ;temp.c: 120: GIE = 1;
+  1864  00C1  178E               	bsf	14,7	;volatile
+  1865                           
+  1866                           ;temp.c: 121: T0IE = 1;
+  1867  00C2  140E               	bsf	14,0	;volatile
+  1868                           
+  1869                           ;temp.c: 123: InitPort();
+  1870  00C3  2106               	fcall	_InitPort
+  1871                           
+  1872                           ;temp.c: 143: MODSEL = 1;
+  1873  00C4  17D5               	bsf	85,7	;volatile
+  1874                           
+  1875                           ;temp.c: 144: SleepCount = 0;
+  1876  00C5  019B               	clrf	_SleepCount
+  1877  00C6  019C               	clrf	_SleepCount+1
+  1878  00C7  0008               	return
+  1879  00C8                     __end_of_CheckSleep:	
+  1880                           
+  1881                           	psect	text18
+  1882  0106                     __ptext18:	
+  1883  0106                     _InitPort:	
+  1884 ;; *************** function _InitPort *****************
+  1885 ;; Defined at:
+  1886 ;;		line 8 in file "init.c"
+  1887 ;; Parameters:    Size  Location     Type
+  1888 ;;		None
+  1889 ;; Auto vars:     Size  Location     Type
+  1890 ;;		None
+  1891 ;; Return value:  Size  Location     Type
+  1892 ;;                  1    wreg      void 
+  1893 ;; Registers used:
+  1894 ;;		wreg, status,2
+  1895 ;; Tracked objects:
+  1896 ;;		On entry : 100/0
+  1897 ;;		On exit  : 100/0
+  1898 ;;		Unchanged: 0/0
+  1899 ;; Data sizes:     COMMON BANK0_4   BANK0
+  1900 ;;      Params:         0       0       0
+  1901 ;;      Locals:         0       0       0
+  1902 ;;      Temps:          0       0       0
+  1903 ;;      Totals:         0       0       0
+  1904 ;;Total ram usage:        0 bytes
+  1905 ;; Hardware stack levels used:    1
+  1906 ;; Hardware stack levels required when called:    1
+  1907 ;; This function calls:
+  1908 ;;		Nothing
+  1909 ;; This function is called by:
+  1910 ;;		_main
+  1911 ;;		_CheckSleep
+  1912 ;; This function uses a non-reentrant model
+  1913 ;;
+  1914                           ;psect for function _InitPort
+  1915                           
   1916                           
-  1917                           ;init.c: 13: PORTB = 0;
-  1918  0104  0186               	clrf	6	;volatile
-  1919                           
-  1920                           ;init.c: 21: TRISB = 0;
-  1921  0105  01C6               	clrf	70	;volatile
-  1922                           
-  1923                           ;init.c: 22: TRISB |= (0x04);
-  1924  0106  1546               	bsf	70,2	;volatile
-  1925                           
-  1926                           ;init.c: 23: TRISB |= (0x10);
-  1927  0107  1646               	bsf	70,4	;volatile
-  1928                           
-  1929                           ;init.c: 24: TRISB |= (0x20);
-  1930  0108  16C6               	bsf	70,5	;volatile
-  1931                           
-  1932                           ;init.c: 26: TRISB |= (0x08);
-  1933  0109  15C6               	bsf	70,3	;volatile
-  1934                           
-  1935                           ;init.c: 33: PHCON = 0XFF;
-  1936  010A  30FF               	movlw	255
-  1937  010B  008D               	movwf	13	;volatile
-  1938                           
-  1939                           ;init.c: 35: PHCON &= (0xFE);
-  1940  010C  100D               	bcf	13,0	;volatile
-  1941                           
-  1942                           ;init.c: 36: PHCON &= (0xFD);
-  1943  010D  108D               	bcf	13,1	;volatile
-  1944                           
-  1945                           ;init.c: 38: PHCON &= (0xFB);
-  1946  010E  110D               	bcf	13,2	;volatile
-  1947                           
-  1948                           ;init.c: 39: PHCON &= (0xEF);
-  1949  010F  120D               	bcf	13,4	;volatile
-  1950                           
-  1951                           ;init.c: 45: PDCON = 0xFF;
-  1952  0110  30FF               	movlw	255
-  1953  0111  008B               	movwf	11	;volatile
-  1954                           
-  1955                           ;init.c: 46: PDCON1 = 0xFF;
-  1956  0112  00D2               	movwf	82	;volatile
-  1957                           
-  1958                           ;init.c: 50: IOCB = 0X00;
-  1959  0113  0189               	clrf	9	;volatile
-  1960                           
-  1961                           ;init.c: 51: IOCB |= (0x04);
-  1962  0114  1509               	bsf	9,2	;volatile
-  1963                           
-  1964                           ;init.c: 52: IOCB |= (0x10);
-  1965  0115  1609               	bsf	9,4	;volatile
-  1966                           
-  1967                           ;init.c: 53: IOCB |= (0x20);
-  1968  0116  1689               	bsf	9,5	;volatile
-  1969                           
-  1970                           ;init.c: 54: PBIE = 0;
-  1971  0117  108E               	bcf	14,1	;volatile
-  1972                           
-  1973                           ;init.c: 60: ODCON = 0;
-  1974  0118  018C               	clrf	12	;volatile
-  1975                           
-  1976                           ;init.c: 61: ODCON |= (0x01);
-  1977  0119  140C               	bsf	12,0	;volatile
-  1978                           
-  1979                           ;init.c: 62: ODCON |= (0x02);
-  1980  011A  148C               	bsf	12,1	;volatile
-  1981                           
-  1982                           ;init.c: 70: MODSEL = 1;
-  1983  011B  17D5               	bsf	85,7	;volatile
-  1984                           
-  1985                           ;init.c: 71: PORTB1 = 1;
-  1986  011C  1486               	bsf	6,1	;volatile
-  1987                           
-  1988                           ;init.c: 72: PORTB0 = 1;
-  1989  011D  1406               	bsf	6,0	;volatile
-  1990                           
-  1991                           ;init.c: 73: PORTB3 = 0;
-  1992  011E  1186               	bcf	6,3	;volatile
-  1993  011F  0008               	return
-  1994  0120                     __end_of_InitPort:	
+  1917                           ;init.c: 11: AUXR = 0;
+  1918                           ;incstack = 0
+  1919                           ; Regs used in _InitPort: [wreg+status,2]
+  1920  0106  01D9               	clrf	89	;volatile
+  1921                           
+  1922                           ;init.c: 13: PORTB = 0;
+  1923  0107  0186               	clrf	6	;volatile
+  1924                           
+  1925                           ;init.c: 21: TRISB = 0;
+  1926  0108  01C6               	clrf	70	;volatile
+  1927                           
+  1928                           ;init.c: 22: TRISB |= (0x04);
+  1929  0109  1546               	bsf	70,2	;volatile
+  1930                           
+  1931                           ;init.c: 23: TRISB |= (0x10);
+  1932  010A  1646               	bsf	70,4	;volatile
+  1933                           
+  1934                           ;init.c: 24: TRISB |= (0x20);
+  1935  010B  16C6               	bsf	70,5	;volatile
+  1936                           
+  1937                           ;init.c: 26: TRISB |= (0x08);
+  1938  010C  15C6               	bsf	70,3	;volatile
+  1939                           
+  1940                           ;init.c: 33: PHCON = 0XFF;
+  1941  010D  30FF               	movlw	255
+  1942  010E  008D               	movwf	13	;volatile
+  1943                           
+  1944                           ;init.c: 35: PHCON &= (0xFE);
+  1945  010F  100D               	bcf	13,0	;volatile
+  1946                           
+  1947                           ;init.c: 36: PHCON &= (0xFD);
+  1948  0110  108D               	bcf	13,1	;volatile
+  1949                           
+  1950                           ;init.c: 38: PHCON &= (0xFB);
+  1951  0111  110D               	bcf	13,2	;volatile
+  1952                           
+  1953                           ;init.c: 39: PHCON &= (0xEF);
+  1954  0112  120D               	bcf	13,4	;volatile
+  1955                           
+  1956                           ;init.c: 45: PDCON = 0xFF;
+  1957  0113  30FF               	movlw	255
+  1958  0114  008B               	movwf	11	;volatile
+  1959                           
+  1960                           ;init.c: 46: PDCON1 = 0xFF;
+  1961  0115  00D2               	movwf	82	;volatile
+  1962                           
+  1963                           ;init.c: 48: PDCON1 &= ~(0x01 << 5);
+  1964  0116  12D2               	bcf	82,5	;volatile
+  1965                           
+  1966                           ;init.c: 53: IOCB = 0X00;
+  1967  0117  0189               	clrf	9	;volatile
+  1968                           
+  1969                           ;init.c: 54: IOCB |= (0x04);
+  1970  0118  1509               	bsf	9,2	;volatile
+  1971                           
+  1972                           ;init.c: 55: IOCB |= (0x10);
+  1973  0119  1609               	bsf	9,4	;volatile
+  1974                           
+  1975                           ;init.c: 56: IOCB |= (0x20);
+  1976  011A  1689               	bsf	9,5	;volatile
+  1977                           
+  1978                           ;init.c: 57: PBIE = 0;
+  1979  011B  108E               	bcf	14,1	;volatile
+  1980                           
+  1981                           ;init.c: 63: ODCON = 0;
+  1982  011C  018C               	clrf	12	;volatile
+  1983                           
+  1984                           ;init.c: 64: ODCON |= (0x01);
+  1985  011D  140C               	bsf	12,0	;volatile
+  1986                           
+  1987                           ;init.c: 65: ODCON |= (0x02);
+  1988  011E  148C               	bsf	12,1	;volatile
+  1989                           
+  1990                           ;init.c: 73: MODSEL = 1;
+  1991  011F  17D5               	bsf	85,7	;volatile
+  1992                           
+  1993                           ;init.c: 74: PORTB1 = 1;
+  1994  0120  1486               	bsf	6,1	;volatile
   1995                           
-  1996                           	psect	text19
-  1997  0153                     __ptext19:	
-  1998  0153                     _interrupt_handle:	
-  1999 ;; *************** function _interrupt_handle *****************
-  2000 ;; Defined at:
-  2001 ;;		line 9 in file "interrupt.c"
-  2002 ;; Parameters:    Size  Location     Type
-  2003 ;;		None
-  2004 ;; Auto vars:     Size  Location     Type
-  2005 ;;		None
-  2006 ;; Return value:  Size  Location     Type
-  2007 ;;                  1    wreg      void 
-  2008 ;; Registers used:
-  2009 ;;		wreg, status,2, status,0
-  2010 ;; Tracked objects:
-  2011 ;;		On entry : 0/0
-  2012 ;;		On exit  : 100/0
-  2013 ;;		Unchanged: 0/0
-  2014 ;; Data sizes:     COMMON BANK0_4   BANK0
-  2015 ;;      Params:         0       0       0
-  2016 ;;      Locals:         0       0       0
-  2017 ;;      Temps:          0       2       0
-  2018 ;;      Totals:         0       2       0
-  2019 ;;Total ram usage:        2 bytes
-  2020 ;; Hardware stack levels used:    1
-  2021 ;; This function calls:
-  2022 ;;		Nothing
-  2023 ;; This function is called by:
-  2024 ;;		Interrupt level 1
-  2025 ;; This function uses a non-reentrant model
-  2026 ;;
-  2027                           ;psect for function _interrupt_handle
-  2028                           
-  2029                           
-  2030                           ;interrupt.c: 11: if (PBIF)
-  2031  0153  188F               	btfsc	15,1	;volatile
-  2032                           
-  2033                           ;interrupt.c: 12: {
-  2034                           ;interrupt.c: 13: PBIF = 0;
-  2035  0154  108F               	bcf	15,1	;volatile
+  1996                           ;init.c: 75: PORTB0 = 1;
+  1997  0121  1406               	bsf	6,0	;volatile
+  1998                           
+  1999                           ;init.c: 76: PORTB3 = 0;
+  2000  0122  1186               	bcf	6,3	;volatile
+  2001  0123  0008               	return
+  2002  0124                     __end_of_InitPort:	
+  2003                           
+  2004                           	psect	text19
+  2005  0157                     __ptext19:	
+  2006  0157                     _interrupt_handle:	
+  2007 ;; *************** function _interrupt_handle *****************
+  2008 ;; Defined at:
+  2009 ;;		line 9 in file "interrupt.c"
+  2010 ;; Parameters:    Size  Location     Type
+  2011 ;;		None
+  2012 ;; Auto vars:     Size  Location     Type
+  2013 ;;		None
+  2014 ;; Return value:  Size  Location     Type
+  2015 ;;                  1    wreg      void 
+  2016 ;; Registers used:
+  2017 ;;		wreg, status,2, status,0
+  2018 ;; Tracked objects:
+  2019 ;;		On entry : 0/0
+  2020 ;;		On exit  : 100/0
+  2021 ;;		Unchanged: 0/0
+  2022 ;; Data sizes:     COMMON BANK0_4   BANK0
+  2023 ;;      Params:         0       0       0
+  2024 ;;      Locals:         0       0       0
+  2025 ;;      Temps:          0       2       0
+  2026 ;;      Totals:         0       2       0
+  2027 ;;Total ram usage:        2 bytes
+  2028 ;; Hardware stack levels used:    1
+  2029 ;; This function calls:
+  2030 ;;		Nothing
+  2031 ;; This function is called by:
+  2032 ;;		Interrupt level 1
+  2033 ;; This function uses a non-reentrant model
+  2034 ;;
+  2035                           ;psect for function _interrupt_handle
   2036                           
-  2037                           ;interrupt.c: 15: }
-  2038                           ;interrupt.c: 16: if (T0IF)
-  2039  0155  1C0F               	btfss	15,0	;volatile
-  2040  0156  295A               	goto	i1l4917
-  2041                           
-  2042                           ;interrupt.c: 17: {
-  2043                           ;interrupt.c: 18: T0IF = 0;
-  2044  0157  100F               	bcf	15,0	;volatile
-  2045                           
-  2046                           ;interrupt.c: 19: T0 = 217;
-  2047  0158  30D9               	movlw	217
-  2048  0159  0081               	movwf	1	;volatile
-  2049  015A                     i1l4917:	
-  2050  015A  30C8               	movlw	200
-  2051                           
-  2052                           ;interrupt.c: 21: }
-  2053                           ;interrupt.c: 23: g_ucTimer10msCount++;
-  2054  015B  0AA1               	incf	_g_ucTimer10msCount,f
-  2055                           
-  2056                           ;interrupt.c: 29: if ((200) == g_ucTimer10msCount)
-  2057  015C  0621               	xorwf	_g_ucTimer10msCount,w
-  2058  015D  1D03               	btfss	3,2
-  2059  015E  2961               	goto	i1l1399
-  2060                           
-  2061                           ;interrupt.c: 30: {
-  2062                           ;interrupt.c: 31: g_ucTimer10msCount = 0;
-  2063  015F  01A1               	clrf	_g_ucTimer10msCount
-  2064                           
-  2065                           ;interrupt.c: 32: (BITS_DATA0.bit0) = 1;
-  2066  0160  1428               	bsf	_BITS_DATA0,0
-  2067  0161                     i1l1399:	
-  2068  0161  0823               	movf	??_interrupt_handle+1,w
-  2069  0162  008A               	movwf	10
-  2070  0163  0810               	movf	_itemp,w
-  2071  0164  0087               	movwf	7
-  2072  0165  0E22               	swapf	??_interrupt_handle^0,w
-  2073  0166  0083               	movwf	3
-  2074  0167  0EEE               	swapf	110,f
-  2075  0168  0E6E               	swapf	110,w
-  2076  0169  0009               	retfie
-  2077  016A                     __end_of_interrupt_handle:	
-  2078  006E                     btemp	set	110	;btemp
-  2079  006E                     wtemp0	set	110
-  2080                           
-  2081                           	psect	intentry
-  2082  0008                     __pintentry:	
-  2083  0008                     interrupt_function:	
-  2084                           ;incstack = 0
-  2085                           ; Regs used in _interrupt_handle: [wreg+status,2+status,0]
-  2086                           
-  2087  006E                     saved_w	set	110
-  2088  0008  1A83               	btfsc	3,5
-  2089  0009  280C               	goto	SAVE_BANK1
-  2090  000A  00EE               	movwf	110
-  2091  000B  280F               	goto	EXIT_BANK_SAVE
-  2092  000C                     SAVE_BANK1:	
-  2093  000C  1283               	bcf	3,5
-  2094  000D  00EE               	movwf	110
-  2095  000E  1683               	bsf	3,5
-  2096  000F                     EXIT_BANK_SAVE:	
-  2097  000F  0E03               	swapf	3,w
-  2098  0010  1283               	bcf	3,5	;RP0=0, select bank0
-  2099  0011  00A2               	movwf	??_interrupt_handle
-  2100  0012  0807               	movf	7,w
-  2101  0013  0090               	movwf	_itemp
-  2102  0014  080A               	movf	10,w
-  2103  0015  00A3               	movwf	??_interrupt_handle+1
-  2104  0016  2953               	ljmp	_interrupt_handle
+  2037                           
+  2038                           ;interrupt.c: 11: if (PBIF)
+  2039  0157  188F               	btfsc	15,1	;volatile
+  2040                           
+  2041                           ;interrupt.c: 12: {
+  2042                           ;interrupt.c: 13: PBIF = 0;
+  2043  0158  108F               	bcf	15,1	;volatile
+  2044                           
+  2045                           ;interrupt.c: 15: }
+  2046                           ;interrupt.c: 16: if (T0IF)
+  2047  0159  1C0F               	btfss	15,0	;volatile
+  2048  015A  295E               	goto	i1l4925
+  2049                           
+  2050                           ;interrupt.c: 17: {
+  2051                           ;interrupt.c: 18: T0IF = 0;
+  2052  015B  100F               	bcf	15,0	;volatile
+  2053                           
+  2054                           ;interrupt.c: 19: T0 = 217;
+  2055  015C  30D9               	movlw	217
+  2056  015D  0081               	movwf	1	;volatile
+  2057  015E                     i1l4925:	
+  2058  015E  30C8               	movlw	200
+  2059                           
+  2060                           ;interrupt.c: 21: }
+  2061                           ;interrupt.c: 23: g_ucTimer10msCount++;
+  2062  015F  0AA1               	incf	_g_ucTimer10msCount,f
+  2063                           
+  2064                           ;interrupt.c: 29: if ((200) == g_ucTimer10msCount)
+  2065  0160  0621               	xorwf	_g_ucTimer10msCount,w
+  2066  0161  1D03               	btfss	3,2
+  2067  0162  2965               	goto	i1l1399
+  2068                           
+  2069                           ;interrupt.c: 30: {
+  2070                           ;interrupt.c: 31: g_ucTimer10msCount = 0;
+  2071  0163  01A1               	clrf	_g_ucTimer10msCount
+  2072                           
+  2073                           ;interrupt.c: 32: (BITS_DATA0.bit0) = 1;
+  2074  0164  1428               	bsf	_BITS_DATA0,0
+  2075  0165                     i1l1399:	
+  2076  0165  0823               	movf	??_interrupt_handle+1,w
+  2077  0166  008A               	movwf	10
+  2078  0167  0810               	movf	_itemp,w
+  2079  0168  0087               	movwf	7
+  2080  0169  0E22               	swapf	??_interrupt_handle^0,w
+  2081  016A  0083               	movwf	3
+  2082  016B  0EEE               	swapf	110,f
+  2083  016C  0E6E               	swapf	110,w
+  2084  016D  0009               	retfie
+  2085  016E                     __end_of_interrupt_handle:	
+  2086  006E                     btemp	set	110	;btemp
+  2087  006E                     wtemp0	set	110
+  2088                           
+  2089                           	psect	intentry
+  2090  0008                     __pintentry:	
+  2091  0008                     interrupt_function:	
+  2092                           ;incstack = 0
+  2093                           ; Regs used in _interrupt_handle: [wreg+status,2+status,0]
+  2094                           
+  2095  006E                     saved_w	set	110
+  2096  0008  1A83               	btfsc	3,5
+  2097  0009  280C               	goto	SAVE_BANK1
+  2098  000A  00EE               	movwf	110
+  2099  000B  280F               	goto	EXIT_BANK_SAVE
+  2100  000C                     SAVE_BANK1:	
+  2101  000C  1283               	bcf	3,5
+  2102  000D  00EE               	movwf	110
+  2103  000E  1683               	bsf	3,5
+  2104  000F                     EXIT_BANK_SAVE:	
+  2105  000F  0E03               	swapf	3,w
+  2106  0010  1283               	bcf	3,5	;RP0=0, select bank0
+  2107  0011  00A2               	movwf	??_interrupt_handle
+  2108  0012  0807               	movf	7,w
+  2109  0013  0090               	movwf	_itemp
+  2110  0014  080A               	movf	10,w
+  2111  0015  00A3               	movwf	??_interrupt_handle+1
+  2112  0016  2957               	ljmp	_interrupt_handle
 
 
 Data Sizes:
@@ -2281,29 +2289,29 @@ ABS                  0      0      18       8        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Thu Jul 24 19:02:55 2025
+Symbol Table                                                                                   Fri Jul 25 18:04:20 2025
 
-                        L1 0044                          L2 0172                          L3 017C  
+                        L1 0044                          L2 0176                          L3 0180  
                        _S0 0298                         _S1 0299                         _T0 0001  
                        _S2 029A                         _T1 004D                         _S3 029B  
                        _S4 029C                         _S5 029D                         _S6 029E  
                        _S7 029F                         _S8 02A0                         _S9 02A1  
                       _GIE 0077                        _BOR 02CE                        _BUZ 0265  
                       _PS0 0208                        _PS1 0209                        _PS2 020A  
-                      _SCS 0280                        _PSA 020B                        u763 00DC  
-                      u783 00FA                        _POR 02CF                 _CheckSleep 0083  
-                     l2175 00E1                       l2177 00E5                       l5001 006B  
-                     l2178 00FE                       l5011 0077                       l5007 0074  
-                     l5017 0080                       l5035 00FC                       l5027 00DE  
-                     l1764 001F                       l2901 0148                       l1766 0045  
-                     l1767 003D                       l5055 0150                       l1769 0041  
-                     l4701 01A5                       l4711 0188                       l4703 01AE  
-                     l4641 0128                       l4705 01B1                       l4707 01A8  
-                     l4645 0120                       l4709 01AB                       l4821 01A0  
-                     l2894 0133                       l4815 01A4                       l4853 0094  
-                     l4845 0087                       l4847 0089                       l4695 0198  
-                     l4951 002C                       l4955 0031                       l4991 0062  
-                     l4985 005B                       l4977 0054                       _T0CK 025F  
+                      _SCS 0280                        _PSA 020B                        u763 00DE  
+                      u783 00FD                        _POR 02CF                 _CheckSleep 0083  
+                     l2175 00E3                       l2177 00E7                       l2178 0101  
+                     l5015 0074                       l5025 0080                       l5009 006B  
+                     l5043 00FF                       l5035 00E0                       l5019 0077  
+                     l1764 001F                       l2901 014C                       l1766 0045  
+                     l1767 003D                       l5063 0154                       l1769 0041  
+                     l4701 019C                       l4711 01B5                       l4713 01AC  
+                     l4715 01AF                       l4707 01A9                       l4645 012C  
+                     l4717 018C                       l4709 01B2                       l4821 01A8  
+                     l2894 0137                       l4649 0124                       l4851 0087  
+                     l4827 01A4                       l4853 0089                       l4859 0094  
+                     l4963 0031                       l4959 002C                       l4993 005B  
+                     l4985 0054                       l4999 0062                       _T0CK 025F  
                      _T0IE 0070                       _T0IF 0078                       _T0CR 004B  
                      _T0CS 020D                       _T1IE 0259                       _T1IF 0258  
                      _T1EN 0267                       _PDB3 0293                       _PDB4 0294  
@@ -2311,10 +2319,10 @@ Symbol Table                                                                    
                      _PDB7 0297                       _IOCB 0009                       _AUXR 0059  
                      _PBIE 0071                       _PBIF 0079                       _PCON 0008  
                      _HXEN 0281                       _RAMP 0055                       _LVDM 028C  
-                     _TMPF 007C           _CountdownDisplay 00C7                       _main 013C  
-                     btemp 006E                       start 0017            __end_of_InitRam 0198  
-          __end_of_ScanKey 0083                 _LedDisplay 01A1            __end_of_MotoOff 01AE  
- __end_of_interrupt_handle 016A                      ?_main 0022                      _T1CK0 0263  
+                     _TMPF 007C           _CountdownDisplay 00C8                       _main 0140  
+                     btemp 006E                       start 0017            __end_of_InitRam 019C  
+          __end_of_ScanKey 0083                 _LedDisplay 01A5            __end_of_MotoOff 01B2  
+ __end_of_interrupt_handle 016E                      ?_main 0022                      _T1CK0 0263  
                     _T1CK1 0264                      _CMPIE 028A                      _CMPEN 0040  
                     _CMPCR 0051                      _CMPOF 0045                      _T1CON 004C  
                     _CMPWK 028B                      _CPPIS 0288                      _T1PR0 0260  
@@ -2324,13 +2332,13 @@ Symbol Table                                                                    
                     _PWM0P 004F                      _SLOP1 02A9                      _SLOP2 02AA  
                     _PWM1P 0049                      _PWM2P 004A                      _PORTB 0006  
                     _WDTEN 0047                      _PWMCK 0244                      _PWMCT 02C8  
-                    _PWMMD 0243                      _TRISB 0046                      _LedOn 01AE  
-                    _PowOn 0198                      _itemp 0010                      wtemp0 006E  
-          __initialization 0018               __end_of_main 0153                 _InitSystem 017E  
-         __end_of_InitPort 0120                     ??_main 0000                     ?_LedOn 0000  
+                    _PWMMD 0243                      _TRISB 0046                      _LedOn 01B2  
+                    _PowOn 019C                      _itemp 0010                      wtemp0 006E  
+          __initialization 0018               __end_of_main 0157                 _InitSystem 0182  
+         __end_of_InitPort 0124                     ??_main 0000                     ?_LedOn 0000  
                    ?_PowOn 0000         __size_of_LedSwitch 000A              ??_MotoDisplay 0000  
               ?_CheckSleep 0000                     _CMPIES 0289                     _T1LOAD 004E  
-                   i1l1399 0161                     _PDCON1 0052                     i1l4917 015A  
+                   i1l1399 0165                     _PDCON1 0052                     i1l4925 015E  
                    _INTEDG 020E                     _MODSEL 02AF                     _OSCCON 0050  
                    _TEMPEN 02A6                     _PWM0OE 0247                     _PWM3CT 02C9  
                    _PWM1OE 0246                     _PWM2OE 0245                     _PORTB0 0030  
@@ -2339,50 +2347,50 @@ Symbol Table                                                                    
                    _PWMCON 0048                     _TRISB0 0230                     _TRISB1 0231  
                    _TRISB2 0232                     _TRISB3 0233                     _TRISB4 0234  
                    _TRISB5 0235                     _TRISB6 0236                     _PWMINV 0242  
-                   _TRISB7 0237                  ??_InitRam 0000                     _LedOff 01B1  
-         __end_of_delay_ms 013C                  ??_ScanKey 0000                 _SleepCount 001B  
-               _MotoSwitch 016A                  ??_MotoOff 0000                     _MotoOn 01A8  
-                   _PowOff 01A5                     _bt_off 0188                ?_LedDisplay 0022  
+                   _TRISB7 0237                  ??_InitRam 0000                     _LedOff 01B5  
+         __end_of_delay_ms 0140                  ??_ScanKey 0000                 _SleepCount 001B  
+               _MotoSwitch 016E                  ??_MotoOff 0000                     _MotoOn 01AC  
+                   _PowOff 01A9                     _bt_off 018C                ?_LedDisplay 0022  
                    _long_f 001E                     saved_w 006E               __pbssBANK0_4 0028  
-  __end_of__initialization 0018        __end_of_MotoDisplay 01A1              __end_of_LedOn 01B1  
-           __pcstackCOMMON 0000          __end_of_LedSwitch 017E              __end_of_PowOn 019D  
-              ?_InitSystem 0022        __size_of_CheckSleep 0044   __end_of_CountdownDisplay 0103  
+  __end_of__initialization 0018        __end_of_MotoDisplay 01A5              __end_of_LedOn 01B5  
+           __pcstackCOMMON 0000          __end_of_LedSwitch 0182              __end_of_PowOn 01A1  
+              ?_InitSystem 0022        __size_of_CheckSleep 0045   __end_of_CountdownDisplay 0106  
                   ??_LedOn 0000                    ??_PowOn 0000                 __pbssBANK0 0011  
       __size_of_LedDisplay 0004                  ?_InitPort 0022                  SAVE_BANK1 000C  
                   ?_LedOff 0000                ?_MotoSwitch 0000                    ?_MotoOn 0022  
-                  ?_PowOff 0000                 __pmaintext 013C                 __pintentry 0008  
+                  ?_PowOff 0000                 __pmaintext 0140                 __pintentry 0008  
                   ?_bt_off 0022         _g_ucTimer10msCount 0021                    _CHARGE0 0053  
                   _CHARGE1 0054                    _CHARGEN 02A7          ?_interrupt_handle 0022  
        ??_interrupt_handle 0022                    _T0OSCEN 0287                    _HIRCTRM 005B  
                   _INTECON 000E                    _INTFLAG 000F                  ?_delay_ms 0024  
-                  _RCTRMEN 02CA                _MotoDisplay 019D        __size_of_InitSystem 000A  
-               _lampTiming 0015                 ??_InitPort 0000                    _InitRam 0192  
-                  _ScanKey 001A            __size_of_LedOff 0003                    _MotoOff 01AB  
+                  _RCTRMEN 02CA                _MotoDisplay 01A1        __size_of_InitSystem 000A  
+               _lampTiming 0015                 ??_InitPort 0000                    _InitRam 0196  
+                  _ScanKey 001A            __size_of_LedOff 0003                    _MotoOff 01AF  
           __size_of_MotoOn 0003            __size_of_PowOff 0003            __size_of_bt_off 000A  
-                  __ptext0 0000                    __ptext1 001A                    __ptext2 0198  
-                  __ptext3 01A5                    __ptext4 016A                    __ptext5 0174  
-                  __ptext6 019D                    __ptext7 01A8                    __ptext8 01AB  
-                  __ptext9 01A1                    _occupy1 0042                    _occupy2 0047  
+                  __ptext0 0000                    __ptext1 001A                    __ptext2 019C  
+                  __ptext3 01A9                    __ptext4 016E                    __ptext5 0178  
+                  __ptext6 01A1                    __ptext7 01AC                    __ptext8 01AF  
+                  __ptext9 01A5                    _occupy1 0042                    _occupy2 0047  
                   _occupy3 005A                 ??_delay_ms 0000        __size_of_MotoSwitch 000A  
              ??_CheckSleep 0000       end_of_initialization 0018                 _motoTiming 0011  
-             ??_LedDisplay 0000         __end_of_CheckSleep 00C7         __end_of_LedDisplay 01A5  
-          __pcstackBANK0_4 0022             __end_of_LedOff 01B4             __end_of_MotoOn 01AB  
-           __end_of_PowOff 01A8               ??_InitSystem 0000                  _LedSwitch 0174  
-           __end_of_bt_off 0192          ?_CountdownDisplay 0022         ??_CountdownDisplay 0000  
-      start_initialization 0018         __end_of_InitSystem 0188              EXIT_BANK_SAVE 000F  
-                 ??_LedOff 0000          __size_of_InitPort 001D               ??_MotoSwitch 0000  
+             ??_LedDisplay 0000         __end_of_CheckSleep 00C8         __end_of_LedDisplay 01A9  
+          __pcstackBANK0_4 0022             __end_of_LedOff 01B8             __end_of_MotoOn 01AF  
+           __end_of_PowOff 01AC               ??_InitSystem 0000                  _LedSwitch 0178  
+           __end_of_bt_off 0196          ?_CountdownDisplay 0022         ??_CountdownDisplay 0000  
+      start_initialization 0018         __end_of_InitSystem 018C              EXIT_BANK_SAVE 000F  
+                 ??_LedOff 0000          __size_of_InitPort 001E               ??_MotoSwitch 0000  
                  ??_MotoOn 0000                   ??_PowOff 0000              _longpress_cnt 0019  
                  ??_bt_off 0000                 ?_LedSwitch 0000                  ___latbits 0000  
-            __pcstackBANK0 0000         __end_of_MotoSwitch 0174               ?_MotoDisplay 0022  
+            __pcstackBANK0 0000         __end_of_MotoSwitch 0178               ?_MotoDisplay 0022  
        _g_ucTimerWorkCount 0020          __size_of_delay_ms 001C  __size_of_interrupt_handle 0017  
                  ?_InitRam 0022                   ?_ScanKey 0022                   ?_MotoOff 0022  
            __size_of_LedOn 0003             __size_of_PowOn 0005                _clink_event 001F  
         interrupt_function 0008                  delay_ms@i 0026                   _SINK_SEL 02AE  
-              ??_LedSwitch 0000                   _InitPort 0103           __size_of_InitRam 0006  
+              ??_LedSwitch 0000                   _InitPort 0106           __size_of_InitRam 0006  
          __size_of_ScanKey 0069           __size_of_MotoOff 0003                 _BITS_DATA0 0028  
-                 _delay_ms 0120                   __ptext10 01AE                   __ptext11 01B1  
-                 __ptext12 017E                   __ptext13 0192                   __ptext14 00C7  
-                 __ptext15 0188                   __ptext16 0120                   __ptext17 0083  
-                 __ptext18 0103                   __ptext19 0153           _interrupt_handle 0153  
-     __size_of_MotoDisplay 0004                   _holdOn_f 001D  __size_of_CountdownDisplay 003C  
+                 _delay_ms 0124                   __ptext10 01B2                   __ptext11 01B5  
+                 __ptext12 0182                   __ptext13 0196                   __ptext14 00C8  
+                 __ptext15 018C                   __ptext16 0124                   __ptext17 0083  
+                 __ptext18 0106                   __ptext19 0157           _interrupt_handle 0157  
+     __size_of_MotoDisplay 0004                   _holdOn_f 001D  __size_of_CountdownDisplay 003E  
             __size_of_main 0017                delay_ms@xms 0024                   intlevel1 0000  

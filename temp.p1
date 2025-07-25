@@ -743,68 +743,71 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;temp.c: 82: PHCON &= (0xEF);
 "82
 [e =& _PHCON -> -> 239 `i `uc ]
-[; ;temp.c: 84: IOCB = 0X00;
-"84
-[e = _IOCB -> -> 0 `i `uc ]
-[; ;temp.c: 85: IOCB |= (0x04);
+[; ;temp.c: 85: IOCB = 0X00;
 "85
-[e =| _IOCB -> -> 4 `i `uc ]
-[; ;temp.c: 86: IOCB |= (0x10);
+[e = _IOCB -> -> 0 `i `uc ]
+[; ;temp.c: 86: IOCB |= (0x04);
 "86
+[e =| _IOCB -> -> 4 `i `uc ]
+[; ;temp.c: 87: IOCB |= (0x10);
+"87
 [e =| _IOCB -> -> 16 `i `uc ]
-"91
+[; ;temp.c: 88: IOCB |= (0x01 << 5);
+"88
+[e =| _IOCB -> << -> 1 `i -> 5 `i `uc ]
+"93
 [; <"   movf PORTB,W; ;# ">
-[; ;temp.c: 94: PBIF = 0;
-"94
-[e = _PBIF -> -> 0 `i `b ]
-[; ;temp.c: 95: PBIE = 1;
-"95
-[e = _PBIE -> -> 1 `i `b ]
-[; ;temp.c: 96: GIE = 0;
+[; ;temp.c: 96: PBIF = 0;
 "96
+[e = _PBIF -> -> 0 `i `b ]
+[; ;temp.c: 97: PBIE = 1;
+"97
+[e = _PBIE -> -> 1 `i `b ]
+[; ;temp.c: 98: GIE = 0;
+"98
 [e = _GIE -> -> 0 `i `b ]
-"99
-[; <"  SLEEP ;# ">
-"100
-[; <"  nop ;# ">
 "101
-[; <"  nop ;# ">
+[; <"  SLEEP ;# ">
 "102
 [; <"  nop ;# ">
 "103
 [; <"  nop ;# ">
-"107
+"104
+[; <"  nop ;# ">
+"105
+[; <"  nop ;# ">
+"109
 [; <"   movf PORTB,W ;# ">
-[; ;temp.c: 110: PBIE = 0;
-"110
-[e = _PBIE -> -> 0 `i `b ]
-[; ;temp.c: 111: IOCB = 0;
-"111
-[e = _IOCB -> -> 0 `i `uc ]
-[; ;temp.c: 112: LVDM = 1;
+[; ;temp.c: 112: PBIE = 0;
 "112
+[e = _PBIE -> -> 0 `i `b ]
+[; ;temp.c: 113: IOCB = 0;
+"113
+[e = _IOCB -> -> 0 `i `uc ]
+[; ;temp.c: 114: LVDM = 1;
+"114
 [e = _LVDM -> -> 1 `i `b ]
-"115
-[; <"         clrwdt; ;# ">
-[; ;temp.c: 117: WDTEN = 1;
 "117
-[e = _WDTEN -> -> 1 `i `b ]
-[; ;temp.c: 118: GIE = 1;
-"118
-[e = _GIE -> -> 1 `i `b ]
-[; ;temp.c: 119: T0IE = 1;
+[; <"         clrwdt; ;# ">
+[; ;temp.c: 119: WDTEN = 1;
 "119
-[e = _T0IE -> -> 1 `i `b ]
-[; ;temp.c: 121: InitPort();
+[e = _WDTEN -> -> 1 `i `b ]
+[; ;temp.c: 120: GIE = 1;
+"120
+[e = _GIE -> -> 1 `i `b ]
+[; ;temp.c: 121: T0IE = 1;
 "121
+[e = _T0IE -> -> 1 `i `b ]
+[; ;temp.c: 123: InitPort();
+"123
 [e ( _InitPort ..  ]
-[; ;temp.c: 141: MODSEL = 1;
-"141
+[; ;temp.c: 143: MODSEL = 1;
+"143
 [e = _MODSEL -> -> 1 `i `b ]
-[; ;temp.c: 142: SleepCount = 0;
-"142
-[e = _SleepCount -> -> 0 `i `us ]
-[; ;temp.c: 144: }
+[; ;temp.c: 144: SleepCount = 0;
 "144
+[e = _SleepCount -> -> 0 `i `us ]
+[; ;temp.c: 146: }
+"146
 [e :UE 7 ]
 }

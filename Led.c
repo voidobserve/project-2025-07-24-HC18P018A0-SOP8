@@ -150,14 +150,15 @@ DWORD motoTiming = 0;
 
 void CountdownDisplay(void)
 {
+	// 理论上每10ms进入一次，实际会有偏差
 
 	if (IsLight == 1)
 	{
 
 		lampTiming++;
 #if 1
-		// if(lampTiming > 124000)   //20分钟
-		if (lampTiming > 3000) // 30s 测试用
+		if(lampTiming > 124000)   //20分钟
+		// if (lampTiming > 3000) // 30s 测试用
 		{
 			IsLight = 0;
 			// PowOff();
@@ -180,8 +181,8 @@ void CountdownDisplay(void)
 	{
 		motoTiming++;
 #if 1
-		// if(motoTiming > 124000)//20分钟
-		if (motoTiming > 3000) // 30s 测试用
+		if(motoTiming > 124000)//20分钟
+		// if (motoTiming > 3000) // 30s 测试用
 		{
 			IsMotor = 0;
 			// PowOff();

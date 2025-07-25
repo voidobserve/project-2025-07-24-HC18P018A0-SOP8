@@ -376,12 +376,14 @@ PHCON = 0XFF;
 PHCON &= (0xFB);
 PHCON &= (0xEF);
 
+
 IOCB = 0X00;
 IOCB |= (0x04);
 IOCB |= (0x10);
+IOCB |= (0x01 << 5);
 
 
-# 90
+# 92
 #asm
   movf PORTB,W;
 #endasm ;
@@ -391,7 +393,7 @@ PBIE = 1;
 GIE = 0;
 
 
-# 98
+# 100
 #asm
  SLEEP
  nop
@@ -400,7 +402,7 @@ GIE = 0;
  nop
 #endasm ;
 
-# 106
+# 108
 #asm
   movf PORTB,W
 #endasm ;
@@ -410,7 +412,7 @@ IOCB = 0;
 LVDM = 1;
 
 
-# 114
+# 116
 #asm
         clrwdt;
 #endasm ;
@@ -420,7 +422,7 @@ T0IE = 1;
 
 InitPort();
 
-# 141
+# 143
 MODSEL = 1;
 SleepCount = 0;
 
