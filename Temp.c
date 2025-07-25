@@ -48,7 +48,7 @@ void CheckSleep()
 
 	RAMP = 0;
 	T1CON = 0;
-	CHARGE1 = 0;
+	CHARGE1 = 0; //  
 	CHARGE0 = 0;
 	PCON = 0;
 	CMPCR = 0;
@@ -66,8 +66,10 @@ void CheckSleep()
 
 	INTECON = 0;
 
-	PORTB = 0;  // 0 disenable output, 1 enable output
+	PORTB = 0;  // 【端口数据寄存器】0 disenable output, 1 enable output
+
 	TRISB = 0xff;    //1：input  0:output
+	// TRISB = ~(0x01 << 3); // PB3 保持输出模式
 	 
 	//下拉
 	PDCON = 0xFF;  // 1 disenable down pull ,0 enable down pull
@@ -76,39 +78,42 @@ void CheckSleep()
 	//上拉
 	PHCON = 0XFF;  // 1 disenable high pull ,0 enable high pull
 
-	PHCON &= DEF_CLR_BIT2;
-	PHCON &= DEF_CLR_BIT4;
+	PHCON &= DEF_CLR_BIT2; // 使能上拉 PB2 芯片2脚
+	PHCON &= DEF_CLR_BIT4; // 使能上拉 PB4 芯片4脚
 
     IOCB = 0X00; // 0 disenable weak up 	,1 enable weak up
-	IOCB |= DEF_SET_BIT2;
-	IOCB |= DEF_SET_BIT4;
+	IOCB |= DEF_SET_BIT2; // 唤醒中断使能 PB2 芯片2脚
+	IOCB |= DEF_SET_BIT4; // 唤醒中断使能 PB4 芯片4脚
 	
 	// DelayMs();
 
-	__asm
-		movf	PORTB,W            //read portb
-	__endasm;
+	#asm;
+		movf	PORTB,W;            //read portb
+	#endasm;
 	
 	PBIF = 0;
 	PBIE = 1;// 0	disenable Port level change interrupt , 1 enable Port level change interrupt
 	GIE = 0;
 	
-	__asm
+	#asm;
 	SLEEP
 	nop
 	nop
 	nop
 	nop
-	 __endasm;
+	#endasm;
 
-	__asm
+	#asm;
 	movf	PORTB,W
-	__endasm;
+	#endasm;
 	
 	PBIE = 0;
 	IOCB = 0;
 	LVDM = 1;
-	asm(clrwdt)
+	// asm(clrwdt)
+#asm;
+        clrwdt; // 喂狗操作
+#endasm;
 	WDTEN = 1;
 	GIE = 1;
 	T0IE = 1;

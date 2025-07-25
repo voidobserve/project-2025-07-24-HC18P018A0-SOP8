@@ -1,561 +1,527 @@
-gplink-1.5.0 #1284 (Oct 14 2022)
-Map File - Created 05/15/25  15:35:49
+Microchip MPLAB XC8 Compiler V1.45 ()
 
-                                 Section Info
-                  Section       Type    Address   Location Size(Bytes)
-                ---------  ---------  ---------  ---------  ---------
-                   .cinit    romdata   0x0000fc    program   0x0000a0
-               ID_led_0_i    romdata   0x000288    program   0x000008
-               ID_led_1_i    romdata   0x00028c    program   0x000008
-               ID_key_0_i    romdata   0x00029c    program   0x000004
-          ID_variable_4_i    romdata   0x0002a4    program   0x000004
-               ID_key_1_i    romdata   0x0002a8    program   0x000002
-               ID_key_2_i    romdata   0x0002a9    program   0x000002
-               ID_key_3_i    romdata   0x0002aa    program   0x000002
-          ID_variable_0_i    romdata   0x0002af    program   0x000002
-          ID_variable_1_i    romdata   0x0002b0    program   0x000002
-          ID_variable_2_i    romdata   0x0002b1    program   0x000002
-          ID_variable_3_i    romdata   0x0002b2    program   0x000002
-          ID_variable_5_i    romdata   0x0002b3    program   0x000002
-          ID_variable_6_i    romdata   0x0002b4    program   0x000002
-                  STARTUP       code   0x000000    program   0x000004
-          S_init__InitRam       code   0x000002    program   0x00000c
-              c_interrupt       code   0x000008    program   0x000042
-           S_key__ScanKey       code   0x000029    program   0x000104
-       S_temp__CheckSleep       code   0x0000ab    program   0x0000a2
-  S_led__CountdownDisplay       code   0x00014c    program   0x000096
-         S_init__InitPort       code   0x000197    program   0x00003c
-         S_main__delay_ms       code   0x0001b5    program   0x000038
-             S_main__main       code   0x0001d1    program   0x00002a
- S_function__ControlLevel       code   0x0001e6    program   0x000026
-        S_temp__CheckTemp       code   0x0001f9    program   0x000022
-        S_led__MotoSwitch       code   0x00020a    program   0x00001c
-         S_led__LedSwitch       code   0x000218    program   0x00001c
-S_function__ControlLevelLow       code   0x000226    program   0x00001a
-       S_led__MotoDisplay       code   0x000233    program   0x000016
-        S_led__LedDisplay       code   0x00023e    program   0x000016
-       S_init__InitSystem       code   0x000249    program   0x000014
-                ID_main_0       code   0x000253    program   0x000014
-                ID_main_1       code   0x00025d    program   0x000014
-            ID_variable_7       code   0x000267    program   0x000014
-         S_delay__DelayMs       code   0x000271    program   0x000012
-S_function__ControlLevelHigh       code   0x00027a    program   0x000010
-          S_init__InitPwm       code   0x000282    program   0x00000c
-           S_led__MotoOff       code   0x000290    program   0x000006
-            S_led__MotoOn       code   0x000293    program   0x000006
-            S_led__LedOff       code   0x000296    program   0x000006
-             S_led__LedOn       code   0x000299    program   0x000006
-            S_led__PowOff       code   0x00029e    program   0x000004
-             S_led__PowOn       code   0x0002a0    program   0x000004
-S_main___sdcc_gsinit_startup       code   0x0002a2    program   0x000004
-   S_function__ControlSos       code   0x0002a6    program   0x000002
- S_function__ControlFlash       code   0x0002a7    program   0x000002
-     S_lvd__ControlLvdCfg       code   0x0002ab    program   0x000002
-      S_lvd__ConfigureLvd       code   0x0002ac    program   0x000002
-  S_lvd__CheckLvdElectric       code   0x0002ad    program   0x000002
-          S_lvd__CheckLvd       code   0x0002ae    program   0x000002
-             S_work__Work       code   0x0002b5    program   0x000002
-                .org_03FF       code   0x0003ff    program   0x000002
-                 ID_key_0      idata   0x000028       data   0x000002
-            ID_variable_4      idata   0x00002e       data   0x000002
-                 ID_key_1      idata   0x000030       data   0x000001
-                 ID_key_2      idata   0x000031       data   0x000001
-                 ID_key_3      idata   0x000032       data   0x000001
-            ID_variable_0      idata   0x000034       data   0x000001
-            ID_variable_1      idata   0x000035       data   0x000001
-            ID_variable_2      idata   0x000036       data   0x000001
-            ID_variable_3      idata   0x000037       data   0x000001
-            ID_variable_5      idata   0x000038       data   0x000001
-            ID_variable_6      idata   0x000039       data   0x000001
-                 ID_led_0      idata   0x000066       data   0x000004
-                 ID_led_1      idata   0x00006a       data   0x000004
-     UD_abs_pic18p018a0_0      udata   0x000000       data   0x000001
-     UD_abs_pic18p018a0_1      udata   0x000001       data   0x000001
-     UD_abs_pic18p018a0_2      udata   0x000002       data   0x000001
-     UD_abs_pic18p018a0_3      udata   0x000003       data   0x000001
-     UD_abs_pic18p018a0_4      udata   0x000004       data   0x000001
-     UD_abs_pic18p018a0_6      udata   0x000006       data   0x000001
-     UD_abs_pic18p018a0_7      udata   0x000007       data   0x000001
-     UD_abs_pic18p018a0_8      udata   0x000008       data   0x000001
-     UD_abs_pic18p018a0_9      udata   0x000009       data   0x000001
-     UD_abs_pic18p018a0_a      udata   0x00000a       data   0x000001
-     UD_abs_pic18p018a0_b      udata   0x00000b       data   0x000001
-     UD_abs_pic18p018a0_c      udata   0x00000c       data   0x000001
-     UD_abs_pic18p018a0_d      udata   0x00000d       data   0x000001
-     UD_abs_pic18p018a0_e      udata   0x00000e       data   0x000001
-     UD_abs_pic18p018a0_f      udata   0x00000f       data   0x000001
-                sharebank      udata   0x000010       data   0x000010
-               UDL_main_0      udata   0x000020       data   0x000004
-              UDL_delay_0      udata   0x000024       data   0x000002
-                UDL_key_0      udata   0x000026       data   0x000002
-               UDL_temp_0      udata   0x00002a       data   0x000002
-            UD_variable_1      udata   0x00002c       data   0x000002
-            UD_variable_0      udata   0x000033       data   0x000001
-          UD_shadowregs_0      udata   0x00003a       data   0x000001
-    UD_abs_pic18p018a0_41      udata   0x000041       data   0x000001
-    UD_abs_pic18p018a0_46      udata   0x000046       data   0x000001
-    UD_abs_pic18p018a0_48      udata   0x000048       data   0x000001
-    UD_abs_pic18p018a0_49      udata   0x000049       data   0x000001
-    UD_abs_pic18p018a0_4a      udata   0x00004a       data   0x000001
-    UD_abs_pic18p018a0_4b      udata   0x00004b       data   0x000001
-    UD_abs_pic18p018a0_4c      udata   0x00004c       data   0x000001
-    UD_abs_pic18p018a0_4d      udata   0x00004d       data   0x000001
-    UD_abs_pic18p018a0_4e      udata   0x00004e       data   0x000001
-    UD_abs_pic18p018a0_4f      udata   0x00004f       data   0x000001
-    UD_abs_pic18p018a0_50      udata   0x000050       data   0x000001
-    UD_abs_pic18p018a0_51      udata   0x000051       data   0x000001
-    UD_abs_pic18p018a0_52      udata   0x000052       data   0x000001
-    UD_abs_pic18p018a0_53      udata   0x000053       data   0x000001
-    UD_abs_pic18p018a0_54      udata   0x000054       data   0x000001
-    UD_abs_pic18p018a0_55      udata   0x000055       data   0x000001
-    UD_abs_pic18p018a0_59      udata   0x000059       data   0x000001
-    UD_abs_pic18p018a0_5b      udata   0x00005b       data   0x000001
-                UDL_led_0      udata   0x000060       data   0x000006
-           UDL_function_0      udata   0x00006e       data   0x000003
+Linker command line:
+
+--edf=D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\dat\en_msgs.txt \
+  --msgdisable=1262,1487,1396:off -cs -h+HC_VS.sym --cmf=HC_VS.cmf -z \
+  -Q18p018a0 -oC:\Users\PC\AppData\Local\Temp\smj8.2 -MHC_VS.map -E1 \
+  -ver=XC8 -ASTACK=029h-03fh -pstack=STACK -ACODE=04h-03FEh \
+  -ASTRCODE=04h-03FEh -ASTRING=04h-0FFh,0100h-01FFhx2,0300h-03FEh \
+  -ACONST=04h-0FFh,0100h-01FFhx2,0300h-03FEh \
+  -AENTRY=04h-0FFh,0100h-01FFhx2,0300h-03FEh \
+  -ABANK0=010h-03Fh,041h-042h,046h-055h,059h-05Bh,060h-06Dh \
+  -ARAM=010h-03Fh,041h-042h,046h-047h,048h-055h,059h-05Bh,060h-06Dh \
+  -AABS1=010h-03Fh,041h-042h,046h-055h,059h-05Bh,060h-06Fh \
+  -ACOMMON=06Eh-06Fh -ASFR0=00h-0Fh -ASFR1=070h-0DDh \
+  -preset_vec=04h,intentry=08h,init,end_init -ppowerup=CODE -pcinit=CODE \
+  -pfunctab=ENTRY -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
+  -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -DCODE=2 -DSTRCODE=2 \
+  -DSTRING=2 -DCONST=2 -DENTRY=2 -k startup.obj delay.obj 
+
+Object code version is 3.11
+
+Machine type is 18p018a0
 
 
 
-                              Program Memory Usage
-                               Start         End
-                           ---------   ---------
-                            0x000271    0x000279
-                            0x0002a6    0x0002a6
-                            0x0002a7    0x0002a7
-                            0x0001e6    0x0001f8
-                            0x00027a    0x000281
-                            0x000226    0x000232
-                            0x000002    0x000007
-                            0x000282    0x000287
-                            0x000249    0x000252
-                            0x000197    0x0001b4
-                            0x000008    0x000028
-                            0x00029c    0x00029d
-                            0x0002a8    0x0002a8
-                            0x0002a9    0x0002a9
-                            0x0002aa    0x0002aa
-                            0x000029    0x0000aa
-                            0x000288    0x00028b
-                            0x00028c    0x00028f
-                            0x00014c    0x000196
-                            0x00029e    0x00029f
-                            0x0002a0    0x0002a1
-                            0x000233    0x00023d
-                            0x000290    0x000292
-                            0x000293    0x000295
-                            0x00020a    0x000217
-                            0x000296    0x000298
-                            0x000299    0x00029b
-                            0x00023e    0x000248
-                            0x000218    0x000225
-                            0x0002ab    0x0002ab
-                            0x0002ac    0x0002ac
-                            0x0002ad    0x0002ad
-                            0x0002ae    0x0002ae
-                            0x000253    0x00025c
-                            0x00025d    0x000266
-                            0x000000    0x000001
-                            0x0001d1    0x0001e5
-                            0x0001b5    0x0001d0
-                            0x0002a2    0x0002a3
-                            0x0000ab    0x0000fb
-                            0x0001f9    0x000209
-                            0x0002af    0x0002af
-                            0x0002b0    0x0002b0
-                            0x0002b1    0x0002b1
-                            0x0002b2    0x0002b2
-                            0x0002a4    0x0002a5
-                            0x0002b3    0x0002b3
-                            0x0002b4    0x0002b4
-                            0x000267    0x000270
-                            0x0002b5    0x0002b5
-                            0x0003ff    0x0003ff
-                            0x0000fc    0x00014b
-                            695 program addresses used
+                Name                               Link     Load   Length Selector   Space Scale
+startup.obj     end_init                             17       17        1       10       0
+                reset_vec                             4        4        1        8       0
+delay.obj       cinit                                18       18        2       10       0
+                intentry                              8        8        F       10       0
+                text19                              153      153       17       10       0
+                text18                              103      103       1D       10       0
+                text17                               83       83       44       10       0
+                text16                              120      120       1C       10       0
+                text15                              188      188        A       10       0
+                text14                               C7       C7       3C       10       0
+                text13                              192      192        6       10       0
+                text12                              17E      17E        A       10       0
+                text11                              1B1      1B1        3       10       0
+                text10                              1AE      1AE        3       10       0
+                text9                               1A1      1A1        4       10       0
+                text8                               1AB      1AB        3       10       0
+                text7                               1A8      1A8        3       10       0
+                text6                               19D      19D        4       10       0
+                text5                               174      174        A       10       0
+                text4                               16A      16A        A       10       0
+                text3                               1A5      1A5        3       10       0
+                text2                               198      198        5       10       0
+                text1                                1A       1A       69       10       0
+                maintext                            13C      13C       17       10       0
+                cstackBANK0_4                        22       22        6       11       1
+                bssBANK0                             11       11       11       11       1
+                bssBANK0_4                           28       28        1       11       1
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                             17       17        1         0
+                cinit                                18       18        2         0
+                intentry                              8        8        F         0
+                reset_vec                             4        4        1         0
+                text19                              153      153       17         0
+                text18                              103      103       1D         0
+                text17                               83       83       44         0
+                text16                              120      120       1C         0
+                text15                              188      188        A         0
+                text14                               C7       C7       3C         0
+                text13                              192      192        6         0
+                text12                              17E      17E        A         0
+                text11                              1B1      1B1        3         0
+                text10                              1AE      1AE        3         0
+                text9                               1A1      1A1        4         0
+                text8                               1AB      1AB        3         0
+                text7                               1A8      1A8        3         0
+                text6                               19D      19D        4         0
+                text5                               174      174        A         0
+                text4                               16A      16A        A         0
+                text3                               1A5      1A5        3         0
+                text2                               198      198        5         0
+                text1                                1A       1A       69         0
+                maintext                            13C      13C       17         0
+
+        CLASS   STRCODE        
+
+        CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   BANK0          
+                cstackBANK0_4                        22       22        6         1
+                bssBANK0                             11       11       11         1
+                bssBANK0_4                           28       28        1         1
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               10       10        1         1
+                abs_s1                               41       41        2         1
+                abs_s1                               46       46       10         1
+                abs_s1                               59       59        3         1
+                abs_s1                               6E       6E        2         1
+                abs_s1                              208      208        0         1
+                abs_s1                              209      209        0         1
+                abs_s1                              20A      20A        0         1
+                abs_s1                              20B      20B        0         1
+                abs_s1                              20C      20C        0         1
+                abs_s1                              20D      20D        0         1
+                abs_s1                              20E      20E        0         1
+                abs_s1                              230      230        0         1
+                abs_s1                              231      231        0         1
+                abs_s1                              232      232        0         1
+                abs_s1                              233      233        0         1
+                abs_s1                              234      234        0         1
+                abs_s1                              235      235        0         1
+                abs_s1                              236      236        0         1
+                abs_s1                              237      237        0         1
+                abs_s1                              240      240        0         1
+                abs_s1                              241      241        0         1
+                abs_s1                              242      242        0         1
+                abs_s1                              243      243        0         1
+                abs_s1                              244      244        0         1
+                abs_s1                              245      245        0         1
+                abs_s1                              246      246        0         1
+                abs_s1                              247      247        0         1
+                abs_s1                              258      258        0         1
+                abs_s1                              259      259        0         1
+                abs_s1                              25F      25F        0         1
+                abs_s1                              260      260        0         1
+                abs_s1                              261      261        0         1
+                abs_s1                              262      262        0         1
+                abs_s1                              263      263        0         1
+                abs_s1                              264      264        0         1
+                abs_s1                              265      265        0         1
+                abs_s1                              266      266        0         1
+                abs_s1                              267      267        0         1
+                abs_s1                              280      280        0         1
+                abs_s1                              281      281        0         1
+                abs_s1                              287      287        0         1
+                abs_s1                              288      288        0         1
+                abs_s1                              289      289        0         1
+                abs_s1                              28A      28A        0         1
+                abs_s1                              28B      28B        0         1
+                abs_s1                              28C      28C        0         1
+                abs_s1                              293      293        0         1
+                abs_s1                              294      294        0         1
+                abs_s1                              295      295        0         1
+                abs_s1                              296      296        0         1
+                abs_s1                              297      297        0         1
+                abs_s1                              298      298        0         1
+                abs_s1                              299      299        0         1
+                abs_s1                              29A      29A        0         1
+                abs_s1                              29B      29B        0         1
+                abs_s1                              29C      29C        0         1
+                abs_s1                              29D      29D        0         1
+                abs_s1                              29E      29E        0         1
+                abs_s1                              29F      29F        0         1
+                abs_s1                              2A0      2A0        0         1
+                abs_s1                              2A1      2A1        0         1
+                abs_s1                              2A6      2A6        0         1
+                abs_s1                              2A7      2A7        0         1
+                abs_s1                              2A8      2A8        0         1
+                abs_s1                              2A9      2A9        0         1
+                abs_s1                              2AA      2AA        0         1
+                abs_s1                              2AE      2AE        0         1
+                abs_s1                              2AF      2AF        0         1
+                abs_s1                              2C8      2C8        0         1
+                abs_s1                              2C9      2C9        0         1
+                abs_s1                              2CA      2CA        0         1
+                abs_s1                              2CE      2CE        0         1
+                abs_s1                              2CF      2CF        0         1
+
+        CLASS   COMMON         
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   BANK1          
+
+        CLASS   EEDATA         
 
 
 
-                              Symbols - Sorted by Name
-                     Name    Address   Location    Storage File
-                ---------  ---------  ---------  --------- ---------
-         END_OF_INTERRUPT   0x000028    program     static interrupt.asm
-                    PSAVE   0x000010       data     extern main.asm
-                    SSAVE   0x000011       data     extern main.asm
-                    STK00   0x00001f       data     extern main.asm
-                    STK01   0x00001e       data     extern main.asm
-                    STK02   0x00001d       data     extern main.asm
-                    STK03   0x00001c       data     extern main.asm
-                    STK04   0x00001b       data     extern main.asm
-                    STK05   0x00001a       data     extern main.asm
-                    STK06   0x000019       data     extern main.asm
-                    STK07   0x000018       data     extern main.asm
-                    STK08   0x000017       data     extern main.asm
-                    STK09   0x000016       data     extern main.asm
-                    STK10   0x000015       data     extern main.asm
-                    STK11   0x000014       data     extern main.asm
-                    STK12   0x000013       data     extern main.asm
-                    WSAVE   0x000012       data     extern main.asm
-               _00105_DS_   0x000273    program     static delay.asm
-               _00106_DS_   0x000200    program     static temp.asm
-               _00106_DS_   0x000042    program     static key.asm
-               _00107_DS_   0x000201    program     static temp.asm
-               _00108_DS_   0x000018    program     static interrupt.asm
-               _00109_DS_   0x0001c0    program     static main.asm
-               _00109_DS_   0x000207    program     static temp.asm
-               _00110_DS_   0x000054    program     static key.asm
-               _00110_DS_   0x000247    program     static led.asm
-               _00111_DS_   0x00001f    program     static interrupt.asm
-               _00111_DS_   0x0001ca    program     static main.asm
-               _00112_DS_   0x0001b8    program     static main.asm
-               _00112_DS_   0x000248    program     static led.asm
-               _00113_DS_   0x00004f    program     static key.asm
-               _00114_DS_   0x0000bb    program     static temp.asm
-               _00115_DS_   0x0000bd    program     static temp.asm
-               _00115_DS_   0x0001d0    program     static main.asm
-               _00116_DS_   0x00005e    program     static key.asm
-               _00118_DS_   0x0000c9    program     static temp.asm
-               _00119_DS_   0x0000fb    program     static temp.asm
-               _00121_DS_   0x0001e2    program     static main.asm
-               _00123_DS_   0x0001db    program     static main.asm
-               _00126_DS_   0x000087    program     static key.asm
-               _00128_DS_   0x0000c3    program     static temp.asm
-               _00129_DS_   0x000080    program     static key.asm
-               _00130_DS_   0x000090    program     static key.asm
-               _00132_DS_   0x00009a    program     static key.asm
-               _00135_DS_   0x00009d    program     static key.asm
-               _00137_DS_   0x0000a7    program     static key.asm
-               _00138_DS_   0x00023c    program     static led.asm
-               _00140_DS_   0x00023d    program     static led.asm
-               _00141_DS_   0x000035    program     static key.asm
-               _00142_DS_   0x000077    program     static key.asm
-               _00146_DS_   0x0000aa    program     static key.asm
-               _00156_DS_   0x00016d    program     static led.asm
-               _00157_DS_   0x000171    program     static led.asm
-               _00161_DS_   0x000192    program     static led.asm
-               _00163_DS_   0x000196    program     static led.asm
-               _00177_DS_   0x000169    program     static led.asm
-               _00178_DS_   0x00018e    program     static led.asm
-               _00199_DS_   0x00003b    program     static key.asm
-               _00200_DS_   0x000048    program     static key.asm
-               _00201_DS_   0x000064    program     static key.asm
-                    _AUXR   0x000059       data     extern pic18p018a0.asm
-                _AUXRbits   0x000059       data     extern pic18p018a0.asm
-              _BITS_DATA0   0x000033       data     extern variable.asm
-              _BITS_DATA1   0x00002c       data     extern variable.asm
-                 _CHARGE0   0x000053       data     extern pic18p018a0.asm
-             _CHARGE0bits   0x000053       data     extern pic18p018a0.asm
-                 _CHARGE1   0x000054       data     extern pic18p018a0.asm
-             _CHARGE1bits   0x000054       data     extern pic18p018a0.asm
-                   _CMPCR   0x000051       data     extern pic18p018a0.asm
-               _CMPCRbits   0x000051       data     extern pic18p018a0.asm
-                _CheckLvd   0x0002ae    program     extern lvd.asm
-        _CheckLvdElectric   0x0002ad    program     extern lvd.asm
-              _CheckSleep   0x0000ab    program     extern temp.asm
-               _CheckTemp   0x0001f9    program     extern temp.asm
-            _ConfigureLvd   0x0002ac    program     extern lvd.asm
-            _ControlFlash   0x0002a7    program     extern function.asm
-            _ControlLevel   0x0001e6    program     extern function.asm
-        _ControlLevelHigh   0x00027a    program     extern function.asm
-         _ControlLevelLow   0x000226    program     extern function.asm
-           _ControlLvdCfg   0x0002ab    program     extern lvd.asm
-              _ControlSos   0x0002a6    program     extern function.asm
-        _CountdownDisplay   0x00014c    program     extern led.asm
-                 _DelayMs   0x000271    program     extern delay.asm
-                     _FSR   0x000004       data     extern pic18p018a0.asm
-                     _GPR   0x000007       data     extern pic18p018a0.asm
-                 _HIRCTRM   0x00005b       data     extern pic18p018a0.asm
-                    _INDF   0x000000       data     extern pic18p018a0.asm
-                 _INTECON   0x00000e       data     extern pic18p018a0.asm
-             _INTECONbits   0x00000e       data     extern pic18p018a0.asm
-                 _INTFLAG   0x00000f       data     extern pic18p018a0.asm
-             _INTFLAGbits   0x00000f       data     extern pic18p018a0.asm
-                    _IOCB   0x000009       data     extern pic18p018a0.asm
-                _IOCBbits   0x000009       data     extern pic18p018a0.asm
-                _InitPort   0x000197    program     extern init.asm
-                 _InitPwm   0x000282    program     extern init.asm
-                 _InitRam   0x000002    program     extern init.asm
-              _InitSystem   0x000249    program     extern init.asm
-           _InterruptFunc   0x000008    program     extern interrupt.asm
-              _LedDisplay   0x00023e    program     extern led.asm
-                  _LedOff   0x000296    program     extern led.asm
-                   _LedOn   0x000299    program     extern led.asm
-               _LedSwitch   0x000218    program     extern led.asm
-                _MaxLight   0x000039       data     extern variable.asm
-             _MotoDisplay   0x000233    program     extern led.asm
-                 _MotoOff   0x000290    program     extern led.asm
-                  _MotoOn   0x000293    program     extern led.asm
-              _MotoSwitch   0x00020a    program     extern led.asm
-                   _ODCON   0x00000c       data     extern pic18p018a0.asm
-               _ODCONbits   0x00000c       data     extern pic18p018a0.asm
-                  _OPTION   0x000041       data     extern pic18p018a0.asm
-              _OPTIONbits   0x000041       data     extern pic18p018a0.asm
-                  _OSCCON   0x000050       data     extern pic18p018a0.asm
-              _OSCCONbits   0x000050       data     extern pic18p018a0.asm
-                     _PCL   0x000002       data     extern pic18p018a0.asm
-                  _PCLATH   0x00000a       data     extern pic18p018a0.asm
-                    _PCON   0x000008       data     extern pic18p018a0.asm
-                _PCONbits   0x000008       data     extern pic18p018a0.asm
-                   _PDCON   0x00000b       data     extern pic18p018a0.asm
-                  _PDCON1   0x000052       data     extern pic18p018a0.asm
-              _PDCON1bits   0x000052       data     extern pic18p018a0.asm
-               _PDCONbits   0x00000b       data     extern pic18p018a0.asm
-                   _PHCON   0x00000d       data     extern pic18p018a0.asm
-               _PHCONbits   0x00000d       data     extern pic18p018a0.asm
-                   _PORTB   0x000006       data     extern pic18p018a0.asm
-               _PORTBbits   0x000006       data     extern pic18p018a0.asm
-                   _PWM0P   0x00004f       data     extern pic18p018a0.asm
-                   _PWM1P   0x000049       data     extern pic18p018a0.asm
-                   _PWM2P   0x00004a       data     extern pic18p018a0.asm
-                  _PWMCON   0x000048       data     extern pic18p018a0.asm
-              _PWMCONbits   0x000048       data     extern pic18p018a0.asm
-                  _PowOff   0x00029e    program     extern led.asm
-                   _PowOn   0x0002a0    program     extern led.asm
-                    _RAMP   0x000055       data     extern pic18p018a0.asm
-                _RAMPbits   0x000055       data     extern pic18p018a0.asm
-                  _STATUS   0x000003       data     extern pic18p018a0.asm
-              _STATUSbits   0x000003       data     extern pic18p018a0.asm
-                 _ScanKey   0x000029    program     extern key.asm
-              _SleepCount   0x00002e       data     extern variable.asm
-               _SleepFlag   0x000038       data     extern variable.asm
-                      _T0   0x000001       data     extern pic18p018a0.asm
-                    _T0CR   0x00004b       data     extern pic18p018a0.asm
-                _T0CRbits   0x00004b       data     extern pic18p018a0.asm
-                      _T1   0x00004d       data     extern pic18p018a0.asm
-                   _T1CON   0x00004c       data     extern pic18p018a0.asm
-               _T1CONbits   0x00004c       data     extern pic18p018a0.asm
-                  _T1LOAD   0x00004e       data     extern pic18p018a0.asm
-                   _TRISB   0x000046       data     extern pic18p018a0.asm
-               _TRISBbits   0x000046       data     extern pic18p018a0.asm
-               _TempCount   0x000036       data     extern variable.asm
-                _TempFlag   0x000037       data     extern variable.asm
-                 _VERSION   0x000253    program     extern main.asm
-                    _Work   0x0002b5    program     extern work.asm
-        ___sdcc_saved_fsr   0x00003a       data     extern libsdcc_a-shadowregs.asm
-                 ___str_0   0x00025d    program     static main.asm
-    __sdcc_gsinit_startup   0x0002a2    program     extern main.asm
-         __sdcc_interrupt   0x000008    program     static interrupt.asm
-                   _cinit   0x0000fc    program     extern 
-             _clink_event   0x000030       data     extern key.asm
-                _delay_ms   0x0001b5    program     extern main.asm
-  _g_cucTIMER_COUNT_STATE   0x000267    program     extern variable.asm
-      _g_ucTimer10msCount   0x000034       data     extern variable.asm
-      _g_ucTimerWorkCount   0x000035       data     extern variable.asm
-                _holdOn_f   0x000032       data     extern key.asm
-              _lampTiming   0x000066       data     extern led.asm
-                  _long_f   0x000031       data     extern key.asm
-           _longpress_cnt   0x000028       data     extern key.asm
-                    _main   0x0001d1    program     extern main.asm
-              _motoTiming   0x00006a       data     extern led.asm
-                  r0x1000   0x000024       data     static delay.asm
-                  r0x1001   0x000021       data     static main.asm
-                  r0x1001   0x000025       data     static delay.asm
-                  r0x1002   0x00006e       data     static function.asm
-                  r0x1002   0x000020       data     static main.asm
-                  r0x1003   0x00006f       data     static function.asm
-                  r0x1003   0x000022       data     static main.asm
-                  r0x1004   0x000023       data     static main.asm
-                  r0x1004   0x000070       data     static function.asm
-                  r0x1005   0x00002a       data     static temp.asm
-                  r0x1006   0x00002b       data     static temp.asm
-                  r0x1008   0x000026       data     static key.asm
-                  r0x1009   0x000064       data     static led.asm
-                  r0x1009   0x000027       data     static key.asm
-                  r0x100A   0x000065       data     static led.asm
-                  r0x100B   0x000063       data     static led.asm
-                  r0x100D   0x000062       data     static led.asm
-                  r0x100F   0x000061       data     static led.asm
-                  r0x1011   0x000060       data     static led.asm
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000004  000001  000005         8       0  CODE        2
+                intentry                       000008  0001AC  0001B4        10       0  CODE        2
+                bssBANK0                       000011  000018  000029        11       1  BANK0       1
 
 
+UNUSED ADDRESS RANGES
 
-                              Symbols - Sorted by Address
-                     Name    Address   Location    Storage File
-                ---------  ---------  ---------  --------- ---------
-                    _INDF   0x000000       data     extern pic18p018a0.asm
-                      _T0   0x000001       data     extern pic18p018a0.asm
-                 _InitRam   0x000002    program     extern init.asm
-                     _PCL   0x000002       data     extern pic18p018a0.asm
-                  _STATUS   0x000003       data     extern pic18p018a0.asm
-              _STATUSbits   0x000003       data     extern pic18p018a0.asm
-                     _FSR   0x000004       data     extern pic18p018a0.asm
-                   _PORTB   0x000006       data     extern pic18p018a0.asm
-               _PORTBbits   0x000006       data     extern pic18p018a0.asm
-                     _GPR   0x000007       data     extern pic18p018a0.asm
-           _InterruptFunc   0x000008    program     extern interrupt.asm
-                    _PCON   0x000008       data     extern pic18p018a0.asm
-                _PCONbits   0x000008       data     extern pic18p018a0.asm
-         __sdcc_interrupt   0x000008    program     static interrupt.asm
-                    _IOCB   0x000009       data     extern pic18p018a0.asm
-                _IOCBbits   0x000009       data     extern pic18p018a0.asm
-                  _PCLATH   0x00000a       data     extern pic18p018a0.asm
-                   _PDCON   0x00000b       data     extern pic18p018a0.asm
-               _PDCONbits   0x00000b       data     extern pic18p018a0.asm
-                   _ODCON   0x00000c       data     extern pic18p018a0.asm
-               _ODCONbits   0x00000c       data     extern pic18p018a0.asm
-                   _PHCON   0x00000d       data     extern pic18p018a0.asm
-               _PHCONbits   0x00000d       data     extern pic18p018a0.asm
-             _INTECONbits   0x00000e       data     extern pic18p018a0.asm
-                 _INTECON   0x00000e       data     extern pic18p018a0.asm
-                 _INTFLAG   0x00000f       data     extern pic18p018a0.asm
-             _INTFLAGbits   0x00000f       data     extern pic18p018a0.asm
-                    PSAVE   0x000010       data     extern main.asm
-                    SSAVE   0x000011       data     extern main.asm
-                    WSAVE   0x000012       data     extern main.asm
-                    STK12   0x000013       data     extern main.asm
-                    STK11   0x000014       data     extern main.asm
-                    STK10   0x000015       data     extern main.asm
-                    STK09   0x000016       data     extern main.asm
-                    STK08   0x000017       data     extern main.asm
-                    STK07   0x000018       data     extern main.asm
-               _00108_DS_   0x000018    program     static interrupt.asm
-                    STK06   0x000019       data     extern main.asm
-                    STK05   0x00001a       data     extern main.asm
-                    STK04   0x00001b       data     extern main.asm
-                    STK03   0x00001c       data     extern main.asm
-                    STK02   0x00001d       data     extern main.asm
-                    STK01   0x00001e       data     extern main.asm
-                    STK00   0x00001f       data     extern main.asm
-               _00111_DS_   0x00001f    program     static interrupt.asm
-                  r0x1002   0x000020       data     static main.asm
-                  r0x1001   0x000021       data     static main.asm
-                  r0x1003   0x000022       data     static main.asm
-                  r0x1004   0x000023       data     static main.asm
-                  r0x1000   0x000024       data     static delay.asm
-                  r0x1001   0x000025       data     static delay.asm
-                  r0x1008   0x000026       data     static key.asm
-                  r0x1009   0x000027       data     static key.asm
-           _longpress_cnt   0x000028       data     extern key.asm
-         END_OF_INTERRUPT   0x000028    program     static interrupt.asm
-                 _ScanKey   0x000029    program     extern key.asm
-                  r0x1005   0x00002a       data     static temp.asm
-                  r0x1006   0x00002b       data     static temp.asm
-              _BITS_DATA1   0x00002c       data     extern variable.asm
-              _SleepCount   0x00002e       data     extern variable.asm
-             _clink_event   0x000030       data     extern key.asm
-                  _long_f   0x000031       data     extern key.asm
-                _holdOn_f   0x000032       data     extern key.asm
-              _BITS_DATA0   0x000033       data     extern variable.asm
-      _g_ucTimer10msCount   0x000034       data     extern variable.asm
-      _g_ucTimerWorkCount   0x000035       data     extern variable.asm
-               _00141_DS_   0x000035    program     static key.asm
-               _TempCount   0x000036       data     extern variable.asm
-                _TempFlag   0x000037       data     extern variable.asm
-               _SleepFlag   0x000038       data     extern variable.asm
-                _MaxLight   0x000039       data     extern variable.asm
-        ___sdcc_saved_fsr   0x00003a       data     extern libsdcc_a-shadowregs.asm
-               _00199_DS_   0x00003b    program     static key.asm
-              _OPTIONbits   0x000041       data     extern pic18p018a0.asm
-                  _OPTION   0x000041       data     extern pic18p018a0.asm
-               _00106_DS_   0x000042    program     static key.asm
-               _TRISBbits   0x000046       data     extern pic18p018a0.asm
-                   _TRISB   0x000046       data     extern pic18p018a0.asm
-               _00200_DS_   0x000048    program     static key.asm
-                  _PWMCON   0x000048       data     extern pic18p018a0.asm
-              _PWMCONbits   0x000048       data     extern pic18p018a0.asm
-                   _PWM1P   0x000049       data     extern pic18p018a0.asm
-                   _PWM2P   0x00004a       data     extern pic18p018a0.asm
-                _T0CRbits   0x00004b       data     extern pic18p018a0.asm
-                    _T0CR   0x00004b       data     extern pic18p018a0.asm
-               _T1CONbits   0x00004c       data     extern pic18p018a0.asm
-                   _T1CON   0x00004c       data     extern pic18p018a0.asm
-                      _T1   0x00004d       data     extern pic18p018a0.asm
-                  _T1LOAD   0x00004e       data     extern pic18p018a0.asm
-                   _PWM0P   0x00004f       data     extern pic18p018a0.asm
-               _00113_DS_   0x00004f    program     static key.asm
-              _OSCCONbits   0x000050       data     extern pic18p018a0.asm
-                  _OSCCON   0x000050       data     extern pic18p018a0.asm
-               _CMPCRbits   0x000051       data     extern pic18p018a0.asm
-                   _CMPCR   0x000051       data     extern pic18p018a0.asm
-                  _PDCON1   0x000052       data     extern pic18p018a0.asm
-              _PDCON1bits   0x000052       data     extern pic18p018a0.asm
-             _CHARGE0bits   0x000053       data     extern pic18p018a0.asm
-                 _CHARGE0   0x000053       data     extern pic18p018a0.asm
-                 _CHARGE1   0x000054       data     extern pic18p018a0.asm
-             _CHARGE1bits   0x000054       data     extern pic18p018a0.asm
-               _00110_DS_   0x000054    program     static key.asm
-                _RAMPbits   0x000055       data     extern pic18p018a0.asm
-                    _RAMP   0x000055       data     extern pic18p018a0.asm
-                _AUXRbits   0x000059       data     extern pic18p018a0.asm
-                    _AUXR   0x000059       data     extern pic18p018a0.asm
-                 _HIRCTRM   0x00005b       data     extern pic18p018a0.asm
-               _00116_DS_   0x00005e    program     static key.asm
-                  r0x1011   0x000060       data     static led.asm
-                  r0x100F   0x000061       data     static led.asm
-                  r0x100D   0x000062       data     static led.asm
-                  r0x100B   0x000063       data     static led.asm
-               _00201_DS_   0x000064    program     static key.asm
-                  r0x1009   0x000064       data     static led.asm
-                  r0x100A   0x000065       data     static led.asm
-              _lampTiming   0x000066       data     extern led.asm
-              _motoTiming   0x00006a       data     extern led.asm
-                  r0x1002   0x00006e       data     static function.asm
-                  r0x1003   0x00006f       data     static function.asm
-                  r0x1004   0x000070       data     static function.asm
-               _00142_DS_   0x000077    program     static key.asm
-               _00129_DS_   0x000080    program     static key.asm
-               _00126_DS_   0x000087    program     static key.asm
-               _00130_DS_   0x000090    program     static key.asm
-               _00132_DS_   0x00009a    program     static key.asm
-               _00135_DS_   0x00009d    program     static key.asm
-               _00137_DS_   0x0000a7    program     static key.asm
-               _00146_DS_   0x0000aa    program     static key.asm
-              _CheckSleep   0x0000ab    program     extern temp.asm
-               _00114_DS_   0x0000bb    program     static temp.asm
-               _00115_DS_   0x0000bd    program     static temp.asm
-               _00128_DS_   0x0000c3    program     static temp.asm
-               _00118_DS_   0x0000c9    program     static temp.asm
-               _00119_DS_   0x0000fb    program     static temp.asm
-                   _cinit   0x0000fc    program     extern 
-        _CountdownDisplay   0x00014c    program     extern led.asm
-               _00177_DS_   0x000169    program     static led.asm
-               _00156_DS_   0x00016d    program     static led.asm
-               _00157_DS_   0x000171    program     static led.asm
-               _00178_DS_   0x00018e    program     static led.asm
-               _00161_DS_   0x000192    program     static led.asm
-               _00163_DS_   0x000196    program     static led.asm
-                _InitPort   0x000197    program     extern init.asm
-                _delay_ms   0x0001b5    program     extern main.asm
-               _00112_DS_   0x0001b8    program     static main.asm
-               _00109_DS_   0x0001c0    program     static main.asm
-               _00111_DS_   0x0001ca    program     static main.asm
-               _00115_DS_   0x0001d0    program     static main.asm
-                    _main   0x0001d1    program     extern main.asm
-               _00123_DS_   0x0001db    program     static main.asm
-               _00121_DS_   0x0001e2    program     static main.asm
-            _ControlLevel   0x0001e6    program     extern function.asm
-               _CheckTemp   0x0001f9    program     extern temp.asm
-               _00106_DS_   0x000200    program     static temp.asm
-               _00107_DS_   0x000201    program     static temp.asm
-               _00109_DS_   0x000207    program     static temp.asm
-              _MotoSwitch   0x00020a    program     extern led.asm
-               _LedSwitch   0x000218    program     extern led.asm
-         _ControlLevelLow   0x000226    program     extern function.asm
-             _MotoDisplay   0x000233    program     extern led.asm
-               _00138_DS_   0x00023c    program     static led.asm
-               _00140_DS_   0x00023d    program     static led.asm
-              _LedDisplay   0x00023e    program     extern led.asm
-               _00110_DS_   0x000247    program     static led.asm
-               _00112_DS_   0x000248    program     static led.asm
-              _InitSystem   0x000249    program     extern init.asm
-                 _VERSION   0x000253    program     extern main.asm
-                 ___str_0   0x00025d    program     static main.asm
-  _g_cucTIMER_COUNT_STATE   0x000267    program     extern variable.asm
-                 _DelayMs   0x000271    program     extern delay.asm
-               _00105_DS_   0x000273    program     static delay.asm
-        _ControlLevelHigh   0x00027a    program     extern function.asm
-                 _InitPwm   0x000282    program     extern init.asm
-                 _MotoOff   0x000290    program     extern led.asm
-                  _MotoOn   0x000293    program     extern led.asm
-                  _LedOff   0x000296    program     extern led.asm
-                   _LedOn   0x000299    program     extern led.asm
-                  _PowOff   0x00029e    program     extern led.asm
-                   _PowOn   0x0002a0    program     extern led.asm
-    __sdcc_gsinit_startup   0x0002a2    program     extern main.asm
-              _ControlSos   0x0002a6    program     extern function.asm
-            _ControlFlash   0x0002a7    program     extern function.asm
-           _ControlLvdCfg   0x0002ab    program     extern lvd.asm
-            _ConfigureLvd   0x0002ac    program     extern lvd.asm
-        _CheckLvdElectric   0x0002ad    program     extern lvd.asm
-                _CheckLvd   0x0002ae    program     extern lvd.asm
-                    _Work   0x0002b5    program     extern work.asm
+        Name                Unused          Largest block    Delta
+        BANK0            029-03F            17           1
+                         060-06D             E
+        CODE             005-007             3           2
+                         1B4-3FE           24B
+        CONFIG           2007-2007             1           2
+        CONST            005-007             3           2
+                         1B4-3FE           100
+        ENTRY            005-007             3           2
+                         1B4-3FE           100
+        IDLOC            2000-2003             4           2
+        RAM              029-03F            17           1
+                         060-06D             E
+        SFR0             000-00F            10           1
+        SFR1             070-0DD            6E           1
+        STACK            029-03F            17           1
+        STRCODE          005-007             3           2
+                         1B4-3FE           24B
+        STRING           005-007             3           2
+                         1B4-3FE           100
 
+                                  Symbol Table
 
+_AUXR                      (abs)         059
+_BITS_DATA0                bssBANK0_4    028
+_BOR                       (abs)         2CE
+_BUZ                       (abs)         265
+_CHARGE0                   (abs)         053
+_CHARGE1                   (abs)         054
+_CHARGEN                   (abs)         2A7
+_CMPCR                     (abs)         051
+_CMPEN                     (abs)         040
+_CMPIE                     (abs)         28A
+_CMPIES                    (abs)         289
+_CMPOF                     (abs)         045
+_CMPWK                     (abs)         28B
+_CPPIS                     (abs)         288
+_CheckSleep                text17        083
+_CountdownDisplay          text14        0C7
+_GIE                       (abs)         077
+_HIRCTRM                   (abs)         05B
+_HXEN                      (abs)         281
+_INTECON                   (abs)         00E
+_INTEDG                    (abs)         20E
+_INTFLAG                   (abs)         00F
+_IOCB                      (abs)         009
+_InitPort                  text18        103
+_InitRam                   text13        192
+_InitSystem                text12        17E
+_LVDM                      (abs)         28C
+_LedDisplay                text9         1A1
+_LedOff                    text11        1B1
+_LedOn                     text10        1AE
+_LedSwitch                 text5         174
+_MODSEL                    (abs)         2AF
+_MotoDisplay               text6         19D
+_MotoOff                   text8         1AB
+_MotoOn                    text7         1A8
+_MotoSwitch                text4         16A
+_ODCON                     (abs)         00C
+_OPTION                    (abs)         041
+_OSCCON                    (abs)         050
+_PBIE                      (abs)         071
+_PBIF                      (abs)         079
+_PCON                      (abs)         008
+_PDB3                      (abs)         293
+_PDB4                      (abs)         294
+_PDB5                      (abs)         295
+_PDB6                      (abs)         296
+_PDB7                      (abs)         297
+_PDCON                     (abs)         00B
+_PDCON1                    (abs)         052
+_PHCON                     (abs)         00D
+_POR                       (abs)         2CF
+_PORTB                     (abs)         006
+_PORTB0                    (abs)         030
+_PORTB1                    (abs)         031
+_PORTB2                    (abs)         032
+_PORTB3                    (abs)         033
+_PORTB4                    (abs)         034
+_PORTB5                    (abs)         035
+_PS0                       (abs)         208
+_PS1                       (abs)         209
+_PS2                       (abs)         20A
+_PSA                       (abs)         20B
+_PWM0E                     (abs)         266
+_PWM0OE                    (abs)         247
+_PWM0P                     (abs)         04F
+_PWM1E                     (abs)         241
+_PWM1OE                    (abs)         246
+_PWM1P                     (abs)         049
+_PWM2E                     (abs)         240
+_PWM2OE                    (abs)         245
+_PWM2P                     (abs)         04A
+_PWM3CT                    (abs)         2C9
+_PWMCK                     (abs)         244
+_PWMCON                    (abs)         048
+_PWMCT                     (abs)         2C8
+_PWMINV                    (abs)         242
+_PWMMD                     (abs)         243
+_PowOff                    text3         1A5
+_PowOn                     text2         198
+_RAMP                      (abs)         055
+_RCTRMEN                   (abs)         2CA
+_S0                        (abs)         298
+_S1                        (abs)         299
+_S2                        (abs)         29A
+_S3                        (abs)         29B
+_S4                        (abs)         29C
+_S5                        (abs)         29D
+_S6                        (abs)         29E
+_S7                        (abs)         29F
+_S8                        (abs)         2A0
+_S9                        (abs)         2A1
+_SCS                       (abs)         280
+_SINK_SEL                  (abs)         2AE
+_SLOP0                     (abs)         2A8
+_SLOP1                     (abs)         2A9
+_SLOP2                     (abs)         2AA
+_ScanKey                   text1         01A
+_SleepCount                bssBANK0      01B
+_T0                        (abs)         001
+_T0CK                      (abs)         25F
+_T0CR                      (abs)         04B
+_T0CS                      (abs)         20D
+_T0IE                      (abs)         070
+_T0IF                      (abs)         078
+_T0OSCEN                   (abs)         287
+_T0SE                      (abs)         20C
+_T1                        (abs)         04D
+_T1CK0                     (abs)         263
+_T1CK1                     (abs)         264
+_T1CON                     (abs)         04C
+_T1EN                      (abs)         267
+_T1IE                      (abs)         259
+_T1IF                      (abs)         258
+_T1LOAD                    (abs)         04E
+_T1PR0                     (abs)         260
+_T1PR1                     (abs)         261
+_T1PR2                     (abs)         262
+_TEMPEN                    (abs)         2A6
+_TMPF                      (abs)         07C
+_TRISB                     (abs)         046
+_TRISB0                    (abs)         230
+_TRISB1                    (abs)         231
+_TRISB2                    (abs)         232
+_TRISB3                    (abs)         233
+_TRISB4                    (abs)         234
+_TRISB5                    (abs)         235
+_TRISB6                    (abs)         236
+_TRISB7                    (abs)         237
+_WDTEN                     (abs)         047
+__Habs1                    abs1          000
+__Hbank0                   bank0         000
+__Hbank1                   bank1         000
+__HbssBANK0                bssBANK0      000
+__HbssBANK0_4              bssBANK0_4    000
+__Hcinit                   cinit         01A
+__Hclrtext                 clrtext       000
+__Hcode                    code          000
+__Hcommon                  common        000
+__Hconfig                  config        000
+__HcstackBANK0             cstackBANK0   000
+__HcstackBANK0_4           cstackBANK0_4 000
+__HcstackCOMMON            cstackCOMMON  000
+__Heeprom_data             eeprom_data   000
+__Hend_init                end_init      018
+__Hfunctab                 functab       000
+__Hidloc                   idloc         000
+__Hinit                    init          017
+__Hintentry                intentry      017
+__Hmaintext                maintext      000
+__Hpa_nodes0               pa_nodes0     000
+__Hpowerup                 powerup       000
+__Hram                     ram           000
+__Hreset_vec               reset_vec     005
+__Hsfr0                    sfr0          000
+__Hsfr1                    sfr1          000
+__Hspace_0                 (abs)         1B4
+__Hspace_1                 (abs)         029
+__Hspace_2                 (abs)         000
+__Hspace_3                 (abs)         000
+__Hstack                   stack         000
+__Hstrings                 strings       000
+__Htext                    text          000
+__Labs1                    abs1          000
+__Lbank0                   bank0         000
+__Lbank1                   bank1         000
+__LbssBANK0                bssBANK0      000
+__LbssBANK0_4              bssBANK0_4    000
+__Lcinit                   cinit         018
+__Lclrtext                 clrtext       000
+__Lcode                    code          000
+__Lcommon                  common        000
+__Lconfig                  config        000
+__LcstackBANK0             cstackBANK0   000
+__LcstackBANK0_4           cstackBANK0_4 000
+__LcstackCOMMON            cstackCOMMON  000
+__Leeprom_data             eeprom_data   000
+__Lend_init                end_init      017
+__Lfunctab                 functab       000
+__Lidloc                   idloc         000
+__Linit                    init          017
+__Lintentry                intentry      008
+__Lmaintext                maintext      000
+__Lpa_nodes0               pa_nodes0     000
+__Lpowerup                 powerup       000
+__Lram                     ram           000
+__Lreset_vec               reset_vec     004
+__Lsfr0                    sfr0          000
+__Lsfr1                    sfr1          000
+__Lspace_0                 (abs)         000
+__Lspace_1                 (abs)         000
+__Lspace_2                 (abs)         000
+__Lspace_3                 (abs)         000
+__Lstack                   stack         000
+__Lstrings                 strings       000
+__Ltext                    text          000
+__S0                       (abs)         1B4
+__S1                       (abs)         029
+__S2                       (abs)         000
+___int_sp                  stack         000
+___latbits                 (abs)         000
+___sp                      stack         000
+__end_of_CheckSleep        text17        0C7
+__end_of_CountdownDisplay  text14        103
+__end_of_InitPort          text18        120
+__end_of_InitRam           text13        198
+__end_of_InitSystem        text12        188
+__end_of_LedDisplay        text9         1A5
+__end_of_LedOff            text11        1B4
+__end_of_LedOn             text10        1B1
+__end_of_LedSwitch         text5         17E
+__end_of_MotoDisplay       text6         1A1
+__end_of_MotoOff           text8         1AE
+__end_of_MotoOn            text7         1AB
+__end_of_MotoSwitch        text4         174
+__end_of_PowOff            text3         1A8
+__end_of_PowOn             text2         19D
+__end_of_ScanKey           text1         083
+__end_of__initialization   cinit         018
+__end_of_bt_off            text15        192
+__end_of_delay_ms          text16        13C
+__end_of_interrupt_handle  text19        16A
+__end_of_main              maintext      153
+__initialization           cinit         018
+__pbssBANK0                bssBANK0      011
+__pbssBANK0_4              bssBANK0_4    028
+__pcstackBANK0             cstackBANK0   000
+__pcstackBANK0_4           cstackBANK0_4 022
+__pcstackCOMMON            cstackCOMMON  000
+__pintentry                intentry      008
+__pmaintext                maintext      13C
+__ptext0                   text0         000
+__ptext1                   text1         01A
+__ptext10                  text10        1AE
+__ptext11                  text11        1B1
+__ptext12                  text12        17E
+__ptext13                  text13        192
+__ptext14                  text14        0C7
+__ptext15                  text15        188
+__ptext16                  text16        120
+__ptext17                  text17        083
+__ptext18                  text18        103
+__ptext19                  text19        153
+__ptext2                   text2         198
+__ptext3                   text3         1A5
+__ptext4                   text4         16A
+__ptext5                   text5         174
+__ptext6                   text6         19D
+__ptext7                   text7         1A8
+__ptext8                   text8         1AB
+__ptext9                   text9         1A1
+__size_of_CheckSleep       (abs)         000
+__size_of_CountdownDisplay (abs)         000
+__size_of_InitPort         (abs)         000
+__size_of_InitRam          (abs)         000
+__size_of_InitSystem       (abs)         000
+__size_of_LedDisplay       (abs)         000
+__size_of_LedOff           (abs)         000
+__size_of_LedOn            (abs)         000
+__size_of_LedSwitch        (abs)         000
+__size_of_MotoDisplay      (abs)         000
+__size_of_MotoOff          (abs)         000
+__size_of_MotoOn           (abs)         000
+__size_of_MotoSwitch       (abs)         000
+__size_of_PowOff           (abs)         000
+__size_of_PowOn            (abs)         000
+__size_of_ScanKey          (abs)         000
+__size_of_bt_off           (abs)         000
+__size_of_delay_ms         (abs)         000
+__size_of_interrupt_handle (abs)         000
+__size_of_main             (abs)         000
+_bt_off                    text15        188
+_clink_event               bssBANK0      01F
+_delay_ms                  text16        120
+_g_ucTimer10msCount        bssBANK0      021
+_g_ucTimerWorkCount        bssBANK0      020
+_holdOn_f                  bssBANK0      01D
+_interrupt_handle          text19        153
+_itemp                     (abs)         010
+_lampTiming                bssBANK0      015
+_long_f                    bssBANK0      01E
+_longpress_cnt             bssBANK0      019
+_main                      maintext      13C
+_motoTiming                bssBANK0      011
+_occupy1                   (abs)         042
+_occupy2                   (abs)         047
+_occupy3                   (abs)         05A
+btemp                      (abs)         06E
+delay_ms@i                 cstackBANK0_4 026
+delay_ms@xms               cstackBANK0_4 024
+end_of_initialization      cinit         018
+interrupt_function         intentry      008
+intlevel0                  functab       000
+intlevel1                  functab       000
+intlevel2                  functab       000
+intlevel3                  functab       000
+intlevel4                  functab       000
+intlevel5                  functab       000
+reset_vec                  reset_vec     004
+saved_w                    (abs)         06E
+stackhi                    (abs)         000
+stacklo                    (abs)         000
+start                      init          017
+start_initialization       cinit         018
+wtemp0                     (abs)         06E

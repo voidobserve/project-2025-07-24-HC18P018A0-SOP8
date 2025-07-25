@@ -1,0 +1,302 @@
+
+# 1 "interrupt.c"
+
+# 17 "D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\hc18p018a0.h"
+volatile unsigned char INDF @ 0x000;
+volatile unsigned char T0 @ 0x001;
+volatile unsigned char PCL @ 0x002;
+volatile unsigned char STATUS @ 0x003;
+volatile unsigned char FSR @ 0x004;
+
+volatile unsigned char PORTB @ 0x006;
+
+volatile unsigned char PCON @ 0x008;
+volatile unsigned char IOCB @ 0x009;
+volatile unsigned char PCLATH @ 0x00A;
+volatile unsigned char PDCON @ 0x00B;
+volatile unsigned char ODCON @ 0x00C;
+volatile unsigned char PHCON @ 0x00D;
+volatile unsigned char INTECON @ 0x00E;
+volatile unsigned char INTFLAG @ 0x00F;
+
+volatile unsigned char OPTION @ 0x041;
+volatile unsigned char occupy1 @ 0x042;
+volatile unsigned char TRISB @ 0x046;
+volatile unsigned char occupy2 @ 0x047;
+
+volatile unsigned char PWMCON @ 0x048;
+volatile unsigned char PWM1P @ 0x049;
+volatile unsigned char PWM2P @ 0x04A;
+volatile unsigned char T0CR @ 0x04B;
+volatile unsigned char T1CON @ 0x04C;
+volatile unsigned char T1 @ 0x04D;
+volatile unsigned char T1LOAD @ 0x04E;
+volatile unsigned char PWM0P @ 0x04F;
+volatile unsigned char OSCCON @ 0x050;
+volatile unsigned char CMPCR @ 0x051;
+volatile unsigned char PDCON1 @ 0x052;
+volatile unsigned char CHARGE0 @ 0x053;
+volatile unsigned char CHARGE1 @ 0x054;
+volatile unsigned char RAMP @ 0x055;
+
+volatile unsigned char AUXR @ 0x059;
+volatile unsigned char occupy3 @ 0x05A;
+volatile unsigned char HIRCTRM @ 0x05B;
+volatile unsigned char itemp @ 0x010;
+
+
+
+
+volatile bit C @ ((unsigned)&STATUS*8)+0;
+volatile bit DC @ ((unsigned)&STATUS*8)+1;
+volatile bit Z @ ((unsigned)&STATUS*8)+2;
+volatile bit PD @ ((unsigned)&STATUS*8)+3;
+volatile bit TO @ ((unsigned)&STATUS*8)+4;
+volatile bit RP0 @ ((unsigned)&STATUS*8)+5;
+volatile bit GP1 @ ((unsigned)&STATUS*8)+6;
+volatile bit RST @ ((unsigned)&STATUS*8)+7;
+
+
+volatile bit PORTB0 @ ((unsigned)&PORTB*8)+0;
+volatile bit PORTB1 @ ((unsigned)&PORTB*8)+1;
+volatile bit PORTB2 @ ((unsigned)&PORTB*8)+2;
+volatile bit PORTB3 @ ((unsigned)&PORTB*8)+3;
+volatile bit PORTB4 @ ((unsigned)&PORTB*8)+4;
+volatile bit PORTB5 @ ((unsigned)&PORTB*8)+5;
+volatile bit PORTB6 @ ((unsigned)&PORTB*8)+6;
+volatile bit PORTB7 @ ((unsigned)&PORTB*8)+7;
+
+
+volatile bit CMPEN @ ((unsigned)&PCON*8)+0;
+volatile bit CPNIS0 @ ((unsigned)&PCON*8)+1;
+volatile bit CPNIS1 @ ((unsigned)&PCON*8)+2;
+volatile bit CPNIS2 @ ((unsigned)&PCON*8)+3;
+volatile bit CPNIS3 @ ((unsigned)&PCON*8)+4;
+volatile bit CMPOF @ ((unsigned)&PCON*8)+5;
+volatile bit EIS @ ((unsigned)&PCON*8)+6;
+volatile bit WDTEN @ ((unsigned)&PCON*8)+7;
+
+
+volatile bit IOCB0 @ ((unsigned)&IOCB*8)+0;
+volatile bit IOCB1 @ ((unsigned)&IOCB*8)+1;
+volatile bit IOCB2 @ ((unsigned)&IOCB*8)+2;
+volatile bit IOCB3 @ ((unsigned)&IOCB*8)+3;
+volatile bit IOCB4 @ ((unsigned)&IOCB*8)+4;
+volatile bit IOCB5 @ ((unsigned)&IOCB*8)+5;
+volatile bit IOCB6 @ ((unsigned)&IOCB*8)+6;
+volatile bit IOCB7 @ ((unsigned)&IOCB*8)+7;
+
+
+volatile bit PDB0 @ ((unsigned)&PDCON*8)+4;
+volatile bit PDB1 @ ((unsigned)&PDCON*8)+5;
+volatile bit PDB2 @ ((unsigned)&PDCON*8)+6;
+
+
+volatile bit ODB0 @ ((unsigned)&ODCON*8)+0;
+volatile bit ODB1 @ ((unsigned)&ODCON*8)+1;
+volatile bit ODB2 @ ((unsigned)&ODCON*8)+2;
+volatile bit ODB3 @ ((unsigned)&ODCON*8)+3;
+volatile bit ODB4 @ ((unsigned)&ODCON*8)+4;
+volatile bit ODB5 @ ((unsigned)&ODCON*8)+5;
+volatile bit ODB6 @ ((unsigned)&ODCON*8)+6;
+volatile bit ODB7 @ ((unsigned)&ODCON*8)+7;
+
+
+volatile bit PHB0 @ ((unsigned)&PHCON*8)+0;
+volatile bit PHB1 @ ((unsigned)&PHCON*8)+1;
+volatile bit PHB2 @ ((unsigned)&PHCON*8)+2;
+volatile bit PHB3 @ ((unsigned)&PHCON*8)+3;
+volatile bit PHB4 @ ((unsigned)&PHCON*8)+4;
+volatile bit PHB5 @ ((unsigned)&PHCON*8)+5;
+volatile bit PHB6 @ ((unsigned)&PHCON*8)+6;
+volatile bit PHB7 @ ((unsigned)&PHCON*8)+7;
+
+
+volatile bit T0IE @ ((unsigned)&INTECON*8)+0;
+volatile bit PBIE @ ((unsigned)&INTECON*8)+1;
+volatile bit INTE @ ((unsigned)&INTECON*8)+2;
+volatile bit TMPE @ ((unsigned)&INTECON*8)+4;
+volatile bit CHARE @ ((unsigned)&INTECON*8)+5;
+volatile bit GIE @ ((unsigned)&INTECON*8)+7;
+
+
+volatile bit T0IF @ ((unsigned)&INTFLAG*8)+0;
+volatile bit PBIF @ ((unsigned)&INTFLAG*8)+1;
+volatile bit INTF @ ((unsigned)&INTFLAG*8)+2;
+volatile bit CMPF @ ((unsigned)&INTFLAG*8)+3;
+volatile bit TMPF @ ((unsigned)&INTFLAG*8)+4;
+volatile bit CHARF @ ((unsigned)&INTFLAG*8)+5;
+
+volatile bit PS0 @ ((unsigned)&OPTION*8)+0;
+volatile bit PS1 @ ((unsigned)&OPTION*8)+1;
+volatile bit PS2 @ ((unsigned)&OPTION*8)+2;
+volatile bit PSA @ ((unsigned)&OPTION*8)+3;
+volatile bit T0SE @ ((unsigned)&OPTION*8)+4;
+volatile bit T0CS @ ((unsigned)&OPTION*8)+5;
+volatile bit INTEDG @ ((unsigned)&OPTION*8)+6;
+
+
+volatile bit TRISB0 @ ((unsigned)&TRISB*8)+0;
+volatile bit TRISB1 @ ((unsigned)&TRISB*8)+1;
+volatile bit TRISB2 @ ((unsigned)&TRISB*8)+2;
+volatile bit TRISB3 @ ((unsigned)&TRISB*8)+3;
+volatile bit TRISB4 @ ((unsigned)&TRISB*8)+4;
+volatile bit TRISB5 @ ((unsigned)&TRISB*8)+5;
+volatile bit TRISB6 @ ((unsigned)&TRISB*8)+6;
+volatile bit TRISB7 @ ((unsigned)&TRISB*8)+7;
+
+
+volatile bit PWM2E @ ((unsigned)&PWMCON*8)+0;
+volatile bit PWM1E @ ((unsigned)&PWMCON*8)+1;
+volatile bit PWMINV @ ((unsigned)&PWMCON*8)+2;
+volatile bit PWMMD @ ((unsigned)&PWMCON*8)+3;
+volatile bit PWMCK @ ((unsigned)&PWMCON*8)+4;
+volatile bit PWM2OE @ ((unsigned)&PWMCON*8)+5;
+volatile bit PWM1OE @ ((unsigned)&PWMCON*8)+6;
+volatile bit PWM0OE @ ((unsigned)&PWMCON*8)+7;
+
+
+volatile bit T1IF @ ((unsigned)&T0CR*8)+0;
+volatile bit T1IE @ ((unsigned)&T0CR*8)+1;
+volatile bit T0CK @ ((unsigned)&T0CR*8)+7;
+
+
+volatile bit T1PR0 @ ((unsigned)&T1CON*8)+0;
+volatile bit T1PR1 @ ((unsigned)&T1CON*8)+1;
+volatile bit T1PR2 @ ((unsigned)&T1CON*8)+2;
+volatile bit T1CK0 @ ((unsigned)&T1CON*8)+3;
+volatile bit T1CK1 @ ((unsigned)&T1CON*8)+4;
+volatile bit BUZ @ ((unsigned)&T1CON*8)+5;
+volatile bit PWM0E @ ((unsigned)&T1CON*8)+6;
+volatile bit T1EN @ ((unsigned)&T1CON*8)+7;
+
+
+volatile bit SCS @ ((unsigned)&OSCCON*8)+0;
+volatile bit HXEN @ ((unsigned)&OSCCON*8)+1;
+volatile bit T0OSCEN @ ((unsigned)&OSCCON*8)+7;
+
+volatile bit CPPIS @ ((unsigned)&CMPCR*8)+0;
+volatile bit CMPIES @ ((unsigned)&CMPCR*8)+1;
+volatile bit CMPIE @ ((unsigned)&CMPCR*8)+2;
+volatile bit CMPWK @ ((unsigned)&CMPCR*8)+3;
+volatile bit LVDM @ ((unsigned)&CMPCR*8)+4;
+
+volatile bit PDB3 @ ((unsigned)&PDCON1*8)+3;
+volatile bit PDB4 @ ((unsigned)&PDCON1*8)+4;
+volatile bit PDB5 @ ((unsigned)&PDCON1*8)+5;
+volatile bit PDB6 @ ((unsigned)&PDCON1*8)+6;
+volatile bit PDB7 @ ((unsigned)&PDCON1*8)+7;
+
+
+volatile bit S0 @ ((unsigned)&CHARGE0*8)+0;
+volatile bit S1 @ ((unsigned)&CHARGE0*8)+1;
+volatile bit S2 @ ((unsigned)&CHARGE0*8)+2;
+volatile bit S3 @ ((unsigned)&CHARGE0*8)+3;
+volatile bit S4 @ ((unsigned)&CHARGE0*8)+4;
+volatile bit S5 @ ((unsigned)&CHARGE0*8)+5;
+volatile bit S6 @ ((unsigned)&CHARGE0*8)+6;
+volatile bit S7 @ ((unsigned)&CHARGE0*8)+7;
+
+
+volatile bit S8 @ ((unsigned)&CHARGE1*8)+0;
+volatile bit S9 @ ((unsigned)&CHARGE1*8)+1;
+volatile bit TEMPEN @ ((unsigned)&CHARGE1*8)+6;
+volatile bit CHARGEN @ ((unsigned)&CHARGE1*8)+7;
+
+
+volatile bit SLOP0 @ ((unsigned)&RAMP*8)+0;
+volatile bit SLOP1 @ ((unsigned)&RAMP*8)+1;
+volatile bit SLOP2 @ ((unsigned)&RAMP*8)+2;
+volatile bit SINK_SEL @ ((unsigned)&RAMP*8)+6;
+volatile bit MODSEL @ ((unsigned)&RAMP*8)+7;
+
+
+volatile bit PWMCT @ ((unsigned)&AUXR*8)+0;
+volatile bit PWM3CT @ ((unsigned)&AUXR*8)+1;
+volatile bit RCTRMEN @ ((unsigned)&AUXR*8)+2;
+volatile bit BOR @ ((unsigned)&AUXR*8)+6;
+volatile bit POR @ ((unsigned)&AUXR*8)+7;
+
+# 6 "hc_define.h"
+typedef unsigned char BOOL;
+typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef unsigned long DWORD;
+
+# 106
+typedef struct __bits8_t
+{
+unsigned bit0 :1;
+unsigned bit1 :1;
+unsigned bit2 :1;
+unsigned bit3 :1;
+unsigned bit4 :1;
+unsigned bit5 :1;
+unsigned bit6 :1;
+unsigned bit7 :1;
+}bits8;
+
+typedef struct __bits16_t
+{
+unsigned bit0 :1;
+unsigned bit1 :1;
+unsigned bit2 :1;
+unsigned bit3 :1;
+unsigned bit4 :1;
+unsigned bit5 :1;
+unsigned bit6 :1;
+unsigned bit7 :1;
+unsigned bit8 :1;
+unsigned bit9 :1;
+unsigned bita :1;
+unsigned bitb :1;
+unsigned bitc :1;
+unsigned bitd :1;
+unsigned bite :1;
+unsigned bitf :1;
+}bits16;
+
+# 6 "interrupt.h"
+void Interrupt(void);
+
+# 6 "variable.h"
+extern bits8 BITS_DATA0;
+extern bits16 BITS_DATA1;
+
+# 34
+extern BYTE g_ucTimer10msCount;
+extern BYTE g_ucTimerWorkCount;
+
+# 60
+extern BYTE TempCount;
+extern BYTE TempFlag;
+
+extern WORD SleepCount;
+extern BYTE SleepFlag;
+
+extern BYTE MaxLight;
+
+# 9 "interrupt.c"
+void interrupt interrupt_handle(void)
+{
+if (PBIF)
+{
+PBIF = 0;
+
+}
+if (T0IF)
+{
+T0IF = 0;
+T0 = 217;
+
+}
+
+g_ucTimer10msCount++;
+
+# 29
+if ((200) == g_ucTimer10msCount)
+{
+g_ucTimer10msCount = 0;
+(BITS_DATA0.bit0) = 1;
+}
+}

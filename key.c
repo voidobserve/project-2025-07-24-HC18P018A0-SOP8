@@ -14,6 +14,9 @@ void ScanKey(void)
 	if(PORT_KEY_1 == 0 || PORT_KEY_2 == 0 || PORT_KEY_3 == 1 )
 	{
 		
+		lampTiming = 0;
+		motoTiming = 0;
+
 		if(longpress_cnt < 0xffff) {
 			longpress_cnt++;
 

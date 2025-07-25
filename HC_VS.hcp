@@ -1,5 +1,5 @@
 [HC-IDE]
-Version=3.0.13.0
+Version=3.0.11.S
 [File Count]
 Count=23
 [MCU]
@@ -9,35 +9,35 @@ Device=HC18P018A0
 ConfigBitValue0=14067
 ConfigBitValue1=15359
 ConfigBitValue2=14720
-ConfigBitValue3=2288
+ConfigBitValue3=240
 ConfigBitValue4=16375
 Output=.
 PostBuild=0
 PostBuildCommand=
 Library=
 [Files]
-OpenFileCounts=22
-File0=Temp.c|3 0 1378 0 439
-File1=init.c|1 182 1560 182 621
-File2=main.c|1 208 1586 208 647
-File3=temp.asm|1 0 1385 0 388
-File4=variable.h|1 52 1430 52 491
-File5=variable.c|1 156 1541 156 544
-File6=Lvd.c|1 78 1456 78 517
-File7=Led.c|1 156 1534 156 595
-File8=work.c|1 130 1508 130 569
-File9=function.c|1 104 1482 104 543
-File10=user_define.h|1 130 1508 130 568
-File11=work.h|1 130 1515 130 518
-File12=hc_define.h|1 78 1463 78 466
-File13=init.h|1 0 1385 0 388
-File14=delay.h|1 104 1489 104 492
-File15=function.h|1 52 1430 52 491
-File16=interrupt.h|1 156 1541 156 544
-File17=key.h|1 52 1437 52 440
-File18=Led.h|1 26 1411 26 414
-File19=interrupt.c|1 130 1515 130 518
-File20=delay.c|1 52 1430 52 491
+OpenFileCounts=21
+File0=main.c|3 208 1586 208 647
+File1=Temp.c|1 0 1378 0 439
+File2=init.c|1 182 1560 182 621
+File3=variable.h|1 52 1430 52 491
+File4=variable.c|1 156 1541 156 544
+File5=Lvd.c|1 78 1456 78 517
+File6=Led.c|1 156 1534 156 595
+File7=work.c|1 130 1508 130 569
+File8=function.c|1 104 1482 104 543
+File9=user_define.h|1 130 1508 130 568
+File10=work.h|1 130 1515 130 518
+File11=hc_define.h|1 78 1463 78 466
+File12=init.h|1 0 1385 0 388
+File13=delay.h|1 104 1489 104 492
+File14=function.h|1 52 1430 52 491
+File15=interrupt.h|1 156 1541 156 544
+File16=key.h|1 52 1437 52 440
+File17=Led.h|1 26 1411 26 414
+File18=interrupt.c|1 130 1515 130 518
+File19=delay.c|1 52 1430 52 491
+File20=key.c|1 0 1378 0 439
 File21=key.c|1 0 1378 0 439
 [Break]
 Count=4

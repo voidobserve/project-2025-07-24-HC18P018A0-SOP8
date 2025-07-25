@@ -1,0 +1,18 @@
+ 2025-07-24 19:02:54,727 - INFO- version 1.0.26.0
+ 2025-07-24 19:02:54,727 - INFO- 输入的文件为： delay.c function.c init.c interrupt.c key.c led.c lvd.c main.c temp.c variable.c work.c
+ 2025-07-24 19:02:54,727 - INFO- BIT:14 size: 1024chip:18p018a0fsr0bank:1mtp:0series:0interrupt:0
+ 2025-07-24 19:02:54,727 - INFO- START C CONVERT ASM
+ 2025-07-24 19:02:54,728 - INFO- picc --chip=18p018a0  --MSGDISABLE=1262,1487,1396:off --CODEOFFSET=4  --RUNTIME=keep --RUNTIME=osccal -Ex.err -S delay.c function.c init.c interrupt.c key.c led.c lvd.c main.c temp.c variable.c work.c
+ 2025-07-24 19:02:55,649 - INFO- END C CONVERT ASM
+ 2025-07-24 19:02:55,649 - INFO- START REVISE ASM
+ 2025-07-24 19:02:55,663 - INFO- END REVISE ASM
+ 2025-07-24 19:02:55,663 - INFO- picc --chip=18p018a0 --OPT=asmfile --asmlist --output=bin --MSGDISABLE=1262,1487,1396:off --CODEOFFSET=4 --RUNTIME=keep --RUNTIME=osccal -M -E+x.err delay.as -OHC_VS.hex
+ 2025-07-24 19:02:55,926 - INFO- 链接完成
+ 2025-07-24 19:02:55,926 - INFO- delay.lst
+ 2025-07-24 19:02:55,926 - INFO- HC_VS.lst
+ 2025-07-24 19:02:55,927 - INFO- START CONVERT
+ 2025-07-24 19:02:55,927 - INFO- HC_VS.hex
+ 2025-07-24 19:02:55,927 - INFO- mcu size1024
+ 2025-07-24 19:02:55,933 - INFO- 转码成功
+ 2025-07-24 19:02:55,933 - INFO- None
+ 2025-07-24 19:02:55,933 - INFO- Success Convert

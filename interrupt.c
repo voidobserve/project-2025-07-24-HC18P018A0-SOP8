@@ -1,9 +1,12 @@
+#include <hc18p018a0.h>
 #include "interrupt.h"
 #include "variable.h"
 
 
 
-void InterruptFunc(void) __interrupt 0
+// void InterruptFunc(void) __interrupt 0
+// void interrupt InterruptFunc(void) 
+void interrupt interrupt_handle(void)
 {
 	if (PBIF)//产生端口电平变化中断
 	{

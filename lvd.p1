@@ -1,0 +1,624 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"17 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
+[v _INDF `Vuc ~T0 @X0 1 e@0 ]
+[; ;HC18P018A0.h: 17: volatile unsigned char INDF @ 0x000;
+"18
+[v _T0 `Vuc ~T0 @X0 1 e@1 ]
+[; ;HC18P018A0.h: 18: volatile unsigned char T0 @ 0x001;
+"19
+[v _PCL `Vuc ~T0 @X0 1 e@2 ]
+[; ;HC18P018A0.h: 19: volatile unsigned char PCL @ 0x002;
+"20
+[v _STATUS `Vuc ~T0 @X0 1 e@3 ]
+[; ;HC18P018A0.h: 20: volatile unsigned char STATUS @ 0x003;
+"21
+[v _FSR `Vuc ~T0 @X0 1 e@4 ]
+[; ;HC18P018A0.h: 21: volatile unsigned char FSR @ 0x004;
+"23
+[v _PORTB `Vuc ~T0 @X0 1 e@6 ]
+[; ;HC18P018A0.h: 23: volatile unsigned char PORTB @ 0x006;
+"25
+[v _PCON `Vuc ~T0 @X0 1 e@8 ]
+[; ;HC18P018A0.h: 25: volatile unsigned char PCON @ 0x008;
+"26
+[v _IOCB `Vuc ~T0 @X0 1 e@9 ]
+[; ;HC18P018A0.h: 26: volatile unsigned char IOCB @ 0x009;
+"27
+[v _PCLATH `Vuc ~T0 @X0 1 e@10 ]
+[; ;HC18P018A0.h: 27: volatile unsigned char PCLATH @ 0x00A;
+"28
+[v _PDCON `Vuc ~T0 @X0 1 e@11 ]
+[; ;HC18P018A0.h: 28: volatile unsigned char PDCON @ 0x00B;
+"29
+[v _ODCON `Vuc ~T0 @X0 1 e@12 ]
+[; ;HC18P018A0.h: 29: volatile unsigned char ODCON @ 0x00C;
+"30
+[v _PHCON `Vuc ~T0 @X0 1 e@13 ]
+[; ;HC18P018A0.h: 30: volatile unsigned char PHCON @ 0x00D;
+"31
+[v _INTECON `Vuc ~T0 @X0 1 e@14 ]
+[; ;HC18P018A0.h: 31: volatile unsigned char INTECON @ 0x00E;
+"32
+[v _INTFLAG `Vuc ~T0 @X0 1 e@15 ]
+[; ;HC18P018A0.h: 32: volatile unsigned char INTFLAG @ 0x00F;
+"34
+[v _OPTION `Vuc ~T0 @X0 1 e@65 ]
+[; ;HC18P018A0.h: 34: volatile unsigned char OPTION @ 0x041;
+"35
+[v _occupy1 `Vuc ~T0 @X0 1 e@66 ]
+[; ;HC18P018A0.h: 35: volatile unsigned char occupy1 @ 0x042;
+"36
+[v _TRISB `Vuc ~T0 @X0 1 e@70 ]
+[; ;HC18P018A0.h: 36: volatile unsigned char TRISB @ 0x046;
+"37
+[v _occupy2 `Vuc ~T0 @X0 1 e@71 ]
+[; ;HC18P018A0.h: 37: volatile unsigned char occupy2 @ 0x047;
+"39
+[v _PWMCON `Vuc ~T0 @X0 1 e@72 ]
+[; ;HC18P018A0.h: 39: volatile unsigned char PWMCON @ 0x048;
+"40
+[v _PWM1P `Vuc ~T0 @X0 1 e@73 ]
+[; ;HC18P018A0.h: 40: volatile unsigned char PWM1P @ 0x049;
+"41
+[v _PWM2P `Vuc ~T0 @X0 1 e@74 ]
+[; ;HC18P018A0.h: 41: volatile unsigned char PWM2P @ 0x04A;
+"42
+[v _T0CR `Vuc ~T0 @X0 1 e@75 ]
+[; ;HC18P018A0.h: 42: volatile unsigned char T0CR @ 0x04B;
+"43
+[v _T1CON `Vuc ~T0 @X0 1 e@76 ]
+[; ;HC18P018A0.h: 43: volatile unsigned char T1CON @ 0x04C;
+"44
+[v _T1 `Vuc ~T0 @X0 1 e@77 ]
+[; ;HC18P018A0.h: 44: volatile unsigned char T1 @ 0x04D;
+"45
+[v _T1LOAD `Vuc ~T0 @X0 1 e@78 ]
+[; ;HC18P018A0.h: 45: volatile unsigned char T1LOAD @ 0x04E;
+"46
+[v _PWM0P `Vuc ~T0 @X0 1 e@79 ]
+[; ;HC18P018A0.h: 46: volatile unsigned char PWM0P @ 0x04F;
+"47
+[v _OSCCON `Vuc ~T0 @X0 1 e@80 ]
+[; ;HC18P018A0.h: 47: volatile unsigned char OSCCON @ 0x050;
+"48
+[v _CMPCR `Vuc ~T0 @X0 1 e@81 ]
+[; ;HC18P018A0.h: 48: volatile unsigned char CMPCR @ 0x051;
+"49
+[v _PDCON1 `Vuc ~T0 @X0 1 e@82 ]
+[; ;HC18P018A0.h: 49: volatile unsigned char PDCON1 @ 0x052;
+"50
+[v _CHARGE0 `Vuc ~T0 @X0 1 e@83 ]
+[; ;HC18P018A0.h: 50: volatile unsigned char CHARGE0 @ 0x053;
+"51
+[v _CHARGE1 `Vuc ~T0 @X0 1 e@84 ]
+[; ;HC18P018A0.h: 51: volatile unsigned char CHARGE1 @ 0x054;
+"52
+[v _RAMP `Vuc ~T0 @X0 1 e@85 ]
+[; ;HC18P018A0.h: 52: volatile unsigned char RAMP @ 0x055;
+"54
+[v _AUXR `Vuc ~T0 @X0 1 e@89 ]
+[; ;HC18P018A0.h: 54: volatile unsigned char AUXR @ 0x059;
+"55
+[v _occupy3 `Vuc ~T0 @X0 1 e@90 ]
+[; ;HC18P018A0.h: 55: volatile unsigned char occupy3 @ 0x05A;
+"56
+[v _HIRCTRM `Vuc ~T0 @X0 1 e@91 ]
+[; ;HC18P018A0.h: 56: volatile unsigned char HIRCTRM @ 0x05B;
+"57
+[v _itemp `Vuc ~T0 @X0 1 e@16 ]
+[; ;HC18P018A0.h: 57: volatile unsigned char itemp @ 0x010;
+"62
+[v _C `Vb ~T0 @X0 1 e@24 ]
+[; ;HC18P018A0.h: 62: volatile bit C @ ((unsigned)&STATUS*8)+0;
+"63
+[v _DC `Vb ~T0 @X0 1 e@25 ]
+[; ;HC18P018A0.h: 63: volatile bit DC @ ((unsigned)&STATUS*8)+1;
+"64
+[v _Z `Vb ~T0 @X0 1 e@26 ]
+[; ;HC18P018A0.h: 64: volatile bit Z @ ((unsigned)&STATUS*8)+2;
+"65
+[v _PD `Vb ~T0 @X0 1 e@27 ]
+[; ;HC18P018A0.h: 65: volatile bit PD @ ((unsigned)&STATUS*8)+3;
+"66
+[v _TO `Vb ~T0 @X0 1 e@28 ]
+[; ;HC18P018A0.h: 66: volatile bit TO @ ((unsigned)&STATUS*8)+4;
+"67
+[v _RP0 `Vb ~T0 @X0 1 e@29 ]
+[; ;HC18P018A0.h: 67: volatile bit RP0 @ ((unsigned)&STATUS*8)+5;
+"68
+[v _GP1 `Vb ~T0 @X0 1 e@30 ]
+[; ;HC18P018A0.h: 68: volatile bit GP1 @ ((unsigned)&STATUS*8)+6;
+"69
+[v _RST `Vb ~T0 @X0 1 e@31 ]
+[; ;HC18P018A0.h: 69: volatile bit RST @ ((unsigned)&STATUS*8)+7;
+"72
+[v _PORTB0 `Vb ~T0 @X0 1 e@48 ]
+[; ;HC18P018A0.h: 72: volatile bit PORTB0 @ ((unsigned)&PORTB*8)+0;
+"73
+[v _PORTB1 `Vb ~T0 @X0 1 e@49 ]
+[; ;HC18P018A0.h: 73: volatile bit PORTB1 @ ((unsigned)&PORTB*8)+1;
+"74
+[v _PORTB2 `Vb ~T0 @X0 1 e@50 ]
+[; ;HC18P018A0.h: 74: volatile bit PORTB2 @ ((unsigned)&PORTB*8)+2;
+"75
+[v _PORTB3 `Vb ~T0 @X0 1 e@51 ]
+[; ;HC18P018A0.h: 75: volatile bit PORTB3 @ ((unsigned)&PORTB*8)+3;
+"76
+[v _PORTB4 `Vb ~T0 @X0 1 e@52 ]
+[; ;HC18P018A0.h: 76: volatile bit PORTB4 @ ((unsigned)&PORTB*8)+4;
+"77
+[v _PORTB5 `Vb ~T0 @X0 1 e@53 ]
+[; ;HC18P018A0.h: 77: volatile bit PORTB5 @ ((unsigned)&PORTB*8)+5;
+"78
+[v _PORTB6 `Vb ~T0 @X0 1 e@54 ]
+[; ;HC18P018A0.h: 78: volatile bit PORTB6 @ ((unsigned)&PORTB*8)+6;
+"79
+[v _PORTB7 `Vb ~T0 @X0 1 e@55 ]
+[; ;HC18P018A0.h: 79: volatile bit PORTB7 @ ((unsigned)&PORTB*8)+7;
+"82
+[v _CMPEN `Vb ~T0 @X0 1 e@64 ]
+[; ;HC18P018A0.h: 82: volatile bit CMPEN @ ((unsigned)&PCON*8)+0;
+"83
+[v _CPNIS0 `Vb ~T0 @X0 1 e@65 ]
+[; ;HC18P018A0.h: 83: volatile bit CPNIS0 @ ((unsigned)&PCON*8)+1;
+"84
+[v _CPNIS1 `Vb ~T0 @X0 1 e@66 ]
+[; ;HC18P018A0.h: 84: volatile bit CPNIS1 @ ((unsigned)&PCON*8)+2;
+"85
+[v _CPNIS2 `Vb ~T0 @X0 1 e@67 ]
+[; ;HC18P018A0.h: 85: volatile bit CPNIS2 @ ((unsigned)&PCON*8)+3;
+"86
+[v _CPNIS3 `Vb ~T0 @X0 1 e@68 ]
+[; ;HC18P018A0.h: 86: volatile bit CPNIS3 @ ((unsigned)&PCON*8)+4;
+"87
+[v _CMPOF `Vb ~T0 @X0 1 e@69 ]
+[; ;HC18P018A0.h: 87: volatile bit CMPOF @ ((unsigned)&PCON*8)+5;
+"88
+[v _EIS `Vb ~T0 @X0 1 e@70 ]
+[; ;HC18P018A0.h: 88: volatile bit EIS @ ((unsigned)&PCON*8)+6;
+"89
+[v _WDTEN `Vb ~T0 @X0 1 e@71 ]
+[; ;HC18P018A0.h: 89: volatile bit WDTEN @ ((unsigned)&PCON*8)+7;
+"92
+[v _IOCB0 `Vb ~T0 @X0 1 e@72 ]
+[; ;HC18P018A0.h: 92: volatile bit IOCB0 @ ((unsigned)&IOCB*8)+0;
+"93
+[v _IOCB1 `Vb ~T0 @X0 1 e@73 ]
+[; ;HC18P018A0.h: 93: volatile bit IOCB1 @ ((unsigned)&IOCB*8)+1;
+"94
+[v _IOCB2 `Vb ~T0 @X0 1 e@74 ]
+[; ;HC18P018A0.h: 94: volatile bit IOCB2 @ ((unsigned)&IOCB*8)+2;
+"95
+[v _IOCB3 `Vb ~T0 @X0 1 e@75 ]
+[; ;HC18P018A0.h: 95: volatile bit IOCB3 @ ((unsigned)&IOCB*8)+3;
+"96
+[v _IOCB4 `Vb ~T0 @X0 1 e@76 ]
+[; ;HC18P018A0.h: 96: volatile bit IOCB4 @ ((unsigned)&IOCB*8)+4;
+"97
+[v _IOCB5 `Vb ~T0 @X0 1 e@77 ]
+[; ;HC18P018A0.h: 97: volatile bit IOCB5 @ ((unsigned)&IOCB*8)+5;
+"98
+[v _IOCB6 `Vb ~T0 @X0 1 e@78 ]
+[; ;HC18P018A0.h: 98: volatile bit IOCB6 @ ((unsigned)&IOCB*8)+6;
+"99
+[v _IOCB7 `Vb ~T0 @X0 1 e@79 ]
+[; ;HC18P018A0.h: 99: volatile bit IOCB7 @ ((unsigned)&IOCB*8)+7;
+"102
+[v _PDB0 `Vb ~T0 @X0 1 e@92 ]
+[; ;HC18P018A0.h: 102: volatile bit PDB0 @ ((unsigned)&PDCON*8)+4;
+"103
+[v _PDB1 `Vb ~T0 @X0 1 e@93 ]
+[; ;HC18P018A0.h: 103: volatile bit PDB1 @ ((unsigned)&PDCON*8)+5;
+"104
+[v _PDB2 `Vb ~T0 @X0 1 e@94 ]
+[; ;HC18P018A0.h: 104: volatile bit PDB2 @ ((unsigned)&PDCON*8)+6;
+"107
+[v _ODB0 `Vb ~T0 @X0 1 e@96 ]
+[; ;HC18P018A0.h: 107: volatile bit ODB0 @ ((unsigned)&ODCON*8)+0;
+"108
+[v _ODB1 `Vb ~T0 @X0 1 e@97 ]
+[; ;HC18P018A0.h: 108: volatile bit ODB1 @ ((unsigned)&ODCON*8)+1;
+"109
+[v _ODB2 `Vb ~T0 @X0 1 e@98 ]
+[; ;HC18P018A0.h: 109: volatile bit ODB2 @ ((unsigned)&ODCON*8)+2;
+"110
+[v _ODB3 `Vb ~T0 @X0 1 e@99 ]
+[; ;HC18P018A0.h: 110: volatile bit ODB3 @ ((unsigned)&ODCON*8)+3;
+"111
+[v _ODB4 `Vb ~T0 @X0 1 e@100 ]
+[; ;HC18P018A0.h: 111: volatile bit ODB4 @ ((unsigned)&ODCON*8)+4;
+"112
+[v _ODB5 `Vb ~T0 @X0 1 e@101 ]
+[; ;HC18P018A0.h: 112: volatile bit ODB5 @ ((unsigned)&ODCON*8)+5;
+"113
+[v _ODB6 `Vb ~T0 @X0 1 e@102 ]
+[; ;HC18P018A0.h: 113: volatile bit ODB6 @ ((unsigned)&ODCON*8)+6;
+"114
+[v _ODB7 `Vb ~T0 @X0 1 e@103 ]
+[; ;HC18P018A0.h: 114: volatile bit ODB7 @ ((unsigned)&ODCON*8)+7;
+"117
+[v _PHB0 `Vb ~T0 @X0 1 e@104 ]
+[; ;HC18P018A0.h: 117: volatile bit PHB0 @ ((unsigned)&PHCON*8)+0;
+"118
+[v _PHB1 `Vb ~T0 @X0 1 e@105 ]
+[; ;HC18P018A0.h: 118: volatile bit PHB1 @ ((unsigned)&PHCON*8)+1;
+"119
+[v _PHB2 `Vb ~T0 @X0 1 e@106 ]
+[; ;HC18P018A0.h: 119: volatile bit PHB2 @ ((unsigned)&PHCON*8)+2;
+"120
+[v _PHB3 `Vb ~T0 @X0 1 e@107 ]
+[; ;HC18P018A0.h: 120: volatile bit PHB3 @ ((unsigned)&PHCON*8)+3;
+"121
+[v _PHB4 `Vb ~T0 @X0 1 e@108 ]
+[; ;HC18P018A0.h: 121: volatile bit PHB4 @ ((unsigned)&PHCON*8)+4;
+"122
+[v _PHB5 `Vb ~T0 @X0 1 e@109 ]
+[; ;HC18P018A0.h: 122: volatile bit PHB5 @ ((unsigned)&PHCON*8)+5;
+"123
+[v _PHB6 `Vb ~T0 @X0 1 e@110 ]
+[; ;HC18P018A0.h: 123: volatile bit PHB6 @ ((unsigned)&PHCON*8)+6;
+"124
+[v _PHB7 `Vb ~T0 @X0 1 e@111 ]
+[; ;HC18P018A0.h: 124: volatile bit PHB7 @ ((unsigned)&PHCON*8)+7;
+"127
+[v _T0IE `Vb ~T0 @X0 1 e@112 ]
+[; ;HC18P018A0.h: 127: volatile bit T0IE @ ((unsigned)&INTECON*8)+0;
+"128
+[v _PBIE `Vb ~T0 @X0 1 e@113 ]
+[; ;HC18P018A0.h: 128: volatile bit PBIE @ ((unsigned)&INTECON*8)+1;
+"129
+[v _INTE `Vb ~T0 @X0 1 e@114 ]
+[; ;HC18P018A0.h: 129: volatile bit INTE @ ((unsigned)&INTECON*8)+2;
+"130
+[v _TMPE `Vb ~T0 @X0 1 e@116 ]
+[; ;HC18P018A0.h: 130: volatile bit TMPE @ ((unsigned)&INTECON*8)+4;
+"131
+[v _CHARE `Vb ~T0 @X0 1 e@117 ]
+[; ;HC18P018A0.h: 131: volatile bit CHARE @ ((unsigned)&INTECON*8)+5;
+"132
+[v _GIE `Vb ~T0 @X0 1 e@119 ]
+[; ;HC18P018A0.h: 132: volatile bit GIE @ ((unsigned)&INTECON*8)+7;
+"135
+[v _T0IF `Vb ~T0 @X0 1 e@120 ]
+[; ;HC18P018A0.h: 135: volatile bit T0IF @ ((unsigned)&INTFLAG*8)+0;
+"136
+[v _PBIF `Vb ~T0 @X0 1 e@121 ]
+[; ;HC18P018A0.h: 136: volatile bit PBIF @ ((unsigned)&INTFLAG*8)+1;
+"137
+[v _INTF `Vb ~T0 @X0 1 e@122 ]
+[; ;HC18P018A0.h: 137: volatile bit INTF @ ((unsigned)&INTFLAG*8)+2;
+"138
+[v _CMPF `Vb ~T0 @X0 1 e@123 ]
+[; ;HC18P018A0.h: 138: volatile bit CMPF @ ((unsigned)&INTFLAG*8)+3;
+"139
+[v _TMPF `Vb ~T0 @X0 1 e@124 ]
+[; ;HC18P018A0.h: 139: volatile bit TMPF @ ((unsigned)&INTFLAG*8)+4;
+"140
+[v _CHARF `Vb ~T0 @X0 1 e@125 ]
+[; ;HC18P018A0.h: 140: volatile bit CHARF @ ((unsigned)&INTFLAG*8)+5;
+"142
+[v _PS0 `Vb ~T0 @X0 1 e@520 ]
+[; ;HC18P018A0.h: 142: volatile bit PS0 @ ((unsigned)&OPTION*8)+0;
+"143
+[v _PS1 `Vb ~T0 @X0 1 e@521 ]
+[; ;HC18P018A0.h: 143: volatile bit PS1 @ ((unsigned)&OPTION*8)+1;
+"144
+[v _PS2 `Vb ~T0 @X0 1 e@522 ]
+[; ;HC18P018A0.h: 144: volatile bit PS2 @ ((unsigned)&OPTION*8)+2;
+"145
+[v _PSA `Vb ~T0 @X0 1 e@523 ]
+[; ;HC18P018A0.h: 145: volatile bit PSA @ ((unsigned)&OPTION*8)+3;
+"146
+[v _T0SE `Vb ~T0 @X0 1 e@524 ]
+[; ;HC18P018A0.h: 146: volatile bit T0SE @ ((unsigned)&OPTION*8)+4;
+"147
+[v _T0CS `Vb ~T0 @X0 1 e@525 ]
+[; ;HC18P018A0.h: 147: volatile bit T0CS @ ((unsigned)&OPTION*8)+5;
+"148
+[v _INTEDG `Vb ~T0 @X0 1 e@526 ]
+[; ;HC18P018A0.h: 148: volatile bit INTEDG @ ((unsigned)&OPTION*8)+6;
+"151
+[v _TRISB0 `Vb ~T0 @X0 1 e@560 ]
+[; ;HC18P018A0.h: 151: volatile bit TRISB0 @ ((unsigned)&TRISB*8)+0;
+"152
+[v _TRISB1 `Vb ~T0 @X0 1 e@561 ]
+[; ;HC18P018A0.h: 152: volatile bit TRISB1 @ ((unsigned)&TRISB*8)+1;
+"153
+[v _TRISB2 `Vb ~T0 @X0 1 e@562 ]
+[; ;HC18P018A0.h: 153: volatile bit TRISB2 @ ((unsigned)&TRISB*8)+2;
+"154
+[v _TRISB3 `Vb ~T0 @X0 1 e@563 ]
+[; ;HC18P018A0.h: 154: volatile bit TRISB3 @ ((unsigned)&TRISB*8)+3;
+"155
+[v _TRISB4 `Vb ~T0 @X0 1 e@564 ]
+[; ;HC18P018A0.h: 155: volatile bit TRISB4 @ ((unsigned)&TRISB*8)+4;
+"156
+[v _TRISB5 `Vb ~T0 @X0 1 e@565 ]
+[; ;HC18P018A0.h: 156: volatile bit TRISB5 @ ((unsigned)&TRISB*8)+5;
+"157
+[v _TRISB6 `Vb ~T0 @X0 1 e@566 ]
+[; ;HC18P018A0.h: 157: volatile bit TRISB6 @ ((unsigned)&TRISB*8)+6;
+"158
+[v _TRISB7 `Vb ~T0 @X0 1 e@567 ]
+[; ;HC18P018A0.h: 158: volatile bit TRISB7 @ ((unsigned)&TRISB*8)+7;
+"161
+[v _PWM2E `Vb ~T0 @X0 1 e@576 ]
+[; ;HC18P018A0.h: 161: volatile bit PWM2E @ ((unsigned)&PWMCON*8)+0;
+"162
+[v _PWM1E `Vb ~T0 @X0 1 e@577 ]
+[; ;HC18P018A0.h: 162: volatile bit PWM1E @ ((unsigned)&PWMCON*8)+1;
+"163
+[v _PWMINV `Vb ~T0 @X0 1 e@578 ]
+[; ;HC18P018A0.h: 163: volatile bit PWMINV @ ((unsigned)&PWMCON*8)+2;
+"164
+[v _PWMMD `Vb ~T0 @X0 1 e@579 ]
+[; ;HC18P018A0.h: 164: volatile bit PWMMD @ ((unsigned)&PWMCON*8)+3;
+"165
+[v _PWMCK `Vb ~T0 @X0 1 e@580 ]
+[; ;HC18P018A0.h: 165: volatile bit PWMCK @ ((unsigned)&PWMCON*8)+4;
+"166
+[v _PWM2OE `Vb ~T0 @X0 1 e@581 ]
+[; ;HC18P018A0.h: 166: volatile bit PWM2OE @ ((unsigned)&PWMCON*8)+5;
+"167
+[v _PWM1OE `Vb ~T0 @X0 1 e@582 ]
+[; ;HC18P018A0.h: 167: volatile bit PWM1OE @ ((unsigned)&PWMCON*8)+6;
+"168
+[v _PWM0OE `Vb ~T0 @X0 1 e@583 ]
+[; ;HC18P018A0.h: 168: volatile bit PWM0OE @ ((unsigned)&PWMCON*8)+7;
+"171
+[v _T1IF `Vb ~T0 @X0 1 e@600 ]
+[; ;HC18P018A0.h: 171: volatile bit T1IF @ ((unsigned)&T0CR*8)+0;
+"172
+[v _T1IE `Vb ~T0 @X0 1 e@601 ]
+[; ;HC18P018A0.h: 172: volatile bit T1IE @ ((unsigned)&T0CR*8)+1;
+"173
+[v _T0CK `Vb ~T0 @X0 1 e@607 ]
+[; ;HC18P018A0.h: 173: volatile bit T0CK @ ((unsigned)&T0CR*8)+7;
+"176
+[v _T1PR0 `Vb ~T0 @X0 1 e@608 ]
+[; ;HC18P018A0.h: 176: volatile bit T1PR0 @ ((unsigned)&T1CON*8)+0;
+"177
+[v _T1PR1 `Vb ~T0 @X0 1 e@609 ]
+[; ;HC18P018A0.h: 177: volatile bit T1PR1 @ ((unsigned)&T1CON*8)+1;
+"178
+[v _T1PR2 `Vb ~T0 @X0 1 e@610 ]
+[; ;HC18P018A0.h: 178: volatile bit T1PR2 @ ((unsigned)&T1CON*8)+2;
+"179
+[v _T1CK0 `Vb ~T0 @X0 1 e@611 ]
+[; ;HC18P018A0.h: 179: volatile bit T1CK0 @ ((unsigned)&T1CON*8)+3;
+"180
+[v _T1CK1 `Vb ~T0 @X0 1 e@612 ]
+[; ;HC18P018A0.h: 180: volatile bit T1CK1 @ ((unsigned)&T1CON*8)+4;
+"181
+[v _BUZ `Vb ~T0 @X0 1 e@613 ]
+[; ;HC18P018A0.h: 181: volatile bit BUZ @ ((unsigned)&T1CON*8)+5;
+"182
+[v _PWM0E `Vb ~T0 @X0 1 e@614 ]
+[; ;HC18P018A0.h: 182: volatile bit PWM0E @ ((unsigned)&T1CON*8)+6;
+"183
+[v _T1EN `Vb ~T0 @X0 1 e@615 ]
+[; ;HC18P018A0.h: 183: volatile bit T1EN @ ((unsigned)&T1CON*8)+7;
+"186
+[v _SCS `Vb ~T0 @X0 1 e@640 ]
+[; ;HC18P018A0.h: 186: volatile bit SCS @ ((unsigned)&OSCCON*8)+0;
+"187
+[v _HXEN `Vb ~T0 @X0 1 e@641 ]
+[; ;HC18P018A0.h: 187: volatile bit HXEN @ ((unsigned)&OSCCON*8)+1;
+"188
+[v _T0OSCEN `Vb ~T0 @X0 1 e@647 ]
+[; ;HC18P018A0.h: 188: volatile bit T0OSCEN @ ((unsigned)&OSCCON*8)+7;
+"190
+[v _CPPIS `Vb ~T0 @X0 1 e@648 ]
+[; ;HC18P018A0.h: 190: volatile bit CPPIS @ ((unsigned)&CMPCR*8)+0;
+"191
+[v _CMPIES `Vb ~T0 @X0 1 e@649 ]
+[; ;HC18P018A0.h: 191: volatile bit CMPIES @ ((unsigned)&CMPCR*8)+1;
+"192
+[v _CMPIE `Vb ~T0 @X0 1 e@650 ]
+[; ;HC18P018A0.h: 192: volatile bit CMPIE @ ((unsigned)&CMPCR*8)+2;
+"193
+[v _CMPWK `Vb ~T0 @X0 1 e@651 ]
+[; ;HC18P018A0.h: 193: volatile bit CMPWK @ ((unsigned)&CMPCR*8)+3;
+"194
+[v _LVDM `Vb ~T0 @X0 1 e@652 ]
+[; ;HC18P018A0.h: 194: volatile bit LVDM @ ((unsigned)&CMPCR*8)+4;
+"196
+[v _PDB3 `Vb ~T0 @X0 1 e@659 ]
+[; ;HC18P018A0.h: 196: volatile bit PDB3 @ ((unsigned)&PDCON1*8)+3;
+"197
+[v _PDB4 `Vb ~T0 @X0 1 e@660 ]
+[; ;HC18P018A0.h: 197: volatile bit PDB4 @ ((unsigned)&PDCON1*8)+4;
+"198
+[v _PDB5 `Vb ~T0 @X0 1 e@661 ]
+[; ;HC18P018A0.h: 198: volatile bit PDB5 @ ((unsigned)&PDCON1*8)+5;
+"199
+[v _PDB6 `Vb ~T0 @X0 1 e@662 ]
+[; ;HC18P018A0.h: 199: volatile bit PDB6 @ ((unsigned)&PDCON1*8)+6;
+"200
+[v _PDB7 `Vb ~T0 @X0 1 e@663 ]
+[; ;HC18P018A0.h: 200: volatile bit PDB7 @ ((unsigned)&PDCON1*8)+7;
+"203
+[v _S0 `Vb ~T0 @X0 1 e@664 ]
+[; ;HC18P018A0.h: 203: volatile bit S0 @ ((unsigned)&CHARGE0*8)+0;
+"204
+[v _S1 `Vb ~T0 @X0 1 e@665 ]
+[; ;HC18P018A0.h: 204: volatile bit S1 @ ((unsigned)&CHARGE0*8)+1;
+"205
+[v _S2 `Vb ~T0 @X0 1 e@666 ]
+[; ;HC18P018A0.h: 205: volatile bit S2 @ ((unsigned)&CHARGE0*8)+2;
+"206
+[v _S3 `Vb ~T0 @X0 1 e@667 ]
+[; ;HC18P018A0.h: 206: volatile bit S3 @ ((unsigned)&CHARGE0*8)+3;
+"207
+[v _S4 `Vb ~T0 @X0 1 e@668 ]
+[; ;HC18P018A0.h: 207: volatile bit S4 @ ((unsigned)&CHARGE0*8)+4;
+"208
+[v _S5 `Vb ~T0 @X0 1 e@669 ]
+[; ;HC18P018A0.h: 208: volatile bit S5 @ ((unsigned)&CHARGE0*8)+5;
+"209
+[v _S6 `Vb ~T0 @X0 1 e@670 ]
+[; ;HC18P018A0.h: 209: volatile bit S6 @ ((unsigned)&CHARGE0*8)+6;
+"210
+[v _S7 `Vb ~T0 @X0 1 e@671 ]
+[; ;HC18P018A0.h: 210: volatile bit S7 @ ((unsigned)&CHARGE0*8)+7;
+"213
+[v _S8 `Vb ~T0 @X0 1 e@672 ]
+[; ;HC18P018A0.h: 213: volatile bit S8 @ ((unsigned)&CHARGE1*8)+0;
+"214
+[v _S9 `Vb ~T0 @X0 1 e@673 ]
+[; ;HC18P018A0.h: 214: volatile bit S9 @ ((unsigned)&CHARGE1*8)+1;
+"215
+[v _TEMPEN `Vb ~T0 @X0 1 e@678 ]
+[; ;HC18P018A0.h: 215: volatile bit TEMPEN @ ((unsigned)&CHARGE1*8)+6;
+"216
+[v _CHARGEN `Vb ~T0 @X0 1 e@679 ]
+[; ;HC18P018A0.h: 216: volatile bit CHARGEN @ ((unsigned)&CHARGE1*8)+7;
+"219
+[v _SLOP0 `Vb ~T0 @X0 1 e@680 ]
+[; ;HC18P018A0.h: 219: volatile bit SLOP0 @ ((unsigned)&RAMP*8)+0;
+"220
+[v _SLOP1 `Vb ~T0 @X0 1 e@681 ]
+[; ;HC18P018A0.h: 220: volatile bit SLOP1 @ ((unsigned)&RAMP*8)+1;
+"221
+[v _SLOP2 `Vb ~T0 @X0 1 e@682 ]
+[; ;HC18P018A0.h: 221: volatile bit SLOP2 @ ((unsigned)&RAMP*8)+2;
+"222
+[v _SINK_SEL `Vb ~T0 @X0 1 e@686 ]
+[; ;HC18P018A0.h: 222: volatile bit SINK_SEL @ ((unsigned)&RAMP*8)+6;
+"223
+[v _MODSEL `Vb ~T0 @X0 1 e@687 ]
+[; ;HC18P018A0.h: 223: volatile bit MODSEL @ ((unsigned)&RAMP*8)+7;
+"226
+[v _PWMCT `Vb ~T0 @X0 1 e@712 ]
+[; ;HC18P018A0.h: 226: volatile bit PWMCT @ ((unsigned)&AUXR*8)+0;
+"227
+[v _PWM3CT `Vb ~T0 @X0 1 e@713 ]
+[; ;HC18P018A0.h: 227: volatile bit PWM3CT @ ((unsigned)&AUXR*8)+1;
+"228
+[v _RCTRMEN `Vb ~T0 @X0 1 e@714 ]
+[; ;HC18P018A0.h: 228: volatile bit RCTRMEN @ ((unsigned)&AUXR*8)+2;
+"229
+[v _BOR `Vb ~T0 @X0 1 e@718 ]
+[; ;HC18P018A0.h: 229: volatile bit BOR @ ((unsigned)&AUXR*8)+6;
+"230
+[v _POR `Vb ~T0 @X0 1 e@719 ]
+[; ;HC18P018A0.h: 230: volatile bit POR @ ((unsigned)&AUXR*8)+7;
+[; ;hc_define.h: 6: typedef unsigned char BOOL;
+[; ;hc_define.h: 7: typedef unsigned char BYTE;
+[; ;hc_define.h: 8: typedef unsigned short WORD;
+[; ;hc_define.h: 9: typedef unsigned long DWORD;
+[; ;hc_define.h: 106: typedef struct __bits8_t
+[; ;hc_define.h: 107: {
+[; ;hc_define.h: 108: unsigned bit0 :1;
+[; ;hc_define.h: 109: unsigned bit1 :1;
+[; ;hc_define.h: 110: unsigned bit2 :1;
+[; ;hc_define.h: 111: unsigned bit3 :1;
+[; ;hc_define.h: 112: unsigned bit4 :1;
+[; ;hc_define.h: 113: unsigned bit5 :1;
+[; ;hc_define.h: 114: unsigned bit6 :1;
+[; ;hc_define.h: 115: unsigned bit7 :1;
+[; ;hc_define.h: 116: }bits8;
+[; ;hc_define.h: 118: typedef struct __bits16_t
+[; ;hc_define.h: 119: {
+[; ;hc_define.h: 120: unsigned bit0 :1;
+[; ;hc_define.h: 121: unsigned bit1 :1;
+[; ;hc_define.h: 122: unsigned bit2 :1;
+[; ;hc_define.h: 123: unsigned bit3 :1;
+[; ;hc_define.h: 124: unsigned bit4 :1;
+[; ;hc_define.h: 125: unsigned bit5 :1;
+[; ;hc_define.h: 126: unsigned bit6 :1;
+[; ;hc_define.h: 127: unsigned bit7 :1;
+[; ;hc_define.h: 128: unsigned bit8 :1;
+[; ;hc_define.h: 129: unsigned bit9 :1;
+[; ;hc_define.h: 130: unsigned bita :1;
+[; ;hc_define.h: 131: unsigned bitb :1;
+[; ;hc_define.h: 132: unsigned bitc :1;
+[; ;hc_define.h: 133: unsigned bitd :1;
+[; ;hc_define.h: 134: unsigned bite :1;
+[; ;hc_define.h: 135: unsigned bitf :1;
+[; ;hc_define.h: 136: }bits16;
+[; ;Lvd.h: 6: void CheckLvd(void);
+[; ;Lvd.h: 7: void ConfigureLvd(void);
+[; ;delay.h: 7: void DelayMs();
+[; ;variable.h: 6: extern bits8 BITS_DATA0;
+[; ;variable.h: 7: extern bits16 BITS_DATA1;
+[; ;variable.h: 34: extern BYTE g_ucTimer10msCount;
+[; ;variable.h: 35: extern BYTE g_ucTimerWorkCount;
+[; ;variable.h: 60: extern BYTE TempCount;
+[; ;variable.h: 61: extern BYTE TempFlag;
+[; ;variable.h: 63: extern WORD SleepCount;
+[; ;variable.h: 64: extern BYTE SleepFlag;
+[; ;variable.h: 66: extern BYTE MaxLight;
+[; ;function.h: 12: void ControlLevelLow(void);
+[; ;function.h: 14: void ControlLevelHigh(void);
+[; ;function.h: 16: void ControlLevel(BYTE lightnum1, BYTE lightnum2, BYTE lightnum3);
+[; ;function.h: 18: void ControlFlash(void);
+[; ;function.h: 28: void ControlSos(void);
+[; ;lvd.c: 6: void CheckLvdElectric(BYTE num);
+[; ;lvd.c: 7: void ControlLvdCfg(BYTE num);
+"9 lvd.c
+[v _CheckLvd `(v ~T0 @X0 1 ef ]
+"10
+{
+[; ;lvd.c: 9: void CheckLvd(void)
+[; ;lvd.c: 10: {
+[e :U _CheckLvd ]
+[f ]
+[; ;lvd.c: 31: }
+"31
+[e :UE 3 ]
+}
+"35
+[v _CheckLvdElectric `(v ~T0 @X0 1 ef1`uc ]
+"36
+{
+[; ;lvd.c: 35: void CheckLvdElectric(BYTE num)
+[; ;lvd.c: 36: {
+[e :U _CheckLvdElectric ]
+"35
+[v _num `uc ~T0 @X0 1 r1 ]
+"36
+[f ]
+[; ;lvd.c: 39: if(num == 1){}
+"39
+[e $ ! == -> _num `i -> 1 `i 5  ]
+{
+}
+[e :U 5 ]
+[; ;lvd.c: 107: }
+"107
+[e :UE 4 ]
+}
+"109
+[v _ConfigureLvd `(v ~T0 @X0 1 ef ]
+"110
+{
+[; ;lvd.c: 109: void ConfigureLvd(void)
+[; ;lvd.c: 110: {
+[e :U _ConfigureLvd ]
+[f ]
+[; ;lvd.c: 159: }
+"159
+[e :UE 6 ]
+}
+"161
+[v _ControlLvdCfg `(v ~T0 @X0 1 ef1`uc ]
+"162
+{
+[; ;lvd.c: 161: void ControlLvdCfg(BYTE num)
+[; ;lvd.c: 162: {
+[e :U _ControlLvdCfg ]
+"161
+[v _num `uc ~T0 @X0 1 r1 ]
+"162
+[f ]
+[; ;lvd.c: 164: if(num == 1){}
+"164
+[e $ ! == -> _num `i -> 1 `i 8  ]
+{
+}
+[e :U 8 ]
+[; ;lvd.c: 198: }
+"198
+[e :UE 7 ]
+}

@@ -1,0 +1,416 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC PIC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18p018a0 ]
+[d frameptr 6 ]
+"62 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"8 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\delay.c
+[v _DelayMs DelayMs `(v  1 e 1 0 ]
+"26 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\function.c
+[v _ControlLevel ControlLevel `(v  1 e 1 0 ]
+"8 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\init.c
+[v _InitPort InitPort `(v  1 e 1 0 ]
+"78
+[v _InitSystem InitSystem `(v  1 e 1 0 ]
+"99
+[v _InitRam InitRam `(v  1 e 1 0 ]
+"9 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\interrupt.c
+[v _interrupt_handle interrupt_handle `II(v  1 e 1 0 ]
+"11 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\key.c
+[v _ScanKey ScanKey `(v  1 e 1 0 ]
+"6 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\led.c
+[v _LedSwitch LedSwitch `(v  1 e 1 0 ]
+"12
+[v _LedDisplay LedDisplay `(v  1 e 1 0 ]
+"24
+[v _LedOn LedOn `(v  1 e 1 0 ]
+"30
+[v _LedOff LedOff `(v  1 e 1 0 ]
+"36
+[v _MotoSwitch MotoSwitch `(v  1 e 1 0 ]
+"41
+[v _MotoOn MotoOn `(v  1 e 1 0 ]
+"47
+[v _MotoOff MotoOff `(v  1 e 1 0 ]
+"53
+[v _MotoDisplay MotoDisplay `(v  1 e 1 0 ]
+"64
+[v _PowOn PowOn `(v  1 e 1 0 ]
+"96
+[v _bt_off bt_off `(v  1 e 1 0 ]
+"109
+[v _PowOff PowOff `(v  1 e 1 0 ]
+"151
+[v _CountdownDisplay CountdownDisplay `(v  1 e 1 0 ]
+"23 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\main.c
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+"48
+[v _main main `(v  1 e 1 0 ]
+"33 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\temp.c
+[v _CheckSleep CheckSleep `(v  1 e 1 0 ]
+"18 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
+[v _T0 T0 `VEuc  1 e 1 @1 ]
+"23
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"25
+[v _PCON PCON `VEuc  1 e 1 @8 ]
+"26
+[v _IOCB IOCB `VEuc  1 e 1 @9 ]
+"28
+[v _PDCON PDCON `VEuc  1 e 1 @11 ]
+"29
+[v _ODCON ODCON `VEuc  1 e 1 @12 ]
+"30
+[v _PHCON PHCON `VEuc  1 e 1 @13 ]
+"31
+[v _INTECON INTECON `VEuc  1 e 1 @14 ]
+"32
+[v _INTFLAG INTFLAG `VEuc  1 e 1 @15 ]
+"34
+[v _OPTION OPTION `VEuc  1 e 1 @65 ]
+"35
+[v _occupy1 occupy1 `VEuc  1 e 1 @66 ]
+"36
+[v _TRISB TRISB `VEuc  1 e 1 @70 ]
+"37
+[v _occupy2 occupy2 `VEuc  1 e 1 @71 ]
+"39
+[v _PWMCON PWMCON `VEuc  1 e 1 @72 ]
+"40
+[v _PWM1P PWM1P `VEuc  1 e 1 @73 ]
+"41
+[v _PWM2P PWM2P `VEuc  1 e 1 @74 ]
+"42
+[v _T0CR T0CR `VEuc  1 e 1 @75 ]
+"43
+[v _T1CON T1CON `VEuc  1 e 1 @76 ]
+"44
+[v _T1 T1 `VEuc  1 e 1 @77 ]
+"45
+[v _T1LOAD T1LOAD `VEuc  1 e 1 @78 ]
+"46
+[v _PWM0P PWM0P `VEuc  1 e 1 @79 ]
+"47
+[v _OSCCON OSCCON `VEuc  1 e 1 @80 ]
+"48
+[v _CMPCR CMPCR `VEuc  1 e 1 @81 ]
+"49
+[v _PDCON1 PDCON1 `VEuc  1 e 1 @82 ]
+"50
+[v _CHARGE0 CHARGE0 `VEuc  1 e 1 @83 ]
+"51
+[v _CHARGE1 CHARGE1 `VEuc  1 e 1 @84 ]
+"52
+[v _RAMP RAMP `VEuc  1 e 1 @85 ]
+"54
+[v _AUXR AUXR `VEuc  1 e 1 @89 ]
+"55
+[v _occupy3 occupy3 `VEuc  1 e 1 @90 ]
+"56
+[v _HIRCTRM HIRCTRM `VEuc  1 e 1 @91 ]
+"57
+[v _itemp itemp `VEuc  1 e 1 @16 ]
+"72
+[v _PORTB0 PORTB0 `VEb  1 e 0 @48 ]
+"73
+[v _PORTB1 PORTB1 `VEb  1 e 0 @49 ]
+"74
+[v _PORTB2 PORTB2 `VEb  1 e 0 @50 ]
+"75
+[v _PORTB3 PORTB3 `VEb  1 e 0 @51 ]
+"76
+[v _PORTB4 PORTB4 `VEb  1 e 0 @52 ]
+"77
+[v _PORTB5 PORTB5 `VEb  1 e 0 @53 ]
+"82
+[v _CMPEN CMPEN `VEb  1 e 0 @64 ]
+"87
+[v _CMPOF CMPOF `VEb  1 e 0 @69 ]
+"89
+[v _WDTEN WDTEN `VEb  1 e 0 @71 ]
+"127
+[v _T0IE T0IE `VEb  1 e 0 @112 ]
+"128
+[v _PBIE PBIE `VEb  1 e 0 @113 ]
+"132
+[v _GIE GIE `VEb  1 e 0 @119 ]
+"135
+[v _T0IF T0IF `VEb  1 e 0 @120 ]
+"136
+[v _PBIF PBIF `VEb  1 e 0 @121 ]
+"139
+[v _TMPF TMPF `VEb  1 e 0 @124 ]
+"142
+[v _PS0 PS0 `VEb  1 e 0 @520 ]
+"143
+[v _PS1 PS1 `VEb  1 e 0 @521 ]
+"144
+[v _PS2 PS2 `VEb  1 e 0 @522 ]
+"145
+[v _PSA PSA `VEb  1 e 0 @523 ]
+"146
+[v _T0SE T0SE `VEb  1 e 0 @524 ]
+"147
+[v _T0CS T0CS `VEb  1 e 0 @525 ]
+"148
+[v _INTEDG INTEDG `VEb  1 e 0 @526 ]
+"151
+[v _TRISB0 TRISB0 `VEb  1 e 0 @560 ]
+"152
+[v _TRISB1 TRISB1 `VEb  1 e 0 @561 ]
+"153
+[v _TRISB2 TRISB2 `VEb  1 e 0 @562 ]
+"154
+[v _TRISB3 TRISB3 `VEb  1 e 0 @563 ]
+"155
+[v _TRISB4 TRISB4 `VEb  1 e 0 @564 ]
+"156
+[v _TRISB5 TRISB5 `VEb  1 e 0 @565 ]
+"157
+[v _TRISB6 TRISB6 `VEb  1 e 0 @566 ]
+"158
+[v _TRISB7 TRISB7 `VEb  1 e 0 @567 ]
+"161
+[v _PWM2E PWM2E `VEb  1 e 0 @576 ]
+"162
+[v _PWM1E PWM1E `VEb  1 e 0 @577 ]
+"163
+[v _PWMINV PWMINV `VEb  1 e 0 @578 ]
+"164
+[v _PWMMD PWMMD `VEb  1 e 0 @579 ]
+"165
+[v _PWMCK PWMCK `VEb  1 e 0 @580 ]
+"166
+[v _PWM2OE PWM2OE `VEb  1 e 0 @581 ]
+"167
+[v _PWM1OE PWM1OE `VEb  1 e 0 @582 ]
+"168
+[v _PWM0OE PWM0OE `VEb  1 e 0 @583 ]
+"171
+[v _T1IF T1IF `VEb  1 e 0 @600 ]
+"172
+[v _T1IE T1IE `VEb  1 e 0 @601 ]
+"173
+[v _T0CK T0CK `VEb  1 e 0 @607 ]
+"176
+[v _T1PR0 T1PR0 `VEb  1 e 0 @608 ]
+"177
+[v _T1PR1 T1PR1 `VEb  1 e 0 @609 ]
+"178
+[v _T1PR2 T1PR2 `VEb  1 e 0 @610 ]
+"179
+[v _T1CK0 T1CK0 `VEb  1 e 0 @611 ]
+"180
+[v _T1CK1 T1CK1 `VEb  1 e 0 @612 ]
+"181
+[v _BUZ BUZ `VEb  1 e 0 @613 ]
+"182
+[v _PWM0E PWM0E `VEb  1 e 0 @614 ]
+"183
+[v _T1EN T1EN `VEb  1 e 0 @615 ]
+"186
+[v _SCS SCS `VEb  1 e 0 @640 ]
+"187
+[v _HXEN HXEN `VEb  1 e 0 @641 ]
+"188
+[v _T0OSCEN T0OSCEN `VEb  1 e 0 @647 ]
+"190
+[v _CPPIS CPPIS `VEb  1 e 0 @648 ]
+"191
+[v _CMPIES CMPIES `VEb  1 e 0 @649 ]
+"192
+[v _CMPIE CMPIE `VEb  1 e 0 @650 ]
+"193
+[v _CMPWK CMPWK `VEb  1 e 0 @651 ]
+"194
+[v _LVDM LVDM `VEb  1 e 0 @652 ]
+"196
+[v _PDB3 PDB3 `VEb  1 e 0 @659 ]
+"197
+[v _PDB4 PDB4 `VEb  1 e 0 @660 ]
+"198
+[v _PDB5 PDB5 `VEb  1 e 0 @661 ]
+"199
+[v _PDB6 PDB6 `VEb  1 e 0 @662 ]
+"200
+[v _PDB7 PDB7 `VEb  1 e 0 @663 ]
+"203
+[v _S0 S0 `VEb  1 e 0 @664 ]
+"204
+[v _S1 S1 `VEb  1 e 0 @665 ]
+"205
+[v _S2 S2 `VEb  1 e 0 @666 ]
+"206
+[v _S3 S3 `VEb  1 e 0 @667 ]
+"207
+[v _S4 S4 `VEb  1 e 0 @668 ]
+"208
+[v _S5 S5 `VEb  1 e 0 @669 ]
+"209
+[v _S6 S6 `VEb  1 e 0 @670 ]
+"210
+[v _S7 S7 `VEb  1 e 0 @671 ]
+"213
+[v _S8 S8 `VEb  1 e 0 @672 ]
+"214
+[v _S9 S9 `VEb  1 e 0 @673 ]
+"215
+[v _TEMPEN TEMPEN `VEb  1 e 0 @678 ]
+"216
+[v _CHARGEN CHARGEN `VEb  1 e 0 @679 ]
+"219
+[v _SLOP0 SLOP0 `VEb  1 e 0 @680 ]
+"220
+[v _SLOP1 SLOP1 `VEb  1 e 0 @681 ]
+"221
+[v _SLOP2 SLOP2 `VEb  1 e 0 @682 ]
+"222
+[v _SINK_SEL SINK_SEL `VEb  1 e 0 @686 ]
+"223
+[v _MODSEL MODSEL `VEb  1 e 0 @687 ]
+"226
+[v _PWMCT PWMCT `VEb  1 e 0 @712 ]
+"227
+[v _PWM3CT PWM3CT `VEb  1 e 0 @713 ]
+"228
+[v _RCTRMEN RCTRMEN `VEb  1 e 0 @714 ]
+"229
+[v _BOR BOR `VEb  1 e 0 @718 ]
+"230
+[v _POR POR `VEb  1 e 0 @719 ]
+"7 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\key.c
+[v _longpress_cnt longpress_cnt `us  1 e 2 0 ]
+"8
+[v _clink_event clink_event `uc  1 e 1 0 ]
+"9
+[v _long_f long_f `uc  1 e 1 0 ]
+"10
+[v _holdOn_f holdOn_f `uc  1 e 1 0 ]
+"148 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\led.c
+[v _lampTiming lampTiming `ul  1 e 4 0 ]
+"149
+[v _motoTiming motoTiming `ul  1 e 4 0 ]
+[s S189 __bits8_t 1 `uc 1 bit0 1 0 :1:0 
+`uc 1 bit1 1 0 :1:1 
+`uc 1 bit2 1 0 :1:2 
+`uc 1 bit3 1 0 :1:3 
+`uc 1 bit4 1 0 :1:4 
+`uc 1 bit5 1 0 :1:5 
+`uc 1 bit6 1 0 :1:6 
+`uc 1 bit7 1 0 :1:7 
+]
+"3 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\variable.c
+[v _BITS_DATA0 BITS_DATA0 `S189  1 e 1 0 ]
+"6
+[v _g_ucTimer10msCount g_ucTimer10msCount `uc  1 e 1 0 ]
+"7
+[v _g_ucTimerWorkCount g_ucTimerWorkCount `uc  1 e 1 0 ]
+"32
+[v _SleepCount SleepCount `us  1 e 2 0 ]
+"48 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"97
+} 0
+"11 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\key.c
+[v _ScanKey ScanKey `(v  1 e 1 0 ]
+{
+"125
+} 0
+"64 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\led.c
+[v _PowOn PowOn `(v  1 e 1 0 ]
+{
+"94
+} 0
+"109
+[v _PowOff PowOff `(v  1 e 1 0 ]
+{
+"146
+} 0
+"36
+[v _MotoSwitch MotoSwitch `(v  1 e 1 0 ]
+{
+"39
+} 0
+"6
+[v _LedSwitch LedSwitch `(v  1 e 1 0 ]
+{
+"10
+} 0
+"53
+[v _MotoDisplay MotoDisplay `(v  1 e 1 0 ]
+{
+"63
+} 0
+"41
+[v _MotoOn MotoOn `(v  1 e 1 0 ]
+{
+"45
+} 0
+"47
+[v _MotoOff MotoOff `(v  1 e 1 0 ]
+{
+"51
+} 0
+"12
+[v _LedDisplay LedDisplay `(v  1 e 1 0 ]
+{
+"22
+} 0
+"24
+[v _LedOn LedOn `(v  1 e 1 0 ]
+{
+"28
+} 0
+"30
+[v _LedOff LedOff `(v  1 e 1 0 ]
+{
+"34
+} 0
+"78 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\init.c
+[v _InitSystem InitSystem `(v  1 e 1 0 ]
+{
+"90
+} 0
+"99
+[v _InitRam InitRam `(v  1 e 1 0 ]
+{
+"108
+} 0
+"151 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\led.c
+[v _CountdownDisplay CountdownDisplay `(v  1 e 1 0 ]
+{
+"202
+} 0
+"96
+[v _bt_off bt_off `(v  1 e 1 0 ]
+{
+"107
+} 0
+"23 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\main.c
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+{
+"27
+[v delay_ms@i i `us  1 a 2 4 ]
+"23
+[v delay_ms@xms xms `us  1 p 2 2 ]
+"46
+} 0
+"33 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\temp.c
+[v _CheckSleep CheckSleep `(v  1 e 1 0 ]
+{
+"144
+} 0
+"8 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\init.c
+[v _InitPort InitPort `(v  1 e 1 0 ]
+{
+"74
+} 0
+"9 C:\Users\PC\Downloads\HC18P018A0  C”Ô—‘DEMO\HC18P018A0  C”Ô—‘DEMO\interrupt.c
+[v _interrupt_handle interrupt_handle `II(v  1 e 1 0 ]
+{
+"34
+} 0
