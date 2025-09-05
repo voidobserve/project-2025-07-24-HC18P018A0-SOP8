@@ -1,18 +1,18 @@
- 2025-07-25 18:04:19,314 - INFO- version 1.0.26.0
- 2025-07-25 18:04:19,314 - INFO- 输入的文件为： delay.c function.c init.c interrupt.c key.c led.c lvd.c main.c temp.c variable.c work.c
- 2025-07-25 18:04:19,315 - INFO- BIT:14 size: 1024chip:18p018a0fsr0bank:1mtp:0series:0interrupt:0
- 2025-07-25 18:04:19,315 - INFO- START C CONVERT ASM
- 2025-07-25 18:04:19,315 - INFO- picc --chip=18p018a0  --MSGDISABLE=1262,1487,1396:off --CODEOFFSET=4  --RUNTIME=keep --RUNTIME=osccal -Ex.err -S delay.c function.c init.c interrupt.c key.c led.c lvd.c main.c temp.c variable.c work.c
- 2025-07-25 18:04:20,295 - INFO- END C CONVERT ASM
- 2025-07-25 18:04:20,295 - INFO- START REVISE ASM
- 2025-07-25 18:04:20,308 - INFO- END REVISE ASM
- 2025-07-25 18:04:20,308 - INFO- picc --chip=18p018a0 --OPT=asmfile --asmlist --output=bin --MSGDISABLE=1262,1487,1396:off --CODEOFFSET=4 --RUNTIME=keep --RUNTIME=osccal -M -E+x.err delay.as -OHC_VS.hex
- 2025-07-25 18:04:20,595 - INFO- 链接完成
- 2025-07-25 18:04:20,595 - INFO- delay.lst
- 2025-07-25 18:04:20,595 - INFO- HC_VS.lst
- 2025-07-25 18:04:20,596 - INFO- START CONVERT
- 2025-07-25 18:04:20,596 - INFO- HC_VS.hex
- 2025-07-25 18:04:20,596 - INFO- mcu size1024
- 2025-07-25 18:04:20,602 - INFO- 转码成功
- 2025-07-25 18:04:20,602 - INFO- None
- 2025-07-25 18:04:20,602 - INFO- Success Convert
+ 2025-09-05 13:47:51,663 - INFO- version 1.0.26.0
+ 2025-09-05 13:47:51,664 - INFO- 输入的文件为： delay.c function.c init.c interrupt.c key.c led.c lvd.c main.c temp.c variable.c work.c
+ 2025-09-05 13:47:51,664 - INFO- BIT:14 size: 1024chip:18p018a0fsr0bank:1mtp:0series:0interrupt:0
+ 2025-09-05 13:47:51,664 - INFO- START C CONVERT ASM
+ 2025-09-05 13:47:51,664 - INFO- picc --chip=18p018a0  --MSGDISABLE=1262,1487,1396:off --CODEOFFSET=4  --RUNTIME=keep --RUNTIME=osccal -Ex.err -S delay.c function.c init.c interrupt.c key.c led.c lvd.c main.c temp.c variable.c work.c
+ 2025-09-05 13:47:52,567 - INFO- END C CONVERT ASM
+ 2025-09-05 13:47:52,567 - INFO- START REVISE ASM
+ 2025-09-05 13:47:52,579 - INFO- END REVISE ASM
+ 2025-09-05 13:47:52,579 - INFO- picc --chip=18p018a0 --OPT=asmfile --asmlist --output=bin --MSGDISABLE=1262,1487,1396:off --CODEOFFSET=4 --RUNTIME=keep --RUNTIME=osccal -M -E+x.err delay.as -OHC_VS.hex
+ 2025-09-05 13:47:52,856 - INFO- 链接完成
+ 2025-09-05 13:47:52,856 - INFO- delay.lst
+ 2025-09-05 13:47:52,856 - INFO- HC_VS.lst
+ 2025-09-05 13:47:52,857 - INFO- START CONVERT
+ 2025-09-05 13:47:52,857 - INFO- HC_VS.hex
+ 2025-09-05 13:47:52,857 - INFO- mcu size1024
+ 2025-09-05 13:47:52,862 - INFO- 转码成功
+ 2025-09-05 13:47:52,862 - INFO- None
+ 2025-09-05 13:47:52,862 - INFO- Success Convert

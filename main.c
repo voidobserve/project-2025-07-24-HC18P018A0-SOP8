@@ -81,7 +81,7 @@ void main()
 		clrwdt; // 喂狗操作
 #endasm;
 
-		// 实测9.7ms
+		// 实测9.7ms（可能时间一长，还是会有误差）
 		if (BIT_TIMER_10MS)
 		{
 			BIT_TIMER_10MS = 0;

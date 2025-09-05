@@ -126,11 +126,9 @@ void PowOff(void)
 
 #endif
 
-	TRISB |= DEF_SET_BIT3;	// input
-	PHCON |= DEF_SET_BIT3;	// 关闭上拉
-	// PDCON1 &= ~(0x01 << 3); // 使能下拉
-
-
+	TRISB |= DEF_SET_BIT3; // input
+	PHCON |= DEF_SET_BIT3; // 关闭上拉
+						   // PDCON1 &= ~(0x01 << 3); // 使能下拉
 
 	//  PHCON |= DEF_SET_BIT3;   //close high pull
 
@@ -145,8 +143,8 @@ void PowOff(void)
 	// PHCON |= DEF_SET_BIT3;   //close high pull
 }
 
-DWORD lampTiming = 0;
-DWORD motoTiming = 0;
+DWORD lampTiming = 0; // 灯光运行时间，正计时
+DWORD motoTiming = 0; // 电机运行时间，正计时
 
 void CountdownDisplay(void)
 {
@@ -157,10 +155,12 @@ void CountdownDisplay(void)
 
 		lampTiming++;
 #if 1
-		if(lampTiming > 124000)   //20分钟
+		if (lampTiming > ((unsigned long)120000)) // 20分钟
+		// if(lampTiming > (124000 ) )   //20分钟 -- 客户测试是 21 min 47 s
 		// if (lampTiming > 3000) // 30s 测试用
 		{
-			IsLight = 0;
+			IsLight = 0; // 关灯
+			IsMotor = 0; // 关电机
 			// PowOff();
 			bt_off();
 		}
@@ -174,17 +174,19 @@ void CountdownDisplay(void)
 	else
 	{
 
-		lampTiming = 0;
+		lampTiming = 0; // 灯光没有开，不计时
 	}
 
 	if (IsMotor == 1)
 	{
 		motoTiming++;
 #if 1
-		if(motoTiming > 124000)//20分钟
+		if (motoTiming > ((unsigned long)120000)) // 20分钟
+		// if (motoTiming > 124000) // 20分钟 -- 客户测试是 21 min 47 s
 		// if (motoTiming > 3000) // 30s 测试用
 		{
-			IsMotor = 0;
+			IsLight = 0; // 关灯
+			IsMotor = 0;// 关电机
 			// PowOff();
 			bt_off();
 		}
@@ -198,6 +200,6 @@ void CountdownDisplay(void)
 	else
 	{
 
-		motoTiming = 0;
+		motoTiming = 0; // 电机没有开，不计时
 	}
 }

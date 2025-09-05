@@ -820,48 +820,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led.c: 130: PHCON |= (0x08);
 "130
 [e =| _PHCON -> -> 8 `i `uc ]
-[; ;led.c: 146: }
-"146
+[; ;led.c: 144: }
+"144
 [e :UE 17 ]
 }
-"148
+"146
 [v _lampTiming `ul ~T0 @X0 1 e ]
 [i _lampTiming
 -> -> -> 0 `i `l `ul
 ]
-[; ;led.c: 148: DWORD lampTiming = 0;
-"149
+[; ;led.c: 146: DWORD lampTiming = 0;
+"147
 [v _motoTiming `ul ~T0 @X0 1 e ]
 [i _motoTiming
 -> -> -> 0 `i `l `ul
 ]
-[; ;led.c: 149: DWORD motoTiming = 0;
-"151
+[; ;led.c: 147: DWORD motoTiming = 0;
+"149
 [v _CountdownDisplay `(v ~T0 @X0 1 ef ]
-"152
+"150
 {
-[; ;led.c: 151: void CountdownDisplay(void)
-[; ;led.c: 152: {
+[; ;led.c: 149: void CountdownDisplay(void)
+[; ;led.c: 150: {
 [e :U _CountdownDisplay ]
 [f ]
-[; ;led.c: 155: if ((BITS_DATA0.bit5) == 1)
-"155
+[; ;led.c: 153: if ((BITS_DATA0.bit5) == 1)
+"153
 [e $ ! == -> . _BITS_DATA0 5 `i -> 1 `i 19  ]
-[; ;led.c: 156: {
+[; ;led.c: 154: {
+"154
+{
+[; ;led.c: 156: lampTiming++;
 "156
-{
-[; ;led.c: 158: lampTiming++;
-"158
 [e ++ _lampTiming -> -> -> 1 `i `l `ul ]
-[; ;led.c: 160: if(lampTiming > 124000)
-"160
-[e $ ! > _lampTiming -> -> 124000 `l `ul 20  ]
-[; ;led.c: 162: {
-"162
+[; ;led.c: 158: if (lampTiming > ((unsigned long)120000))
+"158
+[e $ ! > _lampTiming -> -> 120000 `l `ul 20  ]
+[; ;led.c: 161: {
+"161
 {
-[; ;led.c: 163: (BITS_DATA0.bit5) = 0;
-"163
+[; ;led.c: 162: (BITS_DATA0.bit5) = 0;
+"162
 [e = . _BITS_DATA0 5 -> -> 0 `i `uc ]
+[; ;led.c: 163: (BITS_DATA0.bit6) = 0;
+"163
+[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
 [; ;led.c: 165: bt_off();
 "165
 [e ( _bt_off ..  ]
@@ -895,40 +898,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led.c: 182: motoTiming++;
 "182
 [e ++ _motoTiming -> -> -> 1 `i `l `ul ]
-[; ;led.c: 184: if(motoTiming > 124000)
+[; ;led.c: 184: if (motoTiming > ((unsigned long)120000))
 "184
-[e $ ! > _motoTiming -> -> 124000 `l `ul 23  ]
-[; ;led.c: 186: {
-"186
-{
-[; ;led.c: 187: (BITS_DATA0.bit6) = 0;
+[e $ ! > _motoTiming -> -> 120000 `l `ul 23  ]
+[; ;led.c: 187: {
 "187
-[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
-[; ;led.c: 189: bt_off();
+{
+[; ;led.c: 188: (BITS_DATA0.bit5) = 0;
+"188
+[e = . _BITS_DATA0 5 -> -> 0 `i `uc ]
+[; ;led.c: 189: (BITS_DATA0.bit6) = 0;
 "189
+[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
+[; ;led.c: 191: bt_off();
+"191
 [e ( _bt_off ..  ]
-"190
+"192
 }
 [e :U 23 ]
-"197
-}
-[; ;led.c: 190: }
-[; ;led.c: 197: }
-[e $U 24  ]
-"198
-[e :U 22 ]
-[; ;led.c: 198: else
-[; ;led.c: 199: {
 "199
-{
-[; ;led.c: 201: motoTiming = 0;
+}
+[; ;led.c: 192: }
+[; ;led.c: 199: }
+[e $U 24  ]
+"200
+[e :U 22 ]
+[; ;led.c: 200: else
+[; ;led.c: 201: {
 "201
+{
+[; ;led.c: 203: motoTiming = 0;
+"203
 [e = _motoTiming -> -> -> 0 `i `l `ul ]
-"202
+"204
 }
 [e :U 24 ]
-[; ;led.c: 202: }
-[; ;led.c: 203: }
-"203
+[; ;led.c: 204: }
+[; ;led.c: 205: }
+"205
 [e :UE 18 ]
 }

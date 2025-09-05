@@ -1807,7 +1807,7 @@ __end_of_InitRam:
 __ptext14:	
 ;; *************** function _CountdownDisplay *****************
 ;; Defined at:
-;;		line 151 in file "led.c"
+;;		line 149 in file "led.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1842,15 +1842,15 @@ __ptext14:
 _CountdownDisplay:	
 	opt stack 1
 
-;led.c: 155: if ((BITS_DATA0.bit5) == 1)
+;led.c: 153: if ((BITS_DATA0.bit5) == 1)
 
 ;incstack = 0
 ; Regs used in _CountdownDisplay: [wreg+status,2+status,0+pclath+cstack]
 	btfss	_BITS_DATA0,5
 	goto	l2175
 
-;led.c: 156: {
-;led.c: 158: lampTiming++;
+;led.c: 154: {
+;led.c: 156: lampTiming++;
 	incf	_lampTiming,f
 	btfsc	3,2
 	incf	_lampTiming+1,f
@@ -1859,7 +1859,7 @@ _CountdownDisplay:
 	btfsc	3,2
 	incf	_lampTiming+3,f
 
-;led.c: 160: if(lampTiming > 124000)
+;led.c: 158: if (lampTiming > ((unsigned long)120000))
 	movf	_lampTiming+3,w
 	btfss	3,2
 	goto	l5035
@@ -1867,20 +1867,23 @@ _CountdownDisplay:
 	subwf	_lampTiming+2,w
 	btfss	3,2
 	goto	u763
-	movlw	228
+	movlw	212
 	subwf	_lampTiming+1,w
 	btfss	3,2
 	goto	u763
-	movlw	97
+	movlw	193
 	subwf	_lampTiming,w
 u763:	
 	btfss	3,0
 	goto	l2177
 l5035:	
 
-;led.c: 162: {
-;led.c: 163: (BITS_DATA0.bit5) = 0;
+;led.c: 161: {
+;led.c: 162: (BITS_DATA0.bit5) = 0;
 	bcf	_BITS_DATA0,5
+
+;led.c: 163: (BITS_DATA0.bit6) = 0;
+	bcf	_BITS_DATA0,6
 
 ;led.c: 165: bt_off();
 	fcall	_bt_off
@@ -1911,7 +1914,7 @@ l2177:
 	btfsc	3,2
 	incf	_motoTiming+3,f
 
-;led.c: 184: if(motoTiming > 124000)
+;led.c: 184: if (motoTiming > ((unsigned long)120000))
 	movf	_motoTiming+3,w
 	btfss	3,2
 	goto	l5043
@@ -1919,28 +1922,31 @@ l2177:
 	subwf	_motoTiming+2,w
 	btfss	3,2
 	goto	u783
-	movlw	228
+	movlw	212
 	subwf	_motoTiming+1,w
 	btfss	3,2
 	goto	u783
-	movlw	97
+	movlw	193
 	subwf	_motoTiming,w
 u783:	
 	btfss	3,0
 	return
 l5043:	
 
-;led.c: 186: {
-;led.c: 187: (BITS_DATA0.bit6) = 0;
+;led.c: 187: {
+;led.c: 188: (BITS_DATA0.bit5) = 0;
+	bcf	_BITS_DATA0,5
+
+;led.c: 189: (BITS_DATA0.bit6) = 0;
 	bcf	_BITS_DATA0,6
 
-;led.c: 189: bt_off();
+;led.c: 191: bt_off();
 	ljmp	l4717
 l2178:	
 
-;led.c: 198: else
-;led.c: 199: {
-;led.c: 201: motoTiming = 0;
+;led.c: 200: else
+;led.c: 201: {
+;led.c: 203: motoTiming = 0;
 	clrf	_motoTiming
 	clrf	_motoTiming+1
 	clrf	_motoTiming+2

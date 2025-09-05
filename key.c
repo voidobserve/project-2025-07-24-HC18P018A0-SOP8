@@ -11,7 +11,7 @@ BYTE holdOn_f = 0;
 void ScanKey(void)
 {	
 
-	if(PORT_KEY_1 == 0 || PORT_KEY_2 == 0 || PORT_KEY_3 == 1 )
+	if(PORT_KEY_1 == 0 || PORT_KEY_2 == 0 || PORT_KEY_3 == 1 ) // 有任意一个按键按下
 	{
 		
 		lampTiming = 0;
@@ -28,11 +28,11 @@ void ScanKey(void)
 
 			if(PORT_KEY_1 == 0) {
 
-				clink_event = 1;  
+				clink_event = 1;  // 电机按键按下
 
 			} else if(PORT_KEY_2 == 0) {
 
-				clink_event = 2; 
+				clink_event = 2;  // 灯光按键按下
 
 			} else if(PORT_KEY_3 == 1) {
 

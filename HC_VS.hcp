@@ -16,7 +16,7 @@ PostBuild=0
 PostBuildCommand=
 Library=
 [Files]
-OpenFileCounts=21
+OpenFileCounts=0
 File0=main.c|3 208 1586 208 647
 File1=Temp.c|1 0 1378 0 439
 File2=init.c|1 182 1560 182 621
@@ -40,7 +40,7 @@ File19=delay.c|1 52 1430 52 491
 File20=key.c|1 0 1378 0 439
 File21=key.c|1 0 1378 0 439
 [Break]
-Count=4
+Count=0
 BP0=2 74 1
 BP1=2 83 1
 BP2=2 92 1

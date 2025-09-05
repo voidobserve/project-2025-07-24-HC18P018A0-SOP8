@@ -386,7 +386,7 @@ void PowOff(void)
 TRISB |= (0x08);
 PHCON |= (0x08);
 
-# 146
+# 144
 }
 
 DWORD lampTiming = 0;
@@ -401,10 +401,12 @@ if ((BITS_DATA0.bit5) == 1)
 
 lampTiming++;
 
-if(lampTiming > 124000)
+if (lampTiming > ((unsigned long)120000))
+
 
 {
 (BITS_DATA0.bit5) = 0;
+(BITS_DATA0.bit6) = 0;
 
 bt_off();
 }
@@ -421,15 +423,17 @@ if ((BITS_DATA0.bit6) == 1)
 {
 motoTiming++;
 
-if(motoTiming > 124000)
+if (motoTiming > ((unsigned long)120000))
+
 
 {
+(BITS_DATA0.bit5) = 0;
 (BITS_DATA0.bit6) = 0;
 
 bt_off();
 }
 
-# 197
+# 199
 }
 else
 {

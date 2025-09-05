@@ -7,21 +7,21 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"8 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\delay.c
+"8 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\delay.c
 [v _DelayMs DelayMs `(v  1 e 1 0 ]
-"26 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\function.c
+"26 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\function.c
 [v _ControlLevel ControlLevel `(v  1 e 1 0 ]
-"8 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\init.c
+"8 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\init.c
 [v _InitPort InitPort `(v  1 e 1 0 ]
 "81
 [v _InitSystem InitSystem `(v  1 e 1 0 ]
 "102
 [v _InitRam InitRam `(v  1 e 1 0 ]
-"9 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\interrupt.c
+"9 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\interrupt.c
 [v _interrupt_handle interrupt_handle `II(v  1 e 1 0 ]
-"11 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\key.c
+"11 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\key.c
 [v _ScanKey ScanKey `(v  1 e 1 0 ]
-"6 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\led.c
+"6 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
 [v _LedSwitch LedSwitch `(v  1 e 1 0 ]
 "12
 [v _LedDisplay LedDisplay `(v  1 e 1 0 ]
@@ -43,13 +43,13 @@
 [v _bt_off bt_off `(v  1 e 1 0 ]
 "109
 [v _PowOff PowOff `(v  1 e 1 0 ]
-"151
+"149
 [v _CountdownDisplay CountdownDisplay `(v  1 e 1 0 ]
-"23 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\main.c
+"23 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\main.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
 "48
 [v _main main `(v  1 e 1 0 ]
-"33 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\temp.c
+"33 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\temp.c
 [v _CheckSleep CheckSleep `(v  1 e 1 0 ]
 "18 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
 [v _T0 T0 `VEuc  1 e 1 @1 ]
@@ -281,7 +281,7 @@
 [v _BOR BOR `VEb  1 e 0 @718 ]
 "230
 [v _POR POR `VEb  1 e 0 @719 ]
-"7 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\key.c
+"7 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\key.c
 [v _longpress_cnt longpress_cnt `us  1 e 2 0 ]
 "8
 [v _clink_event clink_event `uc  1 e 1 0 ]
@@ -289,9 +289,9 @@
 [v _long_f long_f `uc  1 e 1 0 ]
 "10
 [v _holdOn_f holdOn_f `uc  1 e 1 0 ]
-"148 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\led.c
+"146 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
 [v _lampTiming lampTiming `ul  1 e 4 0 ]
-"149
+"147
 [v _motoTiming motoTiming `ul  1 e 4 0 ]
 [s S189 __bits8_t 1 `uc 1 bit0 1 0 :1:0 
 `uc 1 bit1 1 0 :1:1 
@@ -302,7 +302,7 @@
 `uc 1 bit6 1 0 :1:6 
 `uc 1 bit7 1 0 :1:7 
 ]
-"3 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\variable.c
+"3 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\variable.c
 [v _BITS_DATA0 BITS_DATA0 `S189  1 e 1 0 ]
 "6
 [v _g_ucTimer10msCount g_ucTimer10msCount `uc  1 e 1 0 ]
@@ -310,17 +310,17 @@
 [v _g_ucTimerWorkCount g_ucTimerWorkCount `uc  1 e 1 0 ]
 "32
 [v _SleepCount SleepCount `us  1 e 2 0 ]
-"48 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\main.c
+"48 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "97
 } 0
-"11 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\key.c
+"11 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\key.c
 [v _ScanKey ScanKey `(v  1 e 1 0 ]
 {
 "125
 } 0
-"64 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\led.c
+"64 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
 [v _PowOn PowOn `(v  1 e 1 0 ]
 {
 "94
@@ -328,7 +328,7 @@
 "109
 [v _PowOff PowOff `(v  1 e 1 0 ]
 {
-"146
+"144
 } 0
 "36
 [v _MotoSwitch MotoSwitch `(v  1 e 1 0 ]
@@ -370,7 +370,7 @@
 {
 "34
 } 0
-"81 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\init.c
+"81 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\init.c
 [v _InitSystem InitSystem `(v  1 e 1 0 ]
 {
 "93
@@ -380,17 +380,17 @@
 {
 "111
 } 0
-"151 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\led.c
+"149 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
 [v _CountdownDisplay CountdownDisplay `(v  1 e 1 0 ]
 {
-"203
+"205
 } 0
 "96
 [v _bt_off bt_off `(v  1 e 1 0 ]
 {
 "107
 } 0
-"23 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\main.c
+"23 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\main.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
 {
 "27
@@ -399,17 +399,17 @@
 [v delay_ms@xms xms `us  1 p 2 2 ]
 "46
 } 0
-"33 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\temp.c
+"33 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\temp.c
 [v _CheckSleep CheckSleep `(v  1 e 1 0 ]
 {
 "146
 } 0
-"8 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\init.c
+"8 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\init.c
 [v _InitPort InitPort `(v  1 e 1 0 ]
 {
 "77
 } 0
-"9 D:\BaiduSyncdisk\A_WorkSt\Aworkst\未立项的资料\HC18P018A0  C语言DEMO\interrupt.c
+"9 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\interrupt.c
 [v _interrupt_handle interrupt_handle `II(v  1 e 1 0 ]
 {
 "34
