@@ -1,13 +1,15 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"106 hc_define.h
+"109 hc_define.h
 [s S1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1 __bits8_t bit0 bit1 bit2 bit3 bit4 bit5 bit6 bit7 ]
 "6 variable.h
 [v _BITS_DATA0 `S1 ~T0 @X0 0 e ]
-"9 Led.h
+"14 Led.h
 [v _LedOn `(v ~T0 @X0 0 ef ]
-"10
+"15
 [v _LedOff `(v ~T0 @X0 0 ef ]
+"8
+[v _flag_is_blue_tooth_open `uc ~T0 @X0 0 e ]
 "17 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
 [v _INDF `Vuc ~T0 @X0 1 e@0 ]
 [; ;HC18P018A0.h: 17: volatile unsigned char INDF @ 0x000;
@@ -516,48 +518,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hc_define.h: 7: typedef unsigned char BYTE;
 [; ;hc_define.h: 8: typedef unsigned short WORD;
 [; ;hc_define.h: 9: typedef unsigned long DWORD;
-[; ;hc_define.h: 106: typedef struct __bits8_t
-[; ;hc_define.h: 107: {
-[; ;hc_define.h: 108: unsigned bit0 :1;
-[; ;hc_define.h: 109: unsigned bit1 :1;
-[; ;hc_define.h: 110: unsigned bit2 :1;
-[; ;hc_define.h: 111: unsigned bit3 :1;
-[; ;hc_define.h: 112: unsigned bit4 :1;
-[; ;hc_define.h: 113: unsigned bit5 :1;
-[; ;hc_define.h: 114: unsigned bit6 :1;
-[; ;hc_define.h: 115: unsigned bit7 :1;
-[; ;hc_define.h: 116: }bits8;
-[; ;hc_define.h: 118: typedef struct __bits16_t
-[; ;hc_define.h: 119: {
-[; ;hc_define.h: 120: unsigned bit0 :1;
-[; ;hc_define.h: 121: unsigned bit1 :1;
-[; ;hc_define.h: 122: unsigned bit2 :1;
-[; ;hc_define.h: 123: unsigned bit3 :1;
-[; ;hc_define.h: 124: unsigned bit4 :1;
-[; ;hc_define.h: 125: unsigned bit5 :1;
-[; ;hc_define.h: 126: unsigned bit6 :1;
-[; ;hc_define.h: 127: unsigned bit7 :1;
-[; ;hc_define.h: 128: unsigned bit8 :1;
-[; ;hc_define.h: 129: unsigned bit9 :1;
-[; ;hc_define.h: 130: unsigned bita :1;
-[; ;hc_define.h: 131: unsigned bitb :1;
-[; ;hc_define.h: 132: unsigned bitc :1;
-[; ;hc_define.h: 133: unsigned bitd :1;
-[; ;hc_define.h: 134: unsigned bite :1;
-[; ;hc_define.h: 135: unsigned bitf :1;
-[; ;hc_define.h: 136: }bits16;
-[; ;Led.h: 5: extern DWORD lampTiming ;
-[; ;Led.h: 6: extern DWORD motoTiming ;
-[; ;Led.h: 8: void LedDisplay(void);
-[; ;Led.h: 9: void LedOn(void);
-[; ;Led.h: 10: void LedOff(void);
-[; ;Led.h: 11: void MotoDisplay(void);
-[; ;Led.h: 12: void LedSwitch(void);
-[; ;Led.h: 13: void MotoSwitch(void);
-[; ;Led.h: 14: void PowOn(void);
-[; ;Led.h: 15: void PowOff(void);
-[; ;Led.h: 16: void CountdownDisplay(void);
-[; ;Led.h: 18: void bt_off(void);
+[; ;hc_define.h: 11: typedef unsigned char u8;
+[; ;hc_define.h: 12: typedef unsigned long u32;
+[; ;hc_define.h: 109: typedef struct __bits8_t
+[; ;hc_define.h: 110: {
+[; ;hc_define.h: 111: unsigned bit0 :1;
+[; ;hc_define.h: 112: unsigned bit1 :1;
+[; ;hc_define.h: 113: unsigned bit2 :1;
+[; ;hc_define.h: 114: unsigned bit3 :1;
+[; ;hc_define.h: 115: unsigned bit4 :1;
+[; ;hc_define.h: 116: unsigned bit5 :1;
+[; ;hc_define.h: 117: unsigned bit6 :1;
+[; ;hc_define.h: 118: unsigned bit7 :1;
+[; ;hc_define.h: 119: }bits8;
+[; ;hc_define.h: 121: typedef struct __bits16_t
+[; ;hc_define.h: 122: {
+[; ;hc_define.h: 123: unsigned bit0 :1;
+[; ;hc_define.h: 124: unsigned bit1 :1;
+[; ;hc_define.h: 125: unsigned bit2 :1;
+[; ;hc_define.h: 126: unsigned bit3 :1;
+[; ;hc_define.h: 127: unsigned bit4 :1;
+[; ;hc_define.h: 128: unsigned bit5 :1;
+[; ;hc_define.h: 129: unsigned bit6 :1;
+[; ;hc_define.h: 130: unsigned bit7 :1;
+[; ;hc_define.h: 131: unsigned bit8 :1;
+[; ;hc_define.h: 132: unsigned bit9 :1;
+[; ;hc_define.h: 133: unsigned bita :1;
+[; ;hc_define.h: 134: unsigned bitb :1;
+[; ;hc_define.h: 135: unsigned bitc :1;
+[; ;hc_define.h: 136: unsigned bitd :1;
+[; ;hc_define.h: 137: unsigned bite :1;
+[; ;hc_define.h: 138: unsigned bitf :1;
+[; ;hc_define.h: 139: }bits16;
+[; ;Led.h: 8: extern u8 flag_is_blue_tooth_open;
+[; ;Led.h: 10: extern u8 flag_is_device_open;
+[; ;Led.h: 11: extern u32 power_off_cnt;
+[; ;Led.h: 13: void LedDisplay(void);
+[; ;Led.h: 14: void LedOn(void);
+[; ;Led.h: 15: void LedOff(void);
+[; ;Led.h: 16: void MotoDisplay(void);
+[; ;Led.h: 17: void LedSwitch(void);
+[; ;Led.h: 18: void MotoSwitch(void);
+[; ;Led.h: 19: void PowOn(void);
+[; ;Led.h: 20: void PowOff(void);
+[; ;Led.h: 21: void CountdownDisplay(void);
+[; ;Led.h: 23: void bt_off(void);
 [; ;variable.h: 6: extern bits8 BITS_DATA0;
 [; ;variable.h: 7: extern bits16 BITS_DATA1;
 [; ;variable.h: 34: extern BYTE g_ucTimer10msCount;
@@ -769,172 +774,148 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led.c: 93: PHCON &= ~(0x01 << 3);
 "93
 [e =& _PHCON -> ~ << -> 1 `i -> 3 `i `uc ]
-[; ;led.c: 94: }
-"94
+[; ;led.c: 95: flag_is_blue_tooth_open = 1;
+"95
+[e = _flag_is_blue_tooth_open -> -> 1 `i `uc ]
+[; ;led.c: 96: }
+"96
 [e :UE 15 ]
 }
-"96
+"98
 [v _bt_off `(v ~T0 @X0 1 ef ]
-"97
+"99
 {
-[; ;led.c: 96: void bt_off(void)
-[; ;led.c: 97: {
+[; ;led.c: 98: void bt_off(void)
+[; ;led.c: 99: {
 [e :U _bt_off ]
 [f ]
-[; ;led.c: 98: PHCON |= (0x08);
-"98
+[; ;led.c: 100: PHCON |= (0x08);
+"100
 [e =| _PHCON -> -> 8 `i `uc ]
-[; ;led.c: 99: PDCON1 |= (0x01 << 3);
-"99
-[e =| _PDCON1 -> << -> 1 `i -> 3 `i `uc ]
-[; ;led.c: 101: TRISB &= (0xF7);
+[; ;led.c: 101: PDCON1 |= (0x01 << 3);
 "101
-[e =& _TRISB -> -> 247 `i `uc ]
-[; ;led.c: 102: ODCON |= (0x08);
-"102
-[e =| _ODCON -> -> 8 `i `uc ]
-[; ;led.c: 103: PORTB3 = 0;
+[e =| _PDCON1 -> << -> 1 `i -> 3 `i `uc ]
+[; ;led.c: 103: TRISB &= (0xF7);
 "103
-[e = _PORTB3 -> -> 0 `i `b ]
+[e =& _TRISB -> -> 247 `i `uc ]
+[; ;led.c: 104: ODCON |= (0x08);
+"104
+[e =| _ODCON -> -> 8 `i `uc ]
+[; ;led.c: 105: PORTB3 = 0;
 "105
-[v _delay_ms `(v ~T0 @X0 0 ef1`us ]
-[; ;led.c: 105: extern void delay_ms(WORD xms);
-[; ;led.c: 106: delay_ms((WORD)500);
-"106
-[e ( _delay_ms (1 -> -> 500 `i `us ]
-[; ;led.c: 107: }
+[e = _PORTB3 -> -> 0 `i `b ]
 "107
+[v _delay_ms `(v ~T0 @X0 0 ef1`us ]
+[; ;led.c: 107: extern void delay_ms(WORD xms);
+[; ;led.c: 108: delay_ms((WORD)500);
+"108
+[e ( _delay_ms (1 -> -> 500 `i `us ]
+[; ;led.c: 110: flag_is_blue_tooth_open = 0;
+"110
+[e = _flag_is_blue_tooth_open -> -> 0 `i `uc ]
+[; ;led.c: 111: }
+"111
 [e :UE 16 ]
 }
-"109
+"113
 [v _PowOff `(v ~T0 @X0 1 ef ]
-"110
+"114
 {
-[; ;led.c: 109: void PowOff(void)
-[; ;led.c: 110: {
+[; ;led.c: 113: void PowOff(void)
+[; ;led.c: 114: {
 [e :U _PowOff ]
 [f ]
-[; ;led.c: 129: TRISB |= (0x08);
-"129
+[; ;led.c: 133: TRISB |= (0x08);
+"133
 [e =| _TRISB -> -> 8 `i `uc ]
-[; ;led.c: 130: PHCON |= (0x08);
-"130
+[; ;led.c: 134: PHCON |= (0x08);
+"134
 [e =| _PHCON -> -> 8 `i `uc ]
-[; ;led.c: 144: }
-"144
+[; ;led.c: 149: flag_is_blue_tooth_open = 0;
+"149
+[e = _flag_is_blue_tooth_open -> -> 0 `i `uc ]
+[; ;led.c: 150: }
+"150
 [e :UE 17 ]
 }
-"146
-[v _lampTiming `ul ~T0 @X0 1 e ]
-[i _lampTiming
+"155
+[v _flag_is_blue_tooth_open `uc ~T0 @X0 1 e ]
+[i _flag_is_blue_tooth_open
+-> -> 0 `i `uc
+]
+[; ;led.c: 155: u8 flag_is_blue_tooth_open = 0;
+"157
+[v _flag_is_device_open `uc ~T0 @X0 1 e ]
+[i _flag_is_device_open
+-> -> 0 `i `uc
+]
+[; ;led.c: 157: u8 flag_is_device_open = 0;
+"159
+[v _power_off_cnt `ul ~T0 @X0 1 e ]
+[i _power_off_cnt
 -> -> -> 0 `i `l `ul
 ]
-[; ;led.c: 146: DWORD lampTiming = 0;
-"147
-[v _motoTiming `ul ~T0 @X0 1 e ]
-[i _motoTiming
--> -> -> 0 `i `l `ul
-]
-[; ;led.c: 147: DWORD motoTiming = 0;
-"149
+[; ;led.c: 159: u32 power_off_cnt = 0;
+"161
 [v _CountdownDisplay `(v ~T0 @X0 1 ef ]
-"150
+"162
 {
-[; ;led.c: 149: void CountdownDisplay(void)
-[; ;led.c: 150: {
+[; ;led.c: 161: void CountdownDisplay(void)
+[; ;led.c: 162: {
 [e :U _CountdownDisplay ]
 [f ]
-[; ;led.c: 153: if ((BITS_DATA0.bit5) == 1)
-"153
-[e $ ! == -> . _BITS_DATA0 5 `i -> 1 `i 19  ]
-[; ;led.c: 154: {
-"154
-{
-[; ;led.c: 156: lampTiming++;
-"156
-[e ++ _lampTiming -> -> -> 1 `i `l `ul ]
-[; ;led.c: 158: if (lampTiming > ((unsigned long)120000))
-"158
-[e $ ! > _lampTiming -> -> 120000 `l `ul 20  ]
-[; ;led.c: 161: {
-"161
-{
-[; ;led.c: 162: (BITS_DATA0.bit5) = 0;
-"162
-[e = . _BITS_DATA0 5 -> -> 0 `i `uc ]
-[; ;led.c: 163: (BITS_DATA0.bit6) = 0;
-"163
-[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
-[; ;led.c: 165: bt_off();
+[; ;led.c: 165: if (flag_is_device_open)
 "165
-[e ( _bt_off ..  ]
+[e $ ! != -> _flag_is_device_open `i -> -> -> 0 `i `uc `i 19  ]
+[; ;led.c: 166: {
 "166
-}
-[e :U 20 ]
-"173
-}
-[; ;led.c: 166: }
-[; ;led.c: 173: }
-[e $U 21  ]
-"174
-[e :U 19 ]
-[; ;led.c: 174: else
-[; ;led.c: 175: {
-"175
 {
-[; ;led.c: 177: lampTiming = 0;
+[; ;led.c: 168: power_off_cnt++;
+"168
+[e ++ _power_off_cnt -> -> -> 1 `i `l `ul ]
+[; ;led.c: 169: if (power_off_cnt >= ((unsigned long)120000))
+"169
+[e $ ! >= _power_off_cnt -> -> 120000 `l `ul 20  ]
+[; ;led.c: 170: {
+"170
+{
+[; ;led.c: 171: power_off_cnt = 0;
+"171
+[e = _power_off_cnt -> -> -> 0 `i `l `ul ]
+[; ;led.c: 172: (BITS_DATA0.bit5) = 0;
+"172
+[e = . _BITS_DATA0 5 -> -> 0 `i `uc ]
+[; ;led.c: 173: (BITS_DATA0.bit6) = 0;
+"173
+[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
+[; ;led.c: 175: bt_off();
+"175
+[e ( _bt_off ..  ]
+[; ;led.c: 177: flag_is_device_open = 0;
 "177
-[e = _lampTiming -> -> -> 0 `i `l `ul ]
+[e = _flag_is_device_open -> -> 0 `i `uc ]
 "178
 }
-[e :U 21 ]
+[e :U 20 ]
+"179
+}
 [; ;led.c: 178: }
-[; ;led.c: 180: if ((BITS_DATA0.bit6) == 1)
+[; ;led.c: 179: }
+[e $U 21  ]
 "180
-[e $ ! == -> . _BITS_DATA0 6 `i -> 1 `i 22  ]
+[e :U 19 ]
+[; ;led.c: 180: else
 [; ;led.c: 181: {
 "181
 {
-[; ;led.c: 182: motoTiming++;
-"182
-[e ++ _motoTiming -> -> -> 1 `i `l `ul ]
-[; ;led.c: 184: if (motoTiming > ((unsigned long)120000))
+[; ;led.c: 184: power_off_cnt = 0;
 "184
-[e $ ! > _motoTiming -> -> 120000 `l `ul 23  ]
-[; ;led.c: 187: {
-"187
-{
-[; ;led.c: 188: (BITS_DATA0.bit5) = 0;
-"188
-[e = . _BITS_DATA0 5 -> -> 0 `i `uc ]
-[; ;led.c: 189: (BITS_DATA0.bit6) = 0;
-"189
-[e = . _BITS_DATA0 6 -> -> 0 `i `uc ]
-[; ;led.c: 191: bt_off();
-"191
-[e ( _bt_off ..  ]
-"192
+[e = _power_off_cnt -> -> -> 0 `i `l `ul ]
+"185
 }
-[e :U 23 ]
-"199
-}
-[; ;led.c: 192: }
-[; ;led.c: 199: }
-[e $U 24  ]
-"200
-[e :U 22 ]
-[; ;led.c: 200: else
-[; ;led.c: 201: {
-"201
-{
-[; ;led.c: 203: motoTiming = 0;
-"203
-[e = _motoTiming -> -> -> 0 `i `l `ul ]
-"204
-}
-[e :U 24 ]
-[; ;led.c: 204: }
-[; ;led.c: 205: }
-"205
+[e :U 21 ]
+[; ;led.c: 185: }
+[; ;led.c: 241: }
+"241
 [e :UE 18 ]
 }

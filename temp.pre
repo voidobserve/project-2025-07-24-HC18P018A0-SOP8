@@ -227,7 +227,10 @@ typedef unsigned char BYTE;
 typedef unsigned short WORD;
 typedef unsigned long DWORD;
 
-# 106
+typedef unsigned char u8;
+typedef unsigned long u32;
+
+# 109
 typedef struct __bits8_t
 {
 unsigned bit0 :1;
@@ -298,7 +301,25 @@ void InitSystem(void);
 void InitPwm(void);
 void InitRam(void);
 
-# 7 "temp.c"
+# 8 "Led.h"
+extern u8 flag_is_blue_tooth_open;
+
+extern u8 flag_is_device_open;
+extern u32 power_off_cnt;
+
+void LedDisplay(void);
+void LedOn(void);
+void LedOff(void);
+void MotoDisplay(void);
+void LedSwitch(void);
+void MotoSwitch(void);
+void PowOn(void);
+void PowOff(void);
+void CountdownDisplay(void);
+
+void bt_off(void);
+
+# 8 "temp.c"
 void CheckTemp()
 {
 TEMPEN = 1;
@@ -327,7 +348,8 @@ TMPF = 0;
 extern void delay_ms(WORD xms);
 void CheckSleep()
 {
-if(1 == (BITS_DATA0.bit5) || 1 == (BITS_DATA0.bit6))
+
+if (flag_is_device_open)
 {
 SleepCount = 0;
 }
@@ -383,7 +405,7 @@ IOCB |= (0x10);
 IOCB |= (0x01 << 5);
 
 
-# 92
+# 94
 #asm
   movf PORTB,W;
 #endasm ;
@@ -393,7 +415,7 @@ PBIE = 1;
 GIE = 0;
 
 
-# 100
+# 102
 #asm
  SLEEP
  nop
@@ -402,7 +424,7 @@ GIE = 0;
  nop
 #endasm ;
 
-# 108
+# 110
 #asm
   movf PORTB,W
 #endasm ;
@@ -412,7 +434,7 @@ IOCB = 0;
 LVDM = 1;
 
 
-# 116
+# 118
 #asm
         clrwdt;
 #endasm ;
@@ -422,7 +444,7 @@ T0IE = 1;
 
 InitPort();
 
-# 143
+# 145
 MODSEL = 1;
 SleepCount = 0;
 

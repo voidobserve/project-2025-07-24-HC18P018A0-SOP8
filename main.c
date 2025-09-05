@@ -37,9 +37,9 @@ void delay_ms(WORD xms)
 			i--;
 		}
 
-// asm(clrwdt) // ÇåÁã¿´ÃÅ¹·¶¨Ê±Æ÷
+// asm(clrwdt) // æ¸…é›¶çœ‹é—¨ç‹—å®šæ—¶å™¨
 #asm;
-		clrwdt; // Î¹¹·²Ù×÷
+		clrwdt; // å–‚ç‹—æ“ä½œ
 #endasm;
 		xms--;
 	}
@@ -50,8 +50,8 @@ void main()
 	InitPort();
 	InitSystem();
 	InitRam();
-	T0IE = 1; // Ê¹ÄÜTMR0Òç³öÖĞ¶Ï
-	GIE = 1;  // Ê¹ÄÜËùÓĞÖĞ¶Ï
+	T0IE = 1; // ä½¿èƒ½TMR0æº¢å‡ºä¸­æ–­
+	GIE = 1;  // ä½¿èƒ½æ‰€æœ‰ä¸­æ–­
 
 // PORT_LED1 = 0;
 // delay_ms(10);
@@ -69,29 +69,38 @@ void main()
 // delay_ms(10);
 // PORT_LED1 = 1;
 
-// asm(clrwdt) // ÇåÁã¿´ÃÅ¹·¶¨Ê±Æ÷
+// asm(clrwdt) // æ¸…é›¶çœ‹é—¨ç‹—å®šæ—¶å™¨
 #asm;
-	clrwdt; // Î¹¹·²Ù×÷
+	clrwdt; // å–‚ç‹—æ“ä½œ
 #endasm;
 	delay_ms(500);
 	while (1)
 	{
-// asm(clrwdt) // ÇåÁã¿´ÃÅ¹·¶¨Ê±Æ÷
+// asm(clrwdt) // æ¸…é›¶çœ‹é—¨ç‹—å®šæ—¶å™¨
 #asm;
-		clrwdt; // Î¹¹·²Ù×÷
+		clrwdt; // å–‚ç‹—æ“ä½œ
 #endasm;
 
-		// Êµ²â9.7ms£¨¿ÉÄÜÊ±¼äÒ»³¤£¬»¹ÊÇ»áÓĞÎó²î£©
+		// å®æµ‹9.7msï¼ˆå¯èƒ½æ—¶é—´ä¸€é•¿ï¼Œè¿˜æ˜¯ä¼šæœ‰è¯¯å·®ï¼‰
 		if (BIT_TIMER_10MS)
 		{
 			BIT_TIMER_10MS = 0;
 
-			ScanKey();			// °´¼ü¼ì²â
-			CountdownDisplay(); // µ¹¼ÆÊ±
-			CheckSleep();		// ĞİÃß--µÍ¹¦ºÄ
+			ScanKey();			// æŒ‰é”®æ£€æµ‹
+			CountdownDisplay(); // å€’è®¡æ—¶
+			CheckSleep();		// ä¼‘çœ --ä½åŠŸè€—
 		}
 
-		LedDisplay();  // LEDÖ¸Ê¾µÆ
-		MotoDisplay(); // µç»ú¿ØÖÆ
+		LedDisplay();  // LEDæŒ‡ç¤ºç¯ï¼ˆæ ¹æ®å¯¹åº”çš„æ ‡å¿—ä½æ¥æ›´æ–°çŠ¶æ€ï¼‰
+		MotoDisplay(); // ç”µæœºæ§åˆ¶ï¼ˆæ ¹æ®å¯¹åº”çš„æ ‡å¿—ä½æ¥æ›´æ–°çŠ¶æ€ï¼‰
+
+		if (flag_is_blue_tooth_open || IsLight || IsMotor)
+		{
+			flag_is_device_open = 1;
+		}
+		else
+		{
+			flag_is_device_open = 0;
+		}
 	}
 }

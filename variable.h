@@ -38,7 +38,7 @@ extern BYTE g_ucTimerWorkCount;
 // extern BYTE g_ucKeyState;
 
 
-// extern BYTE g_ucPWM_FlashControl;//±¬ÉÁ¿ØÖÆ
+// extern BYTE g_ucPWM_FlashControl;//çˆ†é—ªæŽ§åˆ¶
 // extern BYTE g_ucPWM_FlashControl1;
 // extern BYTE g_ucPWM_FlashControl2;
     
@@ -64,6 +64,6 @@ extern WORD SleepCount;
 extern BYTE SleepFlag;
 
 extern BYTE MaxLight;
-// extern BYTE g_ucPWM_SOSControl;//ÁÁ¶È¿ØÖÆ
+// extern BYTE g_ucPWM_SOSControl;//äº®åº¦æŽ§åˆ¶
 
 #endif//__VARIABLE_H__

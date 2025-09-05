@@ -8,6 +8,9 @@ typedef unsigned char 	BYTE; //8
 typedef unsigned short 	WORD; //16
 typedef unsigned long 	DWORD;//32
 
+typedef unsigned char 	u8;
+typedef unsigned long   u32;
+
 #define NULL	0
 #define FALSE	0
 #define TRUE	1

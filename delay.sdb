@@ -39,17 +39,17 @@
 [v _MotoDisplay MotoDisplay `(v  1 e 1 0 ]
 "64
 [v _PowOn PowOn `(v  1 e 1 0 ]
-"96
+"98
 [v _bt_off bt_off `(v  1 e 1 0 ]
-"109
+"113
 [v _PowOff PowOff `(v  1 e 1 0 ]
-"149
+"161
 [v _CountdownDisplay CountdownDisplay `(v  1 e 1 0 ]
 "23 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\main.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
 "48
 [v _main main `(v  1 e 1 0 ]
-"33 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\temp.c
+"34 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\temp.c
 [v _CheckSleep CheckSleep `(v  1 e 1 0 ]
 "18 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
 [v _T0 T0 `VEuc  1 e 1 @1 ]
@@ -289,10 +289,12 @@
 [v _long_f long_f `uc  1 e 1 0 ]
 "10
 [v _holdOn_f holdOn_f `uc  1 e 1 0 ]
-"146 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
-[v _lampTiming lampTiming `ul  1 e 4 0 ]
-"147
-[v _motoTiming motoTiming `ul  1 e 4 0 ]
+"155 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
+[v _flag_is_blue_tooth_open flag_is_blue_tooth_open `uc  1 e 1 0 ]
+"157
+[v _flag_is_device_open flag_is_device_open `uc  1 e 1 0 ]
+"159
+[v _power_off_cnt power_off_cnt `ul  1 e 4 0 ]
 [s S189 __bits8_t 1 `uc 1 bit0 1 0 :1:0 
 `uc 1 bit1 1 0 :1:1 
 `uc 1 bit2 1 0 :1:2 
@@ -313,22 +315,22 @@
 "48 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"97
+"106
 } 0
 "11 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\key.c
 [v _ScanKey ScanKey `(v  1 e 1 0 ]
 {
-"125
+"127
 } 0
 "64 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
 [v _PowOn PowOn `(v  1 e 1 0 ]
 {
-"94
+"96
 } 0
-"109
+"113
 [v _PowOff PowOff `(v  1 e 1 0 ]
 {
-"144
+"150
 } 0
 "36
 [v _MotoSwitch MotoSwitch `(v  1 e 1 0 ]
@@ -380,15 +382,15 @@
 {
 "111
 } 0
-"149 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
+"161 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\led.c
 [v _CountdownDisplay CountdownDisplay `(v  1 e 1 0 ]
 {
-"205
+"241
 } 0
-"96
+"98
 [v _bt_off bt_off `(v  1 e 1 0 ]
 {
-"107
+"111
 } 0
 "23 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\main.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
@@ -399,10 +401,10 @@
 [v delay_ms@xms xms `us  1 p 2 2 ]
 "46
 } 0
-"33 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\temp.c
+"34 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\temp.c
 [v _CheckSleep CheckSleep `(v  1 e 1 0 ]
 {
-"146
+"148
 } 0
 "8 D:\BaiduSyncdisk\A_WorkSt\Aworkst\99-以往项目\2025-07-24-英洲-HC18P018A0-SOP8(DESKTOP-3HSF4DK)\01-code\HC18P018A0  C语言DEMO\init.c
 [v _InitPort InitPort `(v  1 e 1 0 ]

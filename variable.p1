@@ -1,8 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"106 hc_define.h
+"109 hc_define.h
 [s S1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1 __bits8_t bit0 bit1 bit2 bit3 bit4 bit5 bit6 bit7 ]
-"118
+"121
 [s S2 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2 __bits16_t bit0 bit1 bit2 bit3 bit4 bit5 bit6 bit7 bit8 bit9 bita bitb bitc bitd bite bitf ]
 "17 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
@@ -513,36 +513,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hc_define.h: 7: typedef unsigned char BYTE;
 [; ;hc_define.h: 8: typedef unsigned short WORD;
 [; ;hc_define.h: 9: typedef unsigned long DWORD;
-[; ;hc_define.h: 106: typedef struct __bits8_t
-[; ;hc_define.h: 107: {
-[; ;hc_define.h: 108: unsigned bit0 :1;
-[; ;hc_define.h: 109: unsigned bit1 :1;
-[; ;hc_define.h: 110: unsigned bit2 :1;
-[; ;hc_define.h: 111: unsigned bit3 :1;
-[; ;hc_define.h: 112: unsigned bit4 :1;
-[; ;hc_define.h: 113: unsigned bit5 :1;
-[; ;hc_define.h: 114: unsigned bit6 :1;
-[; ;hc_define.h: 115: unsigned bit7 :1;
-[; ;hc_define.h: 116: }bits8;
-[; ;hc_define.h: 118: typedef struct __bits16_t
-[; ;hc_define.h: 119: {
-[; ;hc_define.h: 120: unsigned bit0 :1;
-[; ;hc_define.h: 121: unsigned bit1 :1;
-[; ;hc_define.h: 122: unsigned bit2 :1;
-[; ;hc_define.h: 123: unsigned bit3 :1;
-[; ;hc_define.h: 124: unsigned bit4 :1;
-[; ;hc_define.h: 125: unsigned bit5 :1;
-[; ;hc_define.h: 126: unsigned bit6 :1;
-[; ;hc_define.h: 127: unsigned bit7 :1;
-[; ;hc_define.h: 128: unsigned bit8 :1;
-[; ;hc_define.h: 129: unsigned bit9 :1;
-[; ;hc_define.h: 130: unsigned bita :1;
-[; ;hc_define.h: 131: unsigned bitb :1;
-[; ;hc_define.h: 132: unsigned bitc :1;
-[; ;hc_define.h: 133: unsigned bitd :1;
-[; ;hc_define.h: 134: unsigned bite :1;
-[; ;hc_define.h: 135: unsigned bitf :1;
-[; ;hc_define.h: 136: }bits16;
+[; ;hc_define.h: 11: typedef unsigned char u8;
+[; ;hc_define.h: 12: typedef unsigned long u32;
+[; ;hc_define.h: 109: typedef struct __bits8_t
+[; ;hc_define.h: 110: {
+[; ;hc_define.h: 111: unsigned bit0 :1;
+[; ;hc_define.h: 112: unsigned bit1 :1;
+[; ;hc_define.h: 113: unsigned bit2 :1;
+[; ;hc_define.h: 114: unsigned bit3 :1;
+[; ;hc_define.h: 115: unsigned bit4 :1;
+[; ;hc_define.h: 116: unsigned bit5 :1;
+[; ;hc_define.h: 117: unsigned bit6 :1;
+[; ;hc_define.h: 118: unsigned bit7 :1;
+[; ;hc_define.h: 119: }bits8;
+[; ;hc_define.h: 121: typedef struct __bits16_t
+[; ;hc_define.h: 122: {
+[; ;hc_define.h: 123: unsigned bit0 :1;
+[; ;hc_define.h: 124: unsigned bit1 :1;
+[; ;hc_define.h: 125: unsigned bit2 :1;
+[; ;hc_define.h: 126: unsigned bit3 :1;
+[; ;hc_define.h: 127: unsigned bit4 :1;
+[; ;hc_define.h: 128: unsigned bit5 :1;
+[; ;hc_define.h: 129: unsigned bit6 :1;
+[; ;hc_define.h: 130: unsigned bit7 :1;
+[; ;hc_define.h: 131: unsigned bit8 :1;
+[; ;hc_define.h: 132: unsigned bit9 :1;
+[; ;hc_define.h: 133: unsigned bita :1;
+[; ;hc_define.h: 134: unsigned bitb :1;
+[; ;hc_define.h: 135: unsigned bitc :1;
+[; ;hc_define.h: 136: unsigned bitd :1;
+[; ;hc_define.h: 137: unsigned bite :1;
+[; ;hc_define.h: 138: unsigned bitf :1;
+[; ;hc_define.h: 139: }bits16;
 [; ;variable.h: 6: extern bits8 BITS_DATA0;
 [; ;variable.h: 7: extern bits16 BITS_DATA1;
 [; ;variable.h: 34: extern BYTE g_ucTimer10msCount;
@@ -600,42 +602,3 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;variable.c: 35: BYTE MaxLight = 0;
-"37
-[v _g_cucTIMER_COUNT_STATE `Cuc ~T0 @X0 -> 10 `i e ]
-[i _g_cucTIMER_COUNT_STATE
-:U ..
-"39
--> -> 1 `i `uc
-"40
--> -> 1 `i `uc
-"41
--> -> 1 `i `uc
-"42
--> -> 1 `i `uc
-"43
--> -> 4 `i `uc
-"44
--> -> 4 `i `uc
-"45
--> -> 1 `i `uc
-"46
--> -> 4 `i `uc
-"47
--> -> 1 `i `uc
-"49
--> -> 1 `i `uc
-..
-]
-[; ;variable.c: 37: const BYTE g_cucTIMER_COUNT_STATE[10] =
-[; ;variable.c: 38: {
-[; ;variable.c: 39: 1,
-[; ;variable.c: 40: 1,
-[; ;variable.c: 41: 1,
-[; ;variable.c: 42: 1,
-[; ;variable.c: 43: 4,
-[; ;variable.c: 44: 4,
-[; ;variable.c: 45: 1,
-[; ;variable.c: 46: 4,
-[; ;variable.c: 47: 1,
-[; ;variable.c: 48: 1
-[; ;variable.c: 49: };

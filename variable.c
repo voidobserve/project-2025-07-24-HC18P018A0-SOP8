@@ -34,17 +34,17 @@ BYTE SleepFlag = 0;
 
 BYTE MaxLight = 0;
 //////////////////////////////////////////////////////
-const BYTE g_cucTIMER_COUNT_STATE[10] = //{10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
-{
-	g_cucTIMER_COUNT_STATE0,   
-	g_cucTIMER_COUNT_STATE1,  
-	g_cucTIMER_COUNT_STATE2,   
-	g_cucTIMER_COUNT_STATE3,   
-	g_cucTIMER_COUNT_STATE4,   
-	g_cucTIMER_COUNT_STATE5,   
-	g_cucTIMER_COUNT_STATE6,   
-	g_cucTIMER_COUNT_STATE7,  
-	g_cucTIMER_COUNT_STATE8,   
-	g_cucTIMER_COUNT_STATE9    
-};
+// const BYTE g_cucTIMER_COUNT_STATE[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+//{
+//	g_cucTIMER_COUNT_STATE0,   
+//	g_cucTIMER_COUNT_STATE1,  
+//	g_cucTIMER_COUNT_STATE2,   
+//	g_cucTIMER_COUNT_STATE3,   
+//	g_cucTIMER_COUNT_STATE4,   
+//	g_cucTIMER_COUNT_STATE5,   
+//	g_cucTIMER_COUNT_STATE6,   
+//	g_cucTIMER_COUNT_STATE7,  
+//	g_cucTIMER_COUNT_STATE8,   
+//	g_cucTIMER_COUNT_STATE9    
+//};
 

@@ -223,7 +223,10 @@ typedef unsigned char BYTE;
 typedef unsigned short WORD;
 typedef unsigned long DWORD;
 
-# 106
+typedef unsigned char u8;
+typedef unsigned long u32;
+
+# 109
 typedef struct __bits8_t
 {
 unsigned bit0 :1;
@@ -305,9 +308,11 @@ void ControlFlash(void);
 # 28
 void ControlSos(void);
 
-# 5 "Led.h"
-extern DWORD lampTiming ;
-extern DWORD motoTiming ;
+# 8 "Led.h"
+extern u8 flag_is_blue_tooth_open;
+
+extern u8 flag_is_device_open;
+extern u32 power_off_cnt;
 
 void LedDisplay(void);
 void LedOn(void);
@@ -386,5 +391,14 @@ CheckSleep();
 
 LedDisplay();
 MotoDisplay();
+
+if (flag_is_blue_tooth_open || (BITS_DATA0.bit5) || (BITS_DATA0.bit6))
+{
+flag_is_device_open = 1;
+}
+else
+{
+flag_is_device_open = 0;
+}
 }
 }

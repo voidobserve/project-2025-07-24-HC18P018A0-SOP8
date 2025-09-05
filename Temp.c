@@ -4,6 +4,7 @@
 #include "variable.h"
 #include "function.h"
 #include "init.h"
+#include "Led.h"
 void CheckTemp()
 {
 	TEMPEN = 1;
@@ -32,7 +33,8 @@ void CheckTemp()
 extern void delay_ms(WORD xms);
 void CheckSleep()
 {
-	if(1 == IsLight || 1 == IsMotor)
+	// if(1 == IsLight || 1 == IsMotor || flag_is_device_open)
+	if (flag_is_device_open)
 	{
 		SleepCount = 0;
 	}

@@ -223,7 +223,10 @@ typedef unsigned char BYTE;
 typedef unsigned short WORD;
 typedef unsigned long DWORD;
 
-# 106
+typedef unsigned char u8;
+typedef unsigned long u32;
+
+# 109
 typedef struct __bits8_t
 {
 unsigned bit0 :1;
@@ -256,9 +259,11 @@ unsigned bite :1;
 unsigned bitf :1;
 }bits16;
 
-# 5 "Led.h"
-extern DWORD lampTiming ;
-extern DWORD motoTiming ;
+# 8 "Led.h"
+extern u8 flag_is_blue_tooth_open;
+
+extern u8 flag_is_device_open;
+extern u32 power_off_cnt;
 
 void LedDisplay(void);
 void LedOn(void);
@@ -364,6 +369,8 @@ TRISB |= (0x08);
 
 PDCON1 |= (0x01 << 3);
 PHCON &= ~(0x01 << 3);
+
+flag_is_blue_tooth_open = 1;
 }
 
 void bt_off(void)
@@ -377,67 +384,55 @@ PORTB3 = 0;
 
 extern void delay_ms(WORD xms);
 delay_ms((WORD)500);
+
+flag_is_blue_tooth_open = 0;
 }
 
 void PowOff(void)
 {
 
-# 129
+# 133
 TRISB |= (0x08);
 PHCON |= (0x08);
 
-# 144
+# 149
+flag_is_blue_tooth_open = 0;
 }
 
-DWORD lampTiming = 0;
-DWORD motoTiming = 0;
+
+
+
+u8 flag_is_blue_tooth_open = 0;
+
+u8 flag_is_device_open = 0;
+
+u32 power_off_cnt = 0;
 
 void CountdownDisplay(void)
 {
 
 
-if ((BITS_DATA0.bit5) == 1)
+if (flag_is_device_open)
 {
 
-lampTiming++;
-
-if (lampTiming > ((unsigned long)120000))
-
-
+power_off_cnt++;
+if (power_off_cnt >= ((unsigned long)120000))
 {
+power_off_cnt = 0;
 (BITS_DATA0.bit5) = 0;
 (BITS_DATA0.bit6) = 0;
 
 bt_off();
+
+flag_is_device_open = 0;
 }
-
-# 173
-}
-else
-{
-
-lampTiming = 0;
-}
-
-if ((BITS_DATA0.bit6) == 1)
-{
-motoTiming++;
-
-if (motoTiming > ((unsigned long)120000))
-
-
-{
-(BITS_DATA0.bit5) = 0;
-(BITS_DATA0.bit6) = 0;
-
-bt_off();
-}
-
-# 199
 }
 else
 {
 
-motoTiming = 0;
+
+power_off_cnt = 0;
 }
+
+# 241
 }

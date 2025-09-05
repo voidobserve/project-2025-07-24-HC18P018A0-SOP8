@@ -91,6 +91,8 @@ void PowOn(void)
 
 	PDCON1 |= (0x01 << 3); // 关闭下拉
 	PHCON &= ~(0x01 << 3); // 使能上拉
+
+	flag_is_blue_tooth_open = 1; // 表示蓝牙开启
 }
 
 void bt_off(void)
@@ -104,6 +106,8 @@ void bt_off(void)
 
 	extern void delay_ms(WORD xms);
 	delay_ms((WORD)500);
+
+	flag_is_blue_tooth_open = 0; // 表示蓝牙关闭
 }
 
 void PowOff(void)
@@ -141,15 +145,46 @@ void PowOff(void)
 	// //配置输出0
 	// TRISB  &= DEF_CLR_BIT3;  //output
 	// PHCON |= DEF_SET_BIT3;   //close high pull
+
+	flag_is_blue_tooth_open = 0; // 表示蓝牙关闭
 }
 
-DWORD lampTiming = 0; // 灯光运行时间，正计时
-DWORD motoTiming = 0; // 电机运行时间，正计时
+// DWORD lampTiming = 0; // 灯光运行时间，正计时
+// DWORD motoTiming = 0; // 电机运行时间，正计时
+
+u8 flag_is_blue_tooth_open = 0; // 标志位，蓝牙是否开启
+
+u8 flag_is_device_open = 0; // 标志位，设备是否开启
+// 关机计时
+u32 power_off_cnt = 0;
 
 void CountdownDisplay(void)
 {
 	// 理论上每10ms进入一次，实际会有偏差
 
+	if (flag_is_device_open)
+	{
+		// 如果设备开启，进行关机倒计时
+		power_off_cnt++;
+		if (power_off_cnt >= ((unsigned long)120000)) // 20分钟
+		{
+			power_off_cnt = 0;
+			IsLight = 0; // 关灯
+			IsMotor = 0; // 关电机
+			// PowOff();
+			bt_off();
+
+			flag_is_device_open = 0;
+		}
+	}
+	else
+	{
+		// 如果设备没有开启，不进行关机倒计时
+
+		power_off_cnt = 0;
+	}
+
+#if 0
 	if (IsLight == 1)
 	{
 
@@ -202,4 +237,5 @@ void CountdownDisplay(void)
 
 		motoTiming = 0; // 电机没有开，不计时
 	}
+#endif
 }

@@ -1,19 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"5 Led.h
-[v _lampTiming `ul ~T0 @X0 0 e ]
-"6
-[v _motoTiming `ul ~T0 @X0 0 e ]
+"11 Led.h
+[v _power_off_cnt `ul ~T0 @X0 0 e ]
 "63 variable.h
 [v _SleepCount `us ~T0 @X0 0 e ]
 "35
 [v _g_ucTimerWorkCount `uc ~T0 @X0 0 e ]
-"14 Led.h
+"19 Led.h
 [v _PowOn `(v ~T0 @X0 0 ef ]
-"13
+"18
 [v _MotoSwitch `(v ~T0 @X0 0 ef ]
-"12
+"17
 [v _LedSwitch `(v ~T0 @X0 0 ef ]
-"15
+"20
 [v _PowOff `(v ~T0 @X0 0 ef ]
 "17 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
 [v _INDF `Vuc ~T0 @X0 1 e@0 ]
@@ -523,36 +521,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hc_define.h: 7: typedef unsigned char BYTE;
 [; ;hc_define.h: 8: typedef unsigned short WORD;
 [; ;hc_define.h: 9: typedef unsigned long DWORD;
-[; ;hc_define.h: 106: typedef struct __bits8_t
-[; ;hc_define.h: 107: {
-[; ;hc_define.h: 108: unsigned bit0 :1;
-[; ;hc_define.h: 109: unsigned bit1 :1;
-[; ;hc_define.h: 110: unsigned bit2 :1;
-[; ;hc_define.h: 111: unsigned bit3 :1;
-[; ;hc_define.h: 112: unsigned bit4 :1;
-[; ;hc_define.h: 113: unsigned bit5 :1;
-[; ;hc_define.h: 114: unsigned bit6 :1;
-[; ;hc_define.h: 115: unsigned bit7 :1;
-[; ;hc_define.h: 116: }bits8;
-[; ;hc_define.h: 118: typedef struct __bits16_t
-[; ;hc_define.h: 119: {
-[; ;hc_define.h: 120: unsigned bit0 :1;
-[; ;hc_define.h: 121: unsigned bit1 :1;
-[; ;hc_define.h: 122: unsigned bit2 :1;
-[; ;hc_define.h: 123: unsigned bit3 :1;
-[; ;hc_define.h: 124: unsigned bit4 :1;
-[; ;hc_define.h: 125: unsigned bit5 :1;
-[; ;hc_define.h: 126: unsigned bit6 :1;
-[; ;hc_define.h: 127: unsigned bit7 :1;
-[; ;hc_define.h: 128: unsigned bit8 :1;
-[; ;hc_define.h: 129: unsigned bit9 :1;
-[; ;hc_define.h: 130: unsigned bita :1;
-[; ;hc_define.h: 131: unsigned bitb :1;
-[; ;hc_define.h: 132: unsigned bitc :1;
-[; ;hc_define.h: 133: unsigned bitd :1;
-[; ;hc_define.h: 134: unsigned bite :1;
-[; ;hc_define.h: 135: unsigned bitf :1;
-[; ;hc_define.h: 136: }bits16;
+[; ;hc_define.h: 11: typedef unsigned char u8;
+[; ;hc_define.h: 12: typedef unsigned long u32;
+[; ;hc_define.h: 109: typedef struct __bits8_t
+[; ;hc_define.h: 110: {
+[; ;hc_define.h: 111: unsigned bit0 :1;
+[; ;hc_define.h: 112: unsigned bit1 :1;
+[; ;hc_define.h: 113: unsigned bit2 :1;
+[; ;hc_define.h: 114: unsigned bit3 :1;
+[; ;hc_define.h: 115: unsigned bit4 :1;
+[; ;hc_define.h: 116: unsigned bit5 :1;
+[; ;hc_define.h: 117: unsigned bit6 :1;
+[; ;hc_define.h: 118: unsigned bit7 :1;
+[; ;hc_define.h: 119: }bits8;
+[; ;hc_define.h: 121: typedef struct __bits16_t
+[; ;hc_define.h: 122: {
+[; ;hc_define.h: 123: unsigned bit0 :1;
+[; ;hc_define.h: 124: unsigned bit1 :1;
+[; ;hc_define.h: 125: unsigned bit2 :1;
+[; ;hc_define.h: 126: unsigned bit3 :1;
+[; ;hc_define.h: 127: unsigned bit4 :1;
+[; ;hc_define.h: 128: unsigned bit5 :1;
+[; ;hc_define.h: 129: unsigned bit6 :1;
+[; ;hc_define.h: 130: unsigned bit7 :1;
+[; ;hc_define.h: 131: unsigned bit8 :1;
+[; ;hc_define.h: 132: unsigned bit9 :1;
+[; ;hc_define.h: 133: unsigned bita :1;
+[; ;hc_define.h: 134: unsigned bitb :1;
+[; ;hc_define.h: 135: unsigned bitc :1;
+[; ;hc_define.h: 136: unsigned bitd :1;
+[; ;hc_define.h: 137: unsigned bite :1;
+[; ;hc_define.h: 138: unsigned bitf :1;
+[; ;hc_define.h: 139: }bits16;
 [; ;key.h: 4: void ScanKey(void);
 [; ;variable.h: 6: extern bits8 BITS_DATA0;
 [; ;variable.h: 7: extern bits16 BITS_DATA1;
@@ -568,18 +568,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;function.h: 16: void ControlLevel(BYTE lightnum1, BYTE lightnum2, BYTE lightnum3);
 [; ;function.h: 18: void ControlFlash(void);
 [; ;function.h: 28: void ControlSos(void);
-[; ;Led.h: 5: extern DWORD lampTiming ;
-[; ;Led.h: 6: extern DWORD motoTiming ;
-[; ;Led.h: 8: void LedDisplay(void);
-[; ;Led.h: 9: void LedOn(void);
-[; ;Led.h: 10: void LedOff(void);
-[; ;Led.h: 11: void MotoDisplay(void);
-[; ;Led.h: 12: void LedSwitch(void);
-[; ;Led.h: 13: void MotoSwitch(void);
-[; ;Led.h: 14: void PowOn(void);
-[; ;Led.h: 15: void PowOff(void);
-[; ;Led.h: 16: void CountdownDisplay(void);
-[; ;Led.h: 18: void bt_off(void);
+[; ;Led.h: 8: extern u8 flag_is_blue_tooth_open;
+[; ;Led.h: 10: extern u8 flag_is_device_open;
+[; ;Led.h: 11: extern u32 power_off_cnt;
+[; ;Led.h: 13: void LedDisplay(void);
+[; ;Led.h: 14: void LedOn(void);
+[; ;Led.h: 15: void LedOff(void);
+[; ;Led.h: 16: void MotoDisplay(void);
+[; ;Led.h: 17: void LedSwitch(void);
+[; ;Led.h: 18: void MotoSwitch(void);
+[; ;Led.h: 19: void PowOn(void);
+[; ;Led.h: 20: void PowOff(void);
+[; ;Led.h: 21: void CountdownDisplay(void);
+[; ;Led.h: 23: void bt_off(void);
 "7 key.c
 [v _longpress_cnt `us ~T0 @X0 1 e ]
 [i _longpress_cnt
@@ -612,239 +613,286 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;key.c: 12: {
 [e :U _ScanKey ]
 [f ]
-[; ;key.c: 14: if(PORTB2 == 0 || PORTB4 == 0 || PORTB5 == 1 )
+[; ;key.c: 14: if (PORTB2 == 0 || PORTB4 == 0 || PORTB5 == 1)
 "14
 [e $ ! || || == -> _PORTB2 `i -> 0 `i == -> _PORTB4 `i -> 0 `i == -> _PORTB5 `i -> 1 `i 4  ]
 [; ;key.c: 15: {
 "15
 {
-[; ;key.c: 17: lampTiming = 0;
-"17
-[e = _lampTiming -> -> -> 0 `i `l `ul ]
-[; ;key.c: 18: motoTiming = 0;
-"18
-[e = _motoTiming -> -> -> 0 `i `l `ul ]
-[; ;key.c: 20: if(longpress_cnt < 0xffff) {
+[; ;key.c: 16: power_off_cnt = 0;
+"16
+[e = _power_off_cnt -> -> -> 0 `i `l `ul ]
+[; ;key.c: 20: if (longpress_cnt < 0xffff)
 "20
 [e $ ! < -> _longpress_cnt `ui -> 65535 `ui 5  ]
-{
-[; ;key.c: 21: longpress_cnt++;
+[; ;key.c: 21: {
 "21
+{
+[; ;key.c: 22: longpress_cnt++;
+"22
 [e ++ _longpress_cnt -> -> 1 `i `us ]
-[; ;key.c: 23: SleepCount = 0;
-"23
-[e = _SleepCount -> -> 0 `i `us ]
+[; ;key.c: 24: SleepCount = 0;
 "24
+[e = _SleepCount -> -> 0 `i `us ]
+"25
 }
 [e :U 5 ]
-[; ;key.c: 24: }
-[; ;key.c: 26: if(longpress_cnt < 80){
-"26
+[; ;key.c: 25: }
+[; ;key.c: 27: if (longpress_cnt < 80)
+"27
 [e $ ! < -> _longpress_cnt `ui -> -> 80 `i `ui 6  ]
+[; ;key.c: 28: {
+"28
 {
-[; ;key.c: 29: if(PORTB2 == 0) {
-"29
+[; ;key.c: 30: if (PORTB2 == 0)
+"30
 [e $ ! == -> _PORTB2 `i -> 0 `i 7  ]
-{
-[; ;key.c: 31: clink_event = 1;
+[; ;key.c: 31: {
 "31
-[e = _clink_event -> -> 1 `i `uc ]
+{
+[; ;key.c: 33: clink_event = 1;
 "33
+[e = _clink_event -> -> 1 `i `uc ]
+"34
 }
-[; ;key.c: 33: } else if(PORTB4 == 0) {
+[; ;key.c: 34: }
 [e $U 8  ]
-[e :U 7 ]
-[e $ ! == -> _PORTB4 `i -> 0 `i 9  ]
-{
-[; ;key.c: 35: clink_event = 2;
 "35
-[e = _clink_event -> -> 2 `i `uc ]
-"37
-}
-[; ;key.c: 37: } else if(PORTB5 == 1) {
-[e $U 10  ]
-[e :U 9 ]
-[e $ ! == -> _PORTB5 `i -> 1 `i 11  ]
+[e :U 7 ]
+[; ;key.c: 35: else if (PORTB4 == 0)
+[e $ ! == -> _PORTB4 `i -> 0 `i 9  ]
+[; ;key.c: 36: {
+"36
 {
-[; ;key.c: 39: clink_event = 3;
+[; ;key.c: 38: clink_event = 2;
+"38
+[e = _clink_event -> -> 2 `i `uc ]
 "39
-[e = _clink_event -> -> 3 `i `uc ]
+}
+[; ;key.c: 39: }
+[e $U 10  ]
+"40
+[e :U 9 ]
+[; ;key.c: 40: else if (PORTB5 == 1)
+[e $ ! == -> _PORTB5 `i -> 1 `i 11  ]
+[; ;key.c: 41: {
 "41
+{
+[; ;key.c: 43: clink_event = 3;
+"43
+[e = _clink_event -> -> 3 `i `uc ]
+"44
 }
 [e :U 11 ]
-"44
+"45
 [e :U 10 ]
 [e :U 8 ]
 }
 [e :U 6 ]
-[; ;key.c: 41: }
 [; ;key.c: 44: }
-[; ;key.c: 46: if(longpress_cnt >= 100){
-"46
+[; ;key.c: 45: }
+[; ;key.c: 47: if (longpress_cnt >= 100)
+"47
 [e $ ! >= -> _longpress_cnt `ui -> -> 100 `i `ui 12  ]
-{
-[; ;key.c: 48: clink_event = 0;
+[; ;key.c: 48: {
 "48
-[e = _clink_event -> -> 0 `i `uc ]
-[; ;key.c: 50: if(PORTB5 == 1){
+{
+[; ;key.c: 50: clink_event = 0;
 "50
+[e = _clink_event -> -> 0 `i `uc ]
+[; ;key.c: 52: if (PORTB5 == 1)
+"52
 [e $ ! == -> _PORTB5 `i -> 1 `i 13  ]
-{
-[; ;key.c: 51: long_f = 1;
-"51
-[e = _long_f -> -> 1 `i `uc ]
-[; ;key.c: 53: if(g_ucTimerWorkCount < 0xff) {
+[; ;key.c: 53: {
 "53
-[e $ ! < -> _g_ucTimerWorkCount `i -> 255 `i 14  ]
 {
-[; ;key.c: 54: g_ucTimerWorkCount++;
+[; ;key.c: 54: long_f = 1;
 "54
-[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
-"55
-}
-[e :U 14 ]
-[; ;key.c: 55: }
-[; ;key.c: 56: PowOn();
+[e = _long_f -> -> 1 `i `uc ]
+[; ;key.c: 56: if (g_ucTimerWorkCount < 0xff)
 "56
-[e ( _PowOn ..  ]
+[e $ ! < -> _g_ucTimerWorkCount `i -> 255 `i 14  ]
+[; ;key.c: 57: {
 "57
-}
-[e :U 13 ]
+{
+[; ;key.c: 58: g_ucTimerWorkCount++;
+"58
+[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
 "59
 }
-[e :U 12 ]
-"61
-}
-[; ;key.c: 57: }
+[e :U 14 ]
 [; ;key.c: 59: }
-[; ;key.c: 61: }else{
-[e $U 15  ]
-[e :U 4 ]
-{
-[; ;key.c: 64: longpress_cnt = 0;
+[; ;key.c: 60: PowOn();
+"60
+[e ( _PowOn ..  ]
+"63
+}
+[e :U 13 ]
 "64
-[e = _longpress_cnt -> -> 0 `i `us ]
-[; ;key.c: 66: if(clink_event == 1){
+}
+[e :U 12 ]
+"65
+}
+[; ;key.c: 63: }
+[; ;key.c: 64: }
+[; ;key.c: 65: }
+[e $U 15  ]
 "66
-[e $ ! == -> _clink_event `i -> 1 `i 16  ]
+[e :U 4 ]
+[; ;key.c: 66: else
+[; ;key.c: 67: {
+"67
 {
-[; ;key.c: 68: clink_event = 0;
-"68
-[e = _clink_event -> -> 0 `i `uc ]
-[; ;key.c: 71: MotoSwitch();
+[; ;key.c: 69: longpress_cnt = 0;
+"69
+[e = _longpress_cnt -> -> 0 `i `us ]
+[; ;key.c: 71: if (clink_event == 1)
 "71
-[e ( _MotoSwitch ..  ]
+[e $ ! == -> _clink_event `i -> 1 `i 16  ]
+[; ;key.c: 72: {
 "72
-}
-[; ;key.c: 72: } else if(clink_event == 2){
-[e $U 17  ]
-[e :U 16 ]
-[e $ ! == -> _clink_event `i -> 2 `i 18  ]
 {
-[; ;key.c: 73: clink_event = 0;
-"73
+[; ;key.c: 74: clink_event = 0;
+"74
 [e = _clink_event -> -> 0 `i `uc ]
-[; ;key.c: 76: LedSwitch();
+[; ;key.c: 76: MotoSwitch();
 "76
-[e ( _LedSwitch ..  ]
-"78
+[e ( _MotoSwitch ..  ]
+"77
 }
-[; ;key.c: 78: } else if(clink_event == 3){
-[e $U 19  ]
-[e :U 18 ]
-[e $ ! == -> _clink_event `i -> 3 `i 20  ]
+[; ;key.c: 77: }
+[e $U 17  ]
+"78
+[e :U 16 ]
+[; ;key.c: 78: else if (clink_event == 2)
+[e $ ! == -> _clink_event `i -> 2 `i 18  ]
+[; ;key.c: 79: {
+"79
 {
 [; ;key.c: 80: clink_event = 0;
 "80
 [e = _clink_event -> -> 0 `i `uc ]
-[; ;key.c: 82: PowOn();
+[; ;key.c: 82: LedSwitch();
 "82
-[e ( _PowOn ..  ]
-[; ;key.c: 83: g_ucTimerWorkCount++;
+[e ( _LedSwitch ..  ]
 "83
-[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
-[; ;key.c: 84: holdOn_f = 1;
+}
+[; ;key.c: 83: }
+[e $U 19  ]
 "84
-[e = _holdOn_f -> -> 1 `i `uc ]
+[e :U 18 ]
+[; ;key.c: 84: else if (clink_event == 3)
+[e $ ! == -> _clink_event `i -> 3 `i 20  ]
+[; ;key.c: 85: {
+"85
+{
+[; ;key.c: 87: clink_event = 0;
 "87
+[e = _clink_event -> -> 0 `i `uc ]
+[; ;key.c: 89: PowOn();
+"89
+[e ( _PowOn ..  ]
+[; ;key.c: 91: g_ucTimerWorkCount++;
+"91
+[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
+[; ;key.c: 92: holdOn_f = 1;
+"92
+[e = _holdOn_f -> -> 1 `i `uc ]
+"93
 }
 [e :U 20 ]
-"90
+"95
 [e :U 19 ]
 [e :U 17 ]
-[; ;key.c: 87: }
-[; ;key.c: 90: if(holdOn_f) {
+[; ;key.c: 93: }
+[; ;key.c: 95: if (holdOn_f)
 [e $ ! != -> _holdOn_f `i -> -> -> 0 `i `uc `i 21  ]
-{
-[; ;key.c: 92: if(g_ucTimerWorkCount < 60) {
-"92
-[e $ ! < -> _g_ucTimerWorkCount `i -> 60 `i 22  ]
-{
-[; ;key.c: 93: g_ucTimerWorkCount++;
-"93
-[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
-"94
-}
-[; ;key.c: 94: } else {
-[e $U 23  ]
-[e :U 22 ]
-{
-[; ;key.c: 95: holdOn_f = 0;
-"95
-[e = _holdOn_f -> -> 0 `i `uc ]
-[; ;key.c: 96: g_ucTimerWorkCount = 0;
+[; ;key.c: 96: {
 "96
-[e = _g_ucTimerWorkCount -> -> 0 `i `uc ]
-[; ;key.c: 97: PowOff();
-"97
-[e ( _PowOff ..  ]
+{
+[; ;key.c: 98: if (g_ucTimerWorkCount < 60)
 "98
-}
-[e :U 23 ]
+[e $ ! < -> _g_ucTimerWorkCount `i -> 60 `i 22  ]
+[; ;key.c: 99: {
+"99
+{
+[; ;key.c: 100: g_ucTimerWorkCount++;
+"100
+[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
 "101
 }
-[e :U 21 ]
-[; ;key.c: 98: }
 [; ;key.c: 101: }
-[; ;key.c: 105: if(long_f){
+[e $U 23  ]
+"102
+[e :U 22 ]
+[; ;key.c: 102: else
+[; ;key.c: 103: {
+"103
+{
+[; ;key.c: 104: holdOn_f = 0;
+"104
+[e = _holdOn_f -> -> 0 `i `uc ]
+[; ;key.c: 105: g_ucTimerWorkCount = 0;
 "105
-[e $ ! != -> _long_f `i -> -> -> 0 `i `uc `i 24  ]
-{
-[; ;key.c: 107: if(g_ucTimerWorkCount < 60) {
-"107
-[e $ ! < -> _g_ucTimerWorkCount `i -> 60 `i 25  ]
-{
-[; ;key.c: 109: g_ucTimerWorkCount++;
-"109
-[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
-"111
-}
-[; ;key.c: 111: } else {
-[e $U 26  ]
-[e :U 25 ]
-{
-[; ;key.c: 113: long_f = 0;
-"113
-[e = _long_f -> -> 0 `i `uc ]
-[; ;key.c: 114: g_ucTimerWorkCount = 0;
-"114
 [e = _g_ucTimerWorkCount -> -> 0 `i `uc ]
-[; ;key.c: 115: PowOff();
-"115
+[; ;key.c: 106: PowOff();
+"106
 [e ( _PowOff ..  ]
-"116
+"107
 }
-[e :U 26 ]
+[e :U 23 ]
+"108
+}
+[e :U 21 ]
+[; ;key.c: 107: }
+[; ;key.c: 108: }
+[; ;key.c: 110: if (long_f)
+"110
+[e $ ! != -> _long_f `i -> -> -> 0 `i `uc `i 24  ]
+[; ;key.c: 111: {
+"111
+{
+[; ;key.c: 113: if (g_ucTimerWorkCount < 60)
+"113
+[e $ ! < -> _g_ucTimerWorkCount `i -> 60 `i 25  ]
+[; ;key.c: 114: {
+"114
+{
+[; ;key.c: 116: g_ucTimerWorkCount++;
+"116
+[e ++ _g_ucTimerWorkCount -> -> 1 `i `uc ]
 "117
 }
-[e :U 24 ]
+[; ;key.c: 117: }
+[e $U 26  ]
+"118
+[e :U 25 ]
+[; ;key.c: 118: else
+[; ;key.c: 119: {
+"119
+{
+[; ;key.c: 121: long_f = 0;
+"121
+[e = _long_f -> -> 0 `i `uc ]
+[; ;key.c: 122: g_ucTimerWorkCount = 0;
+"122
+[e = _g_ucTimerWorkCount -> -> 0 `i `uc ]
+[; ;key.c: 123: PowOff();
 "123
+[e ( _PowOff ..  ]
+"124
+}
+[e :U 26 ]
+"125
+}
+[e :U 24 ]
+"126
 }
 [e :U 15 ]
-[; ;key.c: 116: }
-[; ;key.c: 117: }
-[; ;key.c: 123: }
+[; ;key.c: 124: }
 [; ;key.c: 125: }
-"125
+[; ;key.c: 126: }
+[; ;key.c: 127: }
+"127
 [e :UE 3 ]
 }

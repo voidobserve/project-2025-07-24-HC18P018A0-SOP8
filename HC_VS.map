@@ -4,8 +4,8 @@ Linker command line:
 
 --edf=D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\dat\en_msgs.txt \
   --msgdisable=1262,1487,1396:off -cs -h+HC_VS.sym --cmf=HC_VS.cmf -z \
-  -Q18p018a0 -oC:\Users\PC\AppData\Local\Temp\scoc.2 -MHC_VS.map -E1 \
-  -ver=XC8 -ASTACK=029h-03fh -pstack=STACK -ACODE=04h-03FEh \
+  -Q18p018a0 -oC:\Users\PC\AppData\Local\Temp\s5sc.2 -MHC_VS.map -E1 \
+  -ver=XC8 -ASTACK=027h-03fh -pstack=STACK -ACODE=04h-03FEh \
   -ASTRCODE=04h-03FEh -ASTRING=04h-0FFh,0100h-01FFhx2,0300h-03FEh \
   -ACONST=04h-0FFh,0100h-01FFhx2,0300h-03FEh \
   -AENTRY=04h-0FFh,0100h-01FFhx2,0300h-03FEh \
@@ -29,29 +29,29 @@ startup.obj     end_init                             17       17        1       
                 reset_vec                             4        4        1        8       0
 delay.obj       cinit                                18       18        2       10       0
                 intentry                              8        8        F       10       0
-                text19                              159      159       17       10       0
-                text18                              108      108       1E       10       0
-                text17                               83       83       45       10       0
-                text16                              126      126       1C       10       0
-                text15                              18E      18E        A       10       0
-                text14                               C8       C8       40       10       0
-                text13                              198      198        6       10       0
-                text12                              184      184        A       10       0
-                text11                              1B7      1B7        3       10       0
-                text10                              1B4      1B4        3       10       0
-                text9                               1A7      1A7        4       10       0
-                text8                               1B1      1B1        3       10       0
-                text7                               1AE      1AE        3       10       0
-                text6                               1A3      1A3        4       10       0
-                text5                               17A      17A        A       10       0
-                text4                               170      170        A       10       0
-                text3                               1AB      1AB        3       10       0
-                text2                               19E      19E        5       10       0
-                text1                                1A       1A       69       10       0
-                maintext                            142      142       17       10       0
-                cstackBANK0_4                        22       22        6       11       1
-                bssBANK0                             11       11       11       11       1
-                bssBANK0_4                           28       28        1       11       1
+                text19                              145      145       17       10       0
+                text18                              10B      10B       1E       10       0
+                text17                               7F       7F       44       10       0
+                text16                              129      129       1C       10       0
+                text15                              15C      15C        C       10       0
+                text14                               C3       C3       27       10       0
+                text13                              18D      18D        6       10       0
+                text12                              17C      17C        A       10       0
+                text11                              1A8      1A8        3       10       0
+                text10                              1A5      1A5        3       10       0
+                text9                               19B      19B        4       10       0
+                text8                               1A2      1A2        3       10       0
+                text7                               19F      19F        3       10       0
+                text6                               197      197        4       10       0
+                text5                               172      172        A       10       0
+                text4                               168      168        A       10       0
+                text3                               193      193        4       10       0
+                text2                               186      186        7       10       0
+                text1                                1A       1A       65       10       0
+                maintext                             EA       EA       21       10       0
+                cstackBANK0_4                        1E       1E        6       11       1
+                bssBANK0                             11       11        D       11       1
+                bssBANK0_4                           24       24        3       11       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -61,26 +61,26 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                18       18        2         0
                 intentry                              8        8        F         0
                 reset_vec                             4        4        1         0
-                text19                              159      159       17         0
-                text18                              108      108       1E         0
-                text17                               83       83       45         0
-                text16                              126      126       1C         0
-                text15                              18E      18E        A         0
-                text14                               C8       C8       40         0
-                text13                              198      198        6         0
-                text12                              184      184        A         0
-                text11                              1B7      1B7        3         0
-                text10                              1B4      1B4        3         0
-                text9                               1A7      1A7        4         0
-                text8                               1B1      1B1        3         0
-                text7                               1AE      1AE        3         0
-                text6                               1A3      1A3        4         0
-                text5                               17A      17A        A         0
-                text4                               170      170        A         0
-                text3                               1AB      1AB        3         0
-                text2                               19E      19E        5         0
-                text1                                1A       1A       69         0
-                maintext                            142      142       17         0
+                text19                              145      145       17         0
+                text18                              10B      10B       1E         0
+                text17                               7F       7F       44         0
+                text16                              129      129       1C         0
+                text15                              15C      15C        C         0
+                text14                               C3       C3       27         0
+                text13                              18D      18D        6         0
+                text12                              17C      17C        A         0
+                text11                              1A8      1A8        3         0
+                text10                              1A5      1A5        3         0
+                text9                               19B      19B        4         0
+                text8                               1A2      1A2        3         0
+                text7                               19F      19F        3         0
+                text6                               197      197        4         0
+                text5                               172      172        A         0
+                text4                               168      168        A         0
+                text3                               193      193        4         0
+                text2                               186      186        7         0
+                text1                                1A       1A       65         0
+                maintext                             EA       EA       21         0
 
         CLASS   STRCODE        
 
@@ -91,9 +91,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   BANK0          
-                cstackBANK0_4                        22       22        6         1
-                bssBANK0                             11       11       11         1
-                bssBANK0_4                           28       28        1         1
+                cstackBANK0_4                        1E       1E        6         1
+                bssBANK0                             11       11        D         1
+                bssBANK0_4                           24       24        3         1
 
         CLASS   RAM            
 
@@ -192,37 +192,37 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000004  000001  000005         8       0  CODE        2
-                intentry                       000008  0001B2  0001BA        10       0  CODE        2
-                bssBANK0                       000011  000018  000029        11       1  BANK0       1
+                intentry                       000008  0001A3  0001AB        10       0  CODE        2
+                bssBANK0                       000011  000016  000027        11       1  BANK0       1
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            029-03F            17           1
+        BANK0            027-03F            19           1
                          060-06D             E
         CODE             005-007             3           2
-                         1BA-3FE           245
+                         1AB-3FE           254
         CONFIG           2007-2007             1           2
         CONST            005-007             3           2
-                         1BA-3FE           100
+                         1AB-3FE           100
         ENTRY            005-007             3           2
-                         1BA-3FE           100
+                         1AB-3FE           100
         IDLOC            2000-2003             4           2
-        RAM              029-03F            17           1
+        RAM              027-03F            19           1
                          060-06D             E
         SFR0             000-00F            10           1
         SFR1             070-0DD            6E           1
-        STACK            029-03F            17           1
+        STACK            027-03F            19           1
         STRCODE          005-007             3           2
-                         1BA-3FE           245
+                         1AB-3FE           254
         STRING           005-007             3           2
-                         1BA-3FE           100
+                         1AB-3FE           100
 
                                   Symbol Table
 
 _AUXR                      (abs)         059
-_BITS_DATA0                bssBANK0_4    028
+_BITS_DATA0                bssBANK0_4    026
 _BOR                       (abs)         2CE
 _BUZ                       (abs)         265
 _CHARGE0                   (abs)         053
@@ -235,8 +235,8 @@ _CMPIES                    (abs)         289
 _CMPOF                     (abs)         045
 _CMPWK                     (abs)         28B
 _CPPIS                     (abs)         288
-_CheckSleep                text17        083
-_CountdownDisplay          text14        0C8
+_CheckSleep                text17        07F
+_CountdownDisplay          text14        0C3
 _GIE                       (abs)         077
 _HIRCTRM                   (abs)         05B
 _HXEN                      (abs)         281
@@ -244,19 +244,19 @@ _INTECON                   (abs)         00E
 _INTEDG                    (abs)         20E
 _INTFLAG                   (abs)         00F
 _IOCB                      (abs)         009
-_InitPort                  text18        108
-_InitRam                   text13        198
-_InitSystem                text12        184
+_InitPort                  text18        10B
+_InitRam                   text13        18D
+_InitSystem                text12        17C
 _LVDM                      (abs)         28C
-_LedDisplay                text9         1A7
-_LedOff                    text11        1B7
-_LedOn                     text10        1B4
-_LedSwitch                 text5         17A
+_LedDisplay                text9         19B
+_LedOff                    text11        1A8
+_LedOn                     text10        1A5
+_LedSwitch                 text5         172
 _MODSEL                    (abs)         2AF
-_MotoDisplay               text6         1A3
-_MotoOff                   text8         1B1
-_MotoOn                    text7         1AE
-_MotoSwitch                text4         170
+_MotoDisplay               text6         197
+_MotoOff                   text8         1A2
+_MotoOn                    text7         19F
+_MotoSwitch                text4         168
 _ODCON                     (abs)         00C
 _OPTION                    (abs)         041
 _OSCCON                    (abs)         050
@@ -298,8 +298,8 @@ _PWMCON                    (abs)         048
 _PWMCT                     (abs)         2C8
 _PWMINV                    (abs)         242
 _PWMMD                     (abs)         243
-_PowOff                    text3         1AB
-_PowOn                     text2         19E
+_PowOff                    text3         193
+_PowOn                     text2         186
 _RAMP                      (abs)         055
 _RCTRMEN                   (abs)         2CA
 _S0                        (abs)         298
@@ -318,7 +318,7 @@ _SLOP0                     (abs)         2A8
 _SLOP1                     (abs)         2A9
 _SLOP2                     (abs)         2AA
 _ScanKey                   text1         01A
-_SleepCount                bssBANK0      01B
+_SleepCount                bssBANK0      017
 _T0                        (abs)         001
 _T0CK                      (abs)         25F
 _T0CR                      (abs)         04B
@@ -376,8 +376,8 @@ __Hram                     ram           000
 __Hreset_vec               reset_vec     005
 __Hsfr0                    sfr0          000
 __Hsfr1                    sfr1          000
-__Hspace_0                 (abs)         1BA
-__Hspace_1                 (abs)         029
+__Hspace_0                 (abs)         1AB
+__Hspace_1                 (abs)         027
 __Hspace_2                 (abs)         000
 __Hspace_3                 (abs)         000
 __Hstack                   stack         000
@@ -416,61 +416,61 @@ __Lspace_3                 (abs)         000
 __Lstack                   stack         000
 __Lstrings                 strings       000
 __Ltext                    text          000
-__S0                       (abs)         1BA
-__S1                       (abs)         029
+__S0                       (abs)         1AB
+__S1                       (abs)         027
 __S2                       (abs)         000
 ___int_sp                  stack         000
 ___latbits                 (abs)         000
 ___sp                      stack         000
-__end_of_CheckSleep        text17        0C8
-__end_of_CountdownDisplay  text14        108
-__end_of_InitPort          text18        126
-__end_of_InitRam           text13        19E
-__end_of_InitSystem        text12        18E
-__end_of_LedDisplay        text9         1AB
-__end_of_LedOff            text11        1BA
-__end_of_LedOn             text10        1B7
-__end_of_LedSwitch         text5         184
-__end_of_MotoDisplay       text6         1A7
-__end_of_MotoOff           text8         1B4
-__end_of_MotoOn            text7         1B1
-__end_of_MotoSwitch        text4         17A
-__end_of_PowOff            text3         1AE
-__end_of_PowOn             text2         1A3
-__end_of_ScanKey           text1         083
+__end_of_CheckSleep        text17        0C3
+__end_of_CountdownDisplay  text14        0EA
+__end_of_InitPort          text18        129
+__end_of_InitRam           text13        193
+__end_of_InitSystem        text12        186
+__end_of_LedDisplay        text9         19F
+__end_of_LedOff            text11        1AB
+__end_of_LedOn             text10        1A8
+__end_of_LedSwitch         text5         17C
+__end_of_MotoDisplay       text6         19B
+__end_of_MotoOff           text8         1A5
+__end_of_MotoOn            text7         1A2
+__end_of_MotoSwitch        text4         172
+__end_of_PowOff            text3         197
+__end_of_PowOn             text2         18D
+__end_of_ScanKey           text1         07F
 __end_of__initialization   cinit         018
-__end_of_bt_off            text15        198
-__end_of_delay_ms          text16        142
-__end_of_interrupt_handle  text19        170
-__end_of_main              maintext      159
+__end_of_bt_off            text15        168
+__end_of_delay_ms          text16        145
+__end_of_interrupt_handle  text19        15C
+__end_of_main              maintext      10B
 __initialization           cinit         018
 __pbssBANK0                bssBANK0      011
-__pbssBANK0_4              bssBANK0_4    028
+__pbssBANK0_4              bssBANK0_4    024
 __pcstackBANK0             cstackBANK0   000
-__pcstackBANK0_4           cstackBANK0_4 022
+__pcstackBANK0_4           cstackBANK0_4 01E
 __pcstackCOMMON            cstackCOMMON  000
 __pintentry                intentry      008
-__pmaintext                maintext      142
+__pmaintext                maintext      0EA
 __ptext0                   text0         000
 __ptext1                   text1         01A
-__ptext10                  text10        1B4
-__ptext11                  text11        1B7
-__ptext12                  text12        184
-__ptext13                  text13        198
-__ptext14                  text14        0C8
-__ptext15                  text15        18E
-__ptext16                  text16        126
-__ptext17                  text17        083
-__ptext18                  text18        108
-__ptext19                  text19        159
-__ptext2                   text2         19E
-__ptext3                   text3         1AB
-__ptext4                   text4         170
-__ptext5                   text5         17A
-__ptext6                   text6         1A3
-__ptext7                   text7         1AE
-__ptext8                   text8         1B1
-__ptext9                   text9         1A7
+__ptext10                  text10        1A5
+__ptext11                  text11        1A8
+__ptext12                  text12        17C
+__ptext13                  text13        18D
+__ptext14                  text14        0C3
+__ptext15                  text15        15C
+__ptext16                  text16        129
+__ptext17                  text17        07F
+__ptext18                  text18        10B
+__ptext19                  text19        145
+__ptext2                   text2         186
+__ptext3                   text3         193
+__ptext4                   text4         168
+__ptext5                   text5         172
+__ptext6                   text6         197
+__ptext7                   text7         19F
+__ptext8                   text8         1A2
+__ptext9                   text9         19B
 __size_of_CheckSleep       (abs)         000
 __size_of_CountdownDisplay (abs)         000
 __size_of_InitPort         (abs)         000
@@ -491,25 +491,26 @@ __size_of_bt_off           (abs)         000
 __size_of_delay_ms         (abs)         000
 __size_of_interrupt_handle (abs)         000
 __size_of_main             (abs)         000
-_bt_off                    text15        18E
-_clink_event               bssBANK0      01F
-_delay_ms                  text16        126
-_g_ucTimer10msCount        bssBANK0      021
-_g_ucTimerWorkCount        bssBANK0      020
-_holdOn_f                  bssBANK0      01D
-_interrupt_handle          text19        159
+_bt_off                    text15        15C
+_clink_event               bssBANK0      01B
+_delay_ms                  text16        129
+_flag_is_blue_tooth_open   bssBANK0_4    025
+_flag_is_device_open       bssBANK0_4    024
+_g_ucTimer10msCount        bssBANK0      01D
+_g_ucTimerWorkCount        bssBANK0      01C
+_holdOn_f                  bssBANK0      019
+_interrupt_handle          text19        145
 _itemp                     (abs)         010
-_lampTiming                bssBANK0      015
-_long_f                    bssBANK0      01E
-_longpress_cnt             bssBANK0      019
-_main                      maintext      142
-_motoTiming                bssBANK0      011
+_long_f                    bssBANK0      01A
+_longpress_cnt             bssBANK0      015
+_main                      maintext      0EA
 _occupy1                   (abs)         042
 _occupy2                   (abs)         047
 _occupy3                   (abs)         05A
+_power_off_cnt             bssBANK0      011
 btemp                      (abs)         06E
-delay_ms@i                 cstackBANK0_4 026
-delay_ms@xms               cstackBANK0_4 024
+delay_ms@i                 cstackBANK0_4 022
+delay_ms@xms               cstackBANK0_4 020
 end_of_initialization      cinit         018
 interrupt_function         intentry      008
 intlevel0                  functab       000

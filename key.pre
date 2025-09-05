@@ -223,7 +223,10 @@ typedef unsigned char BYTE;
 typedef unsigned short WORD;
 typedef unsigned long DWORD;
 
-# 106
+typedef unsigned char u8;
+typedef unsigned long u32;
+
+# 109
 typedef struct __bits8_t
 {
 unsigned bit0 :1;
@@ -288,9 +291,11 @@ void ControlFlash(void);
 # 28
 void ControlSos(void);
 
-# 5 "Led.h"
-extern DWORD lampTiming ;
-extern DWORD motoTiming ;
+# 8 "Led.h"
+extern u8 flag_is_blue_tooth_open;
+
+extern u8 flag_is_device_open;
+extern u32 power_off_cnt;
 
 void LedDisplay(void);
 void LedOn(void);
@@ -312,113 +317,117 @@ BYTE holdOn_f = 0;
 void ScanKey(void)
 {
 
-if(PORTB2 == 0 || PORTB4 == 0 || PORTB5 == 1 )
+if (PORTB2 == 0 || PORTB4 == 0 || PORTB5 == 1)
 {
+power_off_cnt = 0;
 
-lampTiming = 0;
-motoTiming = 0;
 
-if(longpress_cnt < 0xffff) {
+
+if (longpress_cnt < 0xffff)
+{
 longpress_cnt++;
 
 SleepCount = 0;
 }
 
-if(longpress_cnt < 80){
+if (longpress_cnt < 80)
+{
 
-
-if(PORTB2 == 0) {
+if (PORTB2 == 0)
+{
 
 clink_event = 1;
-
-} else if(PORTB4 == 0) {
+}
+else if (PORTB4 == 0)
+{
 
 clink_event = 2;
-
-} else if(PORTB5 == 1) {
+}
+else if (PORTB5 == 1)
+{
 
 clink_event = 3;
-
+}
 }
 
-
-}
-
-if(longpress_cnt >= 100){
+if (longpress_cnt >= 100)
+{
 
 clink_event = 0;
 
-if(PORTB5 == 1){
+if (PORTB5 == 1)
+{
 long_f = 1;
 
-if(g_ucTimerWorkCount < 0xff) {
+if (g_ucTimerWorkCount < 0xff)
+{
 g_ucTimerWorkCount++;
 }
 PowOn();
-}
+
 
 }
-
-}else{
-
+}
+}
+else
+{
 
 longpress_cnt = 0;
 
-if(clink_event == 1){
+if (clink_event == 1)
+{
 
 clink_event = 0;
-
 
 MotoSwitch();
-} else if(clink_event == 2){
+}
+else if (clink_event == 2)
+{
 clink_event = 0;
 
-
 LedSwitch();
-
-} else if(clink_event == 3){
+}
+else if (clink_event == 3)
+{
 
 clink_event = 0;
 
 PowOn();
+
 g_ucTimerWorkCount++;
 holdOn_f = 1;
-
-
 }
 
+if (holdOn_f)
+{
 
-if(holdOn_f) {
-
-if(g_ucTimerWorkCount < 60) {
+if (g_ucTimerWorkCount < 60)
+{
 g_ucTimerWorkCount++;
-} else {
+}
+else
+{
 holdOn_f = 0;
 g_ucTimerWorkCount = 0;
 PowOff();
 }
-
-
 }
 
+if (long_f)
+{
 
-
-if(long_f){
-
-if(g_ucTimerWorkCount < 60) {
+if (g_ucTimerWorkCount < 60)
+{
 
 g_ucTimerWorkCount++;
-
-} else {
+}
+else
+{
 
 long_f = 0;
 g_ucTimerWorkCount = 0;
 PowOff();
 }
 }
-
-# 123
 }
-
 }
-

@@ -16,6 +16,6 @@ void Work(void)
 		ControlLevelLow();
 		break;
 	}
-	
-	#endif
+
+#endif
 }

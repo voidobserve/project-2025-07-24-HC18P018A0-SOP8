@@ -6,21 +6,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _InitSystem `(v ~T0 @X0 0 ef ]
 "32
 [v _InitRam `(v ~T0 @X0 0 ef ]
-"106 hc_define.h
+"109 hc_define.h
 [s S1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1 __bits8_t bit0 bit1 bit2 bit3 bit4 bit5 bit6 bit7 ]
 "6 variable.h
 [v _BITS_DATA0 `S1 ~T0 @X0 0 e ]
 "4 key.h
 [v _ScanKey `(v ~T0 @X0 0 ef ]
-"16 Led.h
+"21 Led.h
 [v _CountdownDisplay `(v ~T0 @X0 0 ef ]
 "5 Temp.h
 [v _CheckSleep `(v ~T0 @X0 0 ef ]
-"8 Led.h
+"13 Led.h
 [v _LedDisplay `(v ~T0 @X0 0 ef ]
-"11
+"16
 [v _MotoDisplay `(v ~T0 @X0 0 ef ]
+"8
+[v _flag_is_blue_tooth_open `uc ~T0 @X0 0 e ]
+"10
+[v _flag_is_device_open `uc ~T0 @X0 0 e ]
 "17 D:\app\HCIDE_V3.0.18.S_3TEST\picc_compiler\include\HC18P018A0.h
 [v _INDF `Vuc ~T0 @X0 1 e@0 ]
 [; ;HC18P018A0.h: 17: volatile unsigned char INDF @ 0x000;
@@ -529,36 +533,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hc_define.h: 7: typedef unsigned char BYTE;
 [; ;hc_define.h: 8: typedef unsigned short WORD;
 [; ;hc_define.h: 9: typedef unsigned long DWORD;
-[; ;hc_define.h: 106: typedef struct __bits8_t
-[; ;hc_define.h: 107: {
-[; ;hc_define.h: 108: unsigned bit0 :1;
-[; ;hc_define.h: 109: unsigned bit1 :1;
-[; ;hc_define.h: 110: unsigned bit2 :1;
-[; ;hc_define.h: 111: unsigned bit3 :1;
-[; ;hc_define.h: 112: unsigned bit4 :1;
-[; ;hc_define.h: 113: unsigned bit5 :1;
-[; ;hc_define.h: 114: unsigned bit6 :1;
-[; ;hc_define.h: 115: unsigned bit7 :1;
-[; ;hc_define.h: 116: }bits8;
-[; ;hc_define.h: 118: typedef struct __bits16_t
-[; ;hc_define.h: 119: {
-[; ;hc_define.h: 120: unsigned bit0 :1;
-[; ;hc_define.h: 121: unsigned bit1 :1;
-[; ;hc_define.h: 122: unsigned bit2 :1;
-[; ;hc_define.h: 123: unsigned bit3 :1;
-[; ;hc_define.h: 124: unsigned bit4 :1;
-[; ;hc_define.h: 125: unsigned bit5 :1;
-[; ;hc_define.h: 126: unsigned bit6 :1;
-[; ;hc_define.h: 127: unsigned bit7 :1;
-[; ;hc_define.h: 128: unsigned bit8 :1;
-[; ;hc_define.h: 129: unsigned bit9 :1;
-[; ;hc_define.h: 130: unsigned bita :1;
-[; ;hc_define.h: 131: unsigned bitb :1;
-[; ;hc_define.h: 132: unsigned bitc :1;
-[; ;hc_define.h: 133: unsigned bitd :1;
-[; ;hc_define.h: 134: unsigned bite :1;
-[; ;hc_define.h: 135: unsigned bitf :1;
-[; ;hc_define.h: 136: }bits16;
+[; ;hc_define.h: 11: typedef unsigned char u8;
+[; ;hc_define.h: 12: typedef unsigned long u32;
+[; ;hc_define.h: 109: typedef struct __bits8_t
+[; ;hc_define.h: 110: {
+[; ;hc_define.h: 111: unsigned bit0 :1;
+[; ;hc_define.h: 112: unsigned bit1 :1;
+[; ;hc_define.h: 113: unsigned bit2 :1;
+[; ;hc_define.h: 114: unsigned bit3 :1;
+[; ;hc_define.h: 115: unsigned bit4 :1;
+[; ;hc_define.h: 116: unsigned bit5 :1;
+[; ;hc_define.h: 117: unsigned bit6 :1;
+[; ;hc_define.h: 118: unsigned bit7 :1;
+[; ;hc_define.h: 119: }bits8;
+[; ;hc_define.h: 121: typedef struct __bits16_t
+[; ;hc_define.h: 122: {
+[; ;hc_define.h: 123: unsigned bit0 :1;
+[; ;hc_define.h: 124: unsigned bit1 :1;
+[; ;hc_define.h: 125: unsigned bit2 :1;
+[; ;hc_define.h: 126: unsigned bit3 :1;
+[; ;hc_define.h: 127: unsigned bit4 :1;
+[; ;hc_define.h: 128: unsigned bit5 :1;
+[; ;hc_define.h: 129: unsigned bit6 :1;
+[; ;hc_define.h: 130: unsigned bit7 :1;
+[; ;hc_define.h: 131: unsigned bit8 :1;
+[; ;hc_define.h: 132: unsigned bit9 :1;
+[; ;hc_define.h: 133: unsigned bita :1;
+[; ;hc_define.h: 134: unsigned bitb :1;
+[; ;hc_define.h: 135: unsigned bitc :1;
+[; ;hc_define.h: 136: unsigned bitd :1;
+[; ;hc_define.h: 137: unsigned bite :1;
+[; ;hc_define.h: 138: unsigned bitf :1;
+[; ;hc_define.h: 139: }bits16;
 [; ;init.h: 29: void InitPort(void);
 [; ;init.h: 30: void InitSystem(void);
 [; ;init.h: 31: void InitPwm(void);
@@ -583,18 +589,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;function.h: 16: void ControlLevel(BYTE lightnum1, BYTE lightnum2, BYTE lightnum3);
 [; ;function.h: 18: void ControlFlash(void);
 [; ;function.h: 28: void ControlSos(void);
-[; ;Led.h: 5: extern DWORD lampTiming ;
-[; ;Led.h: 6: extern DWORD motoTiming ;
-[; ;Led.h: 8: void LedDisplay(void);
-[; ;Led.h: 9: void LedOn(void);
-[; ;Led.h: 10: void LedOff(void);
-[; ;Led.h: 11: void MotoDisplay(void);
-[; ;Led.h: 12: void LedSwitch(void);
-[; ;Led.h: 13: void MotoSwitch(void);
-[; ;Led.h: 14: void PowOn(void);
-[; ;Led.h: 15: void PowOff(void);
-[; ;Led.h: 16: void CountdownDisplay(void);
-[; ;Led.h: 18: void bt_off(void);
+[; ;Led.h: 8: extern u8 flag_is_blue_tooth_open;
+[; ;Led.h: 10: extern u8 flag_is_device_open;
+[; ;Led.h: 11: extern u32 power_off_cnt;
+[; ;Led.h: 13: void LedDisplay(void);
+[; ;Led.h: 14: void LedOn(void);
+[; ;Led.h: 15: void LedOff(void);
+[; ;Led.h: 16: void MotoDisplay(void);
+[; ;Led.h: 17: void LedSwitch(void);
+[; ;Led.h: 18: void MotoSwitch(void);
+[; ;Led.h: 19: void PowOn(void);
+[; ;Led.h: 20: void PowOff(void);
+[; ;Led.h: 21: void CountdownDisplay(void);
+[; ;Led.h: 23: void bt_off(void);
 "12 main.c
 [v _VERSION `Cuc ~T0 @X0 -> 0 `x e ]
 [i _VERSION
@@ -734,14 +741,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 95: MotoDisplay();
 "95
 [e ( _MotoDisplay ..  ]
-"96
+[; ;main.c: 97: if (flag_is_blue_tooth_open || (BITS_DATA0.bit5) || (BITS_DATA0.bit6))
+"97
+[e $ ! || || != -> _flag_is_blue_tooth_open `i -> -> -> 0 `i `uc `i != -> . _BITS_DATA0 5 `i -> -> -> 0 `i `uc `i != -> . _BITS_DATA0 6 `i -> -> -> 0 `i `uc `i 15  ]
+[; ;main.c: 98: {
+"98
+{
+[; ;main.c: 99: flag_is_device_open = 1;
+"99
+[e = _flag_is_device_open -> -> 1 `i `uc ]
+"100
+}
+[; ;main.c: 100: }
+[e $U 16  ]
+"101
+[e :U 15 ]
+[; ;main.c: 101: else
+[; ;main.c: 102: {
+"102
+{
+[; ;main.c: 103: flag_is_device_open = 0;
+"103
+[e = _flag_is_device_open -> -> 0 `i `uc ]
+"104
+}
+[e :U 16 ]
+"105
 }
 [e :U 11 ]
 "77
 [e $U 12  ]
 [e :U 13 ]
-[; ;main.c: 96: }
-[; ;main.c: 97: }
-"97
+[; ;main.c: 104: }
+[; ;main.c: 105: }
+[; ;main.c: 106: }
+"106
 [e :UE 10 ]
 }

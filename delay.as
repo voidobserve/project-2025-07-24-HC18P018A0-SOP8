@@ -251,13 +251,14 @@ __size_of_main	equ	__end_of_main-_main
 	global	_clink_event
 	global	_delay_ms
 	signat	_delay_ms,4217
+	global	_flag_is_blue_tooth_open
+	global	_flag_is_device_open
 	global	_g_ucTimer10msCount
 	global	_g_ucTimerWorkCount
 	global	_holdOn_f
 	global	_interrupt_handle
 	signat	_interrupt_handle,89
 	global	_itemp
-	global	_lampTiming
 	global	_long_f
 	global	_longpress_cnt
 	global	_main
@@ -272,10 +273,10 @@ __size_of_main	equ	__end_of_main-_main
 	FNCALL	_main,_MotoDisplay
 	FNCALL	_main,_ScanKey
 	FNCALL	_main,_delay_ms
-	global	_motoTiming
 	global	_occupy1
 	global	_occupy2
 	global	_occupy3
+	global	_power_off_cnt
 	global	btemp
 	global	delay_ms@i
 	global	delay_ms@xms
@@ -566,6 +567,12 @@ __end_of__initialization:
 	psect	bssBANK0_4
 __pbssBANK0_4:	
 	opt stack 0
+_flag_is_device_open:	
+	opt stack 0
+	ds	1
+_flag_is_blue_tooth_open:	
+	opt stack 0
+	ds	1
 _BITS_DATA0:	
 	opt stack 0
 	ds	1
@@ -573,10 +580,7 @@ _BITS_DATA0:
 	psect	bssBANK0
 __pbssBANK0:	
 	opt stack 0
-_motoTiming:	
-	opt stack 0
-	ds	4
-_lampTiming:	
+_power_off_cnt:	
 	opt stack 0
 	ds	4
 _longpress_cnt:	
@@ -819,7 +823,7 @@ _main:
 	movlw	1
 	movwf	delay_ms@xms+1
 	fcall	_delay_ms
-l2901:	
+l2904:	
 ;main.c: 77: while (1)
 
 	clrwdt	; ;# 
@@ -827,7 +831,7 @@ l2901:
 ;main.c: 85: if ((BITS_DATA0.bit0))
 	bcf	3,5	;RP0=0, select bank0
 	btfss	_BITS_DATA0,0
-	goto	l5063
+	goto	l5082
 
 ;main.c: 86: {
 ;main.c: 87: (BITS_DATA0.bit0) = 0;
@@ -841,7 +845,7 @@ l2901:
 
 ;main.c: 91: CheckSleep();
 	fcall	_CheckSleep
-l5063:	
+l5082:	
 
 ;main.c: 92: }
 ;main.c: 94: LedDisplay();
@@ -849,7 +853,30 @@ l5063:
 
 ;main.c: 95: MotoDisplay();
 	fcall	_MotoDisplay
-	goto	l2901
+
+;main.c: 97: if (flag_is_blue_tooth_open || (BITS_DATA0.bit5) || (BITS_DATA0.bit6))
+	movf	_flag_is_blue_tooth_open,w
+	btfsc	3,2
+	btfsc	_BITS_DATA0,5
+	goto	l2908
+	btfss	_BITS_DATA0,6
+	goto	l5092
+l2908:	
+
+;main.c: 98: {
+;main.c: 99: flag_is_device_open = 1;
+	clrf	_flag_is_device_open
+	incf	_flag_is_device_open,f
+
+;main.c: 100: }
+	goto	l2904
+l5092:	
+
+;main.c: 101: else
+;main.c: 102: {
+;main.c: 103: flag_is_device_open = 0;
+	clrf	_flag_is_device_open
+	goto	l2904
 __end_of_main:	
 	opt stack 0
 
@@ -896,90 +923,93 @@ __ptext1:
 _ScanKey:	
 	opt stack 2
 
-;key.c: 14: if(PORTB2 == 0 || PORTB4 == 0 || PORTB5 == 1 )
+;key.c: 14: if (PORTB2 == 0 || PORTB4 == 0 || PORTB5 == 1)
 
 ;incstack = 0
 ; Regs used in _ScanKey: [wreg+status,2+status,0+pclath+cstack]
 	btfsc	6,2	;volatile
 	btfss	6,4	;volatile
-	goto	l1764
+	goto	l1762
 	btfss	6,5	;volatile
-	goto	l4985
-l1764:	
+	goto	l5010
+l1762:	
 
 ;key.c: 15: {
-;key.c: 17: lampTiming = 0;
-	clrf	_lampTiming
-	clrf	_lampTiming+1
-	clrf	_lampTiming+2
-	clrf	_lampTiming+3
+;key.c: 16: power_off_cnt = 0;
+	clrf	_power_off_cnt
+	clrf	_power_off_cnt+1
+	clrf	_power_off_cnt+2
+	clrf	_power_off_cnt+3
 
-;key.c: 18: motoTiming = 0;
-	clrf	_motoTiming
-	clrf	_motoTiming+1
-	clrf	_motoTiming+2
-	clrf	_motoTiming+3
-
-;key.c: 20: if(longpress_cnt < 0xffff) {
+;key.c: 20: if (longpress_cnt < 0xffff)
 	incfsz	_longpress_cnt,w
-	goto	l4959
+	goto	l4984
 	incf	_longpress_cnt+1,w
 	btfsc	3,2
-	goto	l4963
-l4959:	
+	goto	l4988
+l4984:	
 
-;key.c: 21: longpress_cnt++;
+;key.c: 21: {
+;key.c: 22: longpress_cnt++;
 	incf	_longpress_cnt,f
 	btfsc	3,2
 	incf	_longpress_cnt+1,f
 
-;key.c: 23: SleepCount = 0;
+;key.c: 24: SleepCount = 0;
 	clrf	_SleepCount
 	clrf	_SleepCount+1
-l4963:	
+l4988:	
 
-;key.c: 24: }
-;key.c: 26: if(longpress_cnt < 80){
+;key.c: 25: }
+;key.c: 27: if (longpress_cnt < 80)
 	movlw	0
 	subwf	_longpress_cnt+1,w
 	movlw	80
 	btfsc	3,2
 	subwf	_longpress_cnt,w
 	btfsc	3,0
-	goto	l1766
+	goto	l1764
 
-;key.c: 29: if(PORTB2 == 0) {
+;key.c: 28: {
+;key.c: 30: if (PORTB2 == 0)
 	btfsc	6,2	;volatile
-	goto	l1767
+	goto	l1765
 
-;key.c: 31: clink_event = 1;
+;key.c: 31: {
+;key.c: 33: clink_event = 1;
 	clrf	_clink_event
 	incf	_clink_event,f
 
-;key.c: 33: } else if(PORTB4 == 0) {
-	goto	l1766
-l1767:	
-	btfsc	6,4	;volatile
-	goto	l1769
+;key.c: 34: }
+	goto	l1764
+l1765:	
 
-;key.c: 35: clink_event = 2;
+;key.c: 35: else if (PORTB4 == 0)
+	btfsc	6,4	;volatile
+	goto	l1767
+
+;key.c: 36: {
+;key.c: 38: clink_event = 2;
 	movlw	2
 	goto	L1
-l1769:	
-;key.c: 37: } else if(PORTB5 == 1) {
+l1767:	
+;key.c: 39: }
 
+
+;key.c: 40: else if (PORTB5 == 1)
 	btfss	6,5	;volatile
-	goto	l1766
+	goto	l1764
 
-;key.c: 39: clink_event = 3;
+;key.c: 41: {
+;key.c: 43: clink_event = 3;
 	movlw	3
 L1:	
 	movwf	_clink_event
-l1766:	
+l1764:	
 
-;key.c: 41: }
 ;key.c: 44: }
-;key.c: 46: if(longpress_cnt >= 100){
+;key.c: 45: }
+;key.c: 47: if (longpress_cnt >= 100)
 	movlw	0
 	subwf	_longpress_cnt+1,w
 	movlw	100
@@ -988,135 +1018,155 @@ l1766:
 	btfss	3,0
 	return
 
-;key.c: 48: clink_event = 0;
+;key.c: 48: {
+;key.c: 50: clink_event = 0;
 	clrf	_clink_event
 
-;key.c: 50: if(PORTB5 == 1){
+;key.c: 52: if (PORTB5 == 1)
 	btfss	6,5	;volatile
 	return
 
-;key.c: 51: long_f = 1;
+;key.c: 53: {
+;key.c: 54: long_f = 1;
 	clrf	_long_f
 	incf	_long_f,f
 
-;key.c: 53: if(g_ucTimerWorkCount < 0xff) {
+;key.c: 56: if (g_ucTimerWorkCount < 0xff)
 	incfsz	_g_ucTimerWorkCount,w
 
-;key.c: 54: g_ucTimerWorkCount++;
+;key.c: 57: {
+;key.c: 58: g_ucTimerWorkCount++;
 	incf	_g_ucTimerWorkCount,f
 
-;key.c: 55: }
-;key.c: 56: PowOn();
-	ljmp	l4701
-l4985:	
+;key.c: 59: }
+;key.c: 60: PowOn();
+	ljmp	l4964
+l5010:	
 
-;key.c: 64: longpress_cnt = 0;
+;key.c: 66: else
+;key.c: 67: {
+;key.c: 69: longpress_cnt = 0;
 	clrf	_longpress_cnt
 	clrf	_longpress_cnt+1
 
-;key.c: 66: if(clink_event == 1){
+;key.c: 71: if (clink_event == 1)
 	decfsz	_clink_event,w
-	goto	l4993
+	goto	l5018
 
-;key.c: 68: clink_event = 0;
+;key.c: 72: {
+;key.c: 74: clink_event = 0;
 	clrf	_clink_event
 
-;key.c: 71: MotoSwitch();
+;key.c: 76: MotoSwitch();
 	fcall	_MotoSwitch
 
-;key.c: 72: } else if(clink_event == 2){
-	goto	l5009
-l4993:	
+;key.c: 77: }
+	goto	l5034
+l5018:	
+
+;key.c: 78: else if (clink_event == 2)
 	movlw	2
 	xorwf	_clink_event,w
 	btfss	3,2
-	goto	l4999
+	goto	l5024
 
-;key.c: 73: clink_event = 0;
-	clrf	_clink_event
-
-;key.c: 76: LedSwitch();
-	fcall	_LedSwitch
-
-;key.c: 78: } else if(clink_event == 3){
-	goto	l5009
-l4999:	
-	movlw	3
-	xorwf	_clink_event,w
-	btfss	3,2
-	goto	l5009
-
+;key.c: 79: {
 ;key.c: 80: clink_event = 0;
 	clrf	_clink_event
 
-;key.c: 82: PowOn();
+;key.c: 82: LedSwitch();
+	fcall	_LedSwitch
+
+;key.c: 83: }
+	goto	l5034
+l5024:	
+
+;key.c: 84: else if (clink_event == 3)
+	movlw	3
+	xorwf	_clink_event,w
+	btfss	3,2
+	goto	l5034
+
+;key.c: 85: {
+;key.c: 87: clink_event = 0;
+	clrf	_clink_event
+
+;key.c: 89: PowOn();
 	fcall	_PowOn
 
-;key.c: 83: g_ucTimerWorkCount++;
+;key.c: 91: g_ucTimerWorkCount++;
 	incf	_g_ucTimerWorkCount,f
 
-;key.c: 84: holdOn_f = 1;
+;key.c: 92: holdOn_f = 1;
 	clrf	_holdOn_f
 	incf	_holdOn_f,f
-l5009:	
+l5034:	
 
-;key.c: 87: }
-;key.c: 90: if(holdOn_f) {
+;key.c: 93: }
+;key.c: 95: if (holdOn_f)
 	movf	_holdOn_f,w
 	btfsc	3,2
-	goto	l5019
+	goto	l5044
 
-;key.c: 92: if(g_ucTimerWorkCount < 60) {
+;key.c: 96: {
+;key.c: 98: if (g_ucTimerWorkCount < 60)
 	movlw	60
 	subwf	_g_ucTimerWorkCount,w
 	btfsc	3,0
-	goto	l5015
+	goto	l5040
 
-;key.c: 93: g_ucTimerWorkCount++;
+;key.c: 99: {
+;key.c: 100: g_ucTimerWorkCount++;
 	incf	_g_ucTimerWorkCount,f
 
-;key.c: 94: } else {
-	goto	l5019
-l5015:	
+;key.c: 101: }
+	goto	l5044
+l5040:	
 
-;key.c: 95: holdOn_f = 0;
+;key.c: 102: else
+;key.c: 103: {
+;key.c: 104: holdOn_f = 0;
 	clrf	_holdOn_f
 
-;key.c: 96: g_ucTimerWorkCount = 0;
+;key.c: 105: g_ucTimerWorkCount = 0;
 	clrf	_g_ucTimerWorkCount
 
-;key.c: 97: PowOff();
+;key.c: 106: PowOff();
 	fcall	_PowOff
-l5019:	
+l5044:	
 
-;key.c: 98: }
-;key.c: 101: }
-;key.c: 105: if(long_f){
+;key.c: 107: }
+;key.c: 108: }
+;key.c: 110: if (long_f)
 	movf	_long_f,w
 	btfsc	3,2
 	return
 
-;key.c: 107: if(g_ucTimerWorkCount < 60) {
+;key.c: 111: {
+;key.c: 113: if (g_ucTimerWorkCount < 60)
 	movlw	60
 	subwf	_g_ucTimerWorkCount,w
 	btfsc	3,0
-	goto	l5025
+	goto	l5050
 
-;key.c: 109: g_ucTimerWorkCount++;
+;key.c: 114: {
+;key.c: 116: g_ucTimerWorkCount++;
 	incf	_g_ucTimerWorkCount,f
 
-;key.c: 111: } else {
+;key.c: 117: }
 	return
-l5025:	
+l5050:	
 
-;key.c: 113: long_f = 0;
+;key.c: 118: else
+;key.c: 119: {
+;key.c: 121: long_f = 0;
 	clrf	_long_f
 
-;key.c: 114: g_ucTimerWorkCount = 0;
+;key.c: 122: g_ucTimerWorkCount = 0;
 	clrf	_g_ucTimerWorkCount
 
-;key.c: 115: PowOff();
-	ljmp	l4707
+;key.c: 123: PowOff();
+	ljmp	l4966
 __end_of_ScanKey:	
 	opt stack 0
 
@@ -1159,7 +1209,7 @@ __ptext2:
 
 _PowOn:	
 	opt stack 2
-l4701:	
+l4964:	
 ;incstack = 0
 ; Regs used in _PowOn: []
 
@@ -1175,6 +1225,10 @@ l4701:
 
 ;led.c: 93: PHCON &= ~(0x01 << 3);
 	bcf	13,3	;volatile
+
+;led.c: 95: flag_is_blue_tooth_open = 1;
+	clrf	_flag_is_blue_tooth_open
+	incf	_flag_is_blue_tooth_open,f
 	return
 __end_of_PowOn:	
 	opt stack 0
@@ -1183,7 +1237,7 @@ __end_of_PowOn:
 __ptext3:	
 ;; *************** function _PowOff *****************
 ;; Defined at:
-;;		line 109 in file "led.c"
+;;		line 113 in file "led.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1191,7 +1245,7 @@ __ptext3:
 ;; Return value:  Size  Location     Type
 ;;                  1    wreg      void 
 ;; Registers used:
-;;		None
+;;		status,2
 ;; Tracked objects:
 ;;		On entry : 100/0
 ;;		On exit  : 100/0
@@ -1217,16 +1271,19 @@ __ptext3:
 
 _PowOff:	
 	opt stack 2
-l4707:	
+l4966:	
 ;incstack = 0
-; Regs used in _PowOff: []
+; Regs used in _PowOff: [status,2]
 
 
-;led.c: 129: TRISB |= (0x08);
+;led.c: 133: TRISB |= (0x08);
 	bsf	70,3	;volatile
 
-;led.c: 130: PHCON |= (0x08);
+;led.c: 134: PHCON |= (0x08);
 	bsf	13,3	;volatile
+
+;led.c: 149: flag_is_blue_tooth_open = 0;
+	clrf	_flag_is_blue_tooth_open
 	return
 __end_of_PowOff:	
 	opt stack 0
@@ -1390,19 +1447,19 @@ _MotoDisplay:
 ;incstack = 0
 ; Regs used in _MotoDisplay: [status,2+status,0+pclath+cstack]
 	btfss	_BITS_DATA0,6
-	goto	l4827
+	goto	l4840
 
 ;led.c: 56: {
 ;led.c: 57: MotoOn();
-	ljmp	l4713
-l4827:	
+	ljmp	l4724
+l4840:	
 ;led.c: 58: }
 
 
 ;led.c: 59: else
 ;led.c: 60: {
 ;led.c: 61: MotoOff();
-	ljmp	l4715
+	ljmp	l4726
 __end_of_MotoDisplay:	
 	opt stack 0
 
@@ -1444,7 +1501,7 @@ __ptext7:
 
 _MotoOn:	
 	opt stack 2
-l4713:	
+l4724:	
 ;incstack = 0
 ; Regs used in _MotoOn: []
 
@@ -1496,7 +1553,7 @@ __ptext8:
 
 _MotoOff:	
 	opt stack 2
-l4715:	
+l4726:	
 ;incstack = 0
 ; Regs used in _MotoOff: []
 
@@ -1555,19 +1612,19 @@ _LedDisplay:
 ;incstack = 0
 ; Regs used in _LedDisplay: [status,2+status,0+pclath+cstack]
 	btfss	_BITS_DATA0,5
-	goto	l4821
+	goto	l4834
 
 ;led.c: 15: {
 ;led.c: 16: LedOn();
-	ljmp	l4709
-l4821:	
+	ljmp	l4720
+l4834:	
 ;led.c: 17: }
 
 
 ;led.c: 18: else
 ;led.c: 19: {
 ;led.c: 20: LedOff();
-	ljmp	l4711
+	ljmp	l4722
 __end_of_LedDisplay:	
 	opt stack 0
 
@@ -1609,7 +1666,7 @@ __ptext10:
 
 _LedOn:	
 	opt stack 2
-l4709:	
+l4720:	
 ;incstack = 0
 ; Regs used in _LedOn: []
 
@@ -1661,7 +1718,7 @@ __ptext11:
 
 _LedOff:	
 	opt stack 2
-l4711:	
+l4722:	
 ;incstack = 0
 ; Regs used in _LedOff: []
 
@@ -1807,7 +1864,7 @@ __end_of_InitRam:
 __ptext14:	
 ;; *************** function _CountdownDisplay *****************
 ;; Defined at:
-;;		line 149 in file "led.c"
+;;		line 161 in file "led.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1842,115 +1899,71 @@ __ptext14:
 _CountdownDisplay:	
 	opt stack 1
 
-;led.c: 153: if ((BITS_DATA0.bit5) == 1)
+;led.c: 165: if (flag_is_device_open)
 
 ;incstack = 0
 ; Regs used in _CountdownDisplay: [wreg+status,2+status,0+pclath+cstack]
-	btfss	_BITS_DATA0,5
-	goto	l2175
-
-;led.c: 154: {
-;led.c: 156: lampTiming++;
-	incf	_lampTiming,f
+	movf	_flag_is_device_open,w
 	btfsc	3,2
-	incf	_lampTiming+1,f
-	btfsc	3,2
-	incf	_lampTiming+2,f
-	btfsc	3,2
-	incf	_lampTiming+3,f
-
-;led.c: 158: if (lampTiming > ((unsigned long)120000))
-	movf	_lampTiming+3,w
-	btfss	3,2
-	goto	l5035
-	movlw	1
-	subwf	_lampTiming+2,w
-	btfss	3,2
-	goto	u763
-	movlw	212
-	subwf	_lampTiming+1,w
-	btfss	3,2
-	goto	u763
-	movlw	193
-	subwf	_lampTiming,w
-u763:	
-	btfss	3,0
 	goto	l2177
-l5035:	
 
-;led.c: 161: {
-;led.c: 162: (BITS_DATA0.bit5) = 0;
-	bcf	_BITS_DATA0,5
-
-;led.c: 163: (BITS_DATA0.bit6) = 0;
-	bcf	_BITS_DATA0,6
-
-;led.c: 165: bt_off();
-	fcall	_bt_off
-	goto	l2177
-l2175:	
-
-;led.c: 174: else
-;led.c: 175: {
-;led.c: 177: lampTiming = 0;
-	clrf	_lampTiming
-	clrf	_lampTiming+1
-	clrf	_lampTiming+2
-	clrf	_lampTiming+3
-l2177:	
-
-;led.c: 178: }
-;led.c: 180: if ((BITS_DATA0.bit6) == 1)
-	btfss	_BITS_DATA0,6
-	goto	l2178
-
-;led.c: 181: {
-;led.c: 182: motoTiming++;
-	incf	_motoTiming,f
+;led.c: 166: {
+;led.c: 168: power_off_cnt++;
+	incf	_power_off_cnt,f
 	btfsc	3,2
-	incf	_motoTiming+1,f
+	incf	_power_off_cnt+1,f
 	btfsc	3,2
-	incf	_motoTiming+2,f
+	incf	_power_off_cnt+2,f
 	btfsc	3,2
-	incf	_motoTiming+3,f
+	incf	_power_off_cnt+3,f
 
-;led.c: 184: if (motoTiming > ((unsigned long)120000))
-	movf	_motoTiming+3,w
+;led.c: 169: if (power_off_cnt >= ((unsigned long)120000))
+	movf	_power_off_cnt+3,w
 	btfss	3,2
-	goto	l5043
+	goto	l5060
 	movlw	1
-	subwf	_motoTiming+2,w
+	subwf	_power_off_cnt+2,w
 	btfss	3,2
 	goto	u783
 	movlw	212
-	subwf	_motoTiming+1,w
+	subwf	_power_off_cnt+1,w
 	btfss	3,2
 	goto	u783
-	movlw	193
-	subwf	_motoTiming,w
+	movlw	192
+	subwf	_power_off_cnt,w
 u783:	
 	btfss	3,0
 	return
-l5043:	
+l5060:	
 
-;led.c: 187: {
-;led.c: 188: (BITS_DATA0.bit5) = 0;
+;led.c: 170: {
+;led.c: 171: power_off_cnt = 0;
+	clrf	_power_off_cnt
+	clrf	_power_off_cnt+1
+	clrf	_power_off_cnt+2
+	clrf	_power_off_cnt+3
+
+;led.c: 172: (BITS_DATA0.bit5) = 0;
 	bcf	_BITS_DATA0,5
 
-;led.c: 189: (BITS_DATA0.bit6) = 0;
+;led.c: 173: (BITS_DATA0.bit6) = 0;
 	bcf	_BITS_DATA0,6
 
-;led.c: 191: bt_off();
-	ljmp	l4717
-l2178:	
+;led.c: 175: bt_off();
+	fcall	_bt_off
 
-;led.c: 200: else
-;led.c: 201: {
-;led.c: 203: motoTiming = 0;
-	clrf	_motoTiming
-	clrf	_motoTiming+1
-	clrf	_motoTiming+2
-	clrf	_motoTiming+3
+;led.c: 177: flag_is_device_open = 0;
+	clrf	_flag_is_device_open
+	return
+l2177:	
+
+;led.c: 180: else
+;led.c: 181: {
+;led.c: 184: power_off_cnt = 0;
+	clrf	_power_off_cnt
+	clrf	_power_off_cnt+1
+	clrf	_power_off_cnt+2
+	clrf	_power_off_cnt+3
 	return
 __end_of_CountdownDisplay:	
 	opt stack 0
@@ -1959,7 +1972,7 @@ __end_of_CountdownDisplay:
 __ptext15:	
 ;; *************** function _bt_off *****************
 ;; Defined at:
-;;		line 96 in file "led.c"
+;;		line 98 in file "led.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1993,33 +2006,36 @@ __ptext15:
 
 _bt_off:	
 	opt stack 1
-l4717:	
+
+;led.c: 100: PHCON |= (0x08);
+
 ;incstack = 0
 ; Regs used in _bt_off: [wreg+status,2+status,0+pclath+cstack]
-
-
-;led.c: 98: PHCON |= (0x08);
 	bsf	13,3	;volatile
 
-;led.c: 99: PDCON1 |= (0x01 << 3);
+;led.c: 101: PDCON1 |= (0x01 << 3);
 	bsf	82,3	;volatile
 
-;led.c: 101: TRISB &= (0xF7);
+;led.c: 103: TRISB &= (0xF7);
 	bcf	70,3	;volatile
 
-;led.c: 102: ODCON |= (0x08);
+;led.c: 104: ODCON |= (0x08);
 	bsf	12,3	;volatile
 
-;led.c: 103: PORTB3 = 0;
+;led.c: 105: PORTB3 = 0;
 	bcf	6,3	;volatile
 
-;led.c: 105: extern void delay_ms(WORD xms);
-;led.c: 106: delay_ms((WORD)500);
+;led.c: 107: extern void delay_ms(WORD xms);
+;led.c: 108: delay_ms((WORD)500);
 	movlw	244
 	movwf	delay_ms@xms
 	movlw	1
 	movwf	delay_ms@xms+1
-	ljmp	l4649
+	fcall	_delay_ms
+
+;led.c: 110: flag_is_blue_tooth_open = 0;
+	clrf	_flag_is_blue_tooth_open
+	return
 __end_of_bt_off:	
 	opt stack 0
 
@@ -2063,7 +2079,7 @@ __ptext16:
 
 _delay_ms:	
 	opt stack 3
-l4649:	
+l4658:	
 ;main.c: 25: while (xms)
 
 ;incstack = 0
@@ -2080,13 +2096,13 @@ l4649:
 	movwf	delay_ms@i
 	movlw	1
 	movwf	delay_ms@i+1
-l4645:	
+l4654:	
 ;main.c: 29: while (i)
 
 	movf	delay_ms@i,w
 	iorwf	delay_ms@i+1,w
 	btfsc	3,2
-	goto	l2894
+	goto	l2897
 	nop	; ;# 
 
 ;main.c: 37: i--;
@@ -2095,8 +2111,8 @@ l4645:
 	subwf	delay_ms@i,f
 	btfss	3,0
 	decf	delay_ms@i+1,f
-	goto	l4645
-l2894:	
+	goto	l4654
+l2897:	
 	clrwdt	; ;# 
 
 ;main.c: 44: xms--;
@@ -2107,7 +2123,7 @@ l2894:
 	btfss	3,0
 	decf	delay_ms@xms+1,f
 	subwf	delay_ms@xms+1,f
-	goto	l4649
+	goto	l4658
 __end_of_delay_ms:	
 	opt stack 0
 
@@ -2116,7 +2132,7 @@ __end_of_delay_ms:
 __ptext17:	
 ;; *************** function _CheckSleep *****************
 ;; Defined at:
-;;		line 33 in file "temp.c"
+;;		line 34 in file "temp.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -2151,129 +2167,127 @@ __ptext17:
 _CheckSleep:	
 	opt stack 2
 
-;temp.c: 35: if(1 == (BITS_DATA0.bit5) || 1 == (BITS_DATA0.bit6))
+;temp.c: 37: if (flag_is_device_open)
 
 ;incstack = 0
 ; Regs used in _CheckSleep: [wreg+status,2+status,0+pclath+cstack]
-	btfsc	_BITS_DATA0,5
-	goto	l4851
-	btfss	_BITS_DATA0,6
-	goto	l4853
-l4851:	
+	movf	_flag_is_device_open,w
+	btfsc	3,2
+	goto	l4858
 
-;temp.c: 36: {
-;temp.c: 37: SleepCount = 0;
+;temp.c: 38: {
+;temp.c: 39: SleepCount = 0;
 	clrf	_SleepCount
 	clrf	_SleepCount+1
-l4853:	
+l4858:	
 
-;temp.c: 38: }
-;temp.c: 42: if(SleepCount < 1000)
+;temp.c: 40: }
+;temp.c: 44: if(SleepCount < 1000)
 	movlw	3
 	subwf	_SleepCount+1,w
 	movlw	232
 	btfsc	3,2
 	subwf	_SleepCount,w
 	btfsc	3,0
-	goto	l4859
+	goto	l4864
 
-;temp.c: 44: {
-;temp.c: 45: SleepCount++;
+;temp.c: 46: {
+;temp.c: 47: SleepCount++;
 	incf	_SleepCount,f
 	btfsc	3,2
 	incf	_SleepCount+1,f
 	return
-l4859:	
+l4864:	
 
-;temp.c: 47: }
-;temp.c: 49: RAMP = 0;
+;temp.c: 49: }
+;temp.c: 51: RAMP = 0;
 	clrf	85	;volatile
 
-;temp.c: 50: T1CON = 0;
+;temp.c: 52: T1CON = 0;
 	clrf	76	;volatile
 
-;temp.c: 51: CHARGE1 = 0;
+;temp.c: 53: CHARGE1 = 0;
 	clrf	84	;volatile
 
-;temp.c: 52: CHARGE0 = 0;
+;temp.c: 54: CHARGE0 = 0;
 	clrf	83	;volatile
 
-;temp.c: 53: PCON = 0;
+;temp.c: 55: PCON = 0;
 	clrf	8	;volatile
 
-;temp.c: 54: CMPCR = 0;
+;temp.c: 56: CMPCR = 0;
 	clrf	81	;volatile
 
-;temp.c: 57: LVDM = 0;
+;temp.c: 59: LVDM = 0;
 	bcf	81,4	;volatile
 
-;temp.c: 58: CMPEN = 0;
+;temp.c: 60: CMPEN = 0;
 	bcf	8,0	;volatile
 
-;temp.c: 59: CMPOF = 0;
+;temp.c: 61: CMPOF = 0;
 	bcf	8,5	;volatile
 
-;temp.c: 60: TEMPEN = 0;
+;temp.c: 62: TEMPEN = 0;
 	bcf	84,6	;volatile
 
-;temp.c: 61: TMPF = 0;
+;temp.c: 63: TMPF = 0;
 	bcf	15,4	;volatile
 
-;temp.c: 62: MODSEL = 0;
+;temp.c: 64: MODSEL = 0;
 	bcf	85,7	;volatile
 
-;temp.c: 64: WDTEN = 0;
+;temp.c: 66: WDTEN = 0;
 	bcf	8,7	;volatile
 
-;temp.c: 65: T0IE = 0;
+;temp.c: 67: T0IE = 0;
 	bcf	14,0	;volatile
 
-;temp.c: 67: INTECON = 0;
+;temp.c: 69: INTECON = 0;
 	clrf	14	;volatile
 
-;temp.c: 69: PORTB = 0;
+;temp.c: 71: PORTB = 0;
 	clrf	6	;volatile
 
-;temp.c: 71: TRISB = 0xff;
+;temp.c: 73: TRISB = 0xff;
 	movlw	255
 	movwf	70	;volatile
 	movwf	4
 
-;temp.c: 75: PDCON = 0xFF;
+;temp.c: 77: PDCON = 0xFF;
 	movwf	11	;volatile
 
-;temp.c: 76: PDCON1 = 0xFF;
+;temp.c: 78: PDCON1 = 0xFF;
 	movwf	82	;volatile
 
-;temp.c: 79: PHCON = 0XFF;
+;temp.c: 81: PHCON = 0XFF;
 	movwf	13	;volatile
 
-;temp.c: 81: PHCON &= (0xFB);
+;temp.c: 83: PHCON &= (0xFB);
 	bcf	13,2	;volatile
 
-;temp.c: 82: PHCON &= (0xEF);
+;temp.c: 84: PHCON &= (0xEF);
 	bcf	13,4	;volatile
 
-;temp.c: 85: IOCB = 0X00;
+;temp.c: 87: IOCB = 0X00;
 	clrf	9	;volatile
 
-;temp.c: 86: IOCB |= (0x04);
+;temp.c: 88: IOCB |= (0x04);
 	bsf	9,2	;volatile
 
-;temp.c: 87: IOCB |= (0x10);
+;temp.c: 89: IOCB |= (0x10);
 	bsf	9,4	;volatile
 
-;temp.c: 88: IOCB |= (0x01 << 5);
+;temp.c: 90: IOCB |= (0x01 << 5);
 	bsf	9,5	;volatile
 
-;temp.c: 96: PBIF = 0;
+;temp.c: 98: PBIF = 0;
 	bcf	3,5	;RP0=0, select bank0
 	bcf	15,1	;volatile
 
-;temp.c: 97: PBIE = 1;
+;temp.c: 99: PBIE = 1;
 	bsf	14,1	;volatile
 
-;temp.c: 98: GIE = 0;
+;temp.c: 100: GIE = 0;
 	bcf	14,7	;volatile
 	sleep	;# 
 	nop	;# 
@@ -2282,34 +2296,34 @@ l4859:
 	nop	;# 
 	movf	6,w	;# 
 
-;temp.c: 112: PBIE = 0;
+;temp.c: 114: PBIE = 0;
 	bcf	3,5	;RP0=0, select bank0
 	bcf	14,1	;volatile
 
-;temp.c: 113: IOCB = 0;
+;temp.c: 115: IOCB = 0;
 	clrf	9	;volatile
 
-;temp.c: 114: LVDM = 1;
+;temp.c: 116: LVDM = 1;
 	bsf	81,4	;volatile
 	clrwdt	; ;# 
 
-;temp.c: 119: WDTEN = 1;
+;temp.c: 121: WDTEN = 1;
 	bcf	3,5	;RP0=0, select bank0
 	bsf	8,7	;volatile
 
-;temp.c: 120: GIE = 1;
+;temp.c: 122: GIE = 1;
 	bsf	14,7	;volatile
 
-;temp.c: 121: T0IE = 1;
+;temp.c: 123: T0IE = 1;
 	bsf	14,0	;volatile
 
-;temp.c: 123: InitPort();
+;temp.c: 125: InitPort();
 	fcall	_InitPort
 
-;temp.c: 143: MODSEL = 1;
+;temp.c: 145: MODSEL = 1;
 	bsf	85,7	;volatile
 
-;temp.c: 144: SleepCount = 0;
+;temp.c: 146: SleepCount = 0;
 	clrf	_SleepCount
 	clrf	_SleepCount+1
 	return
@@ -2495,7 +2509,7 @@ _interrupt_handle:
 ;interrupt.c: 15: }
 ;interrupt.c: 16: if (T0IF)
 	btfss	15,0	;volatile
-	goto	i1l4925
+	goto	i1l4930
 
 ;interrupt.c: 17: {
 ;interrupt.c: 18: T0IF = 0;
@@ -2504,7 +2518,7 @@ _interrupt_handle:
 ;interrupt.c: 19: T0 = 217;
 	movlw	217
 	movwf	1	;volatile
-i1l4925:	
+i1l4930:	
 	movlw	200
 
 ;interrupt.c: 21: }
@@ -2569,15 +2583,15 @@ EXIT_BANK_SAVE:
 ;!    Strings     0
 ;!    Constant    0
 ;!    Data        0
-;!    BSS         18
+;!    BSS         16
 ;!    Persistent  0
 ;!    Stack       0
 ;!
 ;!Auto Spaces:
 ;!    Space          Size  Autos    Used
 ;!    COMMON            0      0       0
-;!    BANK0_4          14      6       7
-;!    BANK0            47      0      17
+;!    BANK0_4          14      6       9
+;!    BANK0            47      0      13
 ;!
 ;!Pointer List with Targets:
 ;!
@@ -2719,9 +2733,9 @@ EXIT_BANK_SAVE:
 ;!BITSFR1              0      0       0       2        0.0%
 ;!SFR1                 0      0       0       2        0.0%
 ;!STACK                0      0       0       2        0.0%
-;!DATA                 0      0      18       3        0.0%
+;!DATA                 0      0      16       3        0.0%
 ;!BITBANK0_4           E      0       0       4        0.0%
-;!BANK0_4              E      6       7       5       50.0%
+;!BANK0_4              E      6       9       5       64.3%
 ;!BITBANK0            2F      0       0       6        0.0%
-;!BANK0               2F      0      11       7       36.2%
-;!ABS                  0      0      18       8        0.0%
+;!BANK0               2F      0       D       7       27.7%
+;!ABS                  0      0      16       8        0.0%
